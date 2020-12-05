@@ -1,3 +1,9 @@
+---
+title: "Local Test"
+---
+
+![image-center]({{'/MachineLearning/images/peanut-butter-cookies-lg.jpg'|absolute_url}}){: .align-center}
+
 #### local
 
 - 메뉴에서 **git bash**를 연다.
