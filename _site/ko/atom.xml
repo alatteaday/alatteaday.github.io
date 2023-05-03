@@ -2,8 +2,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>A Coffee Chat</title>
- <link href="https://alatteaday.github.io/atom.xml" rel="self"/>
- <link href="https://alatteaday.github.io/"/>
+ <link href="https://alatteaday.github.io/ko/atom.xml" rel="self"/>
+ <link href="https://alatteaday.github.io/ko/"/>
  <updated>2023-05-03T20:41:15+09:00</updated>
  <id>https://alatteaday.github.io</id>
  <author>
@@ -13,18 +13,18 @@
 
  
  <entry>
-   <title>Welcome to Jekyll!</title>
-   <link href="https://alatteaday.github.io/2022/05/03/test2/"/>
+   <title>테스트2</title>
+   <link href="https://alatteaday.github.io/ko/2022/05/03/test2/"/>
    <updated>2022-05-03T00:00:00+09:00</updated>
    <id>https://alatteaday.github.io/2022/05/03/test2</id>
-   <content type="html">&lt;h1 id=&quot;test-2&quot;&gt;Test 2&lt;/h1&gt;
+   <content type="html">&lt;h1 id=&quot;테스트&quot;&gt;테스트&lt;/h1&gt;
 
 </content>
  </entry>
  
  <entry>
    <title>Introducing Lanyon</title>
-   <link href="https://alatteaday.github.io/2020/04/03/introducing-lanyon/"/>
+   <link href="https://alatteaday.github.io/ko/2020/04/03/introducing-lanyon/"/>
    <updated>2020-04-03T00:00:00+09:00</updated>
    <id>https://alatteaday.github.io/2020/04/03/introducing-lanyon</id>
    <content type="html">&lt;p&gt;Lanyon is an unassuming &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; theme that places content first by tucking away navigation in a hidden drawer. It’s based on &lt;a href=&quot;http://getpoole.com&quot;&gt;Poole&lt;/a&gt;, the Jekyll butler.&lt;/p&gt;
@@ -69,7 +69,7 @@
  
  <entry>
    <title>Example content</title>
-   <link href="https://alatteaday.github.io/2020/04/02/example-content/"/>
+   <link href="https://alatteaday.github.io/ko/2020/04/02/example-content/"/>
    <updated>2020-04-02T00:00:00+09:00</updated>
    <id>https://alatteaday.github.io/2020/04/02/example-content</id>
    <content type="html">&lt;div class=&quot;message&quot;&gt;
@@ -202,7 +202,7 @@
  
  <entry>
    <title>What's Jekyll?</title>
-   <link href="https://alatteaday.github.io/2020/04/01/whats-jekyll/"/>
+   <link href="https://alatteaday.github.io/ko/2020/04/01/whats-jekyll/"/>
    <updated>2020-04-01T00:00:00+09:00</updated>
    <id>https://alatteaday.github.io/2020/04/01/whats-jekyll</id>
    <content type="html">&lt;p&gt;&lt;a href=&quot;https://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt; is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From &lt;a href=&quot;https://github.com/mojombo/jekyll/blob/master/README.markdown&quot;&gt;the project’s readme&lt;/a&gt;:&lt;/p&gt;
@@ -218,15 +218,13 @@
  </entry>
  
  <entry>
-   <title>Test!</title>
-   <link href="https://alatteaday.github.io/2020/03/22/test/"/>
+   <title>테스트</title>
+   <link href="https://alatteaday.github.io/ko/2020/03/22/test/"/>
    <updated>2020-03-22T00:00:00+09:00</updated>
    <id>https://alatteaday.github.io/2020/03/22/test</id>
-   <content type="html">&lt;h1 id=&quot;welcome&quot;&gt;Welcome&lt;/h1&gt;
+   <content type="html">&lt;h1 id=&quot;안녕하세요&quot;&gt;안녕하세요&lt;/h1&gt;
 
-&lt;p&gt;&lt;strong&gt;Hello&lt;/strong&gt;, this is my first Jekyll blog post.&lt;/p&gt;
-
-&lt;p&gt;I hope you like it!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;테스트&lt;/strong&gt; 입니다&lt;/p&gt;
 </content>
  </entry>
  
