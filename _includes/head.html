@@ -4,11 +4,12 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
+  <!--site.title site.tagline-->
   <title>
     {% if page.title == "Home" %}
-      {{ site.title }} &middot; {{ site.tagline }}
+      {{ site.data.l10n.title }} &middot; {{ site.data.l10n.tagline }}
     {% else %}
-      {{ page.title }} &middot; {{ site.title }}
+      {{ page.title }} &middot; {{ site.data.l10n.title }}
     {% endif %}
   </title>
 
