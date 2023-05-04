@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 <!--site.title -->
- <title>A Coffee Chat</title>
+ <title>Coffee chats</title>
  <link href="http://localhost:4000/en/atom.xml" rel="self"/>
  <link href="http://localhost:4000/en/"/>
- <updated>2023-05-04T01:05:49+09:00</updated>
+ <updated>2023-05-04T10:46:30+09:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Mark Otto</name>
