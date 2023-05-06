@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Example content
+lang: en
+categories: ["Computer Vision"]
+tags: [blog, jekyll]
 ---
 
 
