@@ -48,23 +48,112 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'GangwonEdu_OTFBoldA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SOYOMapleBoldTTF';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DungGeunMo';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'IBMPlexSansKR-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'iceJaram-Rg';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/iceJaram-Rg.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ChosunGu';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGu.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KCCChassam';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/KCCChassam.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TTWanjunuricheR';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/TTWanjunuricheR.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sagak-sagak.otf';
+  src: url('Sagak-sagak.otf') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LeeSeoyun';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Prevent scroll on narrow devices */
 html,
 body {
   overflow-x: hidden;
 }
 
+/*
 html {
   font-family: "PT Serif", Georgia, "MaruBuri", serif, "Times New Roman", serif;
 }
+*/
+html {
+  font-family: "ChosunGu", serif;
+}
 
+/*
 h1, h2, h3, h4, h5, h6 {
-  font-family: "PT Sans", Helvetica, "NanumSquare", sans-serif, Arial, sans-serif;
-  font-weight: 400;
+  font-family: "PT Sans", Helvetica, "IBMPlexSansKR-Regular", sans-serif, Arial, sans-serif;
+  font-weight: 400, 600;
   color: #313131;
   letter-spacing: -.025rem;
 }
-
+*/
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'GangwonEdu_OTFBoldA';
+  font-family: 'iceJaram-Rg';
+  font-family: 'Sagak-sagak.otf';
+  font-family: 'LeeSeoyun';
+  font-weight: 500;
+  color: #313131;
+  letter-spacing: -.025rem;
+}
+.page-title,
+.post-title {
+  font-size: 200;
+}
 
 /*
  * Wrapper
@@ -139,14 +228,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .lang-switcher {
+  font-family: 'DungGeunMo';
   float: right;
   margin-top: 0;
   margin-bottom: 0;
-  font-family: "NanumSquare", sans-serif, "PT Sans", Helvetica, Arial, sans-serif;
+  /*font-family: "NanumSquare", sans-serif, "PT Sans", Helvetica, Arial, sans-serif;*/
   color: #505050;
 }
 .lang-switcher a {
   color: #c0c0c0;
+}
+.lang-switcher a:hover {
+  color: #9d8974;
 }
 
 /*
@@ -177,6 +270,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: .875rem; /* 15px */
   color: rgba(255,255,255,.6);
   background-color: #202020;
+  background-color: #61584e;
   -webkit-transition: all .3s ease-in-out;
           transition: all .3s ease-in-out;
 }
@@ -349,7 +443,8 @@ a.category-link:focus {
 .page-title,
 .post-title,
 .post-title a {
-  color: #303030;
+  color: #61584e;
+  color: #776e64;
 }
 .page-title,
 .post-title {
@@ -360,7 +455,7 @@ a.category-link:focus {
 .post-date {
   display: block;
   margin-top: -.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   color: #9a9a9a;
 }
 

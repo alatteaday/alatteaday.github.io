@@ -1,4 +1,4 @@
 ---
 layout: category
-title: Natural Language Processing
+title: Biomedical AI
 ---

@@ -1,5 +1,9 @@
-nlp: NLP
-cv: CV
-blog: Blog
-jekyll: Jekyll
-ruby: Ruby
+nlp: '#nlp'
+cv: '#cv'
+blog: '#blog'
+bio: '#bio'
+healthcare: '#healthcare'
+error: '#error'
+docker: '#docker'
+llm: '#llm'
+brainImaging: '#brainImaging'

@@ -67,16 +67,26 @@ body {
 
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
-  color: #268bd2;
+  /* color: #268bd2; */
+  color: #62768b;
+  color: #5d919d;
   text-decoration: none;
 }
 a strong {
   color: inherit;
 }
+
 /* `:focus` is linked to `:hover` for basic accessibility */
+
 a:hover,
 a:focus {
+  color: #436b95;
+  color: #507178;
+  text-decoration: none;
+  /*
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  */
 }
 
 /* Headings */
@@ -84,7 +94,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
   font-weight: bold;
   line-height: 1.25;
-  color: #313131;
+  color: #cecece;
   text-rendering: optimizeLegibility;
 }
 h1 {
@@ -154,14 +164,14 @@ pre {
 }
 code {
   padding: .25em .5em;
-  font-size: 85%;
+  font-size: 80%;
   color: #bf616a;
   background-color: #f9f9f9;
   border-radius: 3px;
 }
 pre {
   display: block;
-  margin-top: 0;
+  margin-top: 1rem;
   margin-bottom: 1rem;
   padding: 1rem;
   font-size: .8rem;
@@ -301,17 +311,23 @@ tbody tr:nth-child(odd) th {
  */
 
 .masthead {
+  font-family: "PT Sans";
   padding-top:    1rem;
   padding-bottom: 1rem;
   margin-bottom: 3rem;
 }
 .masthead-title {
+  font-family: "PT Sans";
+  font-weight: 400;
   margin-top: 0;
   margin-bottom: 0;
   color: #505050;
 }
 .masthead-title a {
   color: #505050;
+}
+.masthead-title a:hover {
+  color: #241b1b;
 }
 .masthead-title small {
   font-size: 75%;
@@ -339,6 +355,14 @@ tbody tr:nth-child(odd) th {
 .post-title a {
   color: #303030;
 }
+
+.page-title,
+.post-title,
+.post-title a:hover{
+  color: #4a4643;
+  text-decoration: none;
+}
+
 .page-title,
 .post-title {
   margin-top: 0;
@@ -351,12 +375,33 @@ tbody tr:nth-child(odd) th {
   margin-bottom: 1rem;
   color: #9a9a9a;
 }
+.tag{
+  font-family: 'DungGeunMo';
+  font-size: 100%;
+  margin-top: -.5rem;
+  margin-bottom: 1rem;
+  color: #9a9a9a;
+  /* background-color: #5d5d5d; */
+}
+.tag a {
+  color: #9a9a9a;
+}
+.tag a:hover {
+  color: #542d24;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  display: inline-block;
+}
 
 /* Related posts */
 .related {
   padding-top: 2rem;
   padding-bottom: 2rem;
   border-top: 1px solid #eee;
+}
+.related-title {
+  font-family: 'PT Sans';
+
 }
 .related-posts {
   padding-left: 0;
@@ -366,7 +411,7 @@ tbody tr:nth-child(odd) th {
   margin-top: 0;
 }
 .related-posts li small {
-  font-size: 75%;
+  font-size: 50%;
   color: #999;
 }
 .related-posts li a:hover {

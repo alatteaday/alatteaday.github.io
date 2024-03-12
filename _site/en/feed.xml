@@ -1,301 +1,363 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/en/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/en/" rel="alternate" type="text/html" /><updated>2023-05-06T15:20:25+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Coffee chats</title><subtitle>Curation of studies, techs, problem solving and ideas by a maching learning engineer</subtitle><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><entry xml:lang="en"><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/en/2022/05/03/test2/" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2022-05-03T00:00:00+09:00</published><updated>2022-05-03T00:00:00+09:00</updated><id>http://localhost:4000/2022/05/03/test2</id><content type="html" xml:base="http://localhost:4000/2022/05/03/test2/"><![CDATA[<h1 id="test-2">Test 2</h1>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><summary type="html"><![CDATA[Test 2]]></summary></entry><entry xml:lang="ko"><title type="html">테스트2</title><link href="http://localhost:4000/en/natural%20language%20processing/2022/05/03/test2/" rel="alternate" type="text/html" title="테스트2" /><published>2022-05-03T00:00:00+09:00</published><updated>2022-05-03T00:00:00+09:00</updated><id>http://localhost:4000/natural%20language%20processing/2022/05/03/test2</id><content type="html" xml:base="http://localhost:4000/natural%20language%20processing/2022/05/03/test2/"><![CDATA[<h1 id="테스트">테스트</h1>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Natural Language Processing" /><summary type="html"><![CDATA[테스트]]></summary></entry><entry><title type="html">Introducing Lanyon</title><link href="http://localhost:4000/en/2020/04/03/introducing-lanyon/" rel="alternate" type="text/html" title="Introducing Lanyon" /><published>2020-04-03T00:00:00+09:00</published><updated>2020-04-03T00:00:00+09:00</updated><id>http://localhost:4000/2020/04/03/introducing-lanyon</id><content type="html" xml:base="http://localhost:4000/2020/04/03/introducing-lanyon/"><![CDATA[<p>Lanyon is an unassuming <a href="http://jekyllrb.com">Jekyll</a> theme that places content first by tucking away navigation in a hidden drawer. It’s based on <a href="http://getpoole.com">Poole</a>, the Jekyll butler.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://alatteaday.github.io/en/feed.xml" rel="self" type="application/atom+xml" /><link href="https://alatteaday.github.io/en/" rel="alternate" type="text/html" /><updated>2024-03-12T16:55:13+09:00</updated><id>https://alatteaday.github.io/feed.xml</id><title type="html">Coffee chats</title><subtitle>Curation of studies, techs, ideas and her journey as a maching learning engineer</subtitle><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><entry xml:lang="en"><title type="html">Docker CMDs</title><link href="https://alatteaday.github.io/en/error%20resolution/2024/02/20/dockercmd/" rel="alternate" type="text/html" title="Docker CMDs" /><published>2024-02-20T00:00:00+09:00</published><updated>2024-02-20T00:00:00+09:00</updated><id>https://alatteaday.github.io/error%20resolution/2024/02/20/dockercmd</id><content type="html" xml:base="https://alatteaday.github.io/error%20resolution/2024/02/20/dockercmd/"><![CDATA[<h4 id="search-image">Search Image</h4>
 
-<h3 id="built-on-poole">Built on Poole</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker search (OPTIONS) [IMAGE_NAME]
+</code></pre></div></div>
 
-<p>Poole is the Jekyll Butler, serving as an upstanding and effective foundation for Jekyll themes by <a href="https://twitter.com/mdo">@mdo</a>. Poole, and every theme built on it (like Lanyon here) includes the following:</p>
+<p><code class="language-plaintext highlighter-rouge">--automated=false</code>  Show only Automated Build</p>
 
-<ul>
-  <li>Complete Jekyll setup included (layouts, config, <a href="/en/404">404</a>, <a href="/en/atom.xml">RSS feed</a>, posts, and <a href="/en/about">example page</a>)</li>
-  <li>Mobile friendly design and development</li>
-  <li>Easily scalable text and component sizing with <code class="language-plaintext highlighter-rouge">rem</code> units in the CSS</li>
-  <li>Support for a wide gamut of HTML elements</li>
-  <li>Related posts (time-based, because Jekyll) below each post</li>
-  <li>Syntax highlighting, courtesy Pygments (the Python-based code snippet highlighter)</li>
-</ul>
+<p><code class="language-plaintext highlighter-rouge">--no-trunc=false</code>  Do not truncate information</p>
 
-<h3 id="lanyon-features">Lanyon features</h3>
+<p><code class="language-plaintext highlighter-rouge">-s=n</code> <code class="language-plaintext highlighter-rouge">--stars=n</code>  Show images which have stars over <code class="language-plaintext highlighter-rouge">n</code></p>
 
-<p>In addition to the features of Poole, Lanyon adds the following:</p>
+<p>e.g. docker search –stars=100 mysql</p>
 
-<ul>
-  <li>Toggleable sliding sidebar (built with only CSS) via <strong>☰</strong> link in top corner</li>
-  <li>Sidebar includes support for textual modules and a dynamically generated navigation with active link support</li>
-  <li>Two orientations for content and sidebar, default (left sidebar) and <a href="https://github.com/poole/lanyon#reverse-layout">reverse</a> (right sidebar), available via <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> classes</li>
-  <li><a href="https://github.com/poole/lanyon#themes">Eight optional color schemes</a>, available via <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code> classes</li>
-</ul>
+<h4 id="download-image">Download Image</h4>
 
-<p><a href="https://github.com/poole/lanyon#readme">Head to the readme</a> to learn more.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull (OPTIONS) [IMAGE_NAME](:TAG)
+</code></pre></div></div>
 
-<h3 id="browser-support">Browser support</h3>
+<p><code class="language-plaintext highlighter-rouge">-a</code>  Download all versions of the image</p>
 
-<p>Lanyon is by preference a forward-thinking project. In addition to the latest versions of Chrome, Safari (mobile and desktop), and Firefox, it is only compatible with Internet Explorer 9 and above.</p>
+<p><code class="language-plaintext highlighter-rouge">TAG_NAME</code>  The version tag intended to download, or the lastest version</p>
 
-<h3 id="download">Download</h3>
+<p>e.g. docker pull ubuntu:22.04</p>
 
-<p>Lanyon is developed on and hosted with GitHub. Head to the <a href="https://github.com/poole/lanyon">GitHub repository</a> for downloads, bug reports, and features requests.</p>
+<h4 id="check-the-image-list">Check the Image list</h4>
 
-<p>Thanks!</p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><summary type="html"><![CDATA[Lanyon is an unassuming Jekyll theme that places content first by tucking away navigation in a hidden drawer. It’s based on Poole, the Jekyll butler.]]></summary></entry><entry><title type="html">Example Content</title><link href="http://localhost:4000/en/2020/04/02/example-content/" rel="alternate" type="text/html" title="Example Content" /><published>2020-04-02T00:00:00+09:00</published><updated>2020-04-02T00:00:00+09:00</updated><id>http://localhost:4000/2020/04/02/example-content</id><content type="html" xml:base="http://localhost:4000/2020/04/02/example-content/"><![CDATA[<div class="message">
-  Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker images (OPTIONS) (REPOSITORY)
+</code></pre></div></div>
 
-<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. <em>Aenean eu leo quam.</em> Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+<p><code class="language-plaintext highlighter-rouge">-a</code> <code class="language-plaintext highlighter-rouge">--all</code>  Show all images</p>
 
-<blockquote>
-  <p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-</blockquote>
+<p><code class="language-plaintext highlighter-rouge">--digests</code>  Show digest</p>
 
-<p>Etiam porta <strong>sem malesuada magna</strong> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+<p><code class="language-plaintext highlighter-rouge">-q</code> <code class="language-plaintext highlighter-rouge">--quiet</code>  List up images by only those IDs</p>
 
-<h2 id="inline-html-elements">Inline HTML elements</h2>
+<p>*Check the container list  <code class="language-plaintext highlighter-rouge">docker ps</code></p>
 
-<p>HTML defines a long list of available inline tags, a complete list of which can be found on the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">Mozilla Developer Network</a>.</p>
+<h4 id="check-the-details-of-image">Check the details of image</h4>
 
-<ul>
-  <li><strong>To bold text</strong>, use <code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code>.</li>
-  <li><em>To italicize text</em>, use <code class="language-plaintext highlighter-rouge">&lt;em&gt;</code>.</li>
-  <li>Abbreviations, like <abbr title="HyperText Markup Langage">HTML</abbr> should use <code class="language-plaintext highlighter-rouge">&lt;abbr&gt;</code>, with an optional <code class="language-plaintext highlighter-rouge">title</code> attribute for the full phrase.</li>
-  <li>Citations, like <cite>— Mark otto</cite>, should use <code class="language-plaintext highlighter-rouge">&lt;cite&gt;</code>.</li>
-  <li><del>Deleted</del> text should use <code class="language-plaintext highlighter-rouge">&lt;del&gt;</code> and <ins>inserted</ins> text should use <code class="language-plaintext highlighter-rouge">&lt;ins&gt;</code>.</li>
-  <li>Superscript <sup>text</sup> uses <code class="language-plaintext highlighter-rouge">&lt;sup&gt;</code> and subscript <sub>text</sub> uses <code class="language-plaintext highlighter-rouge">&lt;sub&gt;</code>.</li>
-</ul>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker image inspect [IMAGE_ID]
+</code></pre></div></div>
 
-<p>Most of these elements are styled by browsers with few modifications on our part.</p>
+<p>Check with the ID of the image. It’s okay only with the part of the ID.</p>
 
-<h2 id="heading">Heading</h2>
+<h4 id="delete-image">Delete Image</h4>
 
-<p>Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker rmi (OPTION) [IMAGE_NAME](:TAG)
+</code></pre></div></div>
 
-<h3 id="code">Code</h3>
-
-<p>Cum sociis natoque penatibus et magnis dis <code class="language-plaintext highlighter-rouge">code element</code> montes, nascetur ridiculus mus.</p>
-
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Example can be run directly in your JavaScript console
-</span>
-
-<span class="c1">// Create a function that takes two arguments and returns the sum of those arguments
-</span>
-<span class="kd">var</span> <span class="nx">adder</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Function</span><span class="p">(</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">return a + b</span><span class="dl">"</span><span class="p">);</span>
-
-<span class="c1">// Call the function
-</span>
-<span class="nf">adder</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
-<span class="c1">// &gt; 8</span></code></pre></figure>
-
-<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-
-<h3 id="lists">Lists</h3>
-
-<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+<p><code class="language-plaintext highlighter-rouge">-f</code>  실행 중인 container의 image를 강제 삭제, 그러나 실질적으로 untagging만 되고 image와 container 모두 제대로 삭제되지 않으니 사용 X</p>
 
 <ul>
-  <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-  <li>Donec id elit non mi porta gravida at eget metus.</li>
-  <li>Nulla vitae elit libero, a pharetra augue.</li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">[IMAGE_NAME_1] [IMAGE_NAME_2] ...</code>  image 여러 개 한 번에 삭제 가능</p>
+  </li>
+  <li>
+    <p><strong>특정 image의 실행 중인 container를 모두 종료시킨 후 image 삭제</strong></p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker rm -f $(docker ps -a --filter ancestor=[IMAGE_NAME])
+docker rmi [IMAGE_NAME]
+</code></pre></div>    </div>
+
+    <p><code class="language-plaintext highlighter-rouge">$(CMD)</code></p>
+  </li>
 </ul>
 
-<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+<h4 id="image-저장로드">Image 저장/로드</h4>
 
-<ol>
-  <li>Vestibulum id ligula porta felis euismod semper.</li>
-  <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-  <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
-</ol>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker save -o [DIRECTORY] [IMAGE_NAME]
+</code></pre></div></div>
 
-<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+<p><code class="language-plaintext highlighter-rouge">-o</code>  image를 저장할 디렉토리(output)를 지정</p>
 
-<dl>
-  <dt>HyperText Markup Language (HTML)</dt>
-  <dd>The language used to describe and define the content of a Web page</dd>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker load -i [DIRECTORY] 
+</code></pre></div></div>
 
-  <dt>Cascading Style Sheets (CSS)</dt>
-  <dd>Used to describe the appearance of Web content</dd>
+<p><code class="language-plaintext highlighter-rouge">-i</code>  불러올 image의 디렉토리(input)를 지정, 해당 디렉토리 내 image가 로드됨</p>
 
-  <dt>JavaScript (JS)</dt>
-  <dd>The programming language used to build advanced Web sites and applications</dd>
-</dl>
+<h4 id="image-태그-지정">Image 태그 지정</h4>
 
-<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker tag [IMAGE_NAME]:[TAG] [NEW_NAME]:[NEW_TAG]
+</code></pre></div></div>
 
-<h3 id="tables">Tables</h3>
+<p>존재하는 image를 복사하여 새로운 이름과 tag으로 참조 가능하게 함</p>
 
-<p>Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<p>e.g. docker tag ubuntu:22.04 abcd:0.1</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Upvotes</th>
-      <th>Downvotes</th>
-    </tr>
-  </thead>
-  <tfoot>
-    <tr>
-      <td>Totals</td>
-      <td>21</td>
-      <td>23</td>
-    </tr>
-  </tfoot>
-  <tbody>
-    <tr>
-      <td>Alice</td>
-      <td>10</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <td>Bob</td>
-      <td>4</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>Charlie</td>
-      <td>7</td>
-      <td>9</td>
-    </tr>
-  </tbody>
-</table>
+<h4 id="container-list-확인">Container list 확인</h4>
 
-<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker ps (OPTION)
+</code></pre></div></div>
+
+<p>실행 중인 container들 확인</p>
+
+<p><code class="language-plaintext highlighter-rouge">-a</code>  실행 여부와 상관 없이 (종료된 것까지) 모든 container 확인</p>
+
+<h4 id="container-세부-정보-확인">Container 세부 정보 확인</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker inspect [CONTAINER_NAME]
+</code></pre></div></div>
+
+<h4 id="image에서-container-실행">Image에서 Container 실행</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run (OPTIONS) [IMAGE_NAME] 
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">--name [CONTAINER_NAME]</code>  container 이름 설정</p>
+
+<p><code class="language-plaintext highlighter-rouge">--rm</code>  <code class="language-plaintext highlighter-rouge">run</code>명령어 수행 후 container 삭제. container 일회성 사용</p>
+
+<p><code class="language-plaintext highlighter-rouge">-it</code>  container에 터미널 입력을 계속해서 전달</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">-i</code>  container 접속하지 않은 상태에서도 stdin 활성화</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">-t</code>  pseudo-TTY 할당(TTY모드 사용), 쉘에 명령어 작성</p>
+  </li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">-d</code>  container 백그라운드 실행. 옵션 입력 시 실행된 container id가 출력됨</p>
+
+<p><code class="language-plaintext highlighter-rouge">-e</code>  container에 환경변수 추가. 추가하고 싶은 환경변수만큼 사용해야 한다.</p>
+
+<ul>
+  <li>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run -e APP_ENV=production APP2_ENV=dev ubuntu:22.04 env
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">-p [HOST_PORT]:[CONTAINER_PORT]</code>  호스트에 연결된 container의 특정 포트를 호스트의 포트와 binding하기 위해 사용. 보통 웹서버의 포트를 외부로 노출하기 위해 사용</p>
+
+<p><code class="language-plaintext highlighter-rouge">-w [DIR]</code>  container의 working directory 변경</p>
+
+<p><code class="language-plaintext highlighter-rouge">-v [HOST_DIR]:[CONTAINER_DIR]</code>   호스트의 특정 디렉토리를 container에 mount</p>
+
+<ul>
+  <li>
+    <p>e.g. 현재 작업 디렉토리를 container에 mount 하기</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run -v `pwd`:/opt ubuntu:22.04
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">-u [USERID]</code>  특정 user id로 container에 접속. image build 시 계정 추가해야 함</p>
+
+<h4 id="실행-중인-container에-명령어-입력">실행 중인 Container에 명령어 입력</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker exec [CONTAINER_ID or NAME] [CMD]
+</code></pre></div></div>
+
+<p>실행한 container에서 입력한 cmd 실행</p>
+
+<p><code class="language-plaintext highlighter-rouge">-it</code>  container 환경에서 shell 실행,</p>
+
+<p>run과의 차이점: run은 image에서 container를 실행하는 명령어, exec는 이미 실행 중인 container에만 적용 가능하며, container 환경을 디버깅하는 목적. run으로 실행된 container는 stdin/out 에러 확인 가능하나, exec로 실행된 프로세스는 container가 아님, 로그 확인이나 프로세스 완료 여부를 알기 어렵다</p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Error Resolution" /><category term="docker" /><summary type="html"><![CDATA[Search Image docker search (OPTIONS) [IMAGE_NAME] --automated=false Show only Automated Build --no-trunc=false Do not truncate information -s=n --stars=n Show images which have stars over n e.g. docker search –stars=100 mysql Download Image docker pull (OPTIONS) [IMAGE_NAME](:TAG) -a Download all versions of the image TAG_NAME The version tag intended to download, or the lastest version e.g. docker pull ubuntu:22.04 Check the Image list docker images (OPTIONS) (REPOSITORY) -a --all Show all images --digests Show digest -q --quiet List up images by only those IDs *Check the container list docker ps Check the details of image docker image inspect [IMAGE_ID] Check with the ID of the image. It’s okay only with the part of the ID. Delete Image docker rmi (OPTION) [IMAGE_NAME](:TAG) -f 실행 중인 container의 image를 강제 삭제, 그러나 실질적으로 untagging만 되고 image와 container 모두 제대로 삭제되지 않으니 사용 X [IMAGE_NAME_1] [IMAGE_NAME_2] ... image 여러 개 한 번에 삭제 가능 특정 image의 실행 중인 container를 모두 종료시킨 후 image 삭제 docker rm -f $(docker ps -a --filter ancestor=[IMAGE_NAME]) docker rmi [IMAGE_NAME] $(CMD) Image 저장/로드 docker save -o [DIRECTORY] [IMAGE_NAME] -o image를 저장할 디렉토리(output)를 지정 docker load -i [DIRECTORY] -i 불러올 image의 디렉토리(input)를 지정, 해당 디렉토리 내 image가 로드됨 Image 태그 지정 docker tag [IMAGE_NAME]:[TAG] [NEW_NAME]:[NEW_TAG] 존재하는 image를 복사하여 새로운 이름과 tag으로 참조 가능하게 함 e.g. docker tag ubuntu:22.04 abcd:0.1 Container list 확인 docker ps (OPTION) 실행 중인 container들 확인 -a 실행 여부와 상관 없이 (종료된 것까지) 모든 container 확인 Container 세부 정보 확인 docker inspect [CONTAINER_NAME] Image에서 Container 실행 docker run (OPTIONS) [IMAGE_NAME] --name [CONTAINER_NAME] container 이름 설정 --rm run명령어 수행 후 container 삭제. container 일회성 사용 -it container에 터미널 입력을 계속해서 전달 -i container 접속하지 않은 상태에서도 stdin 활성화 -t pseudo-TTY 할당(TTY모드 사용), 쉘에 명령어 작성 -d container 백그라운드 실행. 옵션 입력 시 실행된 container id가 출력됨 -e container에 환경변수 추가. 추가하고 싶은 환경변수만큼 사용해야 한다. docker run -e APP_ENV=production APP2_ENV=dev ubuntu:22.04 env -p [HOST_PORT]:[CONTAINER_PORT] 호스트에 연결된 container의 특정 포트를 호스트의 포트와 binding하기 위해 사용. 보통 웹서버의 포트를 외부로 노출하기 위해 사용 -w [DIR] container의 working directory 변경 -v [HOST_DIR]:[CONTAINER_DIR] 호스트의 특정 디렉토리를 container에 mount e.g. 현재 작업 디렉토리를 container에 mount 하기 docker run -v `pwd`:/opt ubuntu:22.04 -u [USERID] 특정 user id로 container에 접속. image build 시 계정 추가해야 함 실행 중인 Container에 명령어 입력 docker exec [CONTAINER_ID or NAME] [CMD] 실행한 container에서 입력한 cmd 실행 -it container 환경에서 shell 실행, run과의 차이점: run은 image에서 container를 실행하는 명령어, exec는 이미 실행 중인 container에만 적용 가능하며, container 환경을 디버깅하는 목적. run으로 실행된 container는 stdin/out 에러 확인 가능하나, exec로 실행된 프로세스는 container가 아님, 로그 확인이나 프로세스 완료 여부를 알기 어렵다]]></summary></entry><entry xml:lang="en"><title type="html">[Study] Relations between white matter hyperintensity (WMH) feature and amyloid-beta (β-amyloid) and tau burden</title><link href="https://alatteaday.github.io/en/biomedical%20ai/2024/01/31/WMHandAbTau/" rel="alternate" type="text/html" title="[Study] Relations between white matter hyperintensity (WMH) feature and amyloid-beta (β-amyloid) and tau burden" /><published>2024-01-31T00:00:00+09:00</published><updated>2024-01-31T00:00:00+09:00</updated><id>https://alatteaday.github.io/biomedical%20ai/2024/01/31/WMHandAbTau</id><content type="html" xml:base="https://alatteaday.github.io/biomedical%20ai/2024/01/31/WMHandAbTau/"><![CDATA[<p align="center">
+  <img src="https://newsimg-hams.hankookilbo.com/2023/03/25/0187e938-b461-4abc-9fa1-2279ecbc1f03.jpg" alt="백질 변성이 오래되고 진행한 73세 환자의 뇌 MRI 사진. 뇌 중심부에 하얀색으로 넓게 퍼져 있음. 부천성모병원 제공" style="zoom:30%;" />
+</p>
+
+<p>WMH: A form of cerebrovascular degeneration in which the white matter, the medulla, which acts as a pathway between the cortex and gray matter, is dilated and damaged. Usually seen with MR FLAIR imaging</p>
+
+<h3 id="references">References</h3>
+
+<p>Alban, Sierra L., et al. “The association between white matter hyperintensities and amyloid and tau deposition.” <em>NeuroImage: Clinical</em> 38 (2023): 103383.  <a href="https://www.sciencedirect.com/science/article/pii/S2213158223000724">link</a></p>
+
+<p>Graff-Radford, Jonathan, et al. “White matter hyperintensities: relationship to amyloid and tau burden.” <em>Brain</em> 142.8 (2019): 2483-2491.  <a href="https://academic.oup.com/brain/article/142/8/2483/5519094?login=false">link</a></p>
+
+<p>Hedden, Trey, et al. “Cognitive profile of amyloid burden and white matter hyperintensities in cognitively normal older adults.” <em>Journal of Neuroscience</em> 32.46 (2012): 16233-16242.  <a href="https://www.jneurosci.org/content/32/46/16233.short">link</a></p>
+
+<h3 id="keys">Keys</h3>
+
+<ul>
+  <li>
+    <p>The relationship between WMH and amyloid beta accumulation remains unclear: From whether they are related to each other to how they are related if they are related.</p>
+  </li>
+  <li>
+    <p>A growing number of studies are attempting to elucidate the relationship between WMH and Ab.</p>
+  </li>
+  <li>
+    <p>There is no relationship between WMH and tau accumulation.</p>
+  </li>
+</ul>
 
 <hr />
 
-<p>Want to see something else added? <a href="https://github.com/poole/poole/issues/new">Open an issue.</a></p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><summary type="html"><![CDATA[Howdy! This is an example blog post that shows several types of HTML content supported in this theme.]]></summary></entry><entry xml:lang="en"><title type="html">Example content</title><link href="http://localhost:4000/en/computer%20vision/2020/04/02/example-content/" rel="alternate" type="text/html" title="Example content" /><published>2020-04-02T00:00:00+09:00</published><updated>2020-04-02T00:00:00+09:00</updated><id>http://localhost:4000/computer%20vision/2020/04/02/example-content</id><content type="html" xml:base="http://localhost:4000/computer%20vision/2020/04/02/example-content/"><![CDATA[<div class="message">
-  Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
-</div>
+<p><em>The association between white matter hyperintensities and amyloid and tau deposition (2023)</em></p>
 
-<p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. <em>Aenean eu leo quam.</em> Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
+<p><strong>Abstract</strong></p>
 
-<blockquote>
-  <p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-</blockquote>
+<p>… Finally, the regions where β-amyloid and WMH count were most positively associated were <span style="background-color:#fff5b1">the middle temporal region in the right hemisphere</span> (r = 0.18, p = 0.002) and <span style="background-color:#fff5b1">the fusiform region in the left hemisphere</span> (r = 0.017, p = 0.005). β-amyloid and WMH have a clear association, though the mechanism facilitating this association is still not fully understood. The associations found between β-amyloid and WMH burden emphasize the relationship between β-amyloid and vascular lesion formation while factors like CVRFs, age, and sex affect AD development through various mechanisms</p>
 
-<p>Etiam porta <strong>sem malesuada magna</strong> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+<p><strong>Data</strong></p>
 
-<h2 id="inline-html-elements">Inline HTML elements</h2>
+<p>The subset of ADNI-3 participants who had all the T1-weighted, 3D FLAIR, Amyloid, and Tau PET modalities available</p>
 
-<p>HTML defines a long list of available inline tags, a complete list of which can be found on the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">Mozilla Developer Network</a>.</p>
+<p><strong>Snippets</strong></p>
 
 <ul>
-  <li><strong>To bold text</strong>, use <code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code>.</li>
-  <li><em>To italicize text</em>, use <code class="language-plaintext highlighter-rouge">&lt;em&gt;</code>.</li>
-  <li>Abbreviations, like <abbr title="HyperText Markup Langage">HTML</abbr> should use <code class="language-plaintext highlighter-rouge">&lt;abbr&gt;</code>, with an optional <code class="language-plaintext highlighter-rouge">title</code> attribute for the full phrase.</li>
-  <li>Citations, like <cite>— Mark otto</cite>, should use <code class="language-plaintext highlighter-rouge">&lt;cite&gt;</code>.</li>
-  <li><del>Deleted</del> text should use <code class="language-plaintext highlighter-rouge">&lt;del&gt;</code> and <ins>inserted</ins> text should use <code class="language-plaintext highlighter-rouge">&lt;ins&gt;</code>.</li>
-  <li>Superscript <sup>text</sup> uses <code class="language-plaintext highlighter-rouge">&lt;sup&gt;</code> and subscript <sub>text</sub> uses <code class="language-plaintext highlighter-rouge">&lt;sub&gt;</code>.</li>
+  <li>The percentage of white matter volume occupied by WMH was significantly and positively correlated with β-amyloid PET SUVR (Fig. 1; r = 0.28, p &lt; 0.001). We observed <span style="background-color:#fff5b1">WMH volume to significantly predict global amyloid accumulation when controlling for age, sex, years of education, and scanner manufacturer</span> (F(1, 309) = 13.9, p = 0.0002).</li>
+  <li>The correlational analyses were repeated after the log transformation of WMH volume and outcomes remained the same, resulting in <span style="background-color:#fff5b1">a significant positive correlation between WMH volume and β-amyloid</span> (r = 0.24, p = 4.9e-5), and <span style="background-color:#FFE6E6">a nonsignificant positive correlation between WMH volume and meta-temporal tau</span> (r = 0.09, p = 0.12).</li>
+  <li>The inclusion of MOCA, MMSE, and Global CDR, as covariates, did not change the significant relationship between WMH volume and β-amyloid. We observed <span style="background-color:#fff5b1">a significant effect of hippocampal volume fraction on WMH volume</span> (F(1, 580) = 16.9, p = 4.5e-5) and β-amyloid (F(1, 309) = 32.5, p = 2.8e-8).</li>
+  <li>WMH volume percent of participants with either amyloid (A+) or tau (T+) pathology was higher than controls (A-/T-) (Fig. 2). We observed <span style="background-color:#fff5b1">a significantly higher WMH percent in AD pathology participants (A+/T+) compared to controls (A-/T-)</span> (p = 0.007, Cohen’s d = 0.4, t = -2.5). … <span style="background-color:#fff5b1">No significant association was found in the A-/T- group</span> (r = 0.06, p = 0.45). A significant positive correlation was observed between β-amyloid SUVR and WMH count in the A+/T+ group only.</li>
+  <li>WMH count was used as another method of measuring WMH burden. … Both statistical tests on <span style="background-color:#fff5b1">the WMH volume and the WMH count showed similar results, confirming that WMH count is an accurate measure to use alongside WMH volume.</span> Correlations of WMH count with β-amyloid within A/T pathological groups also paralleled the WMH volume analysis result.</li>
+  <li>Our regional analysis showed that β-amyloid and WMH accumulation in <span style="background-color:#fff5b1">the precentral, cuneus, fusiform, isthmus cingulate, lateral occipital, lingual, superior parietal, and supramarginal regions were most significantly associated across all pathological groups when averaged across hemispheres.</span> Variations in the locations of increased WMHs are indicative of AD and its phase of progression, some of these regions being more implicated in cognitive decline than others.</li>
+  <li>
+    <p>We observed <span style="background-color:#FFE6E6">neither a correlation nor an association between WMH and Tau uptake in the entire cohort</span> (Fig. 4: correlation p = 0.25; association p = 0.4, controlling for age, sex, years of education, and scanner manufacturer).</p>
+  </li>
+  <li>
+    <p>Additionally, <span style="background-color:#E6E6FF">WMH volume was only predicted by CN and MCI diagnoses, not AD.</span> The relationship between WMH volume often predicts AD in the preclinical stages, likely accounting for the relationship we observed.</p>
+  </li>
+  <li><span style="background-color:#E6F2FF">The inclusion of cognitive scores MMSE, MOCA, and Global CDR had no effect on the associations found between β-amyloid and WMH volume</span>, therefore not significantly impacting this relationship. In the literature, <span style="background-color:#E6F2FF">worse performance on these cognitive tests has been associated with increased WMH volume</span> (Wang et al., 2020).</li>
 </ul>
 
-<p>Most of these elements are styled by browsers with few modifications on our part.</p>
-
-<h2 id="heading">Heading</h2>
-
-<p>Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-
-<h3 id="code">Code</h3>
-
-<p>Cum sociis natoque penatibus et magnis dis <code class="language-plaintext highlighter-rouge">code element</code> montes, nascetur ridiculus mus.</p>
-
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Example can be run directly in your JavaScript console
-</span>
-
-<span class="c1">// Create a function that takes two arguments and returns the sum of those arguments
-</span>
-<span class="kd">var</span> <span class="nx">adder</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Function</span><span class="p">(</span><span class="dl">"</span><span class="s2">a</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">b</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">return a + b</span><span class="dl">"</span><span class="p">);</span>
-
-<span class="c1">// Call the function
-</span>
-<span class="nf">adder</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
-<span class="c1">// &gt; 8</span></code></pre></figure>
-
-<p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-
-<h3 id="lists">Lists</h3>
-
-<p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+<p align="center">   
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Gray727_cingulate_gyrus.png/250px-Gray727_cingulate_gyrus.png" alt="img" width="30%" align="center" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Gray726_temporal_pole.png/800px-Gray726_temporal_pole.png?20100306033920" alt="File:Gray726 temporal pole.png" width="30%" style="zoom: 33%;" align="center" />
+  <figcaption align="center" style="color: grey;"> above: the isthmus cingulate; bottom: the temporal pole </figcaption>
+</p>
 
 <ul>
-  <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-  <li>Donec id elit non mi porta gravida at eget metus.</li>
-  <li>Nulla vitae elit libero, a pharetra augue.</li>
+  <li>
+    <p>The relationship between higher MMSE scores and increased WMH volume showed significance with multiple comparison corrections while controlling for age and sex in the isthmus cingulate region</p>
+  </li>
+  <li>
+    <p>For Global CDR scores, this spatial distribution was significant in the isthmus cingulate, temporal pole, and pars triangularis</p>
+  </li>
+  <li>
+    <p>Lastly, the MOCA scores showed significant positive spatial relationships in the isthmus cingulate, linguistic, and temporal pole regions</p>
+  </li>
+  <li>
+    <p>We also did not observe any significant effect of APOE-ε4 presence on the established relationship between β-amyloid and WMH volume or WMH count. … Although, we did have a small sample size of individuals with the homozygous APOE-ε4 genotype.</p>
+  </li>
 </ul>
 
-<p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
+<hr />
+<p><em>White matter hyperintensities: relationship to amyloid and tau burden (2019)</em></p>
 
-<ol>
-  <li>Vestibulum id ligula porta felis euismod semper.</li>
-  <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-  <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
-</ol>
+<p><strong>Abstract</strong></p>
 
-<p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+<p><span style="background-color:#fff5b1">White matter hyperintense volumes in the detected topographic pattern correlated strongly with lobar cerebral microbleeds</span> (P &lt; 0.001, age and sex-adjusted Cohen’s d = 0.703). In contrast, <span style="background-color:#FFE6E6">there were no white matter hyperintense regions significantly associated with increased tau burden</span> using voxel-based analysis or region-specific analysis, among non-demented elderly, amyloid load correlated with a topographic pattern of white matter hyperintensities. Further, <span style="background-color:#fff5b1">the amyloid-associated, white matter hyperintense regions strongly correlated with lobar cerebral microbleeds suggesting that cerebral amyloid angiopathy contributes to the relationship between amyloid and white matter hyperintensities.</span></p>
 
-<dl>
-  <dt>HyperText Markup Language (HTML)</dt>
-  <dd>The language used to describe and define the content of a Web page</dd>
+<p><strong>Data</strong></p>
 
-  <dt>Cascading Style Sheets (CSS)</dt>
-  <dd>Used to describe the appearance of Web content</dd>
+<p align="center"><img src="https://lh7-us.googleusercontent.com/8lRtc_4VpROGK82z1LNG6_csgW2j70aFK-1z6EtUHavsTxGrkjAOzyxf_l_6ZNFMVsEWDE2WBBkDnYTC8eSIGRPwtYTdmvVaMSYl-XidCzDWZu1aouniUOTX3hUtN76xS_ESzJ5gW6Hg0eZ9Lv0jo-U" alt="img" style="zoom: 60%;" /></p>
 
-  <dt>JavaScript (JS)</dt>
-  <dd>The programming language used to build advanced Web sites and applications</dd>
-</dl>
+<ul>
+  <li>Participants, aged 50 to 89, were enrolled in the Mayo Clinic Study of Aging (MCSA), a population-based study of Olmsted County, Minnesota residents.</li>
+  <li>434 non-demented participants with FLAIR-MRI, tau-PET (AV-1451), and Pittsburgh compound B (PiB)-PET (amyloid) scans to assess the relationship between FLAIR WMH and Alzheimer’s disease pathologies.</li>
+</ul>
 
-<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+<p><strong>Snippets</strong></p>
 
-<h3 id="tables">Tables</h3>
+<ul>
+  <li>
+    <p>In the study of non-demented individuals, we found that amyloid burden measured by PET was associated with a topographic pattern of WMH. <span style="background-color:#fff5b1">These amyloid-related WMH regions were associated with lobar CMBs suggesting that regional changes correlate with CAA.</span> We found <span style="background-color:#FFE6E6">no evidence to support an association between tau burden and WMH burden.</span></p>
+  </li>
+  <li>
+    <p>We did not detect an association between tau burden and WMH in either the voxel-level analyses or region-level analyses.</p>
+  </li>
+</ul>
 
-<p>Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+<hr />
+<p><em>Cognitive Profile of Amyloid Burden and White Matter Hyperintensities in Cognitively Normal Older Adults (2012)</em></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Upvotes</th>
-      <th>Downvotes</th>
-    </tr>
-  </thead>
-  <tfoot>
-    <tr>
-      <td>Totals</td>
-      <td>21</td>
-      <td>23</td>
-    </tr>
-  </tfoot>
-  <tbody>
-    <tr>
-      <td>Alice</td>
-      <td>10</td>
-      <td>11</td>
-    </tr>
-    <tr>
-      <td>Bob</td>
-      <td>4</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <td>Charlie</td>
-      <td>7</td>
-      <td>9</td>
-    </tr>
-  </tbody>
-</table>
+<p><strong>Abstract</strong></p>
 
-<p>Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+<p><span style="background-color:#fff5b1">Amyloid burden and WMH were not correlated with one another.</span> <span style="background-color:#E6F2FF">Age was associated with lower performance in all cognitive domains</span>, while <span style="background-color:#E6F2FF">higher estimated verbal intelligence was associated with higher performance in all domains.</span> Hypothesis-driven tests revealed that <span style="background-color:#fff5b1">amyloid burden and WMH had distinct cognitive profiles</span>, with <span style="background-color:#fff5b1">amyloid burden having a specific influence on episodic memory</span> and <span style="background-color:#fff5b1">WMH primarily associated with executive function but having broad (but lesser) effects on the other domains.</span> These findings suggest that even before clinical impairment, amyloid burden, and WMH likely represent neuropathological cascades with distinct etiologies and dissociable influences on cognition.</p>
+
+<p><strong>Data</strong></p>
+
+<ul>
+  <li>
+    <p>168 (95 female) cognitively normal, community-dwelling older adults (aged 65–86, M=73.24, SD=5.80).</p>
+  </li>
+  <li>
+    <p>Participants in the Harvard Aging Brain Study, an ongoing longitudinal study currently in the baseline assessment phase</p>
+  </li>
+  <li>
+    <p>Because of the staged nature of the visits (all baseline visits must be completed within 6 months), positron emission tomography (PET) amyloid imaging and magnetic resonance imaging (MRI) estimates of WMH were currently available for 109 of the older adults.</p>
+  </li>
+</ul>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Biomedical AI" /><category term="bio" /><category term="brainImaging" /><summary type="html"><![CDATA[]]></summary></entry><entry xml:lang="ko"><title type="html">[Study] 알츠하이머 치매의 ATN 바이오마커 간 관계 정리</title><link href="https://alatteaday.github.io/en/biomedical%20ai/2023/08/29/demensiapapers/" rel="alternate" type="text/html" title="[Study] 알츠하이머 치매의 ATN 바이오마커 간 관계 정리" /><published>2023-08-29T00:00:00+09:00</published><updated>2023-08-29T00:00:00+09:00</updated><id>https://alatteaday.github.io/biomedical%20ai/2023/08/29/demensiapapers</id><content type="html" xml:base="https://alatteaday.github.io/biomedical%20ai/2023/08/29/demensiapapers/"><![CDATA[<h2 id="ai-전공자의-알츠하이머-치매-관련-brain-imaging-논문-스터디">AI 전공자의 알츠하이머 치매 관련 Brain Imaging 논문 스터디</h2>
+
+<p>Amyloid Beta(A), Tau(T), Neurodegeneration(N)과 관련된 Alzheimer’s Disease(AD) 기전에 대해 이해하기 위하여 다음의 논문들을 읽고 정리한 내용입니다. 기반 지식이 없어 시각 자료와 사전을 찾아가며 읽었습니다. pdf는 찾아본 이미지와 필기한 내용이 담긴 논문 파일입니다.</p>
+
+<p>Ittner, Lars M., and Jürgen Götz. “Amyloid-β and tau—a toxic pas de deux in Alzheimer’s disease.” <em>Nature Reviews Neuroscience</em> 12.2 (2011): 67-72. <a href="https://www.nature.com/articles/nrn2967">link</a> <a href="/en/Users/jiyun/Documents/nrn2967.pdf">pdf</a></p>
+
+<p>Vogel, Jacob W., et al. “Four distinct trajectories of tau deposition identified in Alzheimer’s disease.” <em>Nature medicine</em> 27.5 (2021): 871-881. <a href="https://www.nature.com/articles/s41591-021-01309-6">link</a> <a href="/en/Users/jiyun/Documents/s41591-021-01309-6.pdf">pdf</a></p>
+
+<p>Lee, Wha Jin, et al. “Regional Aβ-tau interactions promote onset and acceleration of Alzheimer’s disease tau spreading.” <em>Neuron</em>110.12 (2022): 1932-1943. <a href="https://pubmed.ncbi.nlm.nih.gov/35443153/">link</a> <a href="/Users/jiyun/Documents/Regional Aβ-tau interactions promote onset and acceleration of Alzheimer’s disease tau spreading.pdf">pdf</a></p>
 
 <hr />
 
-<p>Want to see something else added? <a href="https://github.com/poole/poole/issues/new">Open an issue.</a></p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Computer Vision" /><category term="blog" /><category term="jekyll" /><summary type="html"><![CDATA[Howdy! This is an example blog post that shows several types of HTML content supported in this theme. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit. Etiam porta sem malesuada magna mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur. Inline HTML elements HTML defines a long list of available inline tags, a complete list of which can be found on the Mozilla Developer Network. To bold text, use &lt;strong&gt;. To italicize text, use &lt;em&gt;. Abbreviations, like HTML should use &lt;abbr&gt;, with an optional title attribute for the full phrase. Citations, like — Mark otto, should use &lt;cite&gt;. Deleted text should use &lt;del&gt; and inserted text should use &lt;ins&gt;. Superscript text uses &lt;sup&gt; and subscript text uses &lt;sub&gt;. Most of these elements are styled by browsers with few modifications on our part. Heading Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Code Cum sociis natoque penatibus et magnis dis code element montes, nascetur ridiculus mus. // Example can be run directly in your JavaScript console // Create a function that takes two arguments and returns the sum of those arguments var adder = new Function("a", "b", "return a + b"); // Call the function adder(2, 6); // &gt; 8 Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa. Lists Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec id elit non mi porta gravida at eget metus. Nulla vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue. Vestibulum id ligula porta felis euismod semper. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas sed diam eget risus varius blandit sit amet non magna. Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis. HyperText Markup Language (HTML) The language used to describe and define the content of a Web page Cascading Style Sheets (CSS) Used to describe the appearance of Web content JavaScript (JS) The programming language used to build advanced Web sites and applications Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo. Tables Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Name Upvotes Downvotes Totals 21 23 Alice 10 11 Bob 4 3 Charlie 7 9 Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo. Want to see something else added? Open an issue.]]></summary></entry><entry><title type="html">Whats Jekyll</title><link href="http://localhost:4000/en/2020/04/01/whats-jekyll/" rel="alternate" type="text/html" title="Whats Jekyll" /><published>2020-04-01T00:00:00+09:00</published><updated>2020-04-01T00:00:00+09:00</updated><id>http://localhost:4000/2020/04/01/whats-jekyll</id><content type="html" xml:base="http://localhost:4000/2020/04/01/whats-jekyll/"><![CDATA[<p><a href="https://jekyllrb.com">Jekyll</a> is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From <a href="https://github.com/mojombo/jekyll/blob/master/README.markdown">the project’s readme</a>:</p>
+<p>Amyloid Beta(A)는 뉴런에 의해 생성되는 Amyloid Precursor Protein(APP)이 프로테아제에 의해 4부분으로 나눠질 때 생기는 펩타이드 중 하나로,</p>
 
-<blockquote>
-  <p>Jekyll is a simple, blog aware, static site generator. It takes a template directory […] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.</p>
-</blockquote>
+<p>뉴런 근처에 존재하여 기능 장애를 야기하는 것으로 알려졌다. A의 침착은 Alzheimer’s Disease(AD) 발병 10-20년 전부터 이뤄진다.</p>
 
-<p>It’s an immensely useful tool and one we encourage you to use here with Lanyon.</p>
+<ul>
+  <li>
+    <p>A는 dimers, oligomers, fibrils 등에 이어 plaque를 형성한다. A가 어느 형태에서 toxicity를 갖기 시작하는지는 확실하지 않다. 항 아밀로이드 치매 치료제는 이 plaque의 감소와 증식 및 생성 방지를 목적으로 한다.</p>
+  </li>
+  <li>
+    <p>A의 toxicity는 postsynaptic compartment, 즉 dendrite(somatodendritic region)를 주 대상으로 하여 작용하고, 특정 수용체의 속성에 따라 세포막을 통해 간접적으로 뉴런에 영향을 끼칠 수 있다. 대표적인 특정 수용체로 NMDAR이 있다.</p>
+  </li>
+</ul>
 
-<p>Find out more by <a href="https://github.com/mojombo/jekyll">visiting the project on GitHub</a>.</p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><summary type="html"><![CDATA[Jekyll is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From the project’s readme:]]></summary></entry><entry><title type="html">Test</title><link href="http://localhost:4000/en/2020/03/22/test/" rel="alternate" type="text/html" title="Test" /><published>2020-03-22T00:00:00+09:00</published><updated>2020-03-22T00:00:00+09:00</updated><id>http://localhost:4000/2020/03/22/test</id><content type="html" xml:base="http://localhost:4000/2020/03/22/test/"><![CDATA[<h1 id="welcome">Welcome</h1>
+<p>Tau(T)는 신경 세포에서 microtubule과 결합하는 단백질로, 주로 axon에 존재하여 microtubule의 안정화 및 axonal transition을 조절하는 역할을 한다.</p>
 
-<p><strong>Hello</strong>, this is my first Jekyll blog post.</p>
+<p>정상 상태의 뉴런의 dendrite에도 소량 존재한다.</p>
 
-<p>I hope you like it!</p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><summary type="html"><![CDATA[Welcome]]></summary></entry><entry xml:lang="en"><title type="html">Test!</title><link href="http://localhost:4000/en/computer%20vision/2020/03/22/test/" rel="alternate" type="text/html" title="Test!" /><published>2020-03-22T00:00:00+09:00</published><updated>2020-03-22T00:00:00+09:00</updated><id>http://localhost:4000/computer%20vision/2020/03/22/test</id><content type="html" xml:base="http://localhost:4000/computer%20vision/2020/03/22/test/"><![CDATA[<h1 id="welcome">Welcome</h1>
+<p>T는 A에 의해 과인산화되고(hyperphosphorylated Tau), 과인산화된 T는 Neurofibrillary Tangle(NFT)를 형성한다.</p>
 
-<p><strong>Hello</strong>, this is my first Jekyll blog post.</p>
+<ul>
+  <li>T의 과인산화는 microtubule 형성을 방해하여 뉴런의 기능을 방해한다.</li>
+  <li>NFT는 Somatodendritic region에서 많이 관찰된다. T의 level이 높아지면 T가 dendrite에서 많이 관찰된다.</li>
+</ul>
 
-<p>I hope you like it!</p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Computer Vision" /><category term="blog" /><category term="jekyll" /><summary type="html"><![CDATA[Welcome]]></summary></entry></feed>
+<p>Dendrite에서 T는 그곳에 위치한 여러 단백질과 상호작용하여 결과적으로 뉴런이 A의 toxicity에 약해지게 만든다.</p>
+
+<ul>
+  <li>T가 인산화되면 Tyrosine protein kinasen FYN과 강하게 작용한다. 과인산화된 T가 dendrite에서 증가함에 따라 FYN도 Soma에서 증가한다.</li>
+  <li>FYN은 NMDAR을 인산화한다. 인산화된 NMDAR은 Postsynaptic Density Protein 95(PDS95)와 상호작용한다.</li>
+  <li>이것의 결과로 NMDAR의 excitotoxicity가 나타난다(흥분독성상태). 수용체의 excitotoxicity로 A의 toxicity에 뉴런이 민감해지게 된다.</li>
+</ul>
+
+<p>결과적으로 A와 T는 뉴런을 약화시키는 데에 있어 서로 시너지를 갖는다. A는 T의 과인산화를 촉진하고, 과인산화된 T는 뉴런이 A의 toxicity에 약해지게 만든다.</p>
+
+<p>이 시스템에서 A와 T는 세포의 다른 부분(각각 Complex I, Complex IV)에 악영향을 끼쳐 미토콘드리아 호흡을 방해하고, 결국 Neurodegeneration(N)을 야기한다.</p>
+
+<p>따라서 A의 침착과 T의 전파는 AD의 중요한 요인이다.</p>
+
+<p>T의 전파 양상은 Braak Staging System으로 체계화된 바 있다.</p>
+
+<ul>
+  <li>Transentorhinal cortex → medial and basal temporal lobe → neocortical associative regions → unimodal sensory and motor cortex</li>
+</ul>
+
+<p>그런데 이 system에 부합하지 않는 전파 양상 또한 관찰되었다. T의 전파 양상을 병의 진행과 뇌 영역의 시공간적 기준으로 분류하여 4가지 subtype으로 정의할 수 있다.</p>
+
+<ul>
+  <li>S1 limbic (Braak system), S2 MTL, S3 posterior, S4 Lateral Temporal</li>
+</ul>
+
+<p>침착된 A는 T의 전파에 영향을 준다.</p>
+
+<ul>
+  <li>A는 heteromodal association cortex에 침착되고, T의 전파는 entorhinal cortex(EC)에서 시작되어 점차 뇌 전반으로 퍼진다. ( ← Braak system; S1 type ? )</li>
+  <li>Remote Interation: A와 T가 같은 영역에 있지 않은 상태에서, 먼저 A가 연결된 뉴런을 통해서 EC 영역에 있는 T에 영향을 준다. A의 영향으로 T는 점차 주위 영역으로 확산된다.</li>
+  <li>Local Interaction: T가 A와 직접적으로 접촉되어 있는 뉴런에 전파되어 만남으로서 T의 전파가 가속화된다(acceleration). 해당 뇌 영역은 Internal Temporal Gyrus(ITG)이다 (propagation hub).</li>
+  <li>T 전파의 acceleration이 진행되면 뇌 전반에서 A와 T의 상호작용이 일어나게 되어 N과 AD의 악화를 막기 어렵다.</li>
+</ul>
+
+<p>A와 T의 PET 데이터와 MRI 데이터를 병의 진행에 따라 살펴보면</p>
+
+<ul>
+  <li>A의 침착되는 정도는 뇌 전반에 걸쳐 점점 심해질 것이고</li>
+  <li>T는 뇌의 특정 부분에서 시작하여 점차 확산되는 양상으로 관찰되고</li>
+  <li>T의 슈퍼 전파가 관찰된 이후 MRI 상 전반적인 뇌 위축(N)의 정도가 심하게 나타날 것이다.</li>
+</ul>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Biomedical AI" /><category term="bio" /><summary type="html"><![CDATA[AI 전공자의 알츠하이머 치매 관련 Brain Imaging 논문 스터디]]></summary></entry><entry xml:lang="en"><title type="html">테스트3</title><link href="https://alatteaday.github.io/en/biomedical%20ai/2022/05/04/test3/" rel="alternate" type="text/html" title="테스트3" /><published>2022-05-04T00:00:00+09:00</published><updated>2022-05-04T00:00:00+09:00</updated><id>https://alatteaday.github.io/biomedical%20ai/2022/05/04/test3</id><content type="html" xml:base="https://alatteaday.github.io/biomedical%20ai/2022/05/04/test3/"><![CDATA[<h2 id="테스트-페이지입니다">테스트 페이지입니다</h2>
+<p>test test test <br />
+테스트 페이지입니다.</p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Biomedical AI" /><category term="nlp" /><summary type="html"><![CDATA[테스트 페이지입니다 test test test 테스트 페이지입니다.]]></summary></entry><entry xml:lang="en"><title type="html">Welcome to Jekyll!</title><link href="https://alatteaday.github.io/en/natural%20language%20processing/2022/05/03/test2/" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2022-05-03T00:00:00+09:00</published><updated>2022-05-03T00:00:00+09:00</updated><id>https://alatteaday.github.io/natural%20language%20processing/2022/05/03/test2</id><content type="html" xml:base="https://alatteaday.github.io/natural%20language%20processing/2022/05/03/test2/"><![CDATA[<h1 id="test-2">Test 2</h1>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Natural Language Processing" /><category term="nlp" /><summary type="html"><![CDATA[Test 2]]></summary></entry></feed>
