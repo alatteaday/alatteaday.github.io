@@ -2,9 +2,9 @@ name: Jekyll site CI
 
 on:
   push:
-    branches: [ "jekyll" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "jekyll" ]
+    branches: [ "main" ]
 
 jobs:
   build:
