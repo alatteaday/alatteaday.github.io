@@ -143,9 +143,12 @@ h1, h2, h3, h4, h5, h6 {
 */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'GangwonEdu_OTFBoldA';
-  font-family: 'iceJaram-Rg';
+  
+  
+  font-family: 'MaruBuri';
   font-family: 'Sagak-sagak.otf';
-  font-family: 'LeeSeoyun';
+  font-family: 'iceJaram-Rg';
+  font-family: 'GangwonEdu_OTFBoldA';
   font-weight: 500;
   color: #313131;
   letter-spacing: -.025rem;
