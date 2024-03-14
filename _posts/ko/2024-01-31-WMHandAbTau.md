@@ -3,7 +3,7 @@ layout: post
 title:  "[Study] white matter hyperintensity (WMH)와 아밀로이드 베타 (β-amyloid) 및 타우 축적 양상 간의 관계 논문 스터디"
 categories: ['Biomedical AI']
 lang: ko
-tags: bio brainImaging
+tags: bio brainImaging demensia atn
 ---
 
 <p align="center">

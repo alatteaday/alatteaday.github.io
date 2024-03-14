@@ -3,7 +3,7 @@ layout: post
 title:  "[Study] 알츠하이머 치매의 ATN 바이오마커 간 관계 정리"
 categories: ['Biomedical AI']
 lang: ko
-tags: bio
+tags: bio brainImaging demensia atn
 sub-title: "Docker image 및 container와 관련하여 자주 사용되는 명령어를 정리해봅니다."
 ---
 

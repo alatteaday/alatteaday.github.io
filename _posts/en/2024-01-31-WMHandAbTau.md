@@ -3,7 +3,7 @@ layout: post
 title:  "[Study] Relations between white matter hyperintensity (WMH) feature and amyloid-beta (β-amyloid) and tau burden"
 categories: ['Biomedical AI']
 lang: en
-tags: bio brainImaging
+tags: bio brainImaging demensia atn
 ---
 
 <p align="center">
