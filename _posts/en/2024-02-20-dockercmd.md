@@ -8,7 +8,7 @@ sub-title: "Notes of Docker Commands to deal with images and containers"
 ---
 
 
-#### Search Image
+## Search Image
 
 ```
 docker search (OPTIONS) [IMAGE_NAME]
@@ -24,7 +24,7 @@ e.g. docker search --stars=100 mysql
 
 
 
-#### Download Image
+## Download Image
 
 ```
 docker pull (OPTIONS) [IMAGE_NAME](:TAG)
@@ -38,7 +38,7 @@ e.g. docker pull ubuntu:22.04
 
 
 
-#### Check the Image list
+## Check the Image list
 
 ```
 docker images (OPTIONS) (REPOSITORY)
@@ -54,7 +54,7 @@ docker images (OPTIONS) (REPOSITORY)
 
 
 
-#### Check the details of image
+## Check the details of image
 
 ```
 docker image inspect [IMAGE_ID]
@@ -63,7 +63,7 @@ docker image inspect [IMAGE_ID]
 Check with the ID of the image. It's okay only with the part of the ID. 
 
 
-#### Delete Image
+## Delete Image
 
 ```
 docker rmi (OPTION) [IMAGE_NAME](:TAG)
@@ -84,7 +84,7 @@ docker rmi (OPTION) [IMAGE_NAME](:TAG)
 
 
 
-#### Image 저장/로드
+## Image 저장/로드
 
 ```
 docker save -o [DIRECTORY] [IMAGE_NAME]
@@ -100,7 +100,7 @@ docker load -i [DIRECTORY]
 
 
 
-#### Image 태그 지정
+## Image 태그 지정
 
 ```
 docker tag [IMAGE_NAME]:[TAG] [NEW_NAME]:[NEW_TAG]
@@ -112,7 +112,7 @@ e.g. docker tag ubuntu:22.04 abcd:0.1
 
 
 
-#### Container list 확인
+## Container list 확인
 
 ``` 
 docker ps (OPTION)
@@ -124,7 +124,7 @@ docker ps (OPTION)
 
 
 
-#### Container 세부 정보 확인
+## Container 세부 정보 확인
 
 ```
 docker inspect [CONTAINER_NAME]
@@ -132,7 +132,7 @@ docker inspect [CONTAINER_NAME]
 
 
 
-#### Image에서 Container 실행
+## Image에서 Container 실행
 
 ```
 docker run (OPTIONS) [IMAGE_NAME] 
@@ -172,7 +172,7 @@ docker run (OPTIONS) [IMAGE_NAME]
 
 
 
-#### 실행 중인 Container에 명령어 입력
+## 실행 중인 Container에 명령어 입력
 
 ```
 docker exec [CONTAINER_ID or NAME] [CMD]

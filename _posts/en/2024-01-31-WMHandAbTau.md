@@ -12,7 +12,7 @@ tags: bio brainImaging demensia atn
 
 WMH: A form of cerebrovascular degeneration in which the white matter, the medulla, which acts as a pathway between the cortex and gray matter, is dilated and damaged. Usually seen with MR FLAIR imaging
 
-### References
+## References
 
 Alban, Sierra L., et al. "The association between white matter hyperintensities and amyloid and tau deposition." *NeuroImage: Clinical* 38 (2023): 103383.  [link](https://www.sciencedirect.com/science/article/pii/S2213158223000724) 
 
@@ -20,7 +20,7 @@ Graff-Radford, Jonathan, et al. "White matter hyperintensities: relationship to 
 
 Hedden, Trey, et al. "Cognitive profile of amyloid burden and white matter hyperintensities in cognitively normal older adults." *Journal of Neuroscience* 32.46 (2012): 16233-16242.  [link](https://www.jneurosci.org/content/32/46/16233.short)
 
-### Keys
+## Keys
 
 * The relationship between WMH and amyloid beta accumulation remains unclear: From whether they are related to each other to how they are related if they are related.
 

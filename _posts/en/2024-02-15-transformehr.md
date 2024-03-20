@@ -12,7 +12,7 @@ Yang, Zhichao, et al. "TransformEHR: transformer-based encoder-decoder generativ
 
 
 
-## Points
+# Points
 
 1. New pre-training objective: predicting all diseases or outcomes of a future visit
 
@@ -28,7 +28,7 @@ Yang, Zhichao, et al. "TransformEHR: transformer-based encoder-decoder generativ
 
      
 
-## Background
+# Background
 
 * Longitudinal electronic health records (EHRs) have been successfully used to predict clinical diseases or outcomes (congestive heart failure, sepsis mortality, mechanical ventilation, septic shock, diabetes, PTSD, etc.)
 * With the availability of large cohorts and computational resources, deep learning (DL) based models outperform traditional machine learning (ML) models (Med-BERT, BEHRT, BRLTM, etc.)
@@ -36,9 +36,9 @@ Yang, Zhichao, et al. "TransformEHR: transformer-based encoder-decoder generativ
 
 
 
-## Method
+# Method
 
-### Data
+## Data
 
 *VHA: Veterans Health Administration, the largest integrated healthcare system in the US, providing care at 1,321 healthcare facilities
 
@@ -57,7 +57,7 @@ Pre-training data: around 6M patients who received care from more than 1,200 fac
 
     
 
-### Longitudinal EHRs
+## Longitudinal EHRs
 
 <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/_images/2024-02-15-transformehr/fig1.png?raw=true" alt="image-20240306100731535" style="zoom:67%;" />
 
@@ -71,7 +71,7 @@ Pre-training data: around 6M patients who received care from more than 1,200 fac
 
   
 
-### Embeddings
+## Embeddings
 
 ![KakaoTalk_Image_2024-03-13-09-14-52_007](file:///Users/jiyun/Documents/Gitlog/alatteaday.github.io/_images/2024-02-15-transformehr/KakaoTalk_Image_2024-03-13-09-14-52_007.png)<img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/_images/2024-02-15-transformehr/fig2.png?raw=true" alt="image-20240306103928325"  />
 
@@ -86,7 +86,7 @@ Multi-level embeddings: visit embeddings + time embeddings + code embeddings
 
 
 
-### Model Architecture
+## Model Architecture
 
 Encoder-decoder transformer-based architecture
 
@@ -99,7 +99,7 @@ Encoder-decoder transformer-based architecture
 
 
 
-## Evaluation
+# Evaluation
 
 Metrics: PPV (precision), AUROC, AUPRC
 
@@ -107,7 +107,7 @@ Baseline models: logistic regression, LSTM, BERT without pre-training, BERT with
 
 ![image-20240306175748572](https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/_images/2024-02-15-transformehr/table2_3_4.png?raw=true)
 
-#### Pre-training
+## Pre-training
 
 Task: Disease or outcome agnostic prediction (DOAP); Predicting the ICD codes of a patient's future visit based on longitudinal information up to the current visit
 
@@ -129,7 +129,7 @@ Task: Disease or outcome agnostic prediction (DOAP); Predicting the ICD codes of
 
 
 
-#### Fine-tuning
+## Fine-tuning
 
 Tasks: the pancreatic cancer onset prediction (Table 3) and intentional self-harm prediction in patients with PTSD (Table 4) 
 

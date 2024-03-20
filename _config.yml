@@ -22,6 +22,13 @@ plugins:
 version:             1.1.0
 google_analytics_id: #UA-XXXX-Y
 
+# Math equation
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
 # Polyglot
 languages: ["en", "ko"] # 지원하고자 하는 언어
 default_lang: "ko" # 컨텐츠의 기본 언어

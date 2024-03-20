@@ -12,7 +12,7 @@ tags: bio brainImaging demensia atn
 
 WMH: 뇌 백질 변성, 피질인 회백질 간 통로 역할을 하는 수질인 백질이 뇌혈관 변성에 의해 확장되어 손상된 형태. 보통 MR FLAIR 이미지를 통해 확인
 
-### References
+## References
 
 WMH와 Alzhheimer's disease biomarker인 Amyloid beta, Tau 간의 관계를 조사하기 위해 다음의 세 논문을 읽었습니다.
 
@@ -22,7 +22,7 @@ Graff-Radford, Jonathan, et al. "White matter hyperintensities: relationship to 
 
 Hedden, Trey, et al. "Cognitive profile of amyloid burden and white matter hyperintensities in cognitively normal older adults." *Journal of Neuroscience* 32.46 (2012): 16233-16242.  [link](https://www.jneurosci.org/content/32/46/16233.short)
 
-### Keys
+## Keys
 
 위 세 논문에 따르면 
 
