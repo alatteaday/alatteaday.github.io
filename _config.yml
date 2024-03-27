@@ -1,6 +1,6 @@
 # Setup
-title:               'Coffee chats'
-tagline:             'with strangers'
+title:               "Coffee chats"
+tagline:             "with strangers"
 description:         'Curation of studies, techs, ideas and her journey as a maching learning engineer'
 url:                 'https://alatteaday.github.io'
 baseurl:             ''
@@ -21,6 +21,13 @@ plugins:
 # Custom vars
 version:             1.1.0
 google_analytics_id: #UA-XXXX-Y
+
+# Math equation
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
 
 # Polyglot
 languages: ["en", "ko"] # 지원하고자 하는 언어
