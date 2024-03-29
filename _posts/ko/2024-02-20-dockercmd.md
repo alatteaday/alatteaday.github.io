@@ -4,7 +4,6 @@ title:  "Docker 명령어 정리"
 categories: ['Error Resolution']
 lang: ko
 tags: docker
-sub-title: "Docker image 및 container와 관련하여 자주 사용되는 명령어를 정리해봅니다."
 ---
 
 

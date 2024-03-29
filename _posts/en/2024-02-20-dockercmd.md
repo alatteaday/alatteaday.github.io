@@ -4,7 +4,6 @@ title:  "Docker CMDs"
 categories: ['Error Resolution']
 lang: en
 tags: docker
-sub-title: "Notes of Docker Commands to deal with images and containers"
 ---
 
 
