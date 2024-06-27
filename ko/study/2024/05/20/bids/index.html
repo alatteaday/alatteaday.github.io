@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!--site.title site.tagline-->
+  <title>
+    
+      [MRIQC 2] Brain Imaging Data Structure (BIDS) &middot; Coffee Chat
+    
+  </title>
+
+  
+  <link rel="canonical" href="https://alatteaday.github.io/ko/study/2024/05/20/bids/">
+  
+
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/poole.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/syntax.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://alatteaday.github.io/public/favicon.ico/apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://alatteaday.github.io/public/favicon.ico/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://alatteaday.github.io/ko/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Curation of studies, techs, ideas and a journey as a maching learning engineer</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/about">About</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/">Home</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/tags">Tags</a>
+
+    
+
+    
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+          <a class="sidebar-nav-item" 
+          href="https://alatteaday.github.io/ko/about/">About</a>
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/error/">Dev Tips & Fixes</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/papers/">Papers</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/study/">Study</a>
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+    <!--
+    <a class="sidebar-nav-item" href="/ko/archive/v1.1.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span> 
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2024. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <!--site.title site.tagline-->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container" >
+          <h3 class="masthead-title">
+            <a href="/ko/" title="Home">Coffee Chat</a>
+            <small>Brewing AI Knowledge</small>
+          </h3>
+          <div class="lang-switcher">
+    
+    
+        
+            <a href=" /study/2024/05/20/bids/">eng</a>
+        
+    
+
+    
+    
+        kor
+    
+
+</div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">[MRIQC 2] Brain Imaging Data Structure (BIDS)</h1>
+  <p class="post-date">20 May 2024&nbsp;&nbsp;&nbsp;&nbsp;
+    <!--<span class="post-date">20 May 2024</span>-->
+    
+      
+        
+          <span class="tag" data-tag="bio">
+            <a href="https://alatteaday.github.io/ko/tags/?tag=bio">
+              #bio
+            </a>
+          </span>
+        
+      
+        
+          <span class="tag" data-tag="brainImaging">
+            <a href="https://alatteaday.github.io/ko/tags/?tag=brainImaging">
+              #brainImaging
+            </a>
+          </span>
+        
+      
+    
+  </p>
+  <h1 id="brain-imaging-data-structure-bids">Brain Imaging Data Structure (BIDS)</h1>
+
+<p>Brain Imaging Data Structure (BIDS)는 neuroimaging 데이터를 조직하고 공유하는 과정을 간소화하기 위해 만들어졌습니다. 연구자들이 각자의 스타일로 조작한 데이터를 공유하여 다른 연구자들이 사용하게 되면, 데이터를 재정리하는 데에 비효율적인 시간과 자원이 듭니다. BIDS는 표준화된 데이터 형식의 필요성에 따라 오해를 방지하고 불필요하게 소요되는 시간을 줄이며 재현성을 향상시키기는 것을 목적으로 합니다. BIDS는 데이터의 구조를 간단하고 직관적으로 제공하여 협력을 돕고 연구 속도를 높이며, 다양한 과학자들이 neuroimaging 데이터를 더 쉽게 접근할 수 있도록 합니다.</p>
+
+<p>BIDS는 파일을 포맷하고 이름을 지정하는 방법에 대한 상세한 지침을 제공하여 연구 간의 일관성을 보장합니다. BIDS는 MRI, MEG, EEG, iEEG 등 다양한 영상 형식을 지원하고, 새로운 데이터 유형과 메타데이터를 통합할 수 있게 확장할 수 있습니다. 또한 데이터를 검증, 분석 및 공유하는 연구 생테계 추세에 따라 BIDS는 연구 커뮤니티에서 유용성을 더욱 높이고 있습니다.</p>
+
+<h1 id="bids-format">BIDS Format</h1>
+
+<p>BIDS는 OpenfMRI repository에서 사용된 형식을 따서 만들어 졌고, 현재는 OpenNeuro로 알려져 있습니다. BIDS format은 본질적으로 계층적 폴더 구조 내에서 데이터와 메타데이터를 조직하는 방법입니다. 데이터를 조작하는 데 최소한의 도구만을 요함으로써 유연하고 광범위한 호환성을 갖습니다.</p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-20-bids/fig1.png?raw=true" alt="fig1" style="zoom: 70%;" />
+</p>
+
+<h2 id="folders">Folders</h2>
+
+<p>폴더 계층 구조는 네 단계로 구성되어 있으며, 루트 폴더를 제외한 모든 하위 폴더는 특정한 형식의 이름으로 저장됩니다. 예시 폴더 구조와 이름은 다음과 같습니다:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Project/
+└─ Subject (e.g. 'sub-01/')
+  └─ Session (e.g. 'ses-01/')
+    └─ Datatype (e.g. 'anat')
+</code></pre></div></div>
+
+<ul>
+  <li>Project: dataset을 포함하는 폴더로, 어떤 이름으로도 저장될 수 있습니다.</li>
+  <li>Subject: 한 개체(subject)의 데이터를 포함합니다. 한 subject는 고유한 이름을 갖습니다.
+    <ul>
+      <li>Name format: <code class="language-plaintext highlighter-rouge">sub-PARTICIPANT LABEL</code></li>
+    </ul>
+  </li>
+  <li>Session: 한 subject에 대해 촬영된 영상을 구분하는 폴더입니다. 각 subject는 여러 상황에서 촬영된 데이터가 있는 경우 여러 session을 가질 수 있습니다.
+    <ul>
+      <li>만약 session이 subject 당 하나만 존재하는 경우 session 단계는 생략될 수 있습니다.</li>
+      <li>Name format: <code class="language-plaintext highlighter-rouge">ses-SESSION LABEL</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>Datatype: 데이터의 타입을 명시합니다.</p>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-20-bids/fig2.png?raw=true" alt="fig2" style="zoom: 70%;" />
+</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">anat</code>: anatomical MRI data</li>
+      <li><code class="language-plaintext highlighter-rouge">func</code>: functional MRI data</li>
+      <li><code class="language-plaintext highlighter-rouge">fmap</code>: fieldmap data</li>
+      <li><code class="language-plaintext highlighter-rouge">dwi</code>: diffusion MRI data</li>
+      <li><code class="language-plaintext highlighter-rouge">perf</code>: arterial spin labeling data</li>
+      <li><code class="language-plaintext highlighter-rouge">eeg</code>: electroencephalography data</li>
+      <li><code class="language-plaintext highlighter-rouge">meg</code>: magnetoencephalography data</li>
+      <li><code class="language-plaintext highlighter-rouge">ieeg</code>: intracranial EEG data</li>
+      <li><code class="language-plaintext highlighter-rouge">beh</code>: behavioral data</li>
+      <li><code class="language-plaintext highlighter-rouge">pet</code>: positron emission tomography data</li>
+      <li><code class="language-plaintext highlighter-rouge">micr</code>: microscopy data</li>
+      <li><code class="language-plaintext highlighter-rouge">nirs</code>: near-infrared spectroscopy data</li>
+      <li><code class="language-plaintext highlighter-rouge">motion</code>: motion capture data</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="files">Files</h2>
+
+<p>파일의 유형으로는 기본적으로 세 가지가 있습니다:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.json</code> file: 메타데이터 관련 내용</li>
+  <li><code class="language-plaintext highlighter-rouge">.tsv</code> file: 메타데이터 관련 내용 (특히 테이블 등)</li>
+  <li>Raw data files: <code class="language-plaintext highlighter-rouge">.jpg</code>, <code class="language-plaintext highlighter-rouge">.nii.gz</code>, <code class="language-plaintext highlighter-rouge">.dcm</code> 등</li>
+</ul>
+
+<p>파일 이름은 아래의 기준에 따라 표준화됩니다:</p>
+<ul>
+  <li>이름에 공백을 포함하지 않습니다.</li>
+  <li>문자, 숫자, -, _만 사용 가능합니다.</li>
+  <li>대소문자를 구분하지 않습니다: 운영체제에 따라 대소문자 구분이 되지 않을 수 있으므로</li>
+  <li>이름의 형식을 통일하여 체계적으로 이름을 짓습니다.
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">CamelCase</code> or <code class="language-plaintext highlighter-rouge">snake_case</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p>파일 이름 템플릿</p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-20-bids/fig3.png?raw=true" alt="fig3" style="zoom: 70%;" />
+</p>
+
+<p>최종적으로 BIDS format 예시는 아래와 같습니다:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Dataset/
+ └─ participants.json
+ └─ participants.tsv
+ └─ sub-01/
+   └─ anat/
+     └─ sub-01_t1w.nii.gz
+     └─ sub-01_t1w.json
+   └─ func/
+     └─ sub-01_task-rest_bold.nii.gz
+     └─ sub-01_task-rest_bold.json
+   └─ dwi/
+     └─ sub-01-task-rest_dwi.nii.gz
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+  <li><a href="https://bids.neuroimaging.io/">BIDS Official Website</a></li>
+  <li><a href="https://bids-standard.github.io/bids-starter-kit/index.html">BIDS Starter Kit</a></li>
+  <li><a href="https://github.com/bids-standard">BIDS Github</a></li>
+</ul>
+
+</div>
+
+
+<div class="related">
+  <h2 class="related-title">Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/ko/paper/2024/06/14/mriqcsurvey/">
+            MRI Quality Assessment 및 Control 관련 네 개 논문 요약&nbsp;
+            <small>14 Jun 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/study/2024/05/28/mriqc_report/">
+            [MRIQC 4] MRIQC Report와 Image Quality Metrics (IQMs)&nbsp;
+            <small>28 May 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/study/dev%20tips%20&%20fixes/2024/05/21/html_flask/">
+            [MRIQC 3-1] Flask를 사용해 HTML 파일 열어보기&nbsp;
+            <small>21 May 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+        
+          <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+        
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!--site.title site.tagline-->
+  <title>
+    
+      [Paper] Deep learning for image super-resolution: A survey (2020) &middot; Coffee Chat
+    
+  </title>
+
+  
+  <link rel="canonical" href="https://alatteaday.github.io/ko/papers/2020/12/22/srsurvey/">
+  
+
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/poole.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/syntax.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://alatteaday.github.io/public/favicon.ico/apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://alatteaday.github.io/public/favicon.ico/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://alatteaday.github.io/ko/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Curation of studies, techs, ideas and a journey as a maching learning engineer</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/about">About</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/">Home</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/tags">Tags</a>
+
+    
+
+    
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+          <a class="sidebar-nav-item" 
+          href="https://alatteaday.github.io/ko/about/">About</a>
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/error/">Dev Tips & Fixes</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/papers/">Papers</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/study/">Study</a>
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+    <!--
+    <a class="sidebar-nav-item" href="/ko/archive/v1.1.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span> 
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2024. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <!--site.title site.tagline-->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container" >
+          <h3 class="masthead-title">
+            <a href="/ko/" title="Home">Coffee Chat</a>
+            <small>Brewing AI Knowledge</small>
+          </h3>
+          <div class="lang-switcher">
+    
+    
+        
+            <a href=" /papers/2020/12/22/srsurvey/">eng</a>
+        
+    
+
+    
+    
+        kor
+    
+
+</div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">[Paper] Deep learning for image super-resolution: A survey (2020)</h1>
+  <p class="post-date">22 Dec 2020&nbsp;&nbsp;&nbsp;&nbsp;
+    <!--<span class="post-date">22 Dec 2020</span>-->
+    
+      
+        
+          <span class="tag" data-tag="cv">
+            <a href="https://alatteaday.github.io/ko/tags/?tag=cv">
+              #cv
+            </a>
+          </span>
+        
+      
+    
+  </p>
+  <p>Wang, Zhihao, Jian Chen, and Steven CH Hoi. “Deep learning for image super-resolution: A survey.” <em>IEEE transactions on pattern analysis and machine intelligence</em> 43.10 (2020): 3365-3387.</p>
+
+<p><a href="https://ieeexplore.ieee.org/abstract/document/9044873?casa_token=ZvibT-s3inQAAAAA:7z3uDjyf2cDsJhnY-NLadsaG1exlVS3qQAPck6JXaj6awV7I5Gcc8XXbjjw5uugCWXfE6tXJNB4">Paper Link</a></p>
+
+<h1 id="introduction">Introduction</h1>
+
+<ul>
+  <li>Super-resolution (SR)은 저화질(low-resolution; LR) 이미지를 고해상도(high-resolution; HR) 이미지로 변환하는 과정이다.</li>
+  <li>LR 이미지에는 여러 HR 이미지가 있을 수 있다는 점에서 SR은 불완전한 문제이다.</li>
+  <li>Deep learning (DL)은 SR의 발전에 크게 기여했는데, CNN (SRCNN) 및 GAN (SRGAN)과 같은 방법이 사용되었다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="problem-setting-and-terminology">Problem Setting and Terminology</h1>
+
+<ul>
+  <li>Problem Definition: LR input에서 HR 이미지를 근사하는 SR 모델 개발</li>
+  <li>
+    <p>Image Quality Assessment (IQA): 인간의 주관적 판단 및 객관적 계산을 포함하여, full-reference, reduced-reference, no-reference 방법으로 분류된다.</p>
+
+    <p><br /></p>
+  </li>
+</ul>
+
+<h1 id="supervised-super-resolution">Supervised Super-Resolution</h1>
+
+<h2 id="sr-framework">SR Framework</h2>
+
+<ul>
+  <li>Pre-Upsampling Framework: 전통적인 upsampling 방식으로 LR 이미지를 확대한 후 DL network로 화질을 정제한다. (e.g., SRCNN).</li>
+  <li>Post-Upsampling Framework: End-to-end DL 모델을 사용해 upsampling 한다.</li>
+  <li>Progressive Upsampling Framework: CNNs을 cascade로 사용해 단계적으로 이미지를 정제한다.</li>
+  <li>Iterative Up-and-Down Sampling: DBPN이나 SRFBN 모델과 같이 LR-HR 간 dependency를 더 잘 포착하는 방법.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="upsampling-methods">Upsampling Methods</h2>
+
+<h3 id="interpolation-based">Interpolation-Based</h3>
+<p>Nearest-neighbor, bilinear, bicubic interpolation을 포함한다. DL 기반 방법이 등장하기 전까지 이미지 크기를 조정하는 데 사용되었다.</p>
+
+<h3 id="learning-based">Learning-Based</h3>
+<p>Transposed convolution layer나 sub-pixel layer를 사용해 end-to-end로 모델을 학습한다</p>
+<ol>
+  <li>
+    <p><strong>Transposed Convolution Layer (Deconvolution Layer)</strong>: convolution output과 같은 크기의 feature map을 기반으로 input을 예측하여, 0을 삽입한 후 convolution을 수행해 이미지 크기를 키운다.</p>
+
+    <p align="center">
+     <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2020-12-22-srsurvey/deconv.jpg?raw=true" alt="deconv" style="zoom: 70%;" />
+ </p>
+
+    <ul>
+      <li>이미지 크기를 키우면서 패턴의 연결성을 유지하지만, 각 축에서 불균일하게 겹치는 부분이 생기면서 checkerboard 같은 결함을 초래할 수 있다.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Sub-Pixel Layer (Pixelshuffle)</strong>: Convolution을 통해 다수의 채널을 생성하고 이것을 재구성한다.</p>
+
+    <p align="center">
+     <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2020-12-22-srsurvey/subpixel.png?raw=true" alt="subpixel" style="zoom: 70%;" />
+ </p>
+
+    <ul>
+      <li>Input size가 $(h \times w \times c)$일 때, $s^2$배의 채널이 만들어진다. $s$는 scaling factor이다. Output size는 $(h \times w \times s^2c)$가 되고, 이것을 $(sh \times sw \times c)$로 재구성(shuffle)한다.</li>
+      <li>Transposed convolution layer보다 receptive field가 커, 맥락과 현실적인 세부 사항을 더 반영할 수 있다. 하지만 receptive field의 분포가 균일하지 않아 블록 사이 경계 부근에서 결함이 발생할 수 있다.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="network-design">Network Design</h2>
+
+<p align="center">
+    <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2020-12-22-srsurvey/networks.png?raw=true" alt="networks" style="zoom: 100%;" />
+</p>
+
+<h3 id="residual-learning">Residual Learning</h3>
+
+<ul>
+  <li>LR과 HR를 직접 매핑하는 것 대신 둘 간의 잔차(residual)에 집중하여 학습을 단순하게 한다. 변환 작업의 복잡도를 줄여준다.</li>
+  <li>Input 이미지와 target 이미지 간 residual만 학습함으로써 모델이 세부적인 사항에 집중할 수 있고, 이것으로 성능이 향상될 뿐 아니라 수렴 속도도 빨라진다.</li>
+  <li>Example: ResNet architecture는 residual block을 사용해 네트워크가 아주 깊어도 효과적으로 학습시킬 수 있다.</li>
+</ul>
+
+<h3 id="recursive-learning">Recursive Learning</h3>
+
+<ul>
+  <li>동일한 모듈을 반복적으로 적용하여 high-level feature를 캡쳐한다.</li>
+  <li>feature를 반복적으로 정제하여 더 디테일하고 정확한 이미지를 reconstruct 하게끔 한다.</li>
+  <li>Example: Deep Recursive Convolutional Network (DRCN)은 단일 convolutional layer를 여러 번 사용해 receptive field를 확장하면서도 파라미터 수를 크게 증가시키지 않는다.</li>
+</ul>
+
+<h3 id="multi-path-learning">Multi-Path Learning</h3>
+
+<ol>
+  <li><strong>Local Multi-Path Learning</strong>
+    <ul>
+      <li>병렬적인 경로를 통해 feature를 추출하고, 이를 융함하여 더 나은 모델링을 가능하게 한다. 이미지의 다양한 측면을 동시에 캡쳐하는 데 도움이 된다.</li>
+      <li>각 경로는 각각 다른 규모나 유형의 feature에 집중할 수 있고, 이것을 결합해 전체적인 representation을 개선한다.</li>
+      <li>Example: Multi-scale Residual Network (MSRN)은 다양한 커널 크기를 가진 multiple convolutional layer를 사용해 multi-scale feature를 캡쳐한다.</li>
+    </ul>
+  </li>
+  <li><strong>Scale-Specific Multi-Path Learning</strong>
+    <ul>
+      <li>단일 네트워크 내에서 다양한 scaling factor에 대해 별도의 경로를 갖으면서도, 네트워크가 여러 scale을 더 효과적으로 처리할 수 있게 한다.</li>
+      <li>Example: MDSR (Multi-Scale Deep Super-Resolution)은 대부분의 파라미터를 공유하지만, 다른 upscaling factor를 다루기 위해 scale-specific layer를 사용한다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="dense-connections">Dense Connections</h3>
+
+<ul>
+  <li>각 레이어를 서로 feed forward 방식으로 연결해, gradient flow와 feature 재사용을 촉진한다. 이것으로 gradient가 이전 레이어로 직접 흐를 수 있게 하여 학습 효율을 높인다.</li>
+  <li>feature를 재사용하게끔 하여 효율적이고 컴팩트한 네트워크를 만든다.</li>
+  <li>Example: DenseNet은 각 레이어를 모든 레이어에 연결해 feature의 propagation을 촉진하여 gradient vanishing의 위험을 줄인다.</li>
+</ul>
+
+<h3 id="group-convolution">Group Convolution</h3>
+
+<ul>
+  <li>Input 채널을 그룹화하고, 각 그룹 내에서 convolution을 수행하여 계산 복잡도와 파라미터 수를 줄인다.</li>
+  <li>경량 모델에서 성능과 효율성을 균형 있게 가져가기 위해 사용된다.</li>
+  <li>Example: Xception과 MobileNet은 depthwise separable convolution을 사용하여 파라미터와 계산량을 줄인다.</li>
+</ul>
+
+<h3 id="pyramid-pooling">Pyramid Pooling</h3>
+
+<ul>
+  <li>여러 scale에서 pooling을 해 global 및 local 맥락 정보를 파악한다. 이미지를 다양한 해상도로 이해하는 데 도움이 된다.</li>
+  <li>Example: PSPNet (Pyramid Scene Parsing Network)은 pyramid pooling을 사용해 다양한 scale에서의 얻은 정보를 결합하여 feature representation을 향상시킨다.</li>
+</ul>
+
+<h3 id="attention-mechanisms">Attention Mechanisms</h3>
+
+<ol>
+  <li><strong>Channel Attention</strong>
+    <ul>
+      <li>Feature 채널 간 상호의존성(interdependency)에 집중한다. 각 채널에 다른 weight를 주어 중요한 feature를 강조하고 덜 중요한 feature는 덜 반영한다.</li>
+      <li>Example: Squeeze-and-Excitation Networks (SENet)은 spacial 차원에서 feature map을 squeeze하고 채널 별 feature를 재조정하는 excitation 연산을 한다.</li>
+    </ul>
+  </li>
+  <li><strong>Spatial Attention</strong>
+    <ul>
+      <li>feature의 공간적 위치에 집중한다. 다른 위치에 weight를 할당하여, 모델이 이미지에 관련된 영역에 집중할 수 있게 한다.</li>
+      <li>Example: Convolutional Block Attention Module (CBAM)은 채널 및 공간 정보 관련 attention을 결합해 의미 있는 부분에 집중해 representation을 개선한다.</li>
+    </ul>
+  </li>
+  <li><strong>Non-Local Attention</strong>
+    <ul>
+      <li>멀리 떨어진 픽셀 간 dependency를 파악한다. 이는 global context가 중요한 SR 작업에 특히 유용하다.</li>
+      <li>Example: Non-local Neural Networks는 self-attention mechanism을 사용해 feature map 내 모든 위치 간 관계를 계산해 global context와 dependency를 캡쳐한다.</li>
+    </ul>
+  </li>
+  <li><strong>Combined Attention</strong>
+    <ul>
+      <li>여러 가지 attention mechanism 방식을 결합해 각 유형의 강점을 활용할 수 있다. 예를 들어 channel attention과 spatial attention을 결합해 더욱 포괄적으로 해석 가능한 attention mechanism을 구현할 수 있다.</li>
+      <li>Example: The Residual Channel Attention Network (RCAN) residual 네트워크 내에서 channel attention 모듈을 사용해 중요한 feature를 캡쳐하는 능력을 향상시켰다.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="learning-strategies">Learning Strategies</h2>
+
+<ul>
+  <li>Loss Functions: 초기에는 pixel-wise L2 loss를 사용했는데, 최근에는 content loss, adversarial loss, perceptual loss와 같은 더 복잡한 loss를 통합 사용하여 이미지의 품질을 향상시킨다.</li>
+  <li>Training Techniques: curriculum learning, multi-supervision, progressive learning과 같은 기법을 사용해 학습 과정 및 모델 성능을 개선한다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="unsupervised-super-resolution">Unsupervised Super-Resolution</h1>
+
+<p>Unsupervised method는 페어링된 LR-HR dataset에 의존하지 않는다. 대신 adversarial training을 사용해 LR를 HR로 매핑하는 것을 생성 모델에 학습시킨다. 예를 들어 CycleGAN은 LR을 HR로, 또 그 역으로도 매핑함으로써 이미지 변환을 학습한다.</p>
+
+<h1 id="domain-specific-super-resolution">Domain-Specific Super-Resolution</h1>
+
+<p>Domain-specific method는 face SR, text SR, medical image SR과 같이 특정 응용 분야에 중점을 둔다. 도메인 지식을 활용해 특정 context에서의 SR 품질을 향상시킨다.</p>
+
+<h1 id="benchmark-datasets-and-performance-evaluation">Benchmark Datasets and Performance Evaluation</h1>
+
+<p>Set5, Set14, BSD100, Urban100 등 여러 benchmark dataset이 SR 모델 평가에 사용된다. 일반적인 metric으로는 Peak Signal-to-Noise Ratio (PSNR)와 Structural Similarity Index (SSIM)가 있다.</p>
+
+<h3 id="metrics">Metrics</h3>
+
+<p>PSNR은 널리 사용되나, 품질에 대한 사람의 인식과 잘 일치하지는 않는다. 한편 SSIM은 밝기, 대비, 구조 등을 고려해 이 점을 보완한다.</p>
+
+<ul>
+  <li>
+    <p>PSNR: 제일 보편적인 reconstruction quality 측정 metric이다. SR의 경우 최대 픽셀 값($L$)과 이미지 간 평균 제곱 오차(mean squared error; MSE)를 통해 PSNR을 정의한다.</p>
+
+\[PSNR=10\cdot\log_{10}\big({L^2\over{1\over N}\sum_{i=1}^N(I(i)-\hat{I}(i))^2}\big)\]
+
+    <ul>
+      <li>$I(i)$와 $\hat{I}(i)$는 각각 원본 이미지와 생성된 이미지의 픽셀 값을 나타낸다. $N$은 총 픽셀 수이다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>SSIM: 밝기, 대비, 구조의 측면에서 이미지를 각각 비교하여 구조적 유사성을 측정한다. 인간의 시각 시스템(human visual system; HVS)이 자연스럽고 익숙하게 이미지 구조를 파악한다고 가정한다.</p>
+
+\[SSIM(I,\hat{I})={(2\mu_I\mu_{\hat{I}}+C_1)(2\sigma_{I\hat{I}}+C_2)\over(\mu_I^2+\mu_{\hat{I}}^2+C_1)(\sigma_I^2+\sigma_\hat{I}^2+C_2)}\]
+
+    <ul>
+      <li>$\mu_I$와 $\mu_\hat{I}$은 각각 원본 이미지와 생성된 이미지의 평균 픽셀 값이다. $\sigma_I^2$와 $\sigma_\hat{I}^2$는 분산,  $\sigma_{I\hat{I}}$는 $I$와 $\hat{I}$의 공분산이다. $C_1$와 $C_2$는 분모가 작은 경우를 대비해 계산의 안정성을 위해 사용되는 상수이다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="challenges-and-future-directions">Challenges and Future Directions</h1>
+
+<ul>
+  <li>Scalability: 다양한 scale과 resolution을 효율적으로 처리할 수 있는 SR 모델 개발하기.</li>
+  <li>Real-World Applications: 다양한 원인에 의해 해상도가 낮은 실제 이미지에서 잘 작동하도록 SR 모델 개선하기.</li>
+  <li>Efficiency: 높은 성능을 유지하며 계산 복잡도와 메모리 샤용량 줄이기.</li>
+  <li>Generality: 다양한 유형과 도메인의 이미지에서 일반화될 수 있는 SR 모델 개발하기.</li>
+  <li>Perceptual Quality: 시각적으로 깔끔하고 결함이 없는 이미지를 생성하도록 모델 발전시키기.</li>
+</ul>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>이 survey paper는 supervised, unsupervised, domain-specific method 등으로 유형화하여 DL 기반의 SR 기술에 대해 심층적으로 검토한다. Benchmark dataset과 성능 평가 metric을 설명하고, SR 연구의 현재 상태에 대해 포괄적인 개요를 제공한다. 나아가 다양한 네트워크, upsampling 및 학습 기술을 살펴보고, 이 분야의 발전 방향을 제시한다.</p>
+
+</div>
+
+
+<div class="related">
+  <h2 class="related-title">Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/ko/paper/2024/06/14/mriqcsurvey/">
+            MRI Quality Assessment 및 Control 관련 네 개 논문 요약&nbsp;
+            <small>14 Jun 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/study/2024/05/28/mriqc_report/">
+            [MRIQC 4] MRIQC Report와 Image Quality Metrics (IQMs)&nbsp;
+            <small>28 May 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/study/dev%20tips%20&%20fixes/2024/05/21/html_flask/">
+            [MRIQC 3-1] Flask를 사용해 HTML 파일 열어보기&nbsp;
+            <small>21 May 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+        
+          <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+        
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

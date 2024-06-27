@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!--site.title site.tagline-->
+  <title>
+    
+      Coffee Chat &middot; Brewing AI Knowledge
+    
+  </title>
+
+  
+  <link rel="canonical" href="https://alatteaday.github.io/page2/">
+  
+
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/poole.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/syntax.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://alatteaday.github.io/public/favicon.ico/apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://alatteaday.github.io/public/favicon.ico/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://alatteaday.github.io/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Curation of studies, techs, ideas and a journey as a maching learning engineer</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/about">About</a>
+    <a class="sidebar-nav-item active" href="https://alatteaday.github.io/">Home</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/tags">Tags</a>
+
+    
+
+    
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+          <a class="sidebar-nav-item" 
+          href="https://alatteaday.github.io/about/">About</a>
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/category/error/">Dev Tips & Fixes</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/category/papers/">Papers</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/category/study/">Study</a>
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+    <!--
+    <a class="sidebar-nav-item" href="/archive/v1.1.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span> 
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2024. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <!--site.title site.tagline-->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container" >
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Coffee Chat</a>
+            <small>Brewing AI Knowledge</small>
+          </h3>
+          <div class="lang-switcher">
+    
+    
+        eng
+    
+
+    
+    
+        
+            <a href="/ko/page2/">kor</a>
+        
+    
+
+</div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="https://alatteaday.github.io/study/2024/05/19/mriqc/">
+        [MRIQC 1] MRIQC: Magnetic Resonance Imaging Quality Control
+      </a>
+    </h1>
+    <!--<span class="post-date">19 May 2024</span>-->
+    <p class="post-date">19 May 2024&nbsp;&nbsp;&nbsp;&nbsp;
+      
+        
+          
+            <span class="tag" data-tag="bio">
+              <a href="https://alatteaday.github.io/tags/?tag=bio">
+                #bio
+              </a>
+            </span>
+            
+        
+          
+            <span class="tag" data-tag="brainImaging">
+              <a href="https://alatteaday.github.io/tags/?tag=brainImaging">
+                #brainImaging
+              </a>
+            </span>
+            
+        
+      
+    </p>
+    <!--
+    
+    -->
+    <p>To advance research on MRI images and enhance quality, it is essential to check the condition of the image data and secure high-quality data. However, assessing MRI quality is challenging due to several factors. There are many types of artifacts that can occur during MRI scans, people evaluate image quality differently, and some artifacts are difficult for humans to detect. In this context, an objective MRI quality control (QC) system can be helpful in the early stages of MRI quality assessment. Additionally, the recent trend of acquiring very large image data samples from multiple scanning sites increases the need for fully automated and minimally biased QC protocols.</p>
+
+<h1 id="magnetic-resonance-imaging-quality-control-mriqc">Magnetic Resonance Imaging Quality Control (MRIQC)</h1>
+
+<p>MRIQC (Magnetic Resonance Imaging Quality Control) can be used as an automated tool for assessing MRI quality. MRIQC is an open-source tool designed to evaluate the quality of structural(anatomical) and functional MRI images. MRIQC extracts <a href="https://alatteaday.github.io/study/2024/05/28/mriqc_report/">image quality metrics (IQMs)</a> solely from the input images themselves, without referencing any target images. Additionally, it provides a standardized method for evaluating and comparing MRI scans from various sources or sessions.</p>
+
+<h1 id="priciples">Priciples</h1>
+
+<ul>
+  <li><strong>Modular and Integrable</strong>: MRIQC uses a modular workflow built on the Nipype framework, integrating various third-party software toolboxes such as ANTs and AFNI​.</li>
+  <li><strong>Minimal Preprocessing</strong>: It focuses on minimal preprocessing to estimate IQMs from the original or minimally processed data, ensuring that the quality metrics reflect the raw image data as closely as possible​.</li>
+  <li><strong>Interoperability and Standards</strong>: MRIQC adheres to the <a href="https://alatteaday.github.io/study/2024/05/20/bids/">Brain Imaging Data Structure (BIDS)</a> standard, promoting interoperability and facilitating integration into various neuroimaging workflows​​.</li>
+  <li><strong>Reliability and Robustness</strong>: The tool is rigorously tested for robustness against data variability, ensuring consistent performance across different datasets and acquisition parameters​.</li>
+  <li><strong>Visual Reports</strong>: MRIQC generates detailed <a href="https://alatteaday.github.io/study/2024/05/28/mriqc_report/">visual reports</a> for both individual images and group analyses. These reports include mosaic views and segmentation contours for individual images, and scatter plots for group analyses to identify outliers​.</li>
+</ul>
+
+<h1 id="image-quality-metrics-iqms">Image Quality Metrics (IQMs)</h1>
+
+<p>MRIQC computes a range of <a href="https://alatteaday.github.io/study/2024/05/28/mriqc_report/">IQMs</a> categorized into four main groups:</p>
+<ul>
+  <li><strong>Noise-related metrics</strong>: Evaluate the impact and characteristics of noise within the images.</li>
+  <li><strong>Information theory-based metrics</strong>: Assess the spatial distribution of information using prescribed masks.</li>
+  <li><strong>Artifact detection metrics</strong>: Identify and measure the impact of specific artifacts, such as inhomogeneity and motion-related signal leakage.</li>
+  <li><strong>Statistical and morphological metrics</strong>: Characterize the statistical properties of tissue distributions and the sharpness/blurriness of images​.</li>
+</ul>
+
+<h1 id="paper">Paper</h1>
+
+<p>Esteban O, Birman D, Schaer M, Koyejo OO, Poldrack RA, Gorgolewski KJ (2017) MRIQC: Advancing the automatic prediction of image quality in MRI from unseen sites. PLoS ONE 12(9): e0184661. https://doi.org/10.1371/journal.pone.0184661</p>
+
+<h1 id="how-to-run-mriqc">How to run MRIQC</h1>
+
+<p>Interested in running MRIQC? Check out <a href="https://alatteaday.github.io/study/2024/05/20/mriqc_run/">this post</a> for detailed instructions.</p>
+
+<p><br /></p>
+
+<h1 id="references">References</h1>
+
+<ul>
+  <li><a href="https://mriqc.readthedocs.io/en/latest/">MRIQC’s Official Documentation</a></li>
+  <li><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0184661">Paper Link</a></li>
+</ul>
+
+<p><br /></p>
+
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="https://alatteaday.github.io/papers/2024/04/18/keioAbMRI/">
+        [Paper] Amyloid-β prediction machine learning model using source-based morphometry across neurocognitive disorders (2024)
+      </a>
+    </h1>
+    <!--<span class="post-date">18 Apr 2024</span>-->
+    <p class="post-date">18 Apr 2024&nbsp;&nbsp;&nbsp;&nbsp;
+      
+        
+          
+            <span class="tag" data-tag="bio">
+              <a href="https://alatteaday.github.io/tags/?tag=bio">
+                #bio
+              </a>
+            </span>
+            
+        
+          
+            <span class="tag" data-tag="brainImaging">
+              <a href="https://alatteaday.github.io/tags/?tag=brainImaging">
+                #brainImaging
+              </a>
+            </span>
+            
+        
+          
+            <span class="tag" data-tag="demensia">
+              <a href="https://alatteaday.github.io/tags/?tag=demensia">
+                #demensia
+              </a>
+            </span>
+            
+        
+          
+            <span class="tag" data-tag="atn">
+              <a href="https://alatteaday.github.io/tags/?tag=atn">
+                #atn
+              </a>
+            </span>
+            
+        
+          
+            <span class="tag" data-tag="amyloid">
+              <a href="https://alatteaday.github.io/tags/?tag=amyloid">
+                #amyloid
+              </a>
+            </span>
+            
+        
+      
+    </p>
+    <!--
+    
+    -->
+    <p>Momota, Yuki, et al. “Amyloid-β prediction machine learning model using source-based morphometry across neurocognitive disorders.” <em>Scientific Reports</em> 14.1 (2024): 7633.</p>
+
+<p><a href="https://www.nature.com/articles/s41598-024-58223-3">Paper Link</a></p>
+
+<p><br /></p>
+
+<h1 id="points">Points</h1>
+
+<p><strong>Objective</strong></p>
+<ul>
+  <li>Investigated MRI-based machine learning models to predict Alzheimer’s disease (AD), with a focus on diverse patient populations.</li>
+  <li>Utilized source-based morphometry (SBM) to assess Amyloid-beta deposition.</li>
+</ul>
+
+<p><strong>Methodology</strong></p>
+<ul>
+  <li>Preprocessed 3D T1 weighted images into voxel-based gray matter (GM) images, then subjected them to SBM.</li>
+  <li>Implemented a support vector machine (SVM) as a classifier.</li>
+  <li>Employed SHapley ADditive exPlanations (SHAP) for model interpretability and accountability.</li>
+</ul>
+
+<p><strong>Results</strong></p>
+<ul>
+  <li>Achieved a final model accuracy of 89.8% when incorporating MR images, cognitive test results, and apolipoprotein E status.</li>
+  <li>Attained an 84.7% accuracy with the model based solely on MR images.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="background">Background</h1>
+
+<ul>
+  <li>AD is a neurodegenerative disorder characterized by the presentce of A$\beta$ plaques, neurofibrillary tangles, and brain atrophy.</li>
+  <li>A$\beta$ is a defining characteristics of AD, but detecting it is not covenient in routine clinical practice.
+    <ul>
+      <li>Methods such as position emission tomography (PET), cerebrospinal fluid (CSF) testing, and Blood biomarkers are used for A$\beta$ detection but are not yet applicable in routine clinical practice.</li>
+    </ul>
+  </li>
+  <li>MRI-based A$\beta$ prediction may serve as a useful screening tool before definitive diagnosis through the aforementioned methods.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="method">Method</h1>
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/subfig1.png?raw=true" alt="supfig1" style="zoom: 90%;" />
+</p>
+
+<h2 id="features">Features</h2>
+
+<p><strong>Participants and clinical measurements</strong></p>
+<ul>
+  <li>Recruited in Jury 2018 ~ August 2021 from the memory clinic at Keio University Hospital.</li>
+  <li>AD / MCI / HC</li>
+</ul>
+
+<p><strong>Cognitive assessment</strong> (9 measures)</p>
+<ul>
+  <li>Global cognitive function: Mimi-mental state examination (MMSE), Clinical dementia rating (CDR), Functional activity questionnaire (FAQ)</li>
+  <li>Memory: Wechsler Memory Scale-Revised (WMS-R) Lgical Memeory immediate recall (LM I) and delayed recall (LM II)</li>
+  <li>Executive function and attention: Word Fluency, Trail Making Test (TMT)</li>
+  <li>Specific cognitive abilities: Japanese version of Alzheimer’s Disease Assessment Scale-Cognitive subscale (ADAS-cog-J), Japanese Adult Reading Test (JART)</li>
+</ul>
+
+<p><strong>Apolipoprotein E (APOE) genotyping</strong></p>
+<ul>
+  <li>Magnetic nanoparticle DNA extraction kit (EX1 DNA Blodd 200 $\mu$L Kit)</li>
+  <li>real-time polymerase chain reaction (PCR)</li>
+</ul>
+
+<p><strong>[<sup>18</sup>F] Florbetaben (FBB) amyloid-PET imaging</strong></p>
+
+<ul>
+  <li>
+    <p>[<sup>18</sup>F] Florbetaben (FBB)</p>
+
+    <blockquote>
+      <p>Florbetaben, a fluorine-18 (18F)-labeled stilbene derivative (formerly known as BAY-949172), trade name NeuraCeq, is a diagnostic radiotracer developed for routine clinical application to visualize β-amyloid plaques in the brain.  [<a href="https://en.wikipedia.org/wiki/Florbetaben_(18F)">reference</a>]</p>
+    </blockquote>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="mri">MRI</h2>
+
+<h3 id="acquisition---3d-t1-weighted-mr-images-t1-wi">Acquisition - 3D T1 weighted MR images (T1 WI)</h3>
+<ul>
+  <li>MRI scanner: Discovery MR750 3.0 T scanner (GE Healthcare)</li>
+  <li>Coil: 32-channel head coil</li>
+  <li>Imaging parameters: field of view (FOV) 230mm, matrix size 256$\times$256, slice thickness 1.0mm, voxel size 0.9$\times$0.9$\times$1.0mm</li>
+</ul>
+
+<h3 id="pre-processing">Pre-processing</h3>
+
+<ol>
+  <li>
+    <p><strong>Segmentation</strong>: Segmented the MR images into different tissue types: gray matter (GM), white matter (WM), and cerebrospinal fluid (CSF) using Statistical Parametric Mapping toolbox CAT12.</p>
+  </li>
+  <li>
+    <p><strong>Normalization</strong>: The Segmented GM images are then normalized to the Montreal Neurological Institute (MNI) template, which is a standard anatomical template commonly used in neuroimaging research.</p>
+
+    <blockquote>
+      <p>Standard anatomical templates are widely used in human neuroimaging processing pipelines to facilitate group level analyses and comparisons across different subjects and populations. The MNI-ICBM152 template is the most commonly used standard template, representing an average of 152 healthy young adult brains.  [<a href="https://nist.mni.mcgill.ca/mni-ftd-templates/">reference</a>]</p>
+    </blockquote>
+  </li>
+  <li><strong>Resampling and Smoothing</strong>: Resampled the images to an isotropic voxel size of 2$\times$2$\times$2mm<sup>3</sup> and smoothed using a 5mm full-width-at-half-maximum Gaussian kernel.
+    <ul>
+      <li>This step helps to standardize the voxel size an reduce noise in the images.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Source-based morphometry (SBM)</strong>: Incorporates independent component analysis (ICA) to automatically decompose the anatomical brain images into independent spatial maps characterizing different modes of anatomical variability accorss all individuals.</p>
+
+    <blockquote>
+      <p>In signal processing, independent component analysis (ICA) is a computational method for separating a multivariate signal into additive subcomponents. This is done by assuming that at most one subcomponent is Gaussian and that the subcomponents are statistically independent from each other.  [<a href="https://en.wikipedia.org/wiki/Independent_component_analysis">reference</a>]</p>
+
+      <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/ica.png?raw=true" alt="ica" style="zoom: 30%;" />
+</p>
+    </blockquote>
+  </li>
+  <li><strong>ICA processing</strong>: The 3D GM images (91$\times$109$\times$91 voxels) are loaded and converted into a 1D array format (1$\times$902,629) for processing.
+    <ul>
+      <li>A brain mask is created to select relevant (208,082) voxels for ICA using FastICA.</li>
+      <li>The number of extracted independent components (ICs) is a hyperparameter that is tuned for subsequent model building.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Spatial Regression</strong>: The extracted ICs are used as spatial regressors for each participant’s GM images, with weighting coefficients ($\beta$) determining the effect of each IC on the GM image.</p>
+
+\[I_{GM}=\beta_1 IC_1 + \beta_2 IC_2 + ... + \beta_K IC_K\]
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="machine-learning">Machine learning</h2>
+
+<ul>
+  <li>Input features: ICA’s $\beta$-values, demographic characteristics (age and sex), cognitive assessments, APOE genotype</li>
+  <li>Input conduction: The model is trained and tested using various combinations of input features.
+    <ol>
+      <li>All input features together</li>
+      <li>Each combination of features: brain images alone, brain images + cognitive assessments, etc.</li>
+      <li>Different combination of diagnoses: AD+HC, AD+MCI+HC</li>
+    </ol>
+  </li>
+  <li>Model: Gaussian kernel support vector machine (SVM)
+    <ul>
+      <li>Training involves classification using 5-vold cross-validation.</li>
+      <li>Testing is performed over all splits (5 times), ensuring robust evaluation.</li>
+    </ul>
+  </li>
+  <li>Interpretability: SHaply Additive exPlanations (SHAP)
+    <ul>
+      <li>SHAP values, based on game theory, indicate the influence of features on predictions.</li>
+      <li>Features with large absolute SHAP values have a strong influence on predictions.</li>
+      <li>Clinical features with positive and negative SHAP values were associated with A$\beta$+ and  A$\beta$- conditions, respectively</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="statistical-analysis">Statistical analysis</h2>
+
+<p>Explores relationships between variables, identifying associations with diagnoses, and testing hypotheses in the context of Alzheimer’s disease research.</p>
+<ul>
+  <li>Two-tailed t-test / Chi-square test
+    <ul>
+      <li>Two-tailed t-test: used to compare the means of two groups to determine if there is a significant difference between them.</li>
+      <li>Chi-square test: used to test the independence between categorical variables.</li>
+    </ul>
+  </li>
+  <li>Relationships among features: Pearson’s correlation analysis for continous variables
+    <ul>
+      <li>Measures the strength and direction of linear relationships between pairs of continuous variables.</li>
+      <li>Provides insights into how variables are related to each other.</li>
+    </ul>
+  </li>
+  <li>Associations with diagnoses: Analysis of variance (ANOVA)
+    <ul>
+      <li>Used to anaylze the difference among group menas in a sample.</li>
+      <li>Useful when there’re more than two groups being compared, as it determines whether there are statistically significant differences among the group means.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="results">Results</h1>
+
+<p>118 cases used for the final model building</p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/table1.png?raw=true" alt="table1" style="zoom: 80%;" />
+</p>
+
+<p><br /></p>
+
+<h2 id="model-performance">Model performance</h2>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/table2.png?raw=true" alt="table2" style="zoom: 80%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/fig1.png?raw=true" alt="fig1" style="zoom: 80%;" /> 
+</p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/table3.png?raw=true" alt="table3" style="zoom: 80%;" />
+</p>
+
+<p><strong>A$\beta$ positivity prediction</strong></p>
+<ul>
+  <li>The final model: the model trained with brain images + cognition + APOE as input</li>
+  <li>The highest accuracy (89.8%) and AUC (0.888) with brain images + cognition + APOE</li>
+  <li>The lowest accuracy (84.7%) and AUC (0.830) with brain images alone</li>
+</ul>
+
+<p>The final model’s performance for predicting A$\beta$ positivity in each diagnosis</p>
+<ul>
+  <li>The highest accuracy (89.8%) when including all the paticipants</li>
+  <li>The lowest accuarcy (75.9%) based solely on MCI</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="sbm">SBM</h2>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/table4.png?raw=true" alt="table4" style="zoom: 100%;" />
+</p>
+<p align="center">
+    <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/addfig2.png?raw=true" alt="addfig2" style="zoom: 100%;" />
+    <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/fig2.png?raw=true" alt="fig2" style="zoom: 80%;" />
+</p>
+
+<p>7 independent components (ICs) were derived from the final SBM model</p>
+
+<ul>
+  <li>Each component showed spatially maximally independent GM volum patters.</li>
+  <li>IC 1 showed a significant correlation with cognitive measures an A$\beta$ positivity.</li>
+  <li>Only AD and IC 1 showed a significant association.</li>
+  <li>Other diagnoses were not associated with any ICs.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="discussion">Discussion</h1>
+
+<p>The proposed model predicted A$\beta$ positivity successfully. (accuracy 89.8%, AUC 0.888)</p>
+<ul>
+  <li>With 118 participants’ data consisting of the features: brain MRI, cognitive info., genetic info.</li>
+  <li>Predicted correctly in non-AD subjects, such as those with FTLD syndrome and psychiatric disorders.</li>
+  <li>Among covariants in the final model, IC 1 had the strongest impact realted to A$\beta$ positivity prediction.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="performance">Performance</h2>
+
+<ol>
+  <li>Informative heterogeneity of features among non-AD participants
+    <ul>
+      <li>The performance of the model based only on AD continuum achieved slightly lower (88.4%) than on all cases.</li>
+    </ul>
+  </li>
+  <li>Advantages of SBM
+    <ul>
+      <li>The model based on diverse clinical populations may be better suited for application in clinical settings.
+        <ul>
+          <li>Patients visiting physicians’ would have various neurocongitive disorders beyond the AD continuum.</li>
+        </ul>
+      </li>
+      <li>The proposed model based only on brain images (accuracy 84.7%) may assist for screening of potential candidates for AD-related clinical trials.</li>
+      <li>SBM detects subtle morphological changes and unknown patterns in brain structures associated with ND diseases without relying on existing atlases.</li>
+    </ul>
+  </li>
+  <li>Comparable prediction performance in MCI patiences
+    <ul>
+      <li>Surpassed the accuracy of the physician’s clinical diagnosis of AD (75.9%  &gt; 70%)</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="feature-importance-of-the-model---shap">Feature Importance of the model - SHAP</h2>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/fig3.png?raw=true" alt="fig3" style="zoom: 80%;" />
+</p>
+
+<p>All ICs demonstrated greater importance compared to demoghrapic and cognitive features such as MMSE. The three most influential features in the model were identified as follows: IC 1, logical memory (LM) I, and LM II.</p>
+
+<ul>
+  <li>IC 1 exhibited a significantly correlation with A$\beta$ positivity and cognivite measures.
+    <ul>
+      <li>Its spacial pattern of the loading coefficients closely resembled the cortical pattern observed in neurodegeneration (ND) in AD, particularly in the parietal lobe.</li>
+      <li>No Medial temporal lobe (MTL) atrophy was observed in any IC, which is the typical AD pattern.
+        <ul>
+          <li>This discrepance suggests a potential indication of tau pathodology rather than A$\beta$ pathology.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>LM scores reflected memory impairments, a cardinal symptom of AD.</li>
+  <li>The presence of APOE -$\epsilon#4 also emerged as a significant factor.</li>
+</ul>
+
+<p>Furthermore, the model revealed distinct associations between IC 1 and A$\beta$ positivity, as well as IC 4 and age.</p>
+<ul>
+  <li>This indicates the model’s ability to discriminate between AD-related ND from normal aging in brain imaging, suggesting that the pathological process of AD is not strictly age-dependent. 
+→ Brain atrophy patterns in normal aging processes can be distinguished from those in neurodegeneartive disease.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="limitation">Limitation</h2>
+
+<ol>
+  <li>A$\beta$ positivity was determined only by amyloid-PET scan: CSF A$\beta$ would be a more sensitive marker in the pre-clinical status.</li>
+  <li>a limited number of samples: could be affect accuracy of a machine learning model.</li>
+  <li>Longitudinal follow-up data might improve model performance, rather than a cross-sectional approach.</li>
+</ol>
+
+
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="https://alatteaday.github.io/papers/2024/04/11/tabtf/">
+        [Paper] Tabtransformer: Tabular data modeling using contextual embeddings (2020)
+      </a>
+    </h1>
+    <!--<span class="post-date">11 Apr 2024</span>-->
+    <p class="post-date">11 Apr 2024&nbsp;&nbsp;&nbsp;&nbsp;
+      
+        
+          
+            <span class="tag" data-tag="tabular">
+              <a href="https://alatteaday.github.io/tags/?tag=tabular">
+                #tabular
+              </a>
+            </span>
+            
+        
+          
+            <span class="tag" data-tag="transformer">
+              <a href="https://alatteaday.github.io/tags/?tag=transformer">
+                #transformer
+              </a>
+            </span>
+            
+        
+      
+    </p>
+    <!--
+    
+    -->
+    <p>Huang, Xin, et al. “Tabtransformer: Tabular data modeling using contextual embeddings.” <em>arXiv preprint arXiv:2012.06678</em> (2020).</p>
+
+<p><a href="https://arxiv.org/abs/2012.06678">Paper Link</a></p>
+
+<p><br /></p>
+
+<h1 id="points">Points</h1>
+
+<ul>
+  <li><strong>TabTransformer</strong>: A cutting-edge tabular data model leveraging contextual embeddings.</li>
+  <li>Pre-trained by innovative two-phase approach for robust feature representation.</li>
+  <li>Showed SOTA performance in both supervised and semi-supervised learning.</li>
+  <li>Handles missing and noisy data robustly, ensuring reliable performance.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="background">Background</h1>
+
+<p>The current state-of-the-art (SOTA) mdoels for tabular data primarily consist of tree-based ensemble methods, notably gradient boosted decision trees (GBDT). However, these models exhibit several limitations in comparison to deep learning models:</p>
+
+<ul>
+  <li>Not suitable for continual learning from streaming data.</li>
+  <li>Ineffective for end-to-end learning of multi-modality of tabular data, such as incorporating image or text features.</li>
+  <li>Not suitable for semi-supervised learning.</li>
+</ul>
+
+<p>On the other had, while multi-layer perceptrons (MLPs) offer the potential for end-to-end learning of image or text encoders, they are constrained by several drawbacks:</p>
+
+<ul>
+  <li>Lack of interpretability.</li>
+  <li>Vulnerability to missing and noisy data.</li>
+  <li>Limited performance in semi-supervised learning scenarios.</li>
+  <li>Inability to match the performance of tree-based models.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="method">Method</h1>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/archi.png?raw=true" alt="archi" style="zoom: 70%;" />
+</p>
+
+<ul>
+  <li>The Transformer layers receive only categorical inputs $x_{cat}$.</li>
+  <li>Continuous inputs $x_{cont}$ are concatenated with the outputs of the Transformer modules of the categorical inputs.</li>
+  <li>During the pre-training phase, the Transformer layers undergo training on two different tasks using unlabeled data
+    <ul>
+      <li>Only the categorical inputs are utilized for pre-training, with the exclusion of the continuous inputs.</li>
+    </ul>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/code1.png?raw=true" alt="code1" style="zoom: 100%;" />
+</p>
+  </li>
+  <li>The pre-trained model is fine-tuned alongsidethe MLP head, utilizing labeled data to predict a target $y$.</li>
+  <li>
+    <p>Continuous values are incorporated during the fine-tuning phase by concatenating them with the categorical values.</p>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/code2.png?raw=true" alt="code2" style="zoom: 100%;" />
+</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="model-architecture">Model Architecture</h2>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/fig1.png?raw=true" alt="fig1" style="zoom: 60%;" />
+</p>
+
+<ul>
+  <li>Each instance $x\equiv \lbrace x_{cat}, x_{cont}\rbrace$ is paired with its corresponding label $y$: $(x, y)$.</li>
+  <li>$x_{cat} \equiv \lbrace x_1, x_2, …, x_m\rbrace$ represents categorical features, with each $x_i$ being a categorical feature $i \in {1, …, m}$.</li>
+  <li>
+    <p>$x_{cat}$ undergoes transformation into column embedding $E_\phi$:</p>
+
+\[E_\phi(x_{cat}) \equiv \lbrace e_{\phi_1}(x_1), ..., e_{\phi_m}(x_m) \rbrace, \ e_{\phi_i}(x_i) \in \mathbb{R}^d\]
+  </li>
+  <li>
+    <p>The embeddings are fed into the multiple Transformer layers $f_\theta$, producing contextual embeddings:</p>
+
+\[\{h_1, ..., h_m\}=f_\theta(E_\phi(x_{cat})), \ h\in \mathbb{R}^d\]
+  </li>
+  <li>Contextual embeddings of $x_{cat}$ are concatenated with the $x_{cont} \in \mathbb{R}^c $ to form a vector of dimension $(d\times m+c)$.</li>
+  <li>
+    <p>The vector is passed through an MLP layer $g_\psi$ and a cross-entropy loss $H$ is computed between the predicted output and the target $y$:</p>
+
+\[L(x, y) \equiv H(g_\psi(f_\theta(E_\phi(x_{cat})), x_{cont}), y)\]
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>Column Embedding</strong></p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/colemb.png?raw=true" alt="colemb" style="zoom: 60%;" />
+</p>
+
+<ul>
+  <li>Each categorical feature $x_i$ has its own embedding lookup table $e_{\phi_i}(.)$.</li>
+  <li>For the $i$th feature with $d_i$ classes, the embedding table $e_{\phi_i}(.)$ contains $(d_1+1)$ embeddings. The additional $d_1+1$th embedding is reserved for representing the missing(masked) values.</li>
+  <li>Each embedding $e_{\phi_i}(j)$ is represented as $[c_{\phi_i}, w_{\phi_{ij}}]$, where:
+    <ul>
+      <li>$c_{\phi_i}$ helps distinguish the classes in column $i$ from those in the other columns.</li>
+      <li>$w_{\phi_{ij}}$ distinguishes the class of the feature $j$ within the $i$th column from the other classes within the same column.</li>
+    </ul>
+  </li>
+  <li>
+    <p>*The dimension $d$ likely is set to be the same as the hidden dimension $h$ according to the codes.</p>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/code3.png?raw=true" alt="code3" style="zoom: 100%;" />
+</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="pre-training">Pre-training</h2>
+
+<p>The Transformer layers are trained using inputs consisting of categorical values $x_{cat}=\lbrace x_1, x_2, …, x_m\rbrace$ on two pre-training tasks:</p>
+
+<ol>
+  <li><strong>Masked language modeling (MLM)</strong>
+    <ul>
+      <li>Randomly masks $k\%$ features of the input, where $k$ is set to 30 in experiments.</li>
+      <li>Minimizes the cross-entropy loss of a multi-class classifier $g_\psi$, which predicts the original features of the masked features.</li>
+    </ul>
+  </li>
+  <li><strong>Replaced token detection (RTD)</strong>
+    <ul>
+      <li>Replaces the original feature by a random value of that feature.</li>
+      <li>Minimizes the loss of a binary classifier predicting whether the feature has been replaced.</li>
+      <li>Each column has its own embedding lookup table, necessitating the definition of a separate binary classifier for each column.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h1 id="experiments">Experiments</h1>
+
+<h2 id="settings">Settings</h2>
+
+<p><strong>Data</strong></p>
+
+<ul>
+  <li>Models were evaluated on 15 publicly available binary classification datasets sourced from UCI repository, AutoML Challenge, and Kaggle.</li>
+  <li>Each dataset was divided into 5 cross-validation splits.</li>
+  <li>Training:Validation:Testing proportion was set to 65:15:20 (%).</li>
+  <li>The number of categorical features ranged from 2 to136.</li>
+  <li>Semi-supervised and supervised experiments
+    <ul>
+      <li>Semi-supervised: Training data consisted of $p$ labeled data points + the remaining unlabeled data, with $p\in (50, 200, 500)$ for 3 different scenarios.</li>
+      <li>Supervised: Fully labeled training data was used.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Setup</strong></p>
+<ul>
+  <li>Hidden dimension: 32</li>
+  <li>The num of layers: 6</li>
+  <li>The num of attention heads: 8</li>
+  <li>MLP layer architecture: $\lbrace 4\times l, \ 2\times l \rbrace$ (where $l$ represents the size of its input).</li>
+  <li>Hyperparamter optimization (HPO) conducted with 20 rounds for each cross-validation split.</li>
+  <li>Metrics: Area under the curve (AUC).</li>
+  <li>Pre-training was exclusively applied in the semi-supervised scenario.
+    <ul>
+      <li>It was not found to be significantly beneficial when the entire dataset was labeled.</li>
+      <li>Its benefits were more apparent when there is a large number of unlabeled examples and a few labeled examples, as pre-training provided representations of the data that could not be learned solely from the labeled examples.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Baseline model</strong>: An MLP model without Transformers was employed to evaluate the effectiveness of Transformers in comparison.</p>
+
+<p><br /></p>
+
+<h2 id="the-effectiveness-of-the-transformer-layers">The effectiveness of the Transformer Layers</h2>
+
+<ol>
+  <li>
+    <p><strong>Performance comparison</strong></p>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/table1.png?raw=true" alt="table1" style="zoom: 60%;" />
+</p>
+
+    <ul>
+      <li>Conducted in a supervised learning scenario, comparing TabTransformer to MLP.</li>
+      <li>TabTransformer outperforms the baseline MLP on 14 datasets, achieving an average 1.0% gain in AUC.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>t-SNE visualization of contextual embeddings</strong></p>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/fig2.png?raw=true" alt="fig2" style="zoom: 100%;" />
+</p>
+
+    <ul>
+      <li>Each marker in the plot represents an average of 2D points over the test data points for a certain class.</li>
+      <li>In the t-SNE plot of the last layer of TabTransformer (Left), semantically similar classes are closely grouped, forming clusters in the embedding space.</li>
+      <li>Before passing into the Transformer (Center), the embeddings start to distinguish features with different characteristics.</li>
+      <li>The embeddings of MLP (Right) do not reveal any discernible pattern.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Prediction performance of linear models using the embeddings from different Transformer layers</strong></p>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/fig3.png?raw=true" alt="fig2" style="zoom: 60%;" />
+</p>
+
+    <ul>
+      <li>Logistic regression models are employed to evaluate the quality of learned embeddings.</li>
+      <li>Each model predicts $y$ using embedding features along with continuous values.</li>
+      <li>Metrics: Cross-validation score in AUC on the test data.</li>
+      <li>Normalization: Each prediction score is normalized by the best score from an end-to-end trained TabTransformer for the corresponding dataset.</li>
+      <li>Features: Embeddings are averaged and processed using maximum pooling instead of concatenation.</li>
+      <li>The effectiveness of the embeddings improves as the Transformer layers progress.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="the-robustness-of-tabtransformer">The robustness of TabTransformer</h2>
+
+<p>The robustness of TabTransformer was evaluated by assessing its performance on datasets containing noisy data and data with missing values.</p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/fig4_5.png?raw=true" alt="fig4_5" style="zoom: 100%;" />
+</p>
+
+<ol>
+  <li><strong>Noisy data</strong>
+    <ul>
+      <li>Method: Values were replaced with randomly generated ones from corresponding columns, introducing noise into datasets.</li>
+      <li>Findings: As the noise increases, TabTransformer demonstrated significantly significantly superior compared to the MLP (see fig. 4).</li>
+      <li>The contextual property of embeddings likely contributes to TabTransformer’s robustness in noisy environments.</li>
+    </ul>
+  </li>
+  <li><strong>Data with missing values</strong>
+    <ul>
+      <li>Method: Some values artificially made missing, and models were evaluated on these modified datasets.
+        <ul>
+          <li>The average learned embeddings over all classes in the corresponding columns were used to handle the embeddings of missing values.</li>
+        </ul>
+      </li>
+      <li>Findings: TabTransformer exhibited better stability than MLP in handling missing values (see fig. 5).</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="supervised-learning">Supervised learning</h2>
+
+<p>TabTransformer’s performance was compared against four categories of methods:</p>
+<ul>
+  <li>Logistic Regression and GBDT</li>
+  <li>MLP and sparse MLP</li>
+  <li>TabNet model</li>
+  <li>Variational Information Bottleneck (VIB) model</li>
+</ul>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/table2.png?raw=true" alt="table2" style="zoom: 70%;" />
+</p>
+
+<p>Findings:</p>
+<ul>
+  <li>TabTransformer demonstrated comparable performance with GBDT.</li>
+  <li>It significantly outperformed than recent deep learning models designed for tabular data, including TabNet and VIB.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="semi-supervised-learning">Semi-supervised learning</h2>
+
+<p>TabTransformer was evaluated under the semi-supervised learning scenario and compared against other semi-supervised models, including baseline models:</p>
+<ul>
+  <li>Entropy Regularization (ER)</li>
+  <li>Pseudo Labeling (PL) combined with MLP, TabTransformer, and GBDT</li>
+  <li>MLP (DAE): An unsupervised pre-training method designed for deep models on tabular data, specifically the swap noise Denoising AutoEncoder</li>
+</ul>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/table3_4.png?raw=true" alt="table3_4" style="zoom: 70%;" />
+</p>
+
+<p>Method:</p>
+<ul>
+  <li>Pre-trained models (TabTransformer-RTD/MLM and MLP): pre-trained on the unlabeled data and then fine-tuned on labeled data.</li>
+  <li>Semi-supervised learning methods (ER and PL): trained on the mix of labeled and unlabeled training data.</li>
+</ul>
+
+<p>Findings:</p>
+<ul>
+  <li>TabTransformer-RTD/MLM are outperformed all the other models.</li>
+  <li>TabTransformer (ER), TabTransformer (PL) and GBDT (PL) performed worse than the average of all the models.</li>
+  <li>TabTransformer-RTD consistently showed better results when the number of unlabeled data decreased, surpassing TabTransformer-MLM.
+    <ul>
+      <li>This could be attributed to the easier pre-training task of a binary classification compared to the multi-class classification of MLM.</li>
+    </ul>
+  </li>
+  <li>With only 50 data points, MLM (ER) and MLM (PL) outperformed TabTransformer models.
+    <ul>
+      <li>The suggests that the proposed approach allows for informative embeddings but does not enable the weights of the classifier itself to be trained with unlabeled data.</li>
+    </ul>
+  </li>
+  <li>Overall, TabTransformer models are promise in extracting useful information from unlabeled data to aid supervised training, and are particularly useful when the size of unlabeled data is large.</li>
+</ul>
+
+
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="https://alatteaday.github.io/error%20resolution/2024/03/15/GitioMathError/">
+        Github.io에서 markdown 수식 문법 적용이 안될 때
+      </a>
+    </h1>
+    <!--<span class="post-date">15 Mar 2024</span>-->
+    <p class="post-date">15 Mar 2024&nbsp;&nbsp;&nbsp;&nbsp;
+      
+        
+          
+        
+          
+        
+      
+    </p>
+    <!--
+    
+    -->
+    <p>Github blog 포스트에 수식을 작성했는데, markdown 수식 문법 적용이 되지 않는 문제가 있었습니다. 해결 방법을 기록해두고자 포스팅합니다.</p>
+
+<h2 id="1-_configyml-파일-수정">1. _config.yml 파일 수정</h2>
+
+<p>markdown process 관련 설정을 확인하여 수정, 없으면 추가합니다. markdown engine을 kramdown으로 설정해야 한다고 합니다.</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/yaml1.png?raw=true" style="zoom:52%;" /></p>
+
+<h2 id="2-_includes-폴더-내-수식-문법-관련-html-파일-작성">2. _includes 폴더 내 수식 문법 관련 HTML 파일 작성</h2>
+
+<p>일반적으로 github blog 내에는 _include 폴더가 존재합니다. 폴더 내에 수식 문법이 포스트에 적용될 수 있게끔 하기 위한 스크립트를 작성합니다. 아래 내용이 HTML 파일에 작성되면 됩니다.</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/html0.png?raw=true" style="zoom:50%;" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">inlineMath</code> 와 <code class="language-plaintext highlighter-rouge">displayMath</code> 항목에서 각각의 수식 문법 기호를 설정할 수 있습니다. 위 예시의 <code class="language-plaintext highlighter-rouge">displayMath</code> 와 같이 리스트 내에 여러 기호를 설정할 수 있습니다. 위 예시에 따르면 수식을  <code class="language-plaintext highlighter-rouge">$$</code> 로 감싸거나, <code class="language-plaintext highlighter-rouge">\\[</code> <code class="language-plaintext highlighter-rouge">\\]</code> 사이에 입력하면 display style로 작성할 수 있게 됩니다.</p>
+
+<p>*<code class="language-plaintext highlighter-rouge">\\[</code> <code class="language-plaintext highlighter-rouge">\\]</code> 말고  <code class="language-plaintext highlighter-rouge">\[</code> <code class="language-plaintext highlighter-rouge">\]</code> 로 문법을 설정하여 포스트에 적용하면, [ ] 괄호를 사용한 일반 텍스트까지 수식으로 처리되는 경우가 있었습니다.</p>
+
+<h3 id="inline과-display-style">Inline과 Display style</h3>
+
+<p>수식 입력 방식에는 inline style과 display style이 있습니다.</p>
+
+<ul>
+  <li>
+    <p>Inline style: 줄 바꿈 없이, 문장 내에서 수식을 표기하는 방법</p>
+  </li>
+  <li>
+    <p>Display style: 수식을 블록으로 생성해 표기하는 방법</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$2$ plus $3$ is $5$: $$2+3=5$$
+</code></pre></div>    </div>
+
+    <p>$2$ plus $3$ is $5$: \[2+3=5\]</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="3-2에서-작성한-html-스크립트를-포스트에-적용">3. 2에서 작성한 HTML 스크립트를 포스트에 적용</h2>
+
+<p>위에서 작성한 스크립트를 실제 포스팅 시 적용하기 위해 layout에 관련한 HTML 파일을 수정합니다. _layout 폴더에 있는 HTML 파일 중 적합한 파일을 찾아 포스트의 내용 부분에 새로 작성한 HTML 파일의 내용을 가져와 적용합니다. 저는 ‘default.html’ 파일 중 content가 입력되는 부분을 찾아 수정했습니다. 아래 예시와 같습니다.</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/html1.png?raw=true" style="zoom:50%;" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">"content"</code> 블록 내 <code class="language-plaintext highlighter-rouge">{ content }</code> 의 위치에 작성한 포스트의 본문이 보여집니다. <code class="language-plaintext highlighter-rouge">include file.html</code> 은 ‘file.html’의 내용을 가져온다는 뜻입니다. 따라서 해당 블록 내에 ‘math.html’에서 작성한 수식 문법 사항을 적용하겠다는 의미의 코드가 됩니다.</p>
+
+<p>위 코드를 아래와 같이 수정하면 수식 문법 적용 여부를 포스팅 시 설정해 줄 수 있는데요,</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/html2.png?raw=true" style="zoom:50%;" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">page.use_math</code> 가 <code class="language-plaintext highlighter-rouge">true</code> 이면 ‘math.html’ 내용을 적용한다는 의미의 코드입니다. 여기서 <code class="language-plaintext highlighter-rouge">page</code> 는 각 포스트를 의미합니다. <code class="language-plaintext highlighter-rouge">page.use_math</code> 을 설정하기 위해서는 매 포스트 작성 시 Front Matter에 <code class="language-plaintext highlighter-rouge">use_math: true</code> 를 추가해주면 됩니다.</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/yaml2.png?raw=true" style="zoom:50%;" /></p>
+
+<p>수식이 필요 없거나, 수식을 적용하기 싫은 포스트에는 <code class="language-plaintext highlighter-rouge">use_math</code> 를 추가하지 않거나 <code class="language-plaintext highlighter-rouge">false</code> 로 설정하면 됩니다.</p>
+
+<p><br /></p>
+
+<h3 id="reference">Reference</h3>
+<p><a href="https://junia3.github.io/blog/markdown">https://junia3.github.io/blog/markdown</a><br />
+<a href="https://an-seunghwan.github.io/github.io/mathjax-error/">https://an-seunghwan.github.io/github.io/mathjax-error/</a></p>
+
+
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="https://alatteaday.github.io/dev%20tips%20&%20fixes/2024/03/15/GitioMathError/">
+        When mathematical expression syntax isn't applying on GitHub Pages
+      </a>
+    </h1>
+    <!--<span class="post-date">15 Mar 2024</span>-->
+    <p class="post-date">15 Mar 2024&nbsp;&nbsp;&nbsp;&nbsp;
+      
+        
+          
+        
+          
+        
+      
+    </p>
+    <!--
+    
+    -->
+    <p>I wrote a math expression in a GitHub blog post, but there was an issue with applying markdown syntax. I’m posting this to document the solution that I applied.</p>
+
+<h2 id="1-modify-the-_configyml-file">1. Modify the _config.yml file</h2>
+
+<p>Check and modify the markdown-related settings in the _config.yml file like below. If they don’t exist, add them like below. It’s recommended to set the markdown engine to kramdown.</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/yaml1.png?raw=true" style="zoom:52%;" /></p>
+
+<h2 id="2-write-a-html-file-of-math-expression-syntax-within-the-_includes-folder">2. Write a HTML file of math expression syntax within the _includes folder</h2>
+
+<p>Generally, GitHub blogs contain an _include folder. Write a script within this folder to enable math expression syntax to be applied to posts. Let’s assume creating a html file named ‘math’</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/html0.png?raw=true" style="zoom:50%;" /></p>
+
+<p>You can set each math syntax mark for the <code class="language-plaintext highlighter-rouge">inlineMath</code> and <code class="language-plaintext highlighter-rouge">displayMath</code>. Similar to the <code class="language-plaintext highlighter-rouge">displayMath</code> item in the above code, you can specifiy multiple marks in the list. Following the example, if you wrap the formula in <code class="language-plaintext highlighter-rouge">$$</code> or <code class="language-plaintext highlighter-rouge">\\[</code> and <code class="language-plaintext highlighter-rouge">\\]</code>, the math style will be displayed as the display style.</p>
+
+<p>*When setting the syntax as <code class="language-plaintext highlighter-rouge">\[</code> and <code class="language-plaintext highlighter-rouge">\]</code> instead of <code class="language-plaintext highlighter-rouge">\\[</code> <code class="language-plaintext highlighter-rouge">\\]</code>, there might be instances where ordinary text enclosed within square brackets is also treated as part of the math expression.</p>
+
+<h3 id="inline-and-display-style">Inline and Display style</h3>
+
+<p>The inline style and the display style are two styles of math expression.</p>
+
+<ul>
+  <li>
+    <p>Inline style: Representing math expression within a sentence without line breaks</p>
+  </li>
+  <li>
+    <p>Display style: Generating math expression as blocks for representation</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$2$ plus $3$ is $5$: $$2+3=5$$
+</code></pre></div>    </div>
+
+    <p>$2$ plus $3$ is $5$: \[2+3=5\]</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="3-apply-the-html-script-created-in-2-to-the-post">3. Apply the HTML script created in 2. to the post</h2>
+
+<p>To apply the script created above to an actual post, you’ll need to modify the HTML file related to the layout. Find an appropriate file in the _layout folder and incorporate the content of the html file into the section where the post’s content is inserted. For example, I found and modified the ‘default.html’ file like the example below:</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/html1.png?raw=true" style="zoom:50%;" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">{ content }</code> displalys the main body of the post. <code class="language-plaintext highlighter-rouge">include file.html</code> means it includes the content of ‘file.html’. Therefore, within this block, it signifies applying the math syntax written in ‘math.html’</p>
+
+<p>You can modify the code and adjust if applying the math syntax or not,</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/html2.png?raw=true" style="zoom:50%;" /></p>
+
+<p>The code <code class="language-plaintext highlighter-rouge">page.use_math</code> being <code class="language-plaintext highlighter-rouge">true</code> indicates that the content of ‘math.html’ will be applied. Here, <code class="language-plaintext highlighter-rouge">page</code> refers to the each page. To set <code class="language-plaintext highlighter-rouge">page.use_math</code>, simply add <code class="language-plaintext highlighter-rouge">use_math: true</code> to the Front Matter of each post.</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/yaml2.png?raw=true" style="zoom:50%;" /></p>
+
+<p>For posts where math expressions are not needed or you prefer not to apply them, simply omit the <code class="language-plaintext highlighter-rouge">use_math</code> tag or set it to <code class="language-plaintext highlighter-rouge">false</code></p>
+
+<p><br /></p>
+
+<h3 id="reference">Reference</h3>
+<p><a href="https://junia3.github.io/blog/markdown">https://junia3.github.io/blog/markdown</a><br />
+<a href="https://an-seunghwan.github.io/github.io/mathjax-error/">https://an-seunghwan.github.io/github.io/mathjax-error/</a></p>
+
+
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="https://alatteaday.github.io/page3">Older</a>
+  
+  
+    
+      <a class="pagination-item newer" href="https://alatteaday.github.io/">Newer</a>
+    
+  
+</div>
+
+        
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

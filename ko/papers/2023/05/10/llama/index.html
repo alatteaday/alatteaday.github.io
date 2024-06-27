@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!--site.title site.tagline-->
+  <title>
+    
+      [Paper] Llama: Open and efficient foundation language models (2023) &middot; Coffee Chat
+    
+  </title>
+
+  
+  <link rel="canonical" href="https://alatteaday.github.io/ko/papers/2023/05/10/llama/">
+  
+
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/poole.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/syntax.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://alatteaday.github.io/public/favicon.ico/apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://alatteaday.github.io/public/favicon.ico/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://alatteaday.github.io/ko/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Curation of studies, techs, ideas and a journey as a maching learning engineer</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/about">About</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/">Home</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/tags">Tags</a>
+
+    
+
+    
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+          <a class="sidebar-nav-item" 
+          href="https://alatteaday.github.io/ko/about/">About</a>
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/error/">Dev Tips & Fixes</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/papers/">Papers</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/study/">Study</a>
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+    <!--
+    <a class="sidebar-nav-item" href="/ko/archive/v1.1.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span> 
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2024. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <!--site.title site.tagline-->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container" >
+          <h3 class="masthead-title">
+            <a href="/ko/" title="Home">Coffee Chat</a>
+            <small>Brewing AI Knowledge</small>
+          </h3>
+          <div class="lang-switcher">
+    
+    
+        
+            <a href=" /papers/2023/05/10/llama/">eng</a>
+        
+    
+
+    
+    
+        kor
+    
+
+</div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">[Paper] Llama: Open and efficient foundation language models (2023)</h1>
+  <p class="post-date">10 May 2023&nbsp;&nbsp;&nbsp;&nbsp;
+    <!--<span class="post-date">10 May 2023</span>-->
+    
+      
+        
+          <span class="tag" data-tag="nlp">
+            <a href="https://alatteaday.github.io/ko/tags/?tag=nlp">
+              #nlp
+            </a>
+          </span>
+        
+      
+        
+          <span class="tag" data-tag="llm">
+            <a href="https://alatteaday.github.io/ko/tags/?tag=llm">
+              #llm
+            </a>
+          </span>
+        
+      
+    
+  </p>
+  <p>Touvron, Hugo, et al. “Llama: Open and efficient foundation language models.” <em>arXiv preprint arXiv:2302.13971</em> (2023).</p>
+
+<p><a href="https://arxiv.org/abs/2302.13971">Paper Link</a></p>
+
+<h1 id="points">Points</h1>
+
+<ul>
+  <li>효율적 inference를 위한 smaller model: LLaMA 모델은 효율성을 위해 대규모 데이터셋으로 학습된 작은 사이즈의 모델을 사용한다. 특히 inference 시 비용 면에서 효율적일 뿐 아니라 state-of-the-art (SOTA)의 성능을 달성했다.</li>
+  <li>Publicly available data: 기존의 많은 모델은 공개되지 않는 독점 데이터를 사용해 학습되었다. 이와 달리 LLaMA는 공개된 데이터만으로 학습되어 투명성 및 호환성, 오픈 소스 원칙을 보장한다.</li>
+  <li>다양한 Benchmark Performance: LLaMA 모델은 common sense reasoning, question answering, reading comprehension 등 다양한 task에서 경쟁력 있는 성능을 보여주었고, 더 큰 사이즈의 모델을 능가하기도 한다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="background">Background</h1>
+
+<p>Large language model (LLM)은 최소한의 지시(instruction)나 예제로도 새로운 task를 수행할 수 있는 능력을 보여주었다. 그러나 최근 연구에 따르면 작은 모델을 큰 데이터셋으로 학습하면, 큰 사이즈 모델 이상의 성능을 달성할 수 있다는 것이 보고되었다. 한편 모델을 실시간으로 서빙해야 하는 관점에서 보면 학습 도중의 효율성보다는 inference 시 비용 절감과 효율성 확대가 더 중요하다.</p>
+
+<p><br /></p>
+
+<h1 id="approach">Approach</h1>
+
+<p>LLaMA는 다양한 inference 비용에 맞춰 최적화된 성능을 내도록 설계된 언어 모델 (LM) 시리즈로, 7B부터 65B 파라미터를 갖는다. 모든 모델은 공개된 데이터만을 사용하여 학습되었다.</p>
+
+<h2 id="pre-training-data">Pre-training data</h2>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-05-10-llama/table1.png?raw=true" style="zoom: 30%;" />
+</p>
+<p>오픈 소스 원칙을 보장하는, 다양한 도메인의 공개 데이터셋을 사용했다:</p>
+
+<ol>
+  <li>English CommonCrawl [67%]: 2017-2020년의 다섯 개 CommonCrawl dump에서 전처리한 데이터를 사용했고, 영어가 아니거나 품질이 낮은 콘텐츠는 필터링했다.</li>
+  <li>C4 [15%]: CommonCrawl과 유사하게 전처리되었다. 이 전처리 방식이 성능 향상에 도움이 되는 것으로 보인다.</li>
+  <li>Github [4.5%]: Google BigQuery에서 line 수와 알파벳 문자 비율을 기준으로 필터링하여 구성하였다.</li>
+  <li>Wikipedia [4.5%]: 2022년 중반의 덤프 데이터로 여러 언어를 포함한다.</li>
+  <li>Gutenberg and Books3 [4.5%]: 공개적으로 사용 가능한 서적 데이터로, 중복 콘텐츠를 제거했다.</li>
+  <li>ArXiv [2.5%]: 과학 관련 내용을 포함하는 데이터로, 필수적이지 않은 내용은 제거했다.</li>
+  <li>Stack Exchange [2%]: 점수에 따라 정렬하여 퀄리티가 좋은 것을 골라낸 Q&amp;A 콘텐츠 데이터이다.</li>
+</ol>
+
+<h3 id="tokenization">Tokenization</h3>
+
+<ul>
+  <li>Byte Pair Encoding (BPE) tokenizer를 사용했다.</li>
+  <li>수를 개별 숫자 단위로 나누고, 알 수 없는 UTF-8 문자는 분해했다.</li>
+  <li>
+    <p>학습 데이터는 중복을 최소화하여 약 1.4T 토큰을 포함한다 (fig 1).</p>
+
+    <p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-05-10-llama/fig1.png?raw=true" alt="fig1" style="zoom: 30%;" />
+</p>
+  </li>
+</ul>
+
+<h2 id="architecture">Architecture</h2>
+
+<p>LLaMA 모델은 Transformer 구조를 기반으로 하는데, 몇 가지 수정된 사항이 있다:</p>
+
+<ol>
+  <li>Pre-normalization [GPT3]: 각 Transformer 하위 레이어의 입력을 RMSNorm을 사용해 정규화하여 학습 안정성을 강화했다.</li>
+  <li>SwiGLU activation function [PaLM]: ReLU 대신 SwiGLU를 사용해 성능을 향상시켰다. PaLM에서 사용된 $4d$ 대신 $2\over3 4d$ 차원을 사용한다.</li>
+  <li>Rotary Embeddings [GPTNeo]: 각 레이어에서 absolute positional embedding 대신 Rotary embedding (RoPE)을 사용했다.</li>
+</ol>
+
+<h2 id="optimizer">Optimizer</h2>
+
+<p>AdamW optimizer를 사용해 학습한다. 최적화 옵션은 다음과 같다:</p>
+
+<ul>
+  <li>$\beta_1=0.9, \beta_2=0.95$.</li>
+  <li>최대 학습률의 10%로 끝나는 Cosine learning rate schedule.</li>
+  <li>Weight decay 0.1과 gradient clipping 1.0.</li>
+  <li>
+    <p>모델 크기에 따라 다양한 leanring rate와 batch size로 2,000 warmup-steps (table 2).</p>
+
+    <p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-05-10-llama/table2.png?raw=true" alt="table2" style="zoom: 30%;" />
+</p>
+  </li>
+</ul>
+
+<h2 id="efficient-implementation">Efficient implementation</h2>
+
+<ol>
+  <li>Causal multi-head attention: xformer library를 사용해 메모리와 실행 시간을 효율적으로 줄이고자 하였다.</li>
+  <li>Activation reductions: 체크포인팅을 사용해 backward pass 동안, 특히 계산 비용이 많이 드는 레이어에 대해 activation을 다시 계산한다.</li>
+</ol>
+
+<p><br /></p>
+
+<h1 id="main-results">Main Results</h1>
+
+<p>20개의 벤치마크에서 zero-shot 및 few-shot task로 평가했고, GPT-3, Gopher, Chinchilla, PaLM 등 비공개 모델 및 OPT, GPT-J, GPT-Neo 등의 오픈 소스 모델과 결과를 비교했다.</p>
+
+<h2 id="common-sense-reasonging">Common sense reasonging</h2>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-05-10-llama/table3.png?raw=true" alt="table3" style="zoom: 30%;" />
+</p>
+<ul>
+  <li>Benchmarks: BoolQ, PIQA, SIQA, HellaSwag, WinoGrande, ARC easy and challenge, OpenBookQA의 8개 표준 벤치마크에 대해 평가했다. 이 데이터셋들에는 Cloze 및 Winograd style task와 multiple choice question answering (QA)이 포함된다.</li>
+  <li>Results
+    <ul>
+      <li>LLaMA-65B는 대부분의 벤치마크에서 Chinchilla 70B와  PaLM-540B를 능가했다.</li>
+      <li>LLaMA-13B는 훨씬 작은 사이즈의 모델임에도 대부분의 벤치마크에서 GPT-3보다 좋은 성능을 보였다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="close-book-question-answering">Close-book question answering</h2>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-05-10-llama/table4.png?raw=true" alt="table4" style="zoom: 30%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-05-10-llama/table5.png?raw=true" alt="table5" style="zoom: 30%;" />
+</p>
+<ul>
+  <li>Benchmarks: Natural Questions과 TriviaQA. 모델은 질문에 대한 답에 관련된 단서를 참조하지 않고도 답을 얼마나 잘 맞추는지를 평가 받는다.</li>
+  <li>Results:
+    <ul>
+      <li>LLaMA-65B zero-shot과 few-shot 세팅 모두에서 state-of-the-art (SOTA) 성능을 달성했다.</li>
+      <li>LLaMA-13B은 더 큰 모델인 GPT-3와 Chinchilla에 뒤쳐지지 않는 성능을 보였다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="reading-comprehension">Reading comprehension</h2>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-05-10-llama/table6.png?raw=true" alt="table6" style="zoom: 30%;" />
+</p>
+
+<ul>
+  <li>Benchmark: RACE reading comprehension 벤치마크를 사용했다. 중국 중고등학교 영어 독해 시험에서 수집되었다.</li>
+  <li>Results: LLaMA-65B는 PaLM-540B와 유사한 성능을 보였고, LLaMA-13B는 GPT-3을 능가했다.</li>
+</ul>
+
+<h2 id="mathematical-reasoning">Mathematical reasoning</h2>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-05-10-llama/table7.png?raw=true" alt="table7" style="zoom: 30%;" />
+</p>
+
+<ul>
+  <li>Benchmarks: MATH와 GSM8k 벤치마크를 사용했다. MATH는 12,000개 중고등학교 수학문제, GSM8k는 중학교 수준 수학 문제로 구성된다.</li>
+  <li>Results: LLaMA-65B는 GSM8k에서 Minerva-62B를 뛰어 넘은 성능을 보였다.
+    <ul>
+      <li>Minerva는 ArXiv와 Math Web Pages에서 추출한 38.5B개 토큰으로 fine-tune된 PaLM model 시리즈이다. 한편 PaLM과 LLaMA는 수학 문제 데이터에 finetune 되지 않았다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="code-generation">Code generation</h2>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-05-10-llama/table8.png?raw=true" alt="table8" style="zoom: 30%;" />
+</p>
+<ul>
+  <li>Benchmarks: HumanEval과 MBPP 벤치마크를 사용했다. 모델은 자연어로 묘사한 내용을 보고 코드를 작성하는 능력에 대해 평가된다.</li>
+  <li>Results:
+    <ul>
+      <li>LLaMA 모델은 LaMDA와 PaLM을 포함한 다른 모델을 능가한다. LLaMA-13B는 LaMDA-137B를, LLaMA 65B는 PaLM-62B보다 좋은 성능을 보였다.</li>
+      <li>코드에 특화된 데이터로 fine-tune하면 성능이 더욱 향상되는 것을 볼 수 있었다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="massive-multitask-language-understanding">Massive multitask language understanding</h2>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-05-10-llama/table9.png?raw=true" alt="table9" style="zoom: 30%;" />
+</p>
+<ul>
+  <li>Massive multitask language understanding (MMLU): MMLU는 인문학, STEM, 사회과학 등 다양한 영역의 지식을 포괄하는 다중 선택 질문으로 구성된다.</li>
+  <li>Results: LLaMA-65B는 Chinchilla-70B와 PaLM-540B에 비해 낮은 성능을 보였는데, 이것은 학술적인 데이터를 다른 모델 만큼 충분히 학습하지 않았기 때문인 것으로 추측된다.</li>
+</ul>
+
+<h2 id="evolution-of-performance-during-training">Evolution of performance during training</h2>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-05-10-llama/fig2.png?raw=true" alt="fig2" style="zoom: 30%;" />
+</p>
+<ul>
+  <li>Result: 성능은 학습 중 지속적으로 향상된다. 또한 성능과 모델의 복잡성 간 상관관계가 나타났다.</li>
+  <li>SIQA와 WinoGrande에 대해서는 예외적인 결과를 보였다: SIQA의 경우 성능의 변동이 나타나는 것으로 보아 신뢰하기 어려운 벤치마크일 가능성이 있다. WinoGrande에서는 모델 복잡성과 성능 간 관계성이 나타나지 않았다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="instruction-fine-tuning">Instruction Fine-tuning</h1>
+
+<p>Fine-tuning은 성능을 향상시키고 instruction을 따르는 능력을 개선한다. LLaMA-I는 MMLU에 대해 instruction과 함께 fine-tune한 모델이다. 이를 비슷한 사이즈를 가지는 finetuned 모델인 OPT-IML 및 Flan-PaLM 시리즈와 비교했다.</p>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-05-10-llama/table10.png?raw=true" alt="table10" style="zoom: 30%;" />
+</p>
+<ul>
+  <li>65B 파라미터의 LLaMA-I는 기존 instruction fine-tuned 모델보다 좋은 성능을 보였다. 그러나 GPT ‘code-davinci-002’에는 미치지 못했다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="bias-toxicity-and-misinformation">Bias, Toxicity and Misinformation</h1>
+
+<p>LLM은 학습 데이터의 내용에 따라 편향을 가질 수 있으며, 공격적인(toxic/offensive) 콘텐츠를 생성할 수 있다. LLaMA 모델은 웹에서 수집한 데이터를 많이 학습했기 때문에 이러한 콘텐츠 생성의 가능성을 확인할 필요가 있다. toxic content generation 및 stereotypes detection을 평가하기 위해 다양한 벤치마크를 사용했다.</p>
+
+<h2 id="realtoxicityprompts">RealToxicityPrompts</h2>
+
+<p>모델이 toxic 콘텐츠를 얼마나 생성하는지를 평가하는 벤치마크이다. 모델은 약 10만개의 프롬프트를 완성하고, 점수는 PerspectiveAPI에 의해 0(non-toxic)부터 1(toxic)로 자동 평가된다.</p>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-05-10-llama/table11.png?raw=true" alt="table11" style="zoom: 30%;" />
+</p>
+<ul>
+  <li>LLaMA는 다른 모델과 비슷한 toxic score를 얻었다. 예를 들어 Chinchilla의 경우 0.087의 toxicity score를 보였다.</li>
+  <li>모델이 클수록 toxicity가 강하게 나타났다. 이전 연구에서도 유사한 결과가 있었다. 한편 Gopher와 Chinchilla의 경우 Gopher가 사이즈가 더 작음에도 Chinchilla보다 더 toxic하다고 평가된 바가 있어 예외적이었다. 이를 고려할 때 toxicity와 모델 크기 간 관계가 같은 모델 시리즈 내에서만 적용된다고 짐작할 수 있다.</li>
+</ul>
+
+<h2 id="crows-pairs">CrowS-Pairs</h2>
+
+<p>모델의 bias를 9개 카테고리에 따라 평가한다: gender, religion, race, sexual orientation, age, nationality, disability, physical appearance 및 socioenconomic status.</p>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-05-10-llama/table12.png?raw=true" alt="table12" style="zoom: 30%;" />
+</p>
+<ul>
+  <li>LLaMA는 특히 religion, age 및 gender 카테고리에서 약간의 bias를 보였다. 모델이 학습한CommonCrawl 데이터에서 비롯된 것일 수 있다.</li>
+</ul>
+
+<h2 id="winogender">WinoGender</h2>
+
+<p>모델의 gender 카테고리에 대한 bias를 체크하기 위한 벤치마크이다. 모델의 co-reference resolution 성능이 성별 관련 대명사에 영향을 받는지를 평가한다. 특히 직업과 관련된 사회적 편견을 모델이 학습했는지를 볼 수 있다.</p>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-05-10-llama/table13.png?raw=true" alt="table13" style="zoom: 30%;" />
+</p>
+<ul>
+  <li>성능은 성별 대명사의 종류에 따라 다양하게 나타났다: “her/her/she”와 “his/him/he” 대명사에 관한 성능보다 “their/them/someone” 대명사에서 관한 성능이 더 좋다.</li>
+  <li>큰 모델이 더 큰 gender bias를 가졌다: “gotcha” 사례의 경우, LLaMA-65B가 더 큰 에러를 보이며 gender에 대해 더 편향되어 있음을 보였다.
+    <ul>
+      <li>“gotcha”는 해당 사례 내 대명사가 보편적이라고 인식되는 직업의 대명사와 일치하지 않는데, 그것이 옳은 답변인 경우를 말한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="truthfulqa">TruthfulQA</h2>
+
+<p>모델이 내용의 진위 여부를 판단할 수 있는지를 평가하고, 잘못된 정보를 생성할 위험을 얼마나 갖는지 측정한다. 모델 답변의 truthfulness를 평가한다.</p>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-05-10-llama/table14.png?raw=true" alt="table14" style="zoom: 30%;" />
+</p>
+<ul>
+  <li>LLaMA 모델은 GPT-3보다 나은 결과를 보였다. 하지만 여전히 정답률이 낮기 때문에 잘못된 정보를 생성할 가능성이 있다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="carbon-footprint">Carbon footprint</h1>
+
+<p>모델 훈련과 배포에 있어 환경에 미치는 영향을 설명한다.</p>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-05-10-llama/table15.png?raw=true" alt="table15" style="zoom: 30%;" />
+</p>
+
+<p><br /></p>
+
+
+</div>
+
+
+<div class="related">
+  <h2 class="related-title">Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/ko/paper/2024/06/14/mriqcsurvey/">
+            MRI Quality Assessment 및 Control 관련 네 개 논문 요약&nbsp;
+            <small>14 Jun 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/study/2024/05/28/mriqc_report/">
+            [MRIQC 4] MRIQC Report와 Image Quality Metrics (IQMs)&nbsp;
+            <small>28 May 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/study/dev%20tips%20&%20fixes/2024/05/21/html_flask/">
+            [MRIQC 3-1] Flask를 사용해 HTML 파일 열어보기&nbsp;
+            <small>21 May 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+        
+          <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+        
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

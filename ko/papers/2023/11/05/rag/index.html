@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!--site.title site.tagline-->
+  <title>
+    
+      [Paper] Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (NIPS 2020) &middot; Coffee Chat
+    
+  </title>
+
+  
+  <link rel="canonical" href="https://alatteaday.github.io/ko/papers/2023/11/05/rag/">
+  
+
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/poole.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/syntax.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://alatteaday.github.io/public/favicon.ico/apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://alatteaday.github.io/public/favicon.ico/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://alatteaday.github.io/ko/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Curation of studies, techs, ideas and a journey as a maching learning engineer</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/about">About</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/">Home</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/tags">Tags</a>
+
+    
+
+    
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+          <a class="sidebar-nav-item" 
+          href="https://alatteaday.github.io/ko/about/">About</a>
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/error/">Dev Tips & Fixes</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/papers/">Papers</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/study/">Study</a>
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+    <!--
+    <a class="sidebar-nav-item" href="/ko/archive/v1.1.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span> 
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2024. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <!--site.title site.tagline-->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container" >
+          <h3 class="masthead-title">
+            <a href="/ko/" title="Home">Coffee Chat</a>
+            <small>Brewing AI Knowledge</small>
+          </h3>
+          <div class="lang-switcher">
+    
+    
+        
+            <a href=" /papers/2023/11/05/rag/">eng</a>
+        
+    
+
+    
+    
+        kor
+    
+
+</div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">[Paper] Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (NIPS 2020)</h1>
+  <p class="post-date">05 Nov 2023&nbsp;&nbsp;&nbsp;&nbsp;
+    <!--<span class="post-date">05 Nov 2023</span>-->
+    
+      
+        
+          <span class="tag" data-tag="llm">
+            <a href="https://alatteaday.github.io/ko/tags/?tag=llm">
+              #llm
+            </a>
+          </span>
+        
+      
+        
+          <span class="tag" data-tag="transformer">
+            <a href="https://alatteaday.github.io/ko/tags/?tag=transformer">
+              #transformer
+            </a>
+          </span>
+        
+      
+        
+          <span class="tag" data-tag="nlp">
+            <a href="https://alatteaday.github.io/ko/tags/?tag=nlp">
+              #nlp
+            </a>
+          </span>
+        
+      
+    
+  </p>
+  <p>Lewis, Patrick, et al. “Retrieval-augmented generation for knowledge-intensive nlp tasks.” <em>Advances in Neural Information Processing Systems</em> 33 (2020): 9459-9474.</p>
+
+<p><a href="https://proceedings.neurips.cc/paper/2020/hash/6b493230205f780e1bc26945df7481e5-Abstract.html">Paper Link</a></p>
+
+<h1 id="points">Points</h1>
+
+<ul>
+  <li><strong>Retrieval Augmented Generation (RAG)</strong> 모델은 retriever와 generator를 결합한 구조로 knowledge-intense task 수행 능력이 향상되었다.</li>
+  <li>RAG Variants: RAG-Sequence는 단일 문서를 사용해 output을 생성하고, RAG-Token 각 토큰을 생성하는 데 여러 문서를 통합한다.</li>
+  <li>RAG 모델은 open-domain QA, abstractive QA, Jeopardy question generation, and fact verification에서 baseline 모델을 능가하는 결과를 보였다.</li>
+  <li>RAG 모델은 non-parametric memory를 업데이트하는 간단한 방법으로 최신 자료를 쉽게 반영할 수 있는 실용적인 이점을 갖는다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="background">Background</h1>
+
+<ul>
+  <li>Large pre-trained Language models (LLMs)은 자체 parameter에 사실 관련 지식을 저장하고, 이것을 지식 base로 사용한다.</li>
+  <li>이러한 LLM은 자체적으로 이러한 지식을 담고 있는 메모리를 확장할 수 없고, 생성되는 output에 사실적인 통찰을 반영하거나 보장하기 어려우며, 나아가 hallucination 생성 가능성이 높다는 단점을 갖는다.</li>
+  <li>최근 REALM과 ORQA 같은 hybrid 모델은 미분 가능한 retriever를 사용하여 지식을 수정하고 확장함으로서 이런 문제를 해결한다. 이것으로 특히 open-domain question answering (QA)에서 좋은 결과를 보였다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="method">Method</h1>
+
+<p align="center">
+    <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-11-05-rag/fig1.png?raw=true" style="zoom: 100%;" />
+</p>
+
+<p>Retrieval-augmented generation (RAG)은 pre-trained generation 모델이 non-parametric memory를 사용해 보편적인 task를 수행할 수 있도록 fine-tuning 한다.</p>
+<ul>
+  <li>Parametric memory: pre-trained seq2seq transformer</li>
+  <li>Non-parametric memory: Wikipedia로부터 pre-trained neural retriever를 통해 얻는 dense vector index.</li>
+  <li>Dense passage retriever (DPR): input을 조건으로 latent document를 검색하는 retriever.</li>
+  <li>BART: input과 latent document를 조건으로 output을 생성하는 generator. T5 등 다른 seq2seq 모델로 대체 가능하다. Retriever와 함께 fine-tuning 된다.</li>
+  <li>Latent document: top-K 근사를 통해 output(시퀀스) 별 또는 토큰 별로 marginalizing 된다.
+    <ul>
+      <li>RAG-Sequence Model: 하나의 문서가 모든 토큰의 출처가 된다고 가정한다.</li>
+      <li>RAG-Token Model: 여러 문서가 한 토큰을 생성하는 데 출처가 된다고 가정한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="models">Models</h2>
+
+<p>RAG 모델은 input 시퀀스 $x$를 사용해 text document $z$를 검색하고, 이를 target 시퀀스 $y$를 생성할 때 추가적인 문맥으로 사용한다. RAG 두 가지 구성 요소로 이루어진다:</p>
+<ul>
+  <li>Retriever $p_\eta(z\mid x)$: 쿼리인 $x$에 대한 문서들의 분포를 반환한다.
+    <ul>
+      <li>Truncated as top-K assumtion.</li>
+    </ul>
+  </li>
+  <li>Generator $p_\theta(y_i\mid x,z,y_{1:i-1})$: 이전 토큰들 $y_{1:i-1}$과 현재 input $x$ 및 검색된 내용 $z$을 기반으로 현재 스텝의 토큰을 생성한다.
+Retriever와 Generator는 검색된 문서를 latent variable로 취급하여 end-to-end로 학습된다. latent document를 marginalize 하기 위한 방법으로 RAG-Sequence와 RAG-Token 두 가지 방법이 제안되었다.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="rag-sequence-and-rag-token">RAG-Sequence and RAG-Token</h2>
+
+<p><strong>RAG-Sequence Model</strong>: 검색된 동일한 문서를 사용해 전체 시퀀스를 생성한다.</p>
+
+<ul>
+  <li>검색된 문서는 top-k seq2seq 확률 $p(y\mid x)$을 얻기 위한 단일 latent variable로 간주된다.</li>
+  <li>Retriever로 top-K 문서를 검색하고, Generator로 각 문서에 대해 output 시퀀스에 대한 확률을 계산한다.</li>
+</ul>
+
+\[p_{RAG-Sequence}(y\mid x)\approx \sum_{z\in top-k(p(\cdot|x))}{p_\eta(z|x)p_\theta(y_i|x,z)} \\ = \sum_{z\in top-k(p(\cdot|x))}{p_\eta(z|x)}\prod_i^N p_\theta(y_i|x,z,y_{1:i-1})\]
+
+<ul>
+  <li>Use cases: 요약과 같은 문서의 전체적인 맥락이 중요한 작업에 적합하다.</li>
+</ul>
+
+<p><strong>RAG-Token Model</strong>: 각 토큰을 생성할 때 다른 latent document를 사용한다.</p>
+<ul>
+  <li>Generator는 여러 문서에서 내용을 추출하여 output을 생성한다.</li>
+  <li>Retriever는 top-K 문서를 검색하고 Generator는 각 문서에 대해 다음 output 토큰에 대한 분포를 계산한다.</li>
+</ul>
+
+\[p_{RAG-Token}(y|x)\approx \prod_i^N \sum_{z\in top-k(p(\cdot\mid x))}p_\eta(z\mid x)p_\theta(y_i\mid x,z_i,y_{1:i-1})\]
+
+<ul>
+  <li>Use cases: QA와 같이 여러 자료를 출처로 상세한 정보를 통합하는 작업에 적합하다.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="retriever-and-generator">Retriever and Generator</h2>
+
+<p><strong>Retriever</strong> $p_\mu(z\mid x)$: bi-encoder 구조를 갖는 DPR을 기반으로 한다:</p>
+
+\[p_\mu(z|x)\propto \exp(\bf d \rm (z)^\top \bf q \rm (x)) \\
+\bf d \rm (z)=\rm BERT_d(z), \ \bf q \rm (x)=\rm BERT_q(x)\]
+
+<ul>
+  <li>$\bf d \rm (z)$: 문서에 대한 representation. $\rm BERT_{BASE}$ 기반 document encoder가 생성한다.</li>
+  <li>$\bf q \rm (x)$: 쿼리에 대한 representation. $\rm BERT_{BASE}$ 기반 query encoder가 생성한다.</li>
+  <li><span style="background-color:#fff5b1">Maximum inner product search (MIPS)</span>: top-k $p_\eta(\cdot\mid x)$를 sub-linear에 근접한 시간 내 계산하는 방법</li>
+  <li><span style="background-color:#fff5b1">Non-parametric memory</span>: 문서의 인덱스. Retriever는 TriviaQA의 질문과 Natural Questions에 대해 답하는 데 필요한 문서를 검색하도록 학습된다.</li>
+</ul>
+
+<p><strong>Generator</strong> $p_\theta(y_i\mid x,z,y_{1:i-1})$: 이 연구에서는 BART를 기반으로 하나, 어떤 encoder-decoder 모델로도 대체될 수 있다.</p>
+<ul>
+  <li>$\rm BART_{large}$: 400M 파라미터를 갖는 pre-trained seq2seq transformer. 다양한 noising function과 denoising objective로 pre-training 되었다.</li>
+  <li>Input $x$와 검색된 문서 $z$를 concatenate 하여 $\rm BART$ 모델에 입력하고 output을 생성한다.</li>
+  <li><span style="background-color:#fff5b1">Parametric memory</span>: $\rm BART$ generator의 파라미터 $\theta$.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="training">Training</h2>
+
+<p>Retriever와 generator는 어떤 문서를 검색해야 하는지에 대한 정답 없이 학습된다.</p>
+<ul>
+  <li>Objective: input/output 쌍 $(x_j, y_j)$의 negative marginal log-likelihood 최소화, $\sum_j-\log(p(y_j\mid x_j))$.
+    <ul>
+      <li>Adam optimizer 사용.</li>
+    </ul>
+  </li>
+  <li>Query encoder $\rm BERT_q$와 generator $\rm BART$만 finetune 한다.
+    <ul>
+      <li>Document encoder $\rm BERT_d$ 업데이트는 비용이 많이 들고 비효율적이다.
+        <ul>
+          <li>Document index를 주기적으로 업데이트해야 한다.</li>
+          <li>성능 향상에 그다지 유의미하지 않다.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="decoding">Decoding</h2>
+
+<p>테스트 시, RAG-Sequence와 RAG-Token은 $\arg \max_y{p(y\mid x)}$를 근사하기 위한 서로 다른 방법을 필요로 한다.</p>
+
+<p><strong>RAG-Sequence model</strong>: 각 문서 $z$에 대해 beam search를 사용한다. $p(y\mid x)$은 기존 보편적인 토큰별 확률로 분해할 수 없어 단일 beam search로 구할 수 없다.</p>
+<ul>
+  <li>각 $z$의 hypothesis는 $p_\theta(y_i\mid x,z,y_{1:i-1})$로 점수가 매겨진다.</li>
+  <li>hypothesis 집합 $Y$에 포함된 일부 $y$는 모든 문서의 beam에서 나타나지 않을 수 있다.</li>
+  <li><span style="background-color:#fff5b1">Thorough Decoding</span>: $y$의 확률을 추정하기 위해, $y$가 beam에 나타나지 않는  $z$ 각각에 대해 추가적으로 forward pass를 진행하고, generator의 확률을 $p_\eta(z\mid x)$와 곱한 뒤, beam의 확률을 더한다.</li>
+  <li><span style="background-color:#fff5b1">Fast Decoding</span>: 후보 집합 $Y$가 생성되었을 때, forward pass를 방지하기 위해 $p_\theta(y\mid x,z_i) \approx 0$로 근사해 효율적으로 decoding을 수행한다. 이 방법은  $x, z_i$에서 beam search를 했을 때 $y$가 생성되지 않은 경우 유효하다.</li>
+  <li>긴 output 시퀀스를 생성하는 경우, $\left\vert Y \right\vert$가 여러 forward pass를 수행하며 커질 수 있다.</li>
+</ul>
+
+<p><strong>RAG-Token model</strong>: transition 확률을 갖는 기본적인 autoregressive seq2seq generator와 같은 방식으로 작동한다:</p>
+
+\[p'_\theta(y_i\mid x,y_{1,i-1})=\sum_{z\in top-k(p(\cdot \mid x))}p_\eta(z_i \mid x)p_\theta(y_i\mid x,z_i,y_{1:i-1})\]
+
+<p><br /></p>
+
+<h1 id="experiments">Experiments</h1>
+
+<p>RAG 모델이 knowledge-intensive NLP task에서 효과적인지에 대한 성능을 평가하기 위해 다양한 task를 설정했다. 모델 관련 setting 사항은 다음과 같다:</p>
+<ul>
+  <li>Wikipedia December 2018 dump를 non-parametric knwoledge source로 사용했다.</li>
+  <li>Wikipedia 문서를 100 단어씩 한 chunk로 나누어 총 2,100만 개 문서로 구성했다.</li>
+  <li>Document encoder $\rm BERT_d$로 각 문서에 대한 임베딩을 구하고, 빠른 검색을 위해 Hierarchical Navigable Small World approximation을 사용해 단일 MIPS 인덱스를 구축했다.</li>
+  <li>각 쿼리에 대해 top $k$개의 문서를 검색할 때, $k\in {5,10}$로 설정하여 학습과 테스트 시 반영했다.</li>
+</ul>
+
+<h2 id="tasks">Tasks</h2>
+
+<ol>
+  <li><strong>Open-domain Question Answering (QA)</strong>: 중요한 real-world application이자 보편적인 knowledge-intensive task이다.
+    <ul>
+      <li>텍스트 쌍 $(x,y)$는 질문과 답변에 매칭된다.</li>
+      <li>RAG는 답변 생성 시 negative log-likelihood를 최소화하도록 학습된다.</li>
+      <li>Close-book QA를 통한 비교도 진행: 검색 없이 오로지 모델에 내제된 parametric knowledge로 시퀀스를 생성한다.</li>
+      <li>Datasets: Natural Questions, TriviaQA, WebQuestions, CuratedTREC</li>
+    </ul>
+  </li>
+  <li><strong>Abstractrive Question Answering</strong>: 자유 형식이나 추상적인 경우에서의 natural language generation (NLG) 성능을 테스트한다.
+    <ul>
+      <li>MSMARCO NLG Task v2.1 사용: 원래 존재하는 gold passage는 배제하고, 질문과 답변만 사용하여 open-domain abstractive QA task를 구성했다.</li>
+    </ul>
+  </li>
+  <li><strong>Jeopardy Question Generation</strong>: QA 상황이 아닌 경우의 생성 능력을 평가한다.
+    <ul>
+      <li>Jeopardy: 특정 entity에 대한 사실을 보고 entity를 추측하는 것.
+        <ul>
+          <li>예를 들어, “1986년 멕시코는 이 국제 스포츠 대회를 두 번 개최한 첫 번째 국가로 기록되었다.”라는 사실을 보고, 이 사실에 해당하는 entity인 “월드컵”을 추측해야 한다.</li>
+        </ul>
+      </li>
+      <li>정확하고 사실적인 성격이 강한 task로, 답변인 entity를 조건으로 하여 생성하는 부분이 까다로운 knowledge-intensive task이다.</li>
+    </ul>
+  </li>
+  <li><strong>Fact Verification</strong> (FEVER): 고난이도의 함의 추론과 결합된 검색 문제이다.
+    <ul>
+      <li>텍스트가 Wikipedia에 따라 맞는 내용인지, 틀렸는지, 또는 판단할 충분한 정보가 없는지를 분류해야 한다.</li>
+      <li>모델의 생성 능력이 아닌 분류 능력을 테스트하기에 적절하다.</li>
+      <li>Two varients: 3-way classification (supports/refutes/not enough)과 2-way (support/refutes).</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h1 id="results">Results</h1>
+
+<p>RAG 모델은 여러 task에서 baseline 모델 이상의 성능을 보였다.</p>
+
+<h2 id="open-domain-qa">Open-Domain QA</h2>
+
+<p align="center">
+    <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-11-05-rag/table1_2.png?raw=true" style="zoom: 100%;" />
+</p>
+
+<ul>
+  <li>RAG 모델은 baseline을 크게 능가하는 점수를 기록했다.</li>
+  <li>특히 RAG-Token 모델은 여러 문서의 세세한 정보를 통합하는 능력에 의해 우수한 성능을 보였다.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="abstractive-question-answering">Abstractive Question Answering</h2>
+
+<p align="center">
+    <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-11-05-rag/table3.png?raw=true" style="zoom: 100%;" />
+</p>
+
+<ul>
+  <li>다수의 질문이 gold passage 없이 대답할 수 없었음에도 불구하고 RAG 모델이 SOTA 성능을 달성했다.</li>
+  <li>RAG 모델은 BART에 비해 hallucination을 적게 일으켰고 사실적으로 정확하면서도 다양한 텍스트를 생성했다 (Table 3).</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="jeopardy-question-generation">Jeopardy Question Generation</h2>
+
+<p align="center">
+    <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-11-05-rag/table4_5.png?raw=true" style="zoom: 100%;" />
+</p>
+<p>
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-11-05-rag/fig2.png?raw=true" style="zoom: 100%;" />
+</p>
+
+<ul>
+  <li>두 RAG model 모두 Q-BLEU-1에서 BART를 능가했다 (Table 2).</li>
+  <li>Human evaluator는 RAG가 생성한 결과가 42.7%의 경우에서 더 사실적이라고 평가해, SOTA인 generation 모델보다 더 나은 생성 능력을 입증했다 (Table 4).</li>
+  <li>RAG-Token 모델이 RAG-Sequence 모델보다 성능이 더 좋게 나타났는데, 여러 문서의 내용을 효과적으로 결합하기 때문인 것으로 생각된다 (Fig 2).</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="fact-verification">Fact Verification</h2>
+
+<ul>
+  <li>3-way classification에서 RAG는 특정 도메인에 대한 중간 검색에 대해 지도학습된 SOTA 모델 점수의 4.3% 범위 내의 점수를 기록했다.</li>
+  <li>2-way classification에서는 gold evidence를 기반으로 true/false classification을 학습한 SotA 모델과 비교해 2.7% 이내의 성능을 달성했다.</li>
+  <li>RAG가 검색한 문서는 FEVER의 gold evidence와 상당 부분 겹쳤다.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="additional-results">Additional Results</h2>
+
+<ol>
+  <li>
+    <p><strong>Generation Diversity</strong>: 서로 다른 모델이 생성한 ngram의 비율을 계산하여 output의 다양성을 조사한 결과, RAG 모델이 BART보다 더 다양한 output을 생성했다. RAG-Token보다는 RAG-Sequence의 output이 더 다양했다 (Table 5).</p>
+  </li>
+  <li>
+    <p><strong>Retrieval Ablations</strong>: 학습 중 retriever를 freeze했을 때 원래 방식의 RAG 모델에 비해 성능이 하락했다. Retriever를 BM25로 대체하여 비교했을 때도 학습된 retriever의 성능이 더 높은 것을 볼 수 있었다 (table 6).</p>
+
+    <p align="center">
+    <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-11-05-rag/table6.png?raw=true" style="zoom: 100%;" />
+</p>
+  </li>
+  <li>
+    <p><strong>Index hot-swapping</strong>: December 2016 Wikipedia dump의 인덱스를 사용하여 non-parametric memory의 이점을 입증했다. RAG 모델은 인덱스가 바뀌었음에도 질문의 70%를 맞게 대답했다. 이로서 non-parametric memory를 단순히 교체하여 knowledge를 업데이트할 수 있음을 알 수 있다.</p>
+  </li>
+  <li>
+    <p><strong>Effect of Retrieving more documents</strong>: 테스트 시 검색될 문서의 수 $k$를 조정한 결과, task에 따라서 특정 개수까지의, 혹은 많은 문서를 검색할수록 성능이 향상되는 것을 볼 수 있다 (fig 3).</p>
+
+    <p align="center">
+    <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-11-05-rag/fig3.png?raw=true" style="zoom: 100%;" />
+</p>
+  </li>
+</ol>
+
+<p><br /></p>
+
+</div>
+
+
+<div class="related">
+  <h2 class="related-title">Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/ko/paper/2024/06/14/mriqcsurvey/">
+            MRI Quality Assessment 및 Control 관련 네 개 논문 요약&nbsp;
+            <small>14 Jun 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/study/2024/05/28/mriqc_report/">
+            [MRIQC 4] MRIQC Report와 Image Quality Metrics (IQMs)&nbsp;
+            <small>28 May 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/study/dev%20tips%20&%20fixes/2024/05/21/html_flask/">
+            [MRIQC 3-1] Flask를 사용해 HTML 파일 열어보기&nbsp;
+            <small>21 May 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+        
+          <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+        
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

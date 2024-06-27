@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!--site.title site.tagline-->
+  <title>
+    
+      [Paper] Training language models to follow instructions with human feedback (2022) &middot; Coffee Chat
+    
+  </title>
+
+  
+  <link rel="canonical" href="https://alatteaday.github.io/ko/papers/2023/04/30/rlhf/">
+  
+
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/poole.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/syntax.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://alatteaday.github.io/public/favicon.ico/apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://alatteaday.github.io/public/favicon.ico/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://alatteaday.github.io/ko/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Curation of studies, techs, ideas and a journey as a maching learning engineer</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/about">About</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/">Home</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/tags">Tags</a>
+
+    
+
+    
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+          <a class="sidebar-nav-item" 
+          href="https://alatteaday.github.io/ko/about/">About</a>
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/error/">Dev Tips & Fixes</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/papers/">Papers</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/study/">Study</a>
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+    <!--
+    <a class="sidebar-nav-item" href="/ko/archive/v1.1.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span> 
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2024. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <!--site.title site.tagline-->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container" >
+          <h3 class="masthead-title">
+            <a href="/ko/" title="Home">Coffee Chat</a>
+            <small>Brewing AI Knowledge</small>
+          </h3>
+          <div class="lang-switcher">
+    
+    
+        
+            <a href=" /papers/2023/04/30/rlhf/">eng</a>
+        
+    
+
+    
+    
+        kor
+    
+
+</div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">[Paper] Training language models to follow instructions with human feedback (2022)</h1>
+  <p class="post-date">30 Apr 2023&nbsp;&nbsp;&nbsp;&nbsp;
+    <!--<span class="post-date">30 Apr 2023</span>-->
+    
+      
+        
+          <span class="tag" data-tag="nlp">
+            <a href="https://alatteaday.github.io/ko/tags/?tag=nlp">
+              #nlp
+            </a>
+          </span>
+        
+      
+        
+          <span class="tag" data-tag="llm">
+            <a href="https://alatteaday.github.io/ko/tags/?tag=llm">
+              #llm
+            </a>
+          </span>
+        
+      
+    
+  </p>
+  <style>
+img {
+    display: inline;
+}
+p {
+   margin-top: 1em;
+   margin-bottom: 0em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+p.a{
+   margin-top: 2.5em;
+   margin-bottom: -0.5em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+</style>
+
+<p>Ouyang, Long, et al. “Training language models to follow instructions with human feedback.” <em>Advances in neural information processing systems</em> 35 (2022): 27730-27744.</p>
+
+<p><a href="https://arxiv.org/abs/2203.02155">Paper Link</a></p>
+
+<h1 id="point">Point</h1>
+
+<ul>
+  <li>Employs <strong>Reinforcement Learning from Human Feedback (RLHF)</strong> to fine-tune GPT-3 models, aligning them with human intentions while reducing unintended behaviors like hallucinations and toxicity.</li>
+  <li><strong>InstructGPT</strong> models outperforms GPT-3 in truthfulness and reliability, generalizing well to new tasks like non-English and coding instructions.</li>
+  <li>Highlights the need for diverse stakeholder input and suggest combining RLHF with other methods to improve model alignment and safety.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="background">Background</h1>
+
+<p>Language models (LMs) often generate misinsformation, toxic or biased content and this issue cannot be resolved simply by increasing the model size. Understanding user intent is crucial for these models. Fine-tuning with human feedback can align the models with user intentions across various tasks.</p>
+
+<p>Large language models (LLMs) frequently exhibit uninteded behaviors, such as hallucinations, toxic text generation, failing to follow user instructions. These are influenced by the model’s objective, which typically involves predicting the next token based on web data, differing from the goal of “following the user instructions helpfully and safely”.</p>
+
+<p>To align LMs, this paper employs <strong>Reinforcement Learning from Human Feedbak (RLHF)</strong> to fine-tune GPT-3 to follow instructions. Human preferences serve as a reward signal for this fine-tuning process.</p>
+
+<p><br /></p>
+
+<h1 id="methods-and-experimental-details">Methods and experimental details</h1>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-04-30-rlhf/fig2.png?raw=true" alt="fig2" style="zoom: 50%;" />
+</p>
+
+<h2 id="high-level-methology">High-level methology</h2>
+
+<ol>
+  <li>Preparation: Utilize pre-trained language models (GPT-3), prepare a distribution of prompts for alignment, and train human labelers.</li>
+  <li>Collect demonstration data and train a supervised policy: Labelers provide input prompts as desired behavior responses. The model is fine-tuned on this data using supervised learning.</li>
+  <li>Collect comparison data and train a reward model: Labelers compare model outputs and indicate their preferences. A reward model (RM) is trained using these comparisons to predict human-preferred outputs.</li>
+  <li>Optimize a policy aganst the RM using PPO: The RM’s output serves as a scalar reward. The supervised policy (trained GPT-3) is fine-tuned using the PPO algorithm to optimize this reward.</li>
+</ol>
+
+<p>Step 2 and 3 can be iterative: More comparison data is collected on the current best policy, used to train a new RM and subsequently a new policy.</p>
+
+<p><br /></p>
+
+<h2 id="dataset">Dataset</h2>
+
+<p>Source of prompts:</p>
+<ul>
+  <li>Consists of text prompts submitted to the OpenAI API, specifically those using an earlier version of InstructGPT models on the Playground interface.</li>
+  <li>The paper does not include data from customers using the API in production.</li>
+</ul>
+
+<p>Deduplication and filtering:</p>
+<ul>
+  <li>Heuristically deduplicated by checking for prompts that share a long common prefix.</li>
+  <li>The number of prompts is limited to 200 per user ID.</li>
+  <li>Validation and test sets contain no data from users whose data is in the training set.</li>
+  <li>All prompts in the training split were filtered for personally indentifiable information (PII).</li>
+</ul>
+
+<p>Initial source of prompts: Human-written prompts were used as an initial source of instruction to bootstrap the process.</p>
+
+<p>Datasets for fine-tuning:</p>
+<ul>
+  <li>SFT dataset: Labelers’ demonstrations (13k prompts, from the API and labeler-written examples).</li>
+  <li>RM dataset: Labeler rankings of model outputs (33k, from the API and labeler-written examples).</li>
+  <li>PPO dataset: Inputs for RLHF fine-tuning. Human labels were not used (31k, only from the API).</li>
+</ul>
+
+<p>Use cases: Most of the use-cases have are generative, rather than classification of prompts submitted to InstructGPT models</p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-04-30-rlhf/fig1.png?raw=true" alt="fig1" style="zoom: 35%;" />
+</p>
+
+<p><br /></p>
+
+<h2 id="tasks">Tasks</h2>
+
+<p>Datasets for training tasks</p>
+<ul>
+  <li>Sources: The datasets are sourced from prompts written by labelers and those submitted to early versions of InstructGPT models via API.</li>
+  <li>Labeler Instructions: Labelers are trained and instructed to write prompts with specific intents or implicit goals in mind to ensure the model aligns with desired behaviors.</li>
+  <li>Language: The datasets are predominately in English (95%). However, the paper also reports the models’ performance in other languages.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="human-data-collection">Human data collection</h2>
+
+<p>Selection of Labelers: A diverse group of labelers was selected to ensure a broad demographic representation. It aims to generate inputs with a wide range of perspectives and to identify potentially harmful outputs.</p>
+
+<p>Training and Evaluation: Labelers underwent tests designed to measure their performance in labeling according to the set standards. This included their ability to generate diverse prompts and accurately identify harmful content.</p>
+
+<p><br /></p>
+
+<h2 id="models">Models</h2>
+
+<p>Pre-trained GPT models are utilized as basis. These models are trianed on a broad distribution of Internet data and can be used for various tasks but initially exhibit poorly characterized behavior. The GPT-3 models are then further trained using three different techniques:</p>
+
+<p><br /></p>
+
+<h3 id="supervised-fine-tuning-sft">Supervised fine-tuning (SFT)</h3>
+
+<p>This method fine-tunes GPT-3 on labeler demonstrations using supervised learning.</p>
+
+<ul>
+  <li>Training details: 16 epochs using a cosine learing rate decay and a residual dropout of 0.2.</li>
+  <li>Model selection: Based on the model’s RM score on the validation set.</li>
+  <li>Finding: Training for more epochs improves both the RM score and human preference ratings, depite some overfitting.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="reward-modeling-rm">Reward modeling (RM)</h3>
+
+<ul>
+  <li>Base model: Starts with a pre-trained SFT model but the final unembedding layer is removed. This layer maps the model’s representations to the vocabulary space for generating output tokens.</li>
+  <li>Input and output: The model takes a prompt and a response are as input and outputs a scalr reward, representing theh quality of the response for the given prompt.</li>
+  <li>Model size: Utilizes 6B reward model (RM) for efficiency. A larger 175B RM was found to be unstable and unsuitable for use as the value function in RL.</li>
+  <li>Data: Uses comparisons between two model outputs for the same input to determine which output is preferred by human labelers.</li>
+  <li>Loss: Trained with cross-entropy loss, using the comparisons as labels. The reward difference reflect the log odds of one response being preferred over the other by a labeler.</li>
+  <li>Speed-up comparison collection: Labelers are presented with $K$ responses to rank for each prompt, where $K$ ranges from 4 to 9. This results in $K(K-1) \over 2$ comparisons for each prompt.</li>
+  <li>Training efficiency and overfitting:
+    <ul>
+      <li>Comparisons within each labeling task are very correlated. If all comparisons are shuffled into one dataset and processed in a single pass, the model tends to overfit.</li>
+      <li>To address this, the training treats all $K(K-1) \over 2$ comparisons from each prompt as a single batch element, offering several benefits:
+        <ul>
+          <li>Requires only one forward pass for each set of $K$ responses, instead of $K(K-1) \over 2$ forward passes.</li>
+          <li>Prevents overfitting by avoiding isolated highly correlated comparisons.</li>
+          <li>Improves computational efficiency, and achieves better validation accuracy and log loss.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Loss function:</p>
+
+\[loss(\theta)=-{1\over \binom{K}{2}} E_{(x,y_w,y_l)~D}[\log(\sigma(r_\theta(x,y_w)-r_\theta(x,y_l)))]\]
+
+    <ul>
+      <li>$r_\theta(x,y)$ is the scalar output of the RM for promt $x$ and completion $y$ with parameters $\theta$.</li>
+      <li>$y_w$ is preferred completion out of the pair of $y_w$ and $y_l$.</li>
+      <li>$D$ is the dataset of human comparisons.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="reinforcement-learning-rl">Reinforcement learning (RL)</h3>
+
+<ul>
+  <li>Base model: The SFT model is fine-tuned using Proximal Policy Optimization (PPO) in an environment.</li>
+  <li>Training environment: A bandit environment. It this context, a bandit environment presents a random customer prompt, expects a response, produces a reward determined by the RM, and ends the episode.</li>
+  <li>Input and output: The model takes the prompt and response as input and outputs a reward determined by the RM.</li>
+  <li>KL penalty: A per-token Kullback-Leibler (KL) penalty is added from the SFT model at each token.
+    <ul>
+      <li>This penalty mitigates over-optimization of the RM and prevents the model from deviating too far from the behavior learned during supervised fine-tuning.</li>
+      <li>The value funciton used in PPO is initialized from the RM.</li>
+    </ul>
+  </li>
+  <li>PPO and PPO-ptx models:
+    <ul>
+      <li>PPO models: Fine-tuned with PPO.</li>
+      <li>PPO-ptx models: Involve an additional experiment where pre-training gradients are mixed into PPO gradients to address performance regressions on public NLP datasets.</li>
+      <li>
+        <p>The objective function for PPO-ptx:</p>
+
+\[\begin{aligned}
+\text{objective}(\phi) = &amp; \ \mathbb{E}_{(x, y) \sim D_{\pi_{\phi}^{RL}}} \left[ r_\theta(x, y) - \beta \log \left( \frac{\pi_\phi^{RL}(y | x)}{\pi^{SFT}(y | x)} \right) \right] \\
+&amp; + \gamma \mathbb{E}_{x \sim D_{\text{pretrain}}} \left[ \log(\pi_\phi^{RL}(x)) \right]
+\end{aligned}\]
+
+        <p>where:</p>
+
+        <ul>
+          <li>$\pi_\phi^{RL}$ is the learned RL policy and $\pi^{SFT}$ is the supervised fine-tuned model.</li>
+          <li>$D_{\pi^{RL}}$ is the distribution of data under the RL policy, and $D_{pretrain}$ is the pre-training distribution.</li>
+          <li>$\beta$ is the KL reward coefficient, controlling the strength of the KL penalty.</li>
+          <li>$\gamma$ is the pre-training loss coefficient, controlling the influence of pre-training gradients. For PPO models $\gamma$ is set to 0.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>In this paper, InstructGPT refers to the PPO-ptx models.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="baselines">Baselines</h3>
+
+<p>The performance of PPO models is compared against several baselines:</p>
+<ul>
+  <li>SFT models: Fine-tuned using supervised learing.</li>
+  <li>GPT-3: The standard GPT-3 model without additional fine-tuning.</li>
+  <li>GPT-3 Prompted: Provided with a few-shot previx to prompt it into an instruction-following mode, where the prefix is prepended to the user-specified instruction.</li>
+  <li>InstructGPT is compared to 175B GPT-3 models fine-tuned on FLAN and T0 datasets. These datasets include various NLP tasks combined with natural language instructions.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="evaluation">Evaluation</h2>
+
+<p>The definition of “alignment” to evaluate models is based on their ability to act in accordance with user intentions. The practical evaluation framework checks if the model is helpful, honest and harmless.</p>
+
+<ul>
+  <li>Helpfulness: The model should follow instructions and infer intentions from prompts or a patterns.
+    <ul>
+      <li>Since the intention could be unclear, labeler preference ratings are considered mainly for evaluation.</li>
+      <li>There may be divergence between actual user intentions and labeler interpretations.</li>
+    </ul>
+  </li>
+  <li>Honesty: Truthfulness is measured instead of comparing the model’s output to its actual belief.
+    <ul>
+      <li>Two metrics are used:
+        <ul>
+          <li>The model’s tendency to fabricate information on closed domain tasks</li>
+          <li>Performance on the TruthfulQA dataset.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Harm: Harmfulness depends on the context in which the model is used, and assessing potential harm requires significatn speculation.
+    <ul>
+      <li>More specific proxy criteria are used:
+        <ul>
+          <li>Whether a deployed model could be harmful.</li>
+          <li>Labelers evaluate if an output is inappropriate in the context of a customer assistant, denigrates a protected class, or contains sexual or violent content.</li>
+          <li>Benchmarks like RealToxicityPrompts and CrowS-pairs are used to measure bias and toxicity.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="evaluation-on-api-distiribution">Evaluation on API distiribution</h3>
+
+<p>When using prompts from the API for evaluting human preference ratings, only prompts not included in training are selected.</p>
+
+<p>Since prompts for InsturctGPT models are not suitable for the GPT-3 baselines, prompts submitted to the GPT-3 API are also used for evaluation.</p>
+<ul>
+  <li>The GPT-3 prompts are not in an instruction-following style.</li>
+  <li>The 175B SFT model is chosen as the baseline due to its average performance.</li>
+</ul>
+
+<p>Each model is evaluated based on how often its outputs are preferred, and labelers judge the overall quality of each response on a 1-7 Likert scale.</p>
+
+<p><br /></p>
+
+<h3 id="evaluation-on-public-nlp-datasets">Evaluation on public NLP datasets</h3>
+
+<p>Two types of public datasets are used:</p>
+<ul>
+  <li>Safety evaluation: Focuses on truthfulness, toxicity, and bias. Includes evaluations of toxicity using the RealToxicityPrompts dataset.</li>
+  <li>Zero-shot performance: Assesses performance on traditional NLP tasks such as question anwering (QA), reading comprehension, and summarization.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="results">Results</h1>
+
+<p>The experimental results are organized into three parts: results on the API prompt distribution, results on public NLP datasets, and qualitative results.</p>
+
+<h2 id="results-on-the-api-distribution">Results on the API distribution</h2>
+
+<h3 id="1-labelers-significantly-prefer-instructgpt-outputs-over-outputs-from-gpt-3">1. Labelers significantly prefer InstructGPT outputs over outputs from GPT-3.</h3>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-04-30-rlhf/fig1.png?raw=true" alt="fig1" style="zoom: 35%;" />
+</p>
+
+<ul>
+  <li>175B InstructGPT outputs are preferred to GPT-3 outputs around 85% of the time and around 71% compared to few-shot GPT-3.</li>
+  <li>The preference order is GPT-3 &lt; GPT-3 Prompted &lt; SFT &lt; PPO.</li>
+  <li>Adding updates on the pre-training mix during PPO does not lead to significant changes in labeler preference.</li>
+</ul>
+
+<p class="a" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-04-30-rlhf/fig3.png?raw=true" alt="fig3" style="zoom: 35%;" />
+</p>
+
+<ul>
+  <li>This preference trend remains consistent when evaluating models on prompts submitted to GPT-3 models on the API, though PPO-ptx models perform slightly worse at larger sizes.</li>
+</ul>
+
+<p class="a" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-04-30-rlhf/fig4.png?raw=true" alt="fig4" style="zoom: 35%;" />
+</p>
+
+<ul>
+  <li>InstructGPT outputs are rated favorably on more concrete axes: They follow constraints and instruction better and hallucinate less.</li>
+  <li>This suggests that InstructGPT models are more reliable and easier to control than GPT-3.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="2-instructgpt-models-generalize-to-the-preferences-of-held-out-labelers-that-did-not-produce-any-training-data">2. InstructGPT models generalize to the preferences of “held-out” labelers that did not produce any training data.</h3>
+
+<ul>
+  <li>InstructGPT models’ outputs are rated better than GPT-3 baselines by held-out labelers, indicating InstructGPT models are not simiply overfitting to the preferences of training labelers.</li>
+  <li>RMs also demonstrate generlization capabilties with cross-validation results: 69.6% accuracy in predicting the preferences of held-out labelers, which is slightly lower than 72.4% accuracy in the predicting preferences within the training set.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="3-public-nlp-datasets-are-not-reflective-of-how-the-lms-are-used">3. Public NLP datasets are not reflective of how the LMs are used.</h3>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-04-30-rlhf/fig5.png?raw=true" alt="fig5" style="zoom: 35%;" />
+</p>
+
+<ul>
+  <li>When comparing InstructGPT to 175B GPT-3 baseline fine-tuned on FLAN and T0, these models perform better than GPT-3 with a good prompt but worse than the SFT baseline. This suggests the datasets are not sufficiently diverse to improve API prompt distribution.</li>
+  <li>InstructGPT may outperform FLAN and T0 because:
+    <ul>
+      <li>Public NLP datasets are desinged to capture typical tasks that are easy to evaluate (e.g., classification, QA). However, open-ended generation and brainstorming constitute most (57%) of tasks the API users want.</li>
+      <li>Public NLP datasets may lack the high diversity of inputs that real-world users are interested in.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="results-on-public-nlp-datasets">Results on public NLP datasets</h2>
+
+<h3 id="1-instructgpt-models-show-improvements-in-truthfulness-over-gpt-3">1. InstructGPT models show improvements in truthfulness over GPT-3.</h3>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-04-30-rlhf/fig6.png?raw=true" alt="fig6" style="zoom: 35%;" />
+</p>
+
+<ul>
+  <li>PPO models demonstrate significant improvements on the TruthfulQA dataset.</li>
+  <li>The 1.3B PPO-ptx model performs slightly worse than GPT-3 of the same size.</li>
+  <li>Training with an “Instruction+QA” prompt helps the model avoid generating false information.
+    <ul>
+      <li>Instruction+QA: Instructs the model to respond with “I have no comment” when it’s uncertain of the correct answer.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="2-instructgpt-shows-small-improvements-in-toxicity-over-gpt-3-but-not-bias">2. InstructGPT shows small improvements in toxicity over GPT-3, but not bias.</h3>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-04-30-rlhf/fig7.png?raw=true" alt="fig7" style="zoom: 35%;" />
+</p>
+
+<ul>
+  <li>Toxicity: Evaluated using the RealToxicityPrompts benchmark.
+    <ul>
+      <li>Evaluation method: Toxicity scores are obtained through the Perspective API with model samples and labelers rate the samples.</li>
+      <li>InstructGPT outputs are less toxic than those of GPT-3 when instructed to generate respectful outputs. Without any prompt, the models are similar, and InstructGPT can be more toxic when prompted to produce toxic content.</li>
+    </ul>
+  </li>
+  <li>Bias: Evaluated using the Winogender and CrowS-Pairs benchmarks.
+    <ul>
+      <li>Evaluation method: Calculates the relative probabilities of producing sentences in each pair and the entropy of the associated binary probability distributions.
+        <ul>
+          <li>Unbiased models will show no preference, thus having maximum entropy.</li>
+        </ul>
+      </li>
+      <li>InstructGPT and GPT-3 show similar levels of bias. The PPO-ptx model shows higher bias when instructed to act respectfully, with unclear patterns.</li>
+      <li>Instructed models tend to be more certain of their outputs, regardlessly with stereotypes.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="3-modifying-rlhf-fine-tuning-procedures-can-minimize-performance-regressions-on-public-nlp-datasets">3. Modifying RLHF fine-tuning procedures can minimize performance regressions on public NLP datasets.</h3>
+
+<ul>
+  <li>Alignment tax: PPO model experience a decrease in performance on public NLP datasets, referred to as “alignment tax”.</li>
+</ul>
+
+<p style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-04-30-rlhf/fig28.png?raw=true" alt="fig28" style="width: 49%; vertical-align:text-top;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-04-30-rlhf/fig29.png?raw=true" alt="fig29" style="width: 49%; vertical-align:text-top;" />
+</p>
+
+<ul>
+  <li>Mitigation strategies: Mixing pre-training updates to the PPO fine-tuning (PPO-ptx) reduces performance regressions across all datasets.</li>
+</ul>
+
+<p class="a" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-04-30-rlhf/fig33.png?raw=true" alt="fig33" style="zoom: 35%;" />
+</p>
+
+<ul>
+  <li>PPO-ptx performs better than merely increasing the KL coefficient. Changing the KL model from the PPO initialization to GPT-3 yields similar improvements.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="qualitative-results">Qualitative results</h2>
+
+<h3 id="1-instructgpt-models-show-promising-generlization-to-instructions-outside-of-the-rlhf-fine-tuning-distribution">1. InstructGPT models show promising generlization to instructions outside of the RLHF fine-tuning distribution.</h3>
+
+<ul>
+  <li>InstructGPT models can follow non-English instructions, and perform coding tasks, despite limited training data in these formats.</li>
+  <li>Alignment methods can generalize to produce desired behaviors on inputs not directly supervised.</li>
+</ul>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-04-30-rlhf/fig8.png?raw=true" alt="fig8" style="zoom: 35%;" />
+</p>
+
+<ul>
+  <li>175B PPO-ptx model can answer questions about code and non-English instructions, but often responds in English to questions in other languages.</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="2-instructgpt-still-makes-simple-mistakes">2. InstructGPT still makes simple mistakes.</h3>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2023-04-30-rlhf/fig9.png?raw=true" alt="fig9" style="zoom: 35%;" />
+</p>
+
+<ul>
+  <li>The model sometimes incorrectly assumes a false premise in an instruction is true.</li>
+  <li>It can overly hedge even when the answer is clear.</li>
+  <li>It struggles with generating responses when there’re multiple or challenging constraints in an instruction.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="discussion">Discussion</h1>
+
+<h2 id="implications-for-alignment-research">Implications for alignment research</h2>
+
+<p>Improving the alignment of current AI systems provides a clear empirical feedback loop, esssential for refining alignment techniques.</p>
+
+<p>Moreover, RLHF is an important building block for aligning superhuman systems, especially for tasks difficult to evaluate.</p>
+
+<p>General lessons for alignment research:</p>
+
+<ul>
+  <li><strong>The cost of increasing model alignment is modest relative to pre-training</strong>: The significant costs lie in data collection and computation. With RLHF, larger LMs become more helpful, suggesting investing in aligning existing LMs is more efficient than training new, larger models.</li>
+  <li><strong>There is evidence that InstructGPT generalizes ‘following instructions’ to settings that we don’t supervise it in</strong>: E.g., non-English and code tasks. This is important as creating supervised models for each task is expensive.</li>
+  <li><strong>The proposed fine-tuning can mitigate most of the performance degradations</strong>: Low alignment tax techniques are needed for future AI systems capable of understanding human intents, and RLHF is effective in this regard.</li>
+  <li><strong>Alignment techniques are validated in the real world</strong>: This work grounds alignment research in real-world applications, providing valuable insights for AI systems used by actual users.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="who-are-we-aligning-to">Who are we aligning to?</h2>
+
+<p>Factors influencing the fine-tuning data and key sources of alignment preferences:</p>
+
+<ul>
+  <li>Labelers’ preferences: The models are aligned to the preferences of hired labelers who generate the training data. They are mostly English speakers, with around 73% agreement among them.</li>
+  <li>Researchers’ preferences: Researchers design the study, write instructions, and guide labelers on edge cases, thereby influencing the alignment. More research is needed to understand the impact of different instructions and interfaces on the collected data and model behavior.</li>
+  <li>Customer prompts: Training data includes prompts from OpenAI customers using the API. There is potential misalignment between customer goals and end-user well-being.</li>
+  <li>Customer representation: The customers are not representative of all potential or current LM users. The initial user base was biased towards OpenAI’s networks.</li>
+</ul>
+
+<p>Challenges and future directions:</p>
+
+<ul>
+  <li>Designing a fair and transparent alignment process is complex.</li>
+  <li>This paper demonstrates that the alignment method can work for a specific human reference group but doesn’t claim these group preferences are ideal.</li>
+  <li>Multiple stakeholders need consideration, including model trainers, developers, end-users, and the broader impacted population.</li>
+  <li>Aligning a system to everyone’s preferences simultaneously is impossible, and not all trade-offs will be universally endorsed.</li>
+  <li>One potential approach is to train models for different group preferences so that it can reflect diverse values. However, this may still impact broader society, raising decisions about prioritizing preferences.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="limitations">Limitations</h2>
+
+<p>Methodology:</p>
+
+<ul>
+  <li>Contractor influence: InstructGPT is influenced by the human feedback from about 40 contractors.
+    <ul>
+      <li>Contractors’ identity, beliefs, cultural backgrounds, and personal history may affect their judgments.</li>
+      <li>They were selected based on their performance with sensitive prompts and labeling tasks.</li>
+      <li>The small team size allowed for better communication but is not representative of the broader population will use the models.</li>
+      <li>They are mostly  English-speaking, and the data is almost entirely in English.</li>
+    </ul>
+  </li>
+  <li>Data collection improvements: Most comparisons are labeled by only one contractor to reduce costs.
+    <ul>
+      <li>Multiple labelings could help identify disagreement areas, indicating where a single model may not align with all labelers.</li>
+      <li>Averaging labeler preferences for disagreements might not be ideal, especially for minority groups, whose preferences should be weighted more heavily.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Models:</p>
+<ul>
+  <li>Imcomplete alignment and safety: InstructGPT is not fully aligned or safe.
+    <ul>
+      <li>It still generates toxic or biased outputs, misinformations, and sexual or violent content.</li>
+      <li>It sometimes fails to generate reasonable outputs for certain inputs.</li>
+    </ul>
+  </li>
+  <li>Following potentially harmful instructions: InstructGPT often follows instructions even if it could lead to real-world harm.
+    <ul>
+      <li>It produces more toxic outputs than GPT-3 when instructed to be maximally biased.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+
+</div>
+
+
+<div class="related">
+  <h2 class="related-title">Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/ko/paper/2024/06/14/mriqcsurvey/">
+            MRI Quality Assessment 및 Control 관련 네 개 논문 요약&nbsp;
+            <small>14 Jun 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/study/2024/05/28/mriqc_report/">
+            [MRIQC 4] MRIQC Report와 Image Quality Metrics (IQMs)&nbsp;
+            <small>28 May 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/study/dev%20tips%20&%20fixes/2024/05/21/html_flask/">
+            [MRIQC 3-1] Flask를 사용해 HTML 파일 열어보기&nbsp;
+            <small>21 May 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+        
+          <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+        
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

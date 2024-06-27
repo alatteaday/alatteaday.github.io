@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!--site.title site.tagline-->
+  <title>
+    
+      Docker 명령어 정리 &middot; Coffee Chat
+    
+  </title>
+
+  
+  <link rel="canonical" href="https://alatteaday.github.io/ko/dev%20tips%20&%20fixes/2024/02/20/dockercmd/">
+  
+
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/poole.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/syntax.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://alatteaday.github.io/public/favicon.ico/apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://alatteaday.github.io/public/favicon.ico/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://alatteaday.github.io/ko/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Curation of studies, techs, ideas and a journey as a maching learning engineer</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/about">About</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/">Home</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/tags">Tags</a>
+
+    
+
+    
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+          <a class="sidebar-nav-item" 
+          href="https://alatteaday.github.io/ko/about/">About</a>
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/error/">Dev Tips & Fixes</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/papers/">Papers</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/study/">Study</a>
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+    <!--
+    <a class="sidebar-nav-item" href="/ko/archive/v1.1.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span> 
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2024. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <!--site.title site.tagline-->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container" >
+          <h3 class="masthead-title">
+            <a href="/ko/" title="Home">Coffee Chat</a>
+            <small>Brewing AI Knowledge</small>
+          </h3>
+          <div class="lang-switcher">
+    
+    
+        
+            <a href=" /dev%20tips%20&%20fixes/2024/02/20/dockercmd/">eng</a>
+        
+    
+
+    
+    
+        kor
+    
+
+</div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Docker 명령어 정리</h1>
+  <p class="post-date">20 Feb 2024&nbsp;&nbsp;&nbsp;&nbsp;
+    <!--<span class="post-date">20 Feb 2024</span>-->
+    
+      
+        
+          <span class="tag" data-tag="docker">
+            <a href="https://alatteaday.github.io/ko/tags/?tag=docker">
+              #docker
+            </a>
+          </span>
+        
+      
+    
+  </p>
+  <h1 id="image">Image</h1>
+
+<h2 id="이미지-검색">이미지 검색</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker search [OPTIONS] IMAGE_NAME
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--automated=false</code>  자동 빌드만 표시</li>
+  <li><code class="language-plaintext highlighter-rouge">--no-trunc=false</code>  모든 결과 표시</li>
+  <li><code class="language-plaintext highlighter-rouge">-s=n</code> <code class="language-plaintext highlighter-rouge">--stars=n</code>  star수가 n개 이상인 이미지만 표시</li>
+  <li>e.g.,
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker search --stars=100 mysql
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="이미지-다운로드">이미지 다운로드</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull [OPTIONS] IMAGE_NAME[:TAG_NAME]
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-a</code>  해당 이미지의 모든 버전 다운로드</li>
+  <li><code class="language-plaintext highlighter-rouge">TAG_NAME</code>  다운로드할 버전 정보, 지정하지 않으면 최신 버전(latest) 다운로드</li>
+  <li>e.g.
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker pull ubuntu:22.04
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="이미지-목록-확인">이미지 목록 확인</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker images [OPTIONS] [REPOSITORY]
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-a</code> <code class="language-plaintext highlighter-rouge">--all</code>  모든 이미지 표시</li>
+  <li><code class="language-plaintext highlighter-rouge">--digests</code>  digest 표시</li>
+  <li><code class="language-plaintext highlighter-rouge">-q</code> <code class="language-plaintext highlighter-rouge">--quiet</code>  이미지 ID만 표시</li>
+  <li>*컨테이너 목록 확인:  <code class="language-plaintext highlighter-rouge">docker ps</code></li>
+</ul>
+
+<h2 id="이미지-세부-정보-확인">이미지 세부 정보 확인</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker image inspect IMAGE_ID
+</code></pre></div></div>
+<ul>
+  <li>Full ID를 입력하지 않고 일부만 입력해도 된다.</li>
+</ul>
+
+<h2 id="이미지-삭제">이미지 삭제</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker rmi [OPTION] IMAGE_NAME:TAG_NAME
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-f</code>  실행 중인 컨테이너의 이미지를 강제 삭제, 그러나 실질적으로 untagging만 되고 이미지와 컨테이너 모두 실제로 삭제되지 않는다.</li>
+  <li><em>여러 이미지를 한 번에 삭제</em>:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker rmi IMAGE_NAME_1 IMAGE_NAME_2 ...
+</code></pre></div>    </div>
+  </li>
+  <li><em>특정 이미지의 실행 중인 컨테이너를 모두 종료시킨 후 이미지 삭제</em>:
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker rm -f $(docker ps -a --filter ancestor=IMAGE_NAME)
+docker rmi IMAGE_NAME
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="이미지-저장-및-로드">이미지 저장 및 로드</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker save -o DIRECTORY IMAGE_NAME
+</code></pre></div></div>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-o</code>  (output) 이미지를 저장할 디렉토리를 지정</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker load -i DIRECTORY
+</code></pre></div></div>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-i</code>  불러올(input) 이미지의 디렉토리를 지정, 해당 디렉토리 내 이미지가 로드된다.</li>
+</ul>
+
+<h2 id="이미지-태그-지정">이미지 태그 지정</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker tag IMAGE_NAME:TAG NEW_NAME:NEW_TAG
+</code></pre></div></div>
+
+<ul>
+  <li>존재하는 이미지를 복사하여 새로운 이름과 태그로 참조 가능하게 한다.</li>
+  <li>e.g.,
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker tag ubuntu:22.04 abcd:0.1
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="container">Container</h1>
+
+<h2 id="컨테이너-목록-확인">컨테이너 목록 확인</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker ps [OPTION]
+</code></pre></div></div>
+
+<ul>
+  <li>실행 중인 컨테이너 목록을 확인한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">-a</code>  실행 여부와 상관 없이 (종료된 것까지) 모든 컨테이너 확인</li>
+</ul>
+
+<h2 id="컨테이너-세부-정보-확인">컨테이너 세부 정보 확인</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker inspect CONTAINER_NAME
+</code></pre></div></div>
+
+<h2 id="이미지에서-컨테이너-실행">이미지에서 컨테이너 실행</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run [OPTIONS] IMAGE_NAME
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">--name CONTAINER_NAME</code>  컨테이너 이름 설정</li>
+  <li><code class="language-plaintext highlighter-rouge">--rm</code>  <code class="language-plaintext highlighter-rouge">run</code> 명령어 수행 후 컨테이너 삭제. 컨테이너 일회성 사용</li>
+  <li><code class="language-plaintext highlighter-rouge">-it</code>  컨테이너에 터미널 입력을 계속해서 전달
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">-i</code>  컨테이너에 접속하지 않은 상태에서도 stdin 활성화</li>
+      <li><code class="language-plaintext highlighter-rouge">-t</code>  pseudo-TTY 할당(TTY모드 사용), 쉘에 명령어 작성</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">-d</code>  백그라운드 실행. 옵션 입력 시 실행된 컨테이너 id가 출력된다.</li>
+  <li><code class="language-plaintext highlighter-rouge">-e</code>  환경변수 추가. 추가하고 싶은 환경변수만큼 사용한다.
+    <ul>
+      <li>e.g.,
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run -e APP_ENV=production APP2_ENV=dev ubuntu:22.04 env
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">-p HOST_PORT:CONTAINER_PORT</code>  호스트에 연결된 컨테이너의 특정 포트를 호스트의 포트와 바인딩. 보통 웹서버의 포트를 외부로 노출하기 위해 사용한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">-w DIR</code>  작업 디렉토리 변경</li>
+  <li><code class="language-plaintext highlighter-rouge">-v HOST_DIR:CONTAINER_DIR</code>  호스트의 특정 디렉토리를 컨테이너에 마운트
+    <ul>
+      <li>e.g.,
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run -v volume:/data ubuntu:22.04
+</code></pre></div>        </div>
+      </li>
+      <li><em>현재 작업 디렉토리를 컨테이너에 마운트하기</em>
+        <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run -v `pwd`:/opt ubuntu:22.04
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">-u USER_ID</code>  특정 user id로 컨테이너에 접속. 이미지 빌드 시 계정을 추가해야 가능하다.</li>
+</ul>
+
+<h2 id="실행-중인-컨테이너에-명령어-입력">실행 중인 컨테이너에 명령어 입력</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker exec CONTAINER_ID or NAME CMD
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-it</code>  컨테이너 환경에서 shell 실행,</li>
+</ul>
+
+<h3 id="run-과-exec의-차이점"><code class="language-plaintext highlighter-rouge">run</code> 과 <code class="language-plaintext highlighter-rouge">exec</code>의 차이점</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">run</code>: 이미지에서 컨테이너를 실행</li>
+  <li><code class="language-plaintext highlighter-rouge">exec</code>: 이미 실행 중인 컨테이너에서 명령어 실행</li>
+</ul>
+
+<h2 id="컨테이너-중지">컨테이너 중지</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker stop CONTAINER_ID/NAME
+</code></pre></div></div>
+<ul>
+  <li>실행 중인 컨테이너를 중지 (Graceful shutdown)</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker kill CONTAINER_ID/NAME
+</code></pre></div></div>
+<ul>
+  <li>실행 중인 컨테이너를 강제 종료</li>
+</ul>
+
+<h2 id="컨테이너-재시작">컨테이너 재시작</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker start CONTAINER_ID/NAME
+</code></pre></div></div>
+<ul>
+  <li>중지된 컨테이너를 다시 시작</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker restart CONTAINER_ID/NAME
+</code></pre></div></div>
+<ul>
+  <li>컨테이너를 중지시키고 다시 시작</li>
+</ul>
+
+<p><br /></p>
+
+</div>
+
+
+<div class="related">
+  <h2 class="related-title">Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/ko/paper/2024/06/14/mriqcsurvey/">
+            MRI Quality Assessment 및 Control 관련 네 개 논문 요약&nbsp;
+            <small>14 Jun 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/study/2024/05/28/mriqc_report/">
+            [MRIQC 4] MRIQC Report와 Image Quality Metrics (IQMs)&nbsp;
+            <small>28 May 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/study/dev%20tips%20&%20fixes/2024/05/21/html_flask/">
+            [MRIQC 3-1] Flask를 사용해 HTML 파일 열어보기&nbsp;
+            <small>21 May 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+        
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

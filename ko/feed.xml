@@ -1,0 +1,1638 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://alatteaday.github.io/ko/feed.xml" rel="self" type="application/atom+xml" /><link href="https://alatteaday.github.io/ko/" rel="alternate" type="text/html" /><updated>2024-06-27T02:14:44-05:00</updated><id>https://alatteaday.github.io/feed.xml</id><title type="html">Coffee chat</title><subtitle>Curation of studies, techs, ideas and a journey as a maching learning engineer</subtitle><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><entry xml:lang="ko"><title type="html">MRI Quality Assessment 및 Control 관련 네 개 논문 요약</title><link href="https://alatteaday.github.io/ko/paper/2024/06/14/mriqcsurvey/" rel="alternate" type="text/html" title="MRI Quality Assessment 및 Control 관련 네 개 논문 요약" /><published>2024-06-14T00:00:00-05:00</published><updated>2024-06-14T00:00:00-05:00</updated><id>https://alatteaday.github.io/paper/2024/06/14/mriqcsurvey</id><content type="html" xml:base="https://alatteaday.github.io/paper/2024/06/14/mriqcsurvey/"><![CDATA[<p>다음은 MRI 품질 평가(quality assessment) 및 관리(quality control)와 관련된 네 편의 논문 요약입니다:</p>
+
+<h1 id="paper-list">Paper list</h1>
+
+<ul>
+  <li>Liao, Lufan, et al. “Joint image quality assessment and brain extraction of fetal MRI using deep learning.” <em>Medical Image Computing and Computer Assisted Intervention–MICCAI</em> <em>2020: 23rd International Conference, Lima, Peru, October 4–8, 2020, Proceedings, Part VI 23</em>. Springer International Publishing, 2020.</li>
+  <li>Giganti, Francesco, et al. “Prostate Imaging Quality (PI-QUAL): a new quality control scoring system for multiparametric magnetic resonance imaging of the prostate from the PRECISION trial.” European urology oncology 3.5 (2020): 615-619.</li>
+  <li>Esses, Steven J., et al. “Automated image quality evaluation of T2‐weighted liver MRI utilizing deep learning architecture.” <em>Journal</em> <em>of</em> <em>Magnetic</em> <em>Resonance</em> <em>Imaging</em> 47.3 (2018): 723-728.</li>
+  <li>Monereo-Sánchez, Jennifer, et al. “Quality control strategies for brain MRI segmentation and parcellation: Practical approaches and recommendations-insights from the Maastricht study.” <em>Neuroimage</em> 237 (2021): 118174.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="joint-image-quality-assessment-and-brain-extraction-of-fetal-mri-using-deep-learning-2020">Joint Image Quality Assessment and Brain Extraction of Fetal MRI Using Deep Learning (2020)</h1>
+
+<h2 id="background">Background</h2>
+
+<ul>
+  <li>Quality Assessment (QA): MRI 이미지의 분석 적합성을 평가한다.</li>
+  <li>Brain Extraction (BE): MRI 이미지에서 뇌 영역을 식별하고 분리한다.</li>
+</ul>
+
+<p>지금까지 QA와 BE는 독립적으로 수행되어 왔으나, 이 연구에서는 두 작업 모두 이미지 내 뇌 영역에 집중하므로 동시에 최적화하면 성능을 향상시킬 수 있다고 주장한다. QA와 BE를 결합한 deep learning (DL) 모델을 제안한다. 또한 태아의 뇌는 영상 내 다양한 위치와 각도로 나타나고, 태아가 성장함에 따라 그 형태가 변하므로, 태아 뇌 영상을 다루는 것은 난이도가 높다. 이것을 해결하기 위해 deformable convolution method를 도입한다.</p>
+
+<h2 id="contributions">Contributions</h2>
+
+<ol>
+  <li>Joint optimization: QA와 BE를 결합하여, 모델에 shared feature를 학습시키고, overfitting 위험을 줄인다.</li>
+  <li>Multi-stage deep learning (DL) model:
+    <ul>
+      <li>Brain detector: MRI 스캔 내에서 뇌 영역을 찾는 detector를 사용한다. 이것으로 후속 작업에서 관련한 이미지 영역에 집중하도록 돕는다.</li>
+      <li>Deformable convolution: 태아 뇌는 크기와 형태가 다양하므로 이에 맞게 receptive field를 조정한다.</li>
+      <li>Task-specific module: 앞의 두 단계를 거친 후 모델이 QA와 BE를 동시에 수행하도록 한다.</li>
+    </ul>
+  </li>
+  <li>Multi-step training strategy: 모델을 점진적으로 학습시켜 모델 학습을 강화한다.</li>
+</ol>
+
+<h2 id="evaluation">Evaluation</h2>
+
+<ul>
+  <li>Dataset: 태아 MRI 이미지, 2D 슬라이스 품질 평가.</li>
+  <li>Metrics:
+    <ul>
+      <li>Dice Similarity Coefficient (DSC): BE 정확도를 평가하는 주요 지표.</li>
+      <li>Quality Scores: 이미지 품질 분류 정확도.</li>
+    </ul>
+  </li>
+  <li>Results:
+    <ul>
+      <li>0.89의 DSC score를 달성하여 높은 BE 정확도를 보였다.</li>
+      <li>85% accuracy의 이미지 품질 분류 성능을 보였다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>이 연구는 태아 MRI 스캔에서 QA와 BE를 동시에 처리하는 DL 모델을 제안했다. Deformable convolution을 사용해 뇌 이미지의 변동성을 처리하고, multi-step training과 다양한 dataset을 통한 검증으로 모델의 성능을 입증했다.</p>
+
+<p><br /></p>
+
+<h1 id="prostate-imaging-quality-pi-qual-a-new-quality-control-scoring-system-for-multiparametric-magnetic-resonance-imaging-of-the-prostate-from-the-precision-trial-2020">Prostate Imaging Quality (PI-QUAL): A New Quality Control Scoring System for Multiparametric Magnetic Resonance Imaging of the Prostate from the PRECISION trial (2020)</h1>
+
+<h2 id="background-1">Background</h2>
+
+<p>PRECISION trial은 다기관 무작위 연구로, 다매개자기공명영상(multiparametric magnetic resonance imaging; mpMRI)을 타겟으로 하는 생검(biopsy)이 표준 경직장 초음파 유도(transrectal ultrasound-guided) biopsy보다 전립선암 진단에 우수하다는 것을 입증했다. 한편 mpMRI-targeted biopsy의 성공은 mpMRI 스캔 품질에 크게 의존하는데, 이 품질을 평가할 시스템이 기존에 존재하지 않았다.</p>
+
+<h2 id="prostate-imaging-quality-pi-qual">Prostate Imaging Quality (PI-QUAL)</h2>
+
+<p>이 문제를 해결하기 위해 Prostate Imaging Quality (PI-QUAL)이라는 새로운 평가 시스템을 도입했다. PI-QUAL은 1에서 5까지의 Likert scale이다.</p>
+
+<ul>
+  <li>1: mpMRI 시퀀스 품질이 진단에 적합하지 않음</li>
+  <li>5: 각각의 시퀀스가 독립적으로 진단에 최적화된 품질을 가짐</li>
+</ul>
+
+<h2 id="method">Method</h2>
+
+<ol>
+  <li>MRI 스캔 선택: PRECISION trial에서 252개의 mpMRI 스캔 중 58개(23%)가 랜덤으로 선택된다. 이 스캔은 trial에 참여한 22개 센터에서 가져왔다.</li>
+  <li>Radiologist의 평가: 숙련된 방사선 전문의가 각자 독립적으로, pathology를 모르는 상태로 MRI 스캔을 평가했다.</li>
+  <li>Metrics
+    <ul>
+      <li>Overall quality:  스캔의 전체 진단 품질 평가</li>
+      <li>특정 시퀀스 quality: T2WI, DWI, DCE와 같은 개별 시퀀스의 품질 별도 평가</li>
+    </ul>
+  </li>
+  <li>Statistical Analysis
+    <ul>
+      <li>충분한 진단 품질을 가진 스캔의 비율(PI-QUAL 점수 ≥3)을 계산했다.</li>
+      <li>좋은 또는 최적의 진단 품질을 가진 스캔의 비율(PI-QUAL 점수 ≥4)을 결정했다.</li>
+      <li>특정 영상 시퀀스의 진단 품질을 분석했다.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="results">Results</h2>
+
+<ul>
+  <li>전체 진단 품질: 58개 스캔 중 55개(95%)가 충분한 진단 품질(PI-QUAL 점수 ≥3)을, 35개(60%)가 좋은 또는 최적의 진단 품질(PI-QUAL 점수 ≥4)을 보였다.</li>
+  <li>시퀀스 별 품질: T2WI 스캔의 95%, DWI 스캔의 79%, DCE 스캔의 66%가 진단 품질을 보였다.</li>
+</ul>
+
+<h2 id="conclusion-1">Conclusion</h2>
+
+<p>PI-QUAL 점수의 도입은 mpMRI 스캔의 품질을 평가하는 표준화된 방법을 제공한다. 다만 다양한 임상 환경에서 이 점수 시스템의 효과를 보장하기 위해 추가 검증이 권장된다.</p>
+
+<p><br /></p>
+
+<h1 id="automated-image-quality-evaluation-of-t2-weighted-liver-mri-utilizing-deep-learning-architecture-2018">Automated image quality evaluation of T2-weighted liver MRI utilizing deep learning architecture (2018)</h1>
+
+<h2 id="background-2">Background</h2>
+
+<p>간 T2WI MRI 스캔 검토는 진단을 효과적으로 하기 위해 정확해야 하는데, 방사선 전문의가 manual하게 평가하게 되면 시간이 많이 걸리고 의사마다 진단의 차이가 있다. DL, 특히 convolutional neural network (CNN)를 사용하는 자동화된 방법은 일관적이고 효율적인 이미지 품질 평가를 위한 솔루션을 제공한다. 이 연구는 CNN 기반 모델을 개발해 non-diagnostic 이미지를 식별하고, 모델의 결과를 전문의의 평가와 비교하고자 한다.</p>
+
+<h2 id="method-1">Method</h2>
+
+<ul>
+  <li>Data collection: 2024.11 ~ 2016.05 간 1.5T 및 3T에서 수행된 522개 간 MRI 검사를 사용했다.</li>
+  <li>CNN architecture: CNN 모델은 input layer, convolutional layer, fully connected layer 및 output layer 등 여러 층으로 구성된다.</li>
+  <li>Training data: 351개 T2WI 이미지를 익명화하고, 병변(lesion)이 탐지되는지, 간 형태(morphology)가 보이는지 등에 따라 diagnostic/non-diagnostic으로 레이블링했다.</li>
+  <li>Validation data: 172개 T2WI 이미지를 테스트에 사용했다. 두 명의 방사선 전문의가 이미지를 평가해 위 두 개로 레이블링했다.</li>
+  <li>Comparison: 모델의 이미지 품질 관련 출력을 두 전문의의 판단과 비교했다.</li>
+</ul>
+
+<h2 id="results-1">Results</h2>
+
+<ul>
+  <li>모델의 예측은 전문의 1과 79%, 전문의 2와 73% 일치했다.</li>
+  <li>Non-diagnostic 이미지를 식별하는 데 있어 CNN의 sensitivity와 specificity는
+    <ul>
+      <li>Sensitivity: 전문의 1과 67%, 전문의 2와 47%,</li>
+      <li>Specificity: 전문의 1과 81%, 전문의 2와 80% 일치했다.</li>
+    </ul>
+  </li>
+  <li>Negative 예측값은 전문의 1과 94%, 전문의 2와 86% 일치했다.</li>
+</ul>
+
+<h2 id="conclusion-2">Conclusion</h2>
+
+<p>이 연구는 T2WI 이미지 품질 평가 자동화를 위해 DL, 특히 CNN 모델을 사용하는 가능성을 보여주었다. 모델의 성능을 방사선 전문의와 비교하였고, 결과적으로 모델이 높은 음성 예측값을 보여 diagnostic 이미지 식별에 있어 신뢰할 수 있음을 입증했다. 자동화된 품질 평가는 임상 시 전문의가 MRI 스캔의 품질을 신속 정확하게 결정하는 데 도움을 줄 수 있다.</p>
+
+<p><br /></p>
+
+<h1 id="quality-control-strategies-for-brain-mri-segmentation-and-parcellation-practical-approaches-and-recommendations---insights-from-the-maastricht-study-2021">Quality control strategies for brain MRI segmentation and parcellation: Practical approaches and recommendations - insights from the Maastricht study (2021)</h1>
+
+<h2 id="background-3">Background</h2>
+
+<p>뇌 MRI segmentation에서 품질 관리(quality control; QC)는 데이터의 정확성을 보장하는 데 중요하다. Manual QC는 gold standard로 간주되지만, dataset 규모가 클 경우 현실적이지 않다. 자동화된 방법은 빠르고 효율적인 대안이지만 이것이 최선의 방법인지에 대해 합의가 부족하다. 이 연구는 manual하게 segmentation을 편집하는 것(manual editing)이 갖는 영향을 밝히고, 다양한 QC 전략을 비교해 측정 오류를 효과적으로 줄이고자 한다.</p>
+
+<h2 id="method-2">Method</h2>
+
+<ul>
+  <li>Data: Maastricht Study 참여자 259명의 structural brain MRI</li>
+  <li>Segmentation Tool: FreeSurfer 6.0을 사용해 형태학적(morphological) 추정치를 자동으로 추출</li>
+  <li>Manual Editing: 부정확한 segmentation을 manual하게 편집하고, 편집 전후의 morphological estimate를 비교</li>
+  <li>Quality Control Strategies:
+    <ul>
+      <li>Manual Strategy: 이미지를 제외하거나 편집하기 위해 일일이 눈으로 검사</li>
+      <li>Automated Strategy: MRIQC, Qoala-T 등의 도구를 사용해 이상치를 제외, morphological global measures, Euler numbers, Contrast-to-Noise ratio 등의 수치를 측정</li>
+      <li>Semi-automated Strategy: 도구와 지표로 감지된 이상치를 제외하지 않고 검사하여 manual editing</li>
+    </ul>
+  </li>
+  <li>Evaluation: 각 전략을 적용한 후 전체 분산에 비해 설명되지 않는 분산의 비율을 측정</li>
+</ul>
+
+<h2 id="results-2">Results</h2>
+
+<ul>
+  <li>Manual QC: subcortical brain 용적에서 유의한 변화가 있었고, cortical surface, thickness 및 hippocampal 용적에서 어느 정도의 변화가 있었다.</li>
+  <li>Strategy performance: 관점이 된 morphological measure에 따라 달라진다.
+    <ul>
+      <li>Manual Strategy: 설명할 수 없는 분산이 제일 적었다.</li>
+      <li>Automated Alternative: Euler numbers와 MRIQC 점수 기반</li>
+      <li>Global Morphological Measure: 이상치를 제외하면 설명할 수 없는 분산이 증가한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="conclusion-3">Conclusion</h2>
+
+<p>이 연구는 뇌 MRI segmentation에서 QC의 중요성을 강조한다. 대규모 dataset에서는 실질적으로 불가능한 manual method 대신 Euler 수 및 MRIQC를 사용하는 자동화 방법이 효과적이고, global estimate를 기반으로 이상치를 제외하는 방식은 오류가 증가한다는 것을 지적했다. 이로서 실질적인 QC strategy 구현에 관한 권장 사항을 제공한다.</p>
+
+<p><br /></p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Paper" /><category term="brainImaging" /><category term="mri" /><summary type="html"><![CDATA[다음은 MRI 품질 평가(quality assessment) 및 관리(quality control)와 관련된 네 편의 논문 요약입니다: Paper list Liao, Lufan, et al. “Joint image quality assessment and brain extraction of fetal MRI using deep learning.” Medical Image Computing and Computer Assisted Intervention–MICCAI 2020: 23rd International Conference, Lima, Peru, October 4–8, 2020, Proceedings, Part VI 23. Springer International Publishing, 2020. Giganti, Francesco, et al. “Prostate Imaging Quality (PI-QUAL): a new quality control scoring system for multiparametric magnetic resonance imaging of the prostate from the PRECISION trial.” European urology oncology 3.5 (2020): 615-619. Esses, Steven J., et al. “Automated image quality evaluation of T2‐weighted liver MRI utilizing deep learning architecture.” Journal of Magnetic Resonance Imaging 47.3 (2018): 723-728. Monereo-Sánchez, Jennifer, et al. “Quality control strategies for brain MRI segmentation and parcellation: Practical approaches and recommendations-insights from the Maastricht study.” Neuroimage 237 (2021): 118174. Joint Image Quality Assessment and Brain Extraction of Fetal MRI Using Deep Learning (2020) Background Quality Assessment (QA): MRI 이미지의 분석 적합성을 평가한다. Brain Extraction (BE): MRI 이미지에서 뇌 영역을 식별하고 분리한다. 지금까지 QA와 BE는 독립적으로 수행되어 왔으나, 이 연구에서는 두 작업 모두 이미지 내 뇌 영역에 집중하므로 동시에 최적화하면 성능을 향상시킬 수 있다고 주장한다. QA와 BE를 결합한 deep learning (DL) 모델을 제안한다. 또한 태아의 뇌는 영상 내 다양한 위치와 각도로 나타나고, 태아가 성장함에 따라 그 형태가 변하므로, 태아 뇌 영상을 다루는 것은 난이도가 높다. 이것을 해결하기 위해 deformable convolution method를 도입한다. Contributions Joint optimization: QA와 BE를 결합하여, 모델에 shared feature를 학습시키고, overfitting 위험을 줄인다. Multi-stage deep learning (DL) model: Brain detector: MRI 스캔 내에서 뇌 영역을 찾는 detector를 사용한다. 이것으로 후속 작업에서 관련한 이미지 영역에 집중하도록 돕는다. Deformable convolution: 태아 뇌는 크기와 형태가 다양하므로 이에 맞게 receptive field를 조정한다. Task-specific module: 앞의 두 단계를 거친 후 모델이 QA와 BE를 동시에 수행하도록 한다. Multi-step training strategy: 모델을 점진적으로 학습시켜 모델 학습을 강화한다. Evaluation Dataset: 태아 MRI 이미지, 2D 슬라이스 품질 평가. Metrics: Dice Similarity Coefficient (DSC): BE 정확도를 평가하는 주요 지표. Quality Scores: 이미지 품질 분류 정확도. Results: 0.89의 DSC score를 달성하여 높은 BE 정확도를 보였다. 85% accuracy의 이미지 품질 분류 성능을 보였다. Conclusion 이 연구는 태아 MRI 스캔에서 QA와 BE를 동시에 처리하는 DL 모델을 제안했다. Deformable convolution을 사용해 뇌 이미지의 변동성을 처리하고, multi-step training과 다양한 dataset을 통한 검증으로 모델의 성능을 입증했다. Prostate Imaging Quality (PI-QUAL): A New Quality Control Scoring System for Multiparametric Magnetic Resonance Imaging of the Prostate from the PRECISION trial (2020) Background PRECISION trial은 다기관 무작위 연구로, 다매개자기공명영상(multiparametric magnetic resonance imaging; mpMRI)을 타겟으로 하는 생검(biopsy)이 표준 경직장 초음파 유도(transrectal ultrasound-guided) biopsy보다 전립선암 진단에 우수하다는 것을 입증했다. 한편 mpMRI-targeted biopsy의 성공은 mpMRI 스캔 품질에 크게 의존하는데, 이 품질을 평가할 시스템이 기존에 존재하지 않았다. Prostate Imaging Quality (PI-QUAL) 이 문제를 해결하기 위해 Prostate Imaging Quality (PI-QUAL)이라는 새로운 평가 시스템을 도입했다. PI-QUAL은 1에서 5까지의 Likert scale이다. 1: mpMRI 시퀀스 품질이 진단에 적합하지 않음 5: 각각의 시퀀스가 독립적으로 진단에 최적화된 품질을 가짐 Method MRI 스캔 선택: PRECISION trial에서 252개의 mpMRI 스캔 중 58개(23%)가 랜덤으로 선택된다. 이 스캔은 trial에 참여한 22개 센터에서 가져왔다. Radiologist의 평가: 숙련된 방사선 전문의가 각자 독립적으로, pathology를 모르는 상태로 MRI 스캔을 평가했다. Metrics Overall quality: 스캔의 전체 진단 품질 평가 특정 시퀀스 quality: T2WI, DWI, DCE와 같은 개별 시퀀스의 품질 별도 평가 Statistical Analysis 충분한 진단 품질을 가진 스캔의 비율(PI-QUAL 점수 ≥3)을 계산했다. 좋은 또는 최적의 진단 품질을 가진 스캔의 비율(PI-QUAL 점수 ≥4)을 결정했다. 특정 영상 시퀀스의 진단 품질을 분석했다. Results 전체 진단 품질: 58개 스캔 중 55개(95%)가 충분한 진단 품질(PI-QUAL 점수 ≥3)을, 35개(60%)가 좋은 또는 최적의 진단 품질(PI-QUAL 점수 ≥4)을 보였다. 시퀀스 별 품질: T2WI 스캔의 95%, DWI 스캔의 79%, DCE 스캔의 66%가 진단 품질을 보였다. Conclusion PI-QUAL 점수의 도입은 mpMRI 스캔의 품질을 평가하는 표준화된 방법을 제공한다. 다만 다양한 임상 환경에서 이 점수 시스템의 효과를 보장하기 위해 추가 검증이 권장된다. Automated image quality evaluation of T2-weighted liver MRI utilizing deep learning architecture (2018) Background 간 T2WI MRI 스캔 검토는 진단을 효과적으로 하기 위해 정확해야 하는데, 방사선 전문의가 manual하게 평가하게 되면 시간이 많이 걸리고 의사마다 진단의 차이가 있다. DL, 특히 convolutional neural network (CNN)를 사용하는 자동화된 방법은 일관적이고 효율적인 이미지 품질 평가를 위한 솔루션을 제공한다. 이 연구는 CNN 기반 모델을 개발해 non-diagnostic 이미지를 식별하고, 모델의 결과를 전문의의 평가와 비교하고자 한다. Method Data collection: 2024.11 ~ 2016.05 간 1.5T 및 3T에서 수행된 522개 간 MRI 검사를 사용했다. CNN architecture: CNN 모델은 input layer, convolutional layer, fully connected layer 및 output layer 등 여러 층으로 구성된다. Training data: 351개 T2WI 이미지를 익명화하고, 병변(lesion)이 탐지되는지, 간 형태(morphology)가 보이는지 등에 따라 diagnostic/non-diagnostic으로 레이블링했다. Validation data: 172개 T2WI 이미지를 테스트에 사용했다. 두 명의 방사선 전문의가 이미지를 평가해 위 두 개로 레이블링했다. Comparison: 모델의 이미지 품질 관련 출력을 두 전문의의 판단과 비교했다. Results 모델의 예측은 전문의 1과 79%, 전문의 2와 73% 일치했다. Non-diagnostic 이미지를 식별하는 데 있어 CNN의 sensitivity와 specificity는 Sensitivity: 전문의 1과 67%, 전문의 2와 47%, Specificity: 전문의 1과 81%, 전문의 2와 80% 일치했다. Negative 예측값은 전문의 1과 94%, 전문의 2와 86% 일치했다. Conclusion 이 연구는 T2WI 이미지 품질 평가 자동화를 위해 DL, 특히 CNN 모델을 사용하는 가능성을 보여주었다. 모델의 성능을 방사선 전문의와 비교하였고, 결과적으로 모델이 높은 음성 예측값을 보여 diagnostic 이미지 식별에 있어 신뢰할 수 있음을 입증했다. 자동화된 품질 평가는 임상 시 전문의가 MRI 스캔의 품질을 신속 정확하게 결정하는 데 도움을 줄 수 있다. Quality control strategies for brain MRI segmentation and parcellation: Practical approaches and recommendations - insights from the Maastricht study (2021) Background 뇌 MRI segmentation에서 품질 관리(quality control; QC)는 데이터의 정확성을 보장하는 데 중요하다. Manual QC는 gold standard로 간주되지만, dataset 규모가 클 경우 현실적이지 않다. 자동화된 방법은 빠르고 효율적인 대안이지만 이것이 최선의 방법인지에 대해 합의가 부족하다. 이 연구는 manual하게 segmentation을 편집하는 것(manual editing)이 갖는 영향을 밝히고, 다양한 QC 전략을 비교해 측정 오류를 효과적으로 줄이고자 한다. Method Data: Maastricht Study 참여자 259명의 structural brain MRI Segmentation Tool: FreeSurfer 6.0을 사용해 형태학적(morphological) 추정치를 자동으로 추출 Manual Editing: 부정확한 segmentation을 manual하게 편집하고, 편집 전후의 morphological estimate를 비교 Quality Control Strategies: Manual Strategy: 이미지를 제외하거나 편집하기 위해 일일이 눈으로 검사 Automated Strategy: MRIQC, Qoala-T 등의 도구를 사용해 이상치를 제외, morphological global measures, Euler numbers, Contrast-to-Noise ratio 등의 수치를 측정 Semi-automated Strategy: 도구와 지표로 감지된 이상치를 제외하지 않고 검사하여 manual editing Evaluation: 각 전략을 적용한 후 전체 분산에 비해 설명되지 않는 분산의 비율을 측정 Results Manual QC: subcortical brain 용적에서 유의한 변화가 있었고, cortical surface, thickness 및 hippocampal 용적에서 어느 정도의 변화가 있었다. Strategy performance: 관점이 된 morphological measure에 따라 달라진다. Manual Strategy: 설명할 수 없는 분산이 제일 적었다. Automated Alternative: Euler numbers와 MRIQC 점수 기반 Global Morphological Measure: 이상치를 제외하면 설명할 수 없는 분산이 증가한다. Conclusion 이 연구는 뇌 MRI segmentation에서 QC의 중요성을 강조한다. 대규모 dataset에서는 실질적으로 불가능한 manual method 대신 Euler 수 및 MRIQC를 사용하는 자동화 방법이 효과적이고, global estimate를 기반으로 이상치를 제외하는 방식은 오류가 증가한다는 것을 지적했다. 이로서 실질적인 QC strategy 구현에 관한 권장 사항을 제공한다.]]></summary></entry><entry xml:lang="ko"><title type="html">[MRIQC 4] MRIQC Report와 Image Quality Metrics (IQMs)</title><link href="https://alatteaday.github.io/ko/study/2024/05/28/mriqc_report/" rel="alternate" type="text/html" title="[MRIQC 4] MRIQC Report와 Image Quality Metrics (IQMs)" /><published>2024-05-28T00:00:00-05:00</published><updated>2024-05-28T00:00:00-05:00</updated><id>https://alatteaday.github.io/study/2024/05/28/mriqc_report</id><content type="html" xml:base="https://alatteaday.github.io/study/2024/05/28/mriqc_report/"><![CDATA[<style>
+img {
+    display: inline;
+}
+p {
+   margin-top: 1em;
+   margin-bottom: 0em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+p.a{
+   margin-top: -0.5em;
+   margin-bottom: -1em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+p.b{
+   margin-top: 1em;
+   margin-bottom: -1em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+</style>
+
+<h1 id="mriqc-results">MRIQC Results</h1>
+
+<p class="b" style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/ex1.png?raw=true" alt="ex1" style="width: 32%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/ex2.png?raw=true" alt="ex2" style="width: 32%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/ex3.png?raw=true" alt="ex3" style="width: 32%;" />
+</p>
+
+<p>MRIQC를 사용하여 magnetic resonance imaging (MRI) 이미지를 분석하면 HTML 형식의 report를 얻을 수 있습니다. Report 결과는 크게 두 섹션으로 구분됩니다.</p>
+
+<ol>
+  <li><strong>Basic visual report</strong>: View of the background of the anatomical image, Zoomed-in mosaic view of the brain</li>
+  <li><strong>About</strong>: Errors, Reproducibility and provenance information</li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="view-of-the-background-of-the-anatomical-image">View of the background of the anatomical image</h2>
+
+<p>MRI 상에서 뇌 영역을 둘러싸고 있는 배경(air) 부분의 결함(artifact)을 시각화하여 보여줍니다. 머리 주변의 배경에는 일반적으로 신호가 존재하지 않습니다. 이 air mask에서 감지되는 신호는 이미지 처리 과정에서 발생한 잡음이나 이상한 패턴, 즉 artifact라고 볼 수 있습니다. 잘 촬영된 <a href="http://localhost:4000/ko/study/2023/12/26/mri2/">T1 weighted-image (T1WI)</a>와 괜찮은 영상에 인위적으로 noise를 추가한 T1WI의 MRIQC report를 비교해보겠습니다. noise는 torchio 라이브러리를 사용해 <a href="https://mriquestions.com/ghosting.html">ghosting</a> 현상를 주었습니다.</p>
+
+<p style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/mosaic_bg_normal1.png?raw=true" alt="mosaic_bg_normal1" style="width: 49%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/mosaic_bg_normal2.png?raw=true" alt="mosaic_bg_normal2" style="width: 49%;" />
+</p>
+
+<p class="a" style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/mosaic_bg_abnormal1.png?raw=true" alt="mosaic_bg_abnormal1" style="width: 49%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/mosaic_bg_abnormal2.png?raw=true" alt="mosaic_bg_abnormal2" style="width: 49%;" />
+</p>
+
+<p>위쪽 결과가 잘 촬영된 영상(1번), 아래쪽이 noise가 추가된 영상(2번)의 report 결과 중 일부입니다. 슬라이스 별로 영상 내 신호 강도가 밝기로 표시 됩니다. 색이 진할수록 신호가 강하게 나타납니다. 1번 이미지에서는 전반적으로 head mask가 어둡고, air mask가 밝아 명확히 구분됩니다. 반면 2번 이미지에서는 head와 air의 밝기 차이가 상대적으로 크지 않고, 오히려 air보다 강도가 약한 head 부분도 존재합니다. 자세히 보면 인위적으로 생성한 ghosting 현상이 이미지에서 물결 무늬로 나타납니다. 이렇게 background artifact 검사를 통해 잡음이 개입되지 않고 배경이 배제되어 뇌 영역이 잘 촬영되었는지 정성적으로 판단할 수 있습니다.</p>
+
+<p><br /></p>
+
+<h2 id="zoomed-in-mosaic-view-of-brain">Zoomed-in mosaic view of brain</h2>
+
+<p>MRI를 슬라이스 순서대로 나열해(mosaic view) 보여 줍니다. 이미지 중 뇌 부분을 자세히 보기 위해 배경부는 거의 제외되고 head mask 크기에 맞게 확대되어(zoomed-in) 있습니다. Mosaic view를 통해 MRI 촬영 시 움직임이 있었는지(head-motion), 이미지의 밝기가 균일하게 나타나는지(intensity inhomogeneities), 이미지에 전반적 또는 국소적인 noise가 있는지(global/local noise) 등을 확인하여 품질을 평가할 수 있습니다. 위에서 사용된 두 이미지의 MRIQC report 결과를 다시 비교해보겠습니다.</p>
+
+<p style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/mosaic_zo_normal1.png?raw=true" alt="mosaic_bg_normal1" style="width: 48.5%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/mosaic_zo_normal2.png?raw=true" alt="mosaic_bg_normal2" style="width: 50.5%;" />
+</p>
+
+<p class="a" style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/mosaic_zo_abnormal1.png?raw=true" alt="mosaic_bg_abnormal1" style="width: 48.5%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/mosaic_zo_abnormal2.png?raw=true" alt="mosaic_bg_abnormal2" style="width: 50.5%;" />
+</p>
+
+<p>위쪽이 1번, 아래쪽이 2번의 결과입니다. 전반적으로 화질이나 구조물의 영역 간 구분 등을 기준으로 1번 이미지가 더 선명한 것을 볼 수 있습니다. Head-motion의 경우 mosaic view의 모든 슬라이스 이미지를 놓고 판단했을 때, 두 이미지 모두 두드러진 관련 사항은 없었습니다. 다만 2번 이미지의 경우 인위적으로 추가한 ghosting noise가 슬라이스 내에서 관찰됩니다. Head mask 내 물결 무늬가 나타나 영상 화질이 떨어져 보입니다. 이렇게 mosaic view를 통해 직접적으로 이미지를 검토함으로써 문제사항에 대해 판단할 수 있습니다.</p>
+
+<p><br /></p>
+
+<h2 id="reproducibility-and-provenance-information">Reproducibility and provenance information</h2>
+
+<p>MRIQC report 결과의 재현성 및 투명성을 보장하기 위해 품질 검사 관련 출처 사항을 알려줍니다.</p>
+
+<h3 id="provenance-information">Provenance Information</h3>
+
+<p>재현성과 출처 관련 메타데이터를 제공합니다. 여기에는 분석 환경(Execution environment), 사용한 데이터 경로(Input filename), 사용된 패키지의 버전(Versions), 파일 무결성 검증을 위한 MD5 checksum(MD5sum) 등의 정보가 포함됩니다.</p>
+
+<p class="b" style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/prov_info.png?raw=true" alt="prov_info" style="width: 100%;" />
+</p>
+
+<ul>
+  <li>Execution environment: 분석 환경. 여기서는 ‘singularity’ 컨테이너 환경에서 실행되었음을 의미합니다.</li>
+  <li>Input filename: 사용한 데이터의 경로.</li>
+  <li>Versions: MRIQC, NiPype, TemplateFlow 등 사용한 패키지의 버전.</li>
+  <li>md5sum: 입력한 파일과 같은 파일을 사용하였는지 확인하기 위한 MD5 checksum.</li>
+  <li>warnings: ‘large_rot_frame’은 이미지 내 큰 회전 프레임이 있었는지, ‘small_air_mask’는 작은 air mask가 있었는지를 나타냅니다. 두 요인 모두 이미지 분석 정확성에 영향을 미칠 수 있습니다.</li>
+</ul>
+
+<h3 id="dataset-information">Dataset Information</h3>
+
+<p>분석에 사용된 데이터 관련 메타데이터가 제공됩니다.</p>
+
+<p class="b" style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/data_info.png?raw=true" alt="data_info" style="width: 100%;" />
+</p>
+
+<ul>
+  <li>AcquisitionMatrixPE: matrix의 인코딩 방향 크기. 위 예시에서는 256 x 256을 나타냅니다.</li>
+  <li>AcquisitionTime: 이미지 스캔이 수행된 시점.</li>
+  <li>ConversionSoftware: DICOM을 NIfTI로 변환하는 데 사용된 소프트웨어. 여기서는 ‘dcm2niix’가 사용되었습니다.</li>
+  <li>ConversionSoftwareVersion: 위 변환 소프트웨어의 버전.</li>
+  <li>HeudiconvVersion: 파일을 BIDS 형식으로 만드는 데 사용한 Heudiconv의 버전.</li>
+  <li>ImageOrientationPatientDICOM: 환자의 몸의 방향 관련 벡터 정보</li>
+  <li>ImageType: 이미지의 유형으로, 여기서는 ‘2차적’으로 생성 유도된 이미지임을 의미합니다.</li>
+  <li>InstitutionName: 데이터의 출처가 되는 기관명.</li>
+  <li>Modality: 이미지의 촬영 방식. 여기서는 ‘Magnetic Resonance (MR)’ 이미지가 사용되었습니다.</li>
+  <li>ProtocolName: 사용한 프로토콜의 이름.</li>
+  <li>RawImage: raw image 인지 아닌지를 나타냅니다.</li>
+  <li>ReconMatrixPE: 재구성된 행렬의 인코딩 방향 크기. 여기서는 256 x 256을 나타냅니다.</li>
+  <li>ScanningSequence: 사용된 스캐닝 시퀀스.</li>
+  <li>SeriesNumber: 시리즈 번호로, dataset이 속한 시리즈를 식별하는 데 사용됩니다.</li>
+  <li>SliceThickness: 슬라이스의 두께.</li>
+  <li>SpacingBetweenSlice: 각 슬라이스 사이 간격.</li>
+</ul>
+
+<h3 id="image-quality-metrics">Image Quality Metrics</h3>
+
+<p class="b" style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/iqm.png?raw=true" alt="iqm" style="width: 100%;" />
+</p>
+
+<p>이미지 품질을 정량적으로 평가하는 다양한 Image quality metrics (IQMs) 점수가 보고됩니다. 이미지 모달리티(modality)에 따라 metric 항목이 달라집니다.</p>
+
+<ul>
+  <li>IQMs for structural images: T1WI, T2WI 등</li>
+  <li>IQMs for functional images: fMRI 관련 이미지 등</li>
+  <li>IQMs for diffusion images: DWI 등</li>
+</ul>
+
+<p>IQM 점수 결과는 각 이미지의 MRIQC output directory에 생성되는 JSON 파일에서도 찾아볼 수 있습니다.</p>
+
+<p><br /></p>
+
+<h1 id="iqms-for-structural-images">IQMs for Structural Images</h1>
+
+<p>이번 예시에서 T1WI를 사용함에 따라 IQMs for structural images에 대해 알아보겠습니다.</p>
+
+<h2 id="measures-based-on-noise-measurements">Measures based on noise measurements</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">cjv</code> <span style="background-color:#FFEFD5">Coefficient of joint variation (CJV; 계수 결합 변이)</span>
+    <ul>
+      <li>두 개 이상의 변수를 동시에 고려한 상대적 변이의 측도로, 여러 변수의 변이가 그들 간 평균에 비해 얼마나 큰지를 알려준다.</li>
+      <li>여러 변수를 포함한 데이터셋을 다룰 때 유용하며, 전체적인 변이를 이해하는 데에 도움을 준다.</li>
+      <li>여러 변수의 표준 편차를 변수들의 평균으로 나눈 비율로 계산한다:</li>
+    </ul>
+
+\[CJV={(Standard \ Deviation \ of \ Combined \ Variables)\over(Mean \ of \ Combined \ Variables)}\times100\%\]
+
+    <ul>
+      <li>MRIQC에서는 뇌의 회백질(gray matter)과 백질(white matter) 간 CJV를 구한다. GM과 WM의 CJV는 Intensity non-uniformity (INU) 보정 알고리즘 최적화의 object function으로서 <a href="https://www.frontiersin.org/articles/10.3389/fninf.2016.00010/full">Granzetti 등</a>이 제안했다.
+        <ul>
+          <li>INU은 MRI에서 서로 다른 부위에서 나타나는 밝기의 불균일성을 말한다. 자기장이 균질하지 않은 경우, 특히 라디오 주파수(radio frequency; RF) 전파 강도에 의해 발생한다.</li>
+          <li>INU는 이미지의 정확성을 저하시켜 해석을 어렵게 할 수 있으므로, MRI 품질 향상을 위해 INU를 보정하는 것이 좋다.</li>
+        </ul>
+      </li>
+      <li>CJV가 높을 수록 머리가 강하게 움직였거나, INU 결함이 크다는 것을 의미한다. 따라서 CJV가 작을 수록 이미지 quality가 좋다고 평가할 수 있다.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">snr</code> <span style="background-color:#FFEFD5">Signal-to-noise ratio (SNR; 신호 대 잡음 비율)</span>
+    <ul>
+      <li>측정한 신호의 강도와 주변 잡음 수준의 관계를 나타내는 측도로, 측정된 신호의 품질과 정확성을 나타낸다. 신호(signal)는 관찰 대상인 조직에서 보이는 신호, 잡음(noise)은 환자의 움직임이나 전자기기의 간섭 등으로 나타나는 신호로, SNR은 둘을 구분하기 위해 사용된다.</li>
+      <li>SNR이 높을수록 측정하고 싶은 신호가 잡음에 비해 크다, 즉 데이터의 quality가 좋다.</li>
+    </ul>
+
+\[SNR={Signal \ Strength\over Stnadard \ Deviation \ of \ Noise}\]
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">snrd</code> <span style="background-color:#FFEFD5">Dietrich’s SNR (SNRd)</span>
+    <ul>
+      <li>MRI에서 주변 대기 배경을 참조로 하여 SNR을 계산하는 것으로, MRI 품질을 평가하는 중요 지표 중 하나이다.</li>
+      <li>대기는 일반적으로 균일한 신호를 가지므로, 이를 참조하면 신호를 잡음과 더 정확하게 구별할 수 있다. 이로써 더 정확하게 이미지를 진단할 수 있다. <a href="https://onlinelibrary.wiley.com/doi/10.1002/jmri.20969">Dietrich 등</a>이 제안하였다.</li>
+    </ul>
+
+\[SNRd={Signal \ Strength\over Stnadard \ Deviation \ of \ Air Background}\]
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">cnr</code> <span style="background-color:#FFEFD5">Contrast-to-noise ratio (CNR; 대비 대 잡음 비율)</span>
+    <ul>
+      <li>이미지에서 대비와 잡음 수준의 관계를 나타내는 측도로, SNR을 확장한 개념이다. 대비(contrast)는 이미지 내 구조나 물체 간의 밝기 차이를, 잡음(noise)은 불규칙하거나 무작위하게 나타나는 신호를 말한다.</li>
+      <li>CNR이 높을수록 원하는 이미지 대비를 얻었을 때 잡음이 낮다. 즉 높은 CNR은 물체나 구조가 뚜렷이 표현되어 있으면서도 잡음이 낮아 이미지 해석이 쉽고 이미지 quality가 좋다는 것을 의미한다.</li>
+      <li>MRIQC에서는 CNR을 GM과 WM가 얼마나 잘 분리되어 나타나고 영상 해석이 쉬운지를 평가하기 위해 사용한다.</li>
+    </ul>
+
+\[CNR={|\mu_{GM}-\mu_{WM}|\over \sqrt{\sigma^2_{GM}+\sigma^2_{wM}}}\]
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">qi_2</code> <span style="background-color:#FFEFD5">Mortamet’s Quality index 2 (QI2; 품질 지수 2)</span>
+    <ul>
+      <li>인위적 강도(artificial intensities)가 제거된 후 대기 마스크(air mask) 상의 데이터 분포가 적합한지를 평가하는 지표이다. 대기 마스크 영역 내 데이터 분포의 적합성은 이미지 처리 및 해석의 신뢰성에 영향을 미칠 수 있다.</li>
+      <li>낮은 값일수록 좋은 품질을 나타낸다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="measures-based-on-information-theory">Measures based on information theory</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">efc</code> <span style="background-color:#FFEFD5">Entropy-focus criterion (EFC)</span>
+    <ul>
+      <li>머리 움직임에 의해 발생한 ghosting과 blurring의 지표로 voxel 강도의 Shannon entropy를 사용하는 측정법이다. <a href="https://ieeexplore.ieee.org/document/650886">Atkinson 등</a>이 제안했다.</li>
+      <li>ghosting과 blurring이 증가할수록 voxel은 정보량을 잃게 되어, 보클의 Shannon entropy가 증가한다. 즉, EFC는 ghosting 및 blurring이 많을수록 큰 값을 가지므로, 낮은 값일수록 이미지의 quality가 좋다.</li>
+      <li>계산식은 maximum entropy로 normalize되어 있어 이미지 차원이 달라도 비교할 수 있다. $p_i$는 각 voxel의 확률, $N$은 pixel 수를 의미한다.</li>
+    </ul>
+
+\[EFC={-\sum^N_i=1 p_i\log_2(p_i) \over \log_2(N)}\]
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">fber</code> <span style="background-color:#FFEFD5">Fraction of brain explained by resting-state data (FBER)</span>
+    <ul>
+      <li>이미지 속 뇌 조직의 평균 에너지를 뇌 주변의 대기 값과 비교한다. 이것으로 이미지 상 뇌 조직이 얼마나 포함되어 있는지를 측정하여 이미지 품질을 평가한다. <a href="">Shehzad 등</a>이 제안했다.</li>
+      <li>Quality assurance protocol (QAP) 측정 항목 중 하나이다.</li>
+    </ul>
+
+\[FBER ={Mean \ energy \ of image \ value \ within \ the \ head \over Mean \ energy \ of image \ value \ outside \ the \ head}\]
+  </li>
+</ul>
+
+<h2 id="measures-targeting-specific-artifacts">Measures targeting specific artifacts</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">inu</code> : <span style="background-color:#FFEFD5">N4ITK로 추출된 INU bias field에 대한 요약 통계(max, min, median)&lt;/span
+</span>    <ul>
+      <li><a href="https://ieeexplore.ieee.org/document/5445030">N4ITK</a> 알고리즘은 MRI의 RF field 불균일성을 보정하여 영상의 품질을 향상시키는 고급 기법이다.</li>
+      <li>INU field 또는 bias field는 N4ITK를 통해 필터링 된 field를 말한다. INU field에 대한 통계를 통해 영상의 quality를 판단할 수 있다. 값이 0에 가까울수록 RF field 불균일성이 크다는 것을 의미하므로, 통계치가 1에 가까울수록 보정이 잘 된, quality가 높은 영상이다.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">qi_1</code> <span style="background-color:#FFEFD5">Mortamet’s Quality index 1 (QI1; 품질 지수 1)</span>
+    <ul>
+      <li>대기 마스크 상의 인위적 강도를 감지하는 데 사용되는 지수이다. 인위적인 강도를 제거하여 대기 마스크를 올바르게 분석하기 위한 목적으로 사용한다.</li>
+      <li>일반적으로 MRI 등 영상 데이터 전처리 단계에서 이미지의 품질을 향상시킴으로서 중요한 지표로 여겨진다.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">wm2max</code> <span style="background-color:#FFEFD5">White-matter to maximum intensity ratio</span>
+    <ul>
+      <li>WM 내 중간 intensity와 전체 intensity 분포의 95% 백분위수(percentile)의 비율이다. 이로써 WM 영역 내 중요하게 나타난 강도의 비율을 측정한다.</li>
+      <li>이 비율을 통해 intensity의 분포 상 꼬리가 어떤 경우에 길게 나타나는지를 알 수 있는데, 이 꼬리는 보통 성상 동맥 혈관이나 지방 조직의 intensity에 의해 발생할 수 있다.</li>
+      <li>비율이 0.6에서 0.8 사이를 벗어나는 경우 이미지의 WM 영역이 불균일하다고, 즉 quality가 떨어진다고 판단할 수 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="other-measures">Other measures</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">fwhm</code> <span style="background-color:#FFEFD5">Full width ad half maximum (FWHM)</span>
+    <ul>
+      <li>이미지 intensity 값의 spatial distribution에서 전체 너비를 나타내는 값으로, 이미지의 해상도와 선명도를 측정하는 데 사용된다.</li>
+      <li>Spatial distribution의 최고점의 절반 값에서부터 얻을 수 있는 전체 너비 값으로 구해진다.</li>
+      <li>FWHM 값이 낮을수록 선명하고 고해상도의 이미지를 나타낸다.</li>
+      <li>MRIQC에서는 AFNI의 3dWHMx에 구현된 Gaussian width estimator filter를 사용해 FWHM를 계산한다.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">icvs_*</code> <span style="background-color:#FFEFD5">Intracranial volume scaling (ICVS)</span>
+    <ul>
+      <li>Intracranial volume (ICV; 두개내액 체적)은 뇌와 두개액을 둘러싸고 있는 두개막 내 액체의 총량을 의미한다. ICVS는 MRI 에서 ICV를 기준으로 어떤 조직의 상대적인 비율을 나타낸다.</li>
+      <li>MRIQC에서는 <code class="language-plaintext highlighter-rouge">volume_fraction()</code> 함수로 cerebrospinal fluid (CSV; 뇌척수액), GM, WM의 ICVS를 계산한다.</li>
+      <li>각 ICVS가 정상 범위 내에서 변동하는지, 서로 간 이상적인 비율을 갖는지를 보고 뇌의 상태를 판단할 수 있다.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">summary_*_*</code>
+    <ul>
+      <li>MRIQC의 <code class="language-plaintext highlighter-rouge">summary_stats()</code> 함수는 MRI 내 배경(background), CSF, GM, WM 영역의 픽셀 분포에 관련된 다양한 통계량을 제공한다. 이러한 영상의 통계량을 quality 평가에 사용할 수 있다.</li>
+      <li>제공되는 통계량: 평균(mean), 중간값(median), 중간값 절대 편차(median absolute deviation; MAD), 표준 편차(standard deviation), 첨도(kurtosis), 하위 5% 백분위수(5th percentile), 상위 95% 백분위수(95th percentile), 픽셀 수(number of voxels).</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">tpm</code> <span style="background-color:#FFEFD5">Tissue probability map (TPM)</span>
+    <ul>
+      <li>뇌 조직 유형(GM, WM 등)의 확률 분포를 가리킨다. MRIQC에서는 이미지에서 추정된 TPM과 ICBM nonlinear-asymmetric 2009c templete의 map 간의 중첩을 측정한다.</li>
+      <li>ICBM nonlinear-asymmetric 2009c templete: 표준 brain map을 제공하는 국제 협회인 International consortium for brain mapping (ICBM)이 제공하는 templete 중 하나이다.
+        <blockquote>
+          <p>A number of unbiased non-linear averages of the MNI152 database have been generated that combines the attractions of both high-spatial resolution and signal-to-noise while not being subject to the vagaries of any single brain (Fonov et al., 2011). … We present an unbiased standard magnetic resonance imaging template brain volume for normal population. These volumes were created using data from ICBM project.</p>
+
+          <p>6 different templates are available: …</p>
+
+          <p>ICBM 2009c Nonlinear Asymmetric template – 1×1x1mm template which includes T1w,T2w,PDw modalities, and tissue probabilities maps. Intensity inhomogeneity was performed using N3 version 1.11 Also included brain mask, eye mask and face mask.Sampling is different from 2009a template. … <a href="https://nist.mni.mcgill.ca/icbm-152-nonlinear-atlases-2009/">[Reference]</a></p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="references">References</h1>
+
+<ul>
+  <li><a href="https://mriqc.readthedocs.io/en/latest/iqms/t1w.html#ganzetti2016">MRIQC’s Documentation - IQMs for Structural Images</a></li>
+</ul>
+
+<p><br /></p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Study" /><category term="brainImaging" /><category term="mri" /><summary type="html"><![CDATA[MRIQC Results MRIQC를 사용하여 magnetic resonance imaging (MRI) 이미지를 분석하면 HTML 형식의 report를 얻을 수 있습니다. Report 결과는 크게 두 섹션으로 구분됩니다. Basic visual report: View of the background of the anatomical image, Zoomed-in mosaic view of the brain About: Errors, Reproducibility and provenance information View of the background of the anatomical image MRI 상에서 뇌 영역을 둘러싸고 있는 배경(air) 부분의 결함(artifact)을 시각화하여 보여줍니다. 머리 주변의 배경에는 일반적으로 신호가 존재하지 않습니다. 이 air mask에서 감지되는 신호는 이미지 처리 과정에서 발생한 잡음이나 이상한 패턴, 즉 artifact라고 볼 수 있습니다. 잘 촬영된 T1 weighted-image (T1WI)와 괜찮은 영상에 인위적으로 noise를 추가한 T1WI의 MRIQC report를 비교해보겠습니다. noise는 torchio 라이브러리를 사용해 ghosting 현상를 주었습니다. 위쪽 결과가 잘 촬영된 영상(1번), 아래쪽이 noise가 추가된 영상(2번)의 report 결과 중 일부입니다. 슬라이스 별로 영상 내 신호 강도가 밝기로 표시 됩니다. 색이 진할수록 신호가 강하게 나타납니다. 1번 이미지에서는 전반적으로 head mask가 어둡고, air mask가 밝아 명확히 구분됩니다. 반면 2번 이미지에서는 head와 air의 밝기 차이가 상대적으로 크지 않고, 오히려 air보다 강도가 약한 head 부분도 존재합니다. 자세히 보면 인위적으로 생성한 ghosting 현상이 이미지에서 물결 무늬로 나타납니다. 이렇게 background artifact 검사를 통해 잡음이 개입되지 않고 배경이 배제되어 뇌 영역이 잘 촬영되었는지 정성적으로 판단할 수 있습니다. Zoomed-in mosaic view of brain MRI를 슬라이스 순서대로 나열해(mosaic view) 보여 줍니다. 이미지 중 뇌 부분을 자세히 보기 위해 배경부는 거의 제외되고 head mask 크기에 맞게 확대되어(zoomed-in) 있습니다. Mosaic view를 통해 MRI 촬영 시 움직임이 있었는지(head-motion), 이미지의 밝기가 균일하게 나타나는지(intensity inhomogeneities), 이미지에 전반적 또는 국소적인 noise가 있는지(global/local noise) 등을 확인하여 품질을 평가할 수 있습니다. 위에서 사용된 두 이미지의 MRIQC report 결과를 다시 비교해보겠습니다. 위쪽이 1번, 아래쪽이 2번의 결과입니다. 전반적으로 화질이나 구조물의 영역 간 구분 등을 기준으로 1번 이미지가 더 선명한 것을 볼 수 있습니다. Head-motion의 경우 mosaic view의 모든 슬라이스 이미지를 놓고 판단했을 때, 두 이미지 모두 두드러진 관련 사항은 없었습니다. 다만 2번 이미지의 경우 인위적으로 추가한 ghosting noise가 슬라이스 내에서 관찰됩니다. Head mask 내 물결 무늬가 나타나 영상 화질이 떨어져 보입니다. 이렇게 mosaic view를 통해 직접적으로 이미지를 검토함으로써 문제사항에 대해 판단할 수 있습니다. Reproducibility and provenance information MRIQC report 결과의 재현성 및 투명성을 보장하기 위해 품질 검사 관련 출처 사항을 알려줍니다. Provenance Information 재현성과 출처 관련 메타데이터를 제공합니다. 여기에는 분석 환경(Execution environment), 사용한 데이터 경로(Input filename), 사용된 패키지의 버전(Versions), 파일 무결성 검증을 위한 MD5 checksum(MD5sum) 등의 정보가 포함됩니다. Execution environment: 분석 환경. 여기서는 ‘singularity’ 컨테이너 환경에서 실행되었음을 의미합니다. Input filename: 사용한 데이터의 경로. Versions: MRIQC, NiPype, TemplateFlow 등 사용한 패키지의 버전. md5sum: 입력한 파일과 같은 파일을 사용하였는지 확인하기 위한 MD5 checksum. warnings: ‘large_rot_frame’은 이미지 내 큰 회전 프레임이 있었는지, ‘small_air_mask’는 작은 air mask가 있었는지를 나타냅니다. 두 요인 모두 이미지 분석 정확성에 영향을 미칠 수 있습니다. Dataset Information 분석에 사용된 데이터 관련 메타데이터가 제공됩니다. AcquisitionMatrixPE: matrix의 인코딩 방향 크기. 위 예시에서는 256 x 256을 나타냅니다. AcquisitionTime: 이미지 스캔이 수행된 시점. ConversionSoftware: DICOM을 NIfTI로 변환하는 데 사용된 소프트웨어. 여기서는 ‘dcm2niix’가 사용되었습니다. ConversionSoftwareVersion: 위 변환 소프트웨어의 버전. HeudiconvVersion: 파일을 BIDS 형식으로 만드는 데 사용한 Heudiconv의 버전. ImageOrientationPatientDICOM: 환자의 몸의 방향 관련 벡터 정보 ImageType: 이미지의 유형으로, 여기서는 ‘2차적’으로 생성 유도된 이미지임을 의미합니다. InstitutionName: 데이터의 출처가 되는 기관명. Modality: 이미지의 촬영 방식. 여기서는 ‘Magnetic Resonance (MR)’ 이미지가 사용되었습니다. ProtocolName: 사용한 프로토콜의 이름. RawImage: raw image 인지 아닌지를 나타냅니다. ReconMatrixPE: 재구성된 행렬의 인코딩 방향 크기. 여기서는 256 x 256을 나타냅니다. ScanningSequence: 사용된 스캐닝 시퀀스. SeriesNumber: 시리즈 번호로, dataset이 속한 시리즈를 식별하는 데 사용됩니다. SliceThickness: 슬라이스의 두께. SpacingBetweenSlice: 각 슬라이스 사이 간격. Image Quality Metrics 이미지 품질을 정량적으로 평가하는 다양한 Image quality metrics (IQMs) 점수가 보고됩니다. 이미지 모달리티(modality)에 따라 metric 항목이 달라집니다. IQMs for structural images: T1WI, T2WI 등 IQMs for functional images: fMRI 관련 이미지 등 IQMs for diffusion images: DWI 등 IQM 점수 결과는 각 이미지의 MRIQC output directory에 생성되는 JSON 파일에서도 찾아볼 수 있습니다. IQMs for Structural Images 이번 예시에서 T1WI를 사용함에 따라 IQMs for structural images에 대해 알아보겠습니다. Measures based on noise measurements cjv Coefficient of joint variation (CJV; 계수 결합 변이) 두 개 이상의 변수를 동시에 고려한 상대적 변이의 측도로, 여러 변수의 변이가 그들 간 평균에 비해 얼마나 큰지를 알려준다. 여러 변수를 포함한 데이터셋을 다룰 때 유용하며, 전체적인 변이를 이해하는 데에 도움을 준다. 여러 변수의 표준 편차를 변수들의 평균으로 나눈 비율로 계산한다: \[CJV={(Standard \ Deviation \ of \ Combined \ Variables)\over(Mean \ of \ Combined \ Variables)}\times100\%\] MRIQC에서는 뇌의 회백질(gray matter)과 백질(white matter) 간 CJV를 구한다. GM과 WM의 CJV는 Intensity non-uniformity (INU) 보정 알고리즘 최적화의 object function으로서 Granzetti 등이 제안했다. INU은 MRI에서 서로 다른 부위에서 나타나는 밝기의 불균일성을 말한다. 자기장이 균질하지 않은 경우, 특히 라디오 주파수(radio frequency; RF) 전파 강도에 의해 발생한다. INU는 이미지의 정확성을 저하시켜 해석을 어렵게 할 수 있으므로, MRI 품질 향상을 위해 INU를 보정하는 것이 좋다. CJV가 높을 수록 머리가 강하게 움직였거나, INU 결함이 크다는 것을 의미한다. 따라서 CJV가 작을 수록 이미지 quality가 좋다고 평가할 수 있다. snr Signal-to-noise ratio (SNR; 신호 대 잡음 비율) 측정한 신호의 강도와 주변 잡음 수준의 관계를 나타내는 측도로, 측정된 신호의 품질과 정확성을 나타낸다. 신호(signal)는 관찰 대상인 조직에서 보이는 신호, 잡음(noise)은 환자의 움직임이나 전자기기의 간섭 등으로 나타나는 신호로, SNR은 둘을 구분하기 위해 사용된다. SNR이 높을수록 측정하고 싶은 신호가 잡음에 비해 크다, 즉 데이터의 quality가 좋다. \[SNR={Signal \ Strength\over Stnadard \ Deviation \ of \ Noise}\] snrd Dietrich’s SNR (SNRd) MRI에서 주변 대기 배경을 참조로 하여 SNR을 계산하는 것으로, MRI 품질을 평가하는 중요 지표 중 하나이다. 대기는 일반적으로 균일한 신호를 가지므로, 이를 참조하면 신호를 잡음과 더 정확하게 구별할 수 있다. 이로써 더 정확하게 이미지를 진단할 수 있다. Dietrich 등이 제안하였다. \[SNRd={Signal \ Strength\over Stnadard \ Deviation \ of \ Air Background}\] cnr Contrast-to-noise ratio (CNR; 대비 대 잡음 비율) 이미지에서 대비와 잡음 수준의 관계를 나타내는 측도로, SNR을 확장한 개념이다. 대비(contrast)는 이미지 내 구조나 물체 간의 밝기 차이를, 잡음(noise)은 불규칙하거나 무작위하게 나타나는 신호를 말한다. CNR이 높을수록 원하는 이미지 대비를 얻었을 때 잡음이 낮다. 즉 높은 CNR은 물체나 구조가 뚜렷이 표현되어 있으면서도 잡음이 낮아 이미지 해석이 쉽고 이미지 quality가 좋다는 것을 의미한다. MRIQC에서는 CNR을 GM과 WM가 얼마나 잘 분리되어 나타나고 영상 해석이 쉬운지를 평가하기 위해 사용한다. \[CNR={|\mu_{GM}-\mu_{WM}|\over \sqrt{\sigma^2_{GM}+\sigma^2_{wM}}}\] qi_2 Mortamet’s Quality index 2 (QI2; 품질 지수 2) 인위적 강도(artificial intensities)가 제거된 후 대기 마스크(air mask) 상의 데이터 분포가 적합한지를 평가하는 지표이다. 대기 마스크 영역 내 데이터 분포의 적합성은 이미지 처리 및 해석의 신뢰성에 영향을 미칠 수 있다. 낮은 값일수록 좋은 품질을 나타낸다. Measures based on information theory efc Entropy-focus criterion (EFC) 머리 움직임에 의해 발생한 ghosting과 blurring의 지표로 voxel 강도의 Shannon entropy를 사용하는 측정법이다. Atkinson 등이 제안했다. ghosting과 blurring이 증가할수록 voxel은 정보량을 잃게 되어, 보클의 Shannon entropy가 증가한다. 즉, EFC는 ghosting 및 blurring이 많을수록 큰 값을 가지므로, 낮은 값일수록 이미지의 quality가 좋다. 계산식은 maximum entropy로 normalize되어 있어 이미지 차원이 달라도 비교할 수 있다. $p_i$는 각 voxel의 확률, $N$은 pixel 수를 의미한다. \[EFC={-\sum^N_i=1 p_i\log_2(p_i) \over \log_2(N)}\] fber Fraction of brain explained by resting-state data (FBER) 이미지 속 뇌 조직의 평균 에너지를 뇌 주변의 대기 값과 비교한다. 이것으로 이미지 상 뇌 조직이 얼마나 포함되어 있는지를 측정하여 이미지 품질을 평가한다. Shehzad 등이 제안했다. Quality assurance protocol (QAP) 측정 항목 중 하나이다. \[FBER ={Mean \ energy \ of image \ value \ within \ the \ head \over Mean \ energy \ of image \ value \ outside \ the \ head}\] Measures targeting specific artifacts inu : N4ITK로 추출된 INU bias field에 대한 요약 통계(max, min, median)&lt;/span N4ITK 알고리즘은 MRI의 RF field 불균일성을 보정하여 영상의 품질을 향상시키는 고급 기법이다. INU field 또는 bias field는 N4ITK를 통해 필터링 된 field를 말한다. INU field에 대한 통계를 통해 영상의 quality를 판단할 수 있다. 값이 0에 가까울수록 RF field 불균일성이 크다는 것을 의미하므로, 통계치가 1에 가까울수록 보정이 잘 된, quality가 높은 영상이다. qi_1 Mortamet’s Quality index 1 (QI1; 품질 지수 1) 대기 마스크 상의 인위적 강도를 감지하는 데 사용되는 지수이다. 인위적인 강도를 제거하여 대기 마스크를 올바르게 분석하기 위한 목적으로 사용한다. 일반적으로 MRI 등 영상 데이터 전처리 단계에서 이미지의 품질을 향상시킴으로서 중요한 지표로 여겨진다. wm2max White-matter to maximum intensity ratio WM 내 중간 intensity와 전체 intensity 분포의 95% 백분위수(percentile)의 비율이다. 이로써 WM 영역 내 중요하게 나타난 강도의 비율을 측정한다. 이 비율을 통해 intensity의 분포 상 꼬리가 어떤 경우에 길게 나타나는지를 알 수 있는데, 이 꼬리는 보통 성상 동맥 혈관이나 지방 조직의 intensity에 의해 발생할 수 있다. 비율이 0.6에서 0.8 사이를 벗어나는 경우 이미지의 WM 영역이 불균일하다고, 즉 quality가 떨어진다고 판단할 수 있다. Other measures fwhm Full width ad half maximum (FWHM) 이미지 intensity 값의 spatial distribution에서 전체 너비를 나타내는 값으로, 이미지의 해상도와 선명도를 측정하는 데 사용된다. Spatial distribution의 최고점의 절반 값에서부터 얻을 수 있는 전체 너비 값으로 구해진다. FWHM 값이 낮을수록 선명하고 고해상도의 이미지를 나타낸다. MRIQC에서는 AFNI의 3dWHMx에 구현된 Gaussian width estimator filter를 사용해 FWHM를 계산한다. icvs_* Intracranial volume scaling (ICVS) Intracranial volume (ICV; 두개내액 체적)은 뇌와 두개액을 둘러싸고 있는 두개막 내 액체의 총량을 의미한다. ICVS는 MRI 에서 ICV를 기준으로 어떤 조직의 상대적인 비율을 나타낸다. MRIQC에서는 volume_fraction() 함수로 cerebrospinal fluid (CSV; 뇌척수액), GM, WM의 ICVS를 계산한다. 각 ICVS가 정상 범위 내에서 변동하는지, 서로 간 이상적인 비율을 갖는지를 보고 뇌의 상태를 판단할 수 있다. summary_*_* MRIQC의 summary_stats() 함수는 MRI 내 배경(background), CSF, GM, WM 영역의 픽셀 분포에 관련된 다양한 통계량을 제공한다. 이러한 영상의 통계량을 quality 평가에 사용할 수 있다. 제공되는 통계량: 평균(mean), 중간값(median), 중간값 절대 편차(median absolute deviation; MAD), 표준 편차(standard deviation), 첨도(kurtosis), 하위 5% 백분위수(5th percentile), 상위 95% 백분위수(95th percentile), 픽셀 수(number of voxels). tpm Tissue probability map (TPM) 뇌 조직 유형(GM, WM 등)의 확률 분포를 가리킨다. MRIQC에서는 이미지에서 추정된 TPM과 ICBM nonlinear-asymmetric 2009c templete의 map 간의 중첩을 측정한다. ICBM nonlinear-asymmetric 2009c templete: 표준 brain map을 제공하는 국제 협회인 International consortium for brain mapping (ICBM)이 제공하는 templete 중 하나이다. A number of unbiased non-linear averages of the MNI152 database have been generated that combines the attractions of both high-spatial resolution and signal-to-noise while not being subject to the vagaries of any single brain (Fonov et al., 2011). … We present an unbiased standard magnetic resonance imaging template brain volume for normal population. These volumes were created using data from ICBM project. 6 different templates are available: … ICBM 2009c Nonlinear Asymmetric template – 1×1x1mm template which includes T1w,T2w,PDw modalities, and tissue probabilities maps. Intensity inhomogeneity was performed using N3 version 1.11 Also included brain mask, eye mask and face mask.Sampling is different from 2009a template. … [Reference] References MRIQC’s Documentation - IQMs for Structural Images]]></summary></entry><entry xml:lang="ko"><title type="html">[MRIQC 3-1] Flask를 사용해 HTML 파일 열어보기</title><link href="https://alatteaday.github.io/ko/study/dev%20tips%20&%20fixes/2024/05/21/html_flask/" rel="alternate" type="text/html" title="[MRIQC 3-1] Flask를 사용해 HTML 파일 열어보기" /><published>2024-05-21T00:00:00-05:00</published><updated>2024-05-21T00:00:00-05:00</updated><id>https://alatteaday.github.io/study/dev%20tips%20&amp;%20fixes/2024/05/21/html_flask</id><content type="html" xml:base="https://alatteaday.github.io/study/dev%20tips%20&amp;%20fixes/2024/05/21/html_flask/"><![CDATA[<p>MRIQC는 MRI 이미지의 퀄리티를 분석 및 평가 후 report를 HTML 파일로 출력해 줍니다. HTML 파일을 열어보기 위해서 Flask를 사용했는데요, 제가 사용한 방법을 정리해보겠습니다.</p>
+
+<h1 id="flask">Flask</h1>
+
+<p>Flask는 Python으로 작성된 마이크로 웹 프레임워크입니다. 가볍고 유연한 구조로, 간단한 웹 애플리케이션과 API 서버를 빠르게 개발할 수 있도록 도와줍니다. 기본 기능만 포함하고 있어 확장성이 높고, 필요에 따라 다양한 플러그인과 확장 모듈을 추가할 수 있습니다. 또한, 배우기 쉽고 직관적인 코드 구조를 갖추고 있어 초보자에게도 적합합니다. 다만 최소한의 기능을 갖추고 있어서 복잡한 기능을 추가하기 위해선 외부 라이브러리를 사용해야 하며, 프로젝트 규모가 커질수록 유지보수가 어려워질 수 있습니다.</p>
+
+<h1 id="flask로-html-파일-열기">Flask로 HTML 파일 열기</h1>
+
+<h2 id="installing-flask">Installing Flask</h2>
+
+<p>PyPI를 통해 설치할 수 있습니다:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install Flask
+</code></pre></div></div>
+
+<h2 id="static과-templates">‘static/’과 ‘templates/’</h2>
+
+<p>Flask는 <code class="language-plaintext highlighter-rouge">static/</code>과 <code class="language-plaintext highlighter-rouge">templates/</code> 두 폴더를 필요로 합니다. <code class="language-plaintext highlighter-rouge">static/</code>에는 HTML 파일에 존재하거나 적용되는 이미지, CSS, JavaScript 등 정적 파일을 저장합니다. <code class="language-plaintext highlighter-rouge">templates/</code>에는 렌더링할 HTML 파일을 저장합니다.</p>
+
+<p>MRIQC 보고서를 여는 과정을 예시로 설명하겠습니다. 프로젝트 폴더에 위 두 폴더를 생성한 뒤, 정적 파일과 열고자 하는 HTML 파일을 각각 저장합니다.</p>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-21-html_flask/1.png?raw=true" style="zoom: 70%;" />
+</p>
+
+<p>HTML 파일 내 <code class="language-plaintext highlighter-rouge">static/</code>에 저장한 파일 경로가 이미 존재했다면 바뀐 경로로 수정해줍니다. MRIQC report HTML 파일을 열어보면 이미지 파일이 상대 경로로 지정되어 있습니다. 이미지를 <code class="language-plaintext highlighter-rouge">static/</code>에 옮겼으므로 이에 맞게 절대 경로로 바꿔줍니다:</p>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-21-html_flask/2.png?raw=true" style="zoom: 70%;" />
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-21-html_flask/3.png?raw=true" style="zoom: 70%;" />
+</p>
+
+<h2 id="실행-코드-작성">실행 코드 작성</h2>
+
+<p>그리고 HTML 파일을 렌더링하기 위한 코드를 작성합니다. 위 예시 이미지 내 <code class="language-plaintext highlighter-rouge">main.py</code>에 해당합니다:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="o">*</span> 
+
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+    <span class="k">return</span> <span class="nf">render_template</span><span class="p">(</span><span class="s">"sub-001_ses-001_T1w.html"</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="s">"0.0.0.0"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">5001</span><span class="p">)</span>
+</code></pre></div></div>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">app = Flask(__name__)</code>: Flask 애플리케이션 인스턴스를 생성합니다. __name__은 현재 모듈의 이름을 의미하며, Flask가 애플리케이션의 리소스를 찾는 데 사용됩니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">@app.route("/")</code>: 데코레이터로 기본 URL(/)에 대해 test 함수를 호출하도록 Flask에 지시합니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">test()</code>: 기본 URL이 요청될 때 실행될 함수입니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">return render_template(HTML_FILE_NAME.html)</code>: <code class="language-plaintext highlighter-rouge">templates/</code> 디렉토리에 있는 HTML 파일을 렌더링하여 반환합니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">app.run("0.0.0.0", port=5001)</code>: 애플리케이션을 0.0.0.0 주소와 5001 포트에서 실행합니다.</li>
+</ul>
+
+<h2 id="결과">결과</h2>
+
+<p>입력한 주소에 들어가보면 HTML 파일이 잘 띄워진 것을 볼 수 있습니다:</p>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-21-html_flask/4.png?raw=true" style="zoom: 70%;" />
+</p>
+
+<p><br /></p>
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+  <li><a href="https://flask.palletsprojects.com/en/3.0.x/">Flask’s Documentation</a></li>
+  <li><a href="https://daeunnniii.tistory.com/103">https://daeunnniii.tistory.com/103</a></li>
+</ul>
+
+<p><br /></p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Study" /><category term="Dev Tips &amp; Fixes" /><category term="mri" /><category term="web" /><summary type="html"><![CDATA[MRIQC는 MRI 이미지의 퀄리티를 분석 및 평가 후 report를 HTML 파일로 출력해 줍니다. HTML 파일을 열어보기 위해서 Flask를 사용했는데요, 제가 사용한 방법을 정리해보겠습니다. Flask Flask는 Python으로 작성된 마이크로 웹 프레임워크입니다. 가볍고 유연한 구조로, 간단한 웹 애플리케이션과 API 서버를 빠르게 개발할 수 있도록 도와줍니다. 기본 기능만 포함하고 있어 확장성이 높고, 필요에 따라 다양한 플러그인과 확장 모듈을 추가할 수 있습니다. 또한, 배우기 쉽고 직관적인 코드 구조를 갖추고 있어 초보자에게도 적합합니다. 다만 최소한의 기능을 갖추고 있어서 복잡한 기능을 추가하기 위해선 외부 라이브러리를 사용해야 하며, 프로젝트 규모가 커질수록 유지보수가 어려워질 수 있습니다. Flask로 HTML 파일 열기 Installing Flask PyPI를 통해 설치할 수 있습니다: pip install Flask ‘static/’과 ‘templates/’ Flask는 static/과 templates/ 두 폴더를 필요로 합니다. static/에는 HTML 파일에 존재하거나 적용되는 이미지, CSS, JavaScript 등 정적 파일을 저장합니다. templates/에는 렌더링할 HTML 파일을 저장합니다. MRIQC 보고서를 여는 과정을 예시로 설명하겠습니다. 프로젝트 폴더에 위 두 폴더를 생성한 뒤, 정적 파일과 열고자 하는 HTML 파일을 각각 저장합니다. HTML 파일 내 static/에 저장한 파일 경로가 이미 존재했다면 바뀐 경로로 수정해줍니다. MRIQC report HTML 파일을 열어보면 이미지 파일이 상대 경로로 지정되어 있습니다. 이미지를 static/에 옮겼으므로 이에 맞게 절대 경로로 바꿔줍니다: 실행 코드 작성 그리고 HTML 파일을 렌더링하기 위한 코드를 작성합니다. 위 예시 이미지 내 main.py에 해당합니다: from flask import * app = Flask(__name__) @app.route("/") def test(): return render_template("sub-001_ses-001_T1w.html") app.run("0.0.0.0", port=5001) app = Flask(__name__): Flask 애플리케이션 인스턴스를 생성합니다. __name__은 현재 모듈의 이름을 의미하며, Flask가 애플리케이션의 리소스를 찾는 데 사용됩니다. @app.route("/"): 데코레이터로 기본 URL(/)에 대해 test 함수를 호출하도록 Flask에 지시합니다. test(): 기본 URL이 요청될 때 실행될 함수입니다. return render_template(HTML_FILE_NAME.html): templates/ 디렉토리에 있는 HTML 파일을 렌더링하여 반환합니다. app.run("0.0.0.0", port=5001): 애플리케이션을 0.0.0.0 주소와 5001 포트에서 실행합니다. 결과 입력한 주소에 들어가보면 HTML 파일이 잘 띄워진 것을 볼 수 있습니다: Reference Flask’s Documentation https://daeunnniii.tistory.com/103]]></summary></entry><entry xml:lang="ko"><title type="html">[MRIQC 2] Brain Imaging Data Structure (BIDS)</title><link href="https://alatteaday.github.io/ko/study/2024/05/20/bids/" rel="alternate" type="text/html" title="[MRIQC 2] Brain Imaging Data Structure (BIDS)" /><published>2024-05-20T00:00:00-05:00</published><updated>2024-05-20T00:00:00-05:00</updated><id>https://alatteaday.github.io/study/2024/05/20/bids</id><content type="html" xml:base="https://alatteaday.github.io/study/2024/05/20/bids/"><![CDATA[<h1 id="brain-imaging-data-structure-bids">Brain Imaging Data Structure (BIDS)</h1>
+
+<p>Brain Imaging Data Structure (BIDS)는 neuroimaging 데이터를 조직하고 공유하는 과정을 간소화하기 위해 만들어졌습니다. 연구자들이 각자의 스타일로 조작한 데이터를 공유하여 다른 연구자들이 사용하게 되면, 데이터를 재정리하는 데에 비효율적인 시간과 자원이 듭니다. BIDS는 표준화된 데이터 형식의 필요성에 따라 오해를 방지하고 불필요하게 소요되는 시간을 줄이며 재현성을 향상시키기는 것을 목적으로 합니다. BIDS는 데이터의 구조를 간단하고 직관적으로 제공하여 협력을 돕고 연구 속도를 높이며, 다양한 과학자들이 neuroimaging 데이터를 더 쉽게 접근할 수 있도록 합니다.</p>
+
+<p>BIDS는 파일을 포맷하고 이름을 지정하는 방법에 대한 상세한 지침을 제공하여 연구 간의 일관성을 보장합니다. BIDS는 MRI, MEG, EEG, iEEG 등 다양한 영상 형식을 지원하고, 새로운 데이터 유형과 메타데이터를 통합할 수 있게 확장할 수 있습니다. 또한 데이터를 검증, 분석 및 공유하는 연구 생테계 추세에 따라 BIDS는 연구 커뮤니티에서 유용성을 더욱 높이고 있습니다.</p>
+
+<h1 id="bids-format">BIDS Format</h1>
+
+<p>BIDS는 OpenfMRI repository에서 사용된 형식을 따서 만들어 졌고, 현재는 OpenNeuro로 알려져 있습니다. BIDS format은 본질적으로 계층적 폴더 구조 내에서 데이터와 메타데이터를 조직하는 방법입니다. 데이터를 조작하는 데 최소한의 도구만을 요함으로써 유연하고 광범위한 호환성을 갖습니다.</p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-20-bids/fig1.png?raw=true" alt="fig1" style="zoom: 70%;" />
+</p>
+
+<h2 id="folders">Folders</h2>
+
+<p>폴더 계층 구조는 네 단계로 구성되어 있으며, 루트 폴더를 제외한 모든 하위 폴더는 특정한 형식의 이름으로 저장됩니다. 예시 폴더 구조와 이름은 다음과 같습니다:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Project/
+└─ Subject (e.g. 'sub-01/')
+  └─ Session (e.g. 'ses-01/')
+    └─ Datatype (e.g. 'anat')
+</code></pre></div></div>
+
+<ul>
+  <li>Project: dataset을 포함하는 폴더로, 어떤 이름으로도 저장될 수 있습니다.</li>
+  <li>Subject: 한 개체(subject)의 데이터를 포함합니다. 한 subject는 고유한 이름을 갖습니다.
+    <ul>
+      <li>Name format: <code class="language-plaintext highlighter-rouge">sub-PARTICIPANT LABEL</code></li>
+    </ul>
+  </li>
+  <li>Session: 한 subject에 대해 촬영된 영상을 구분하는 폴더입니다. 각 subject는 여러 상황에서 촬영된 데이터가 있는 경우 여러 session을 가질 수 있습니다.
+    <ul>
+      <li>만약 session이 subject 당 하나만 존재하는 경우 session 단계는 생략될 수 있습니다.</li>
+      <li>Name format: <code class="language-plaintext highlighter-rouge">ses-SESSION LABEL</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>Datatype: 데이터의 타입을 명시합니다.</p>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-20-bids/fig2.png?raw=true" alt="fig2" style="zoom: 70%;" />
+</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">anat</code>: anatomical MRI data</li>
+      <li><code class="language-plaintext highlighter-rouge">func</code>: functional MRI data</li>
+      <li><code class="language-plaintext highlighter-rouge">fmap</code>: fieldmap data</li>
+      <li><code class="language-plaintext highlighter-rouge">dwi</code>: diffusion MRI data</li>
+      <li><code class="language-plaintext highlighter-rouge">perf</code>: arterial spin labeling data</li>
+      <li><code class="language-plaintext highlighter-rouge">eeg</code>: electroencephalography data</li>
+      <li><code class="language-plaintext highlighter-rouge">meg</code>: magnetoencephalography data</li>
+      <li><code class="language-plaintext highlighter-rouge">ieeg</code>: intracranial EEG data</li>
+      <li><code class="language-plaintext highlighter-rouge">beh</code>: behavioral data</li>
+      <li><code class="language-plaintext highlighter-rouge">pet</code>: positron emission tomography data</li>
+      <li><code class="language-plaintext highlighter-rouge">micr</code>: microscopy data</li>
+      <li><code class="language-plaintext highlighter-rouge">nirs</code>: near-infrared spectroscopy data</li>
+      <li><code class="language-plaintext highlighter-rouge">motion</code>: motion capture data</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="files">Files</h2>
+
+<p>파일의 유형으로는 기본적으로 세 가지가 있습니다:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.json</code> file: 메타데이터 관련 내용</li>
+  <li><code class="language-plaintext highlighter-rouge">.tsv</code> file: 메타데이터 관련 내용 (특히 테이블 등)</li>
+  <li>Raw data files: <code class="language-plaintext highlighter-rouge">.jpg</code>, <code class="language-plaintext highlighter-rouge">.nii.gz</code>, <code class="language-plaintext highlighter-rouge">.dcm</code> 등</li>
+</ul>
+
+<p>파일 이름은 아래의 기준에 따라 표준화됩니다:</p>
+<ul>
+  <li>이름에 공백을 포함하지 않습니다.</li>
+  <li>문자, 숫자, -, _만 사용 가능합니다.</li>
+  <li>대소문자를 구분하지 않습니다: 운영체제에 따라 대소문자 구분이 되지 않을 수 있으므로</li>
+  <li>이름의 형식을 통일하여 체계적으로 이름을 짓습니다.
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">CamelCase</code> or <code class="language-plaintext highlighter-rouge">snake_case</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p>파일 이름 템플릿</p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-20-bids/fig3.png?raw=true" alt="fig3" style="zoom: 70%;" />
+</p>
+
+<p>최종적으로 BIDS format 예시는 아래와 같습니다:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Dataset/
+ └─ participants.json
+ └─ participants.tsv
+ └─ sub-01/
+   └─ anat/
+     └─ sub-01_t1w.nii.gz
+     └─ sub-01_t1w.json
+   └─ func/
+     └─ sub-01_task-rest_bold.nii.gz
+     └─ sub-01_task-rest_bold.json
+   └─ dwi/
+     └─ sub-01-task-rest_dwi.nii.gz
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+  <li><a href="https://bids.neuroimaging.io/">BIDS Official Website</a></li>
+  <li><a href="https://bids-standard.github.io/bids-starter-kit/index.html">BIDS Starter Kit</a></li>
+  <li><a href="https://github.com/bids-standard">BIDS Github</a></li>
+</ul>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Study" /><category term="bio" /><category term="brainImaging" /><summary type="html"><![CDATA[Brain Imaging Data Structure (BIDS) Brain Imaging Data Structure (BIDS)는 neuroimaging 데이터를 조직하고 공유하는 과정을 간소화하기 위해 만들어졌습니다. 연구자들이 각자의 스타일로 조작한 데이터를 공유하여 다른 연구자들이 사용하게 되면, 데이터를 재정리하는 데에 비효율적인 시간과 자원이 듭니다. BIDS는 표준화된 데이터 형식의 필요성에 따라 오해를 방지하고 불필요하게 소요되는 시간을 줄이며 재현성을 향상시키기는 것을 목적으로 합니다. BIDS는 데이터의 구조를 간단하고 직관적으로 제공하여 협력을 돕고 연구 속도를 높이며, 다양한 과학자들이 neuroimaging 데이터를 더 쉽게 접근할 수 있도록 합니다. BIDS는 파일을 포맷하고 이름을 지정하는 방법에 대한 상세한 지침을 제공하여 연구 간의 일관성을 보장합니다. BIDS는 MRI, MEG, EEG, iEEG 등 다양한 영상 형식을 지원하고, 새로운 데이터 유형과 메타데이터를 통합할 수 있게 확장할 수 있습니다. 또한 데이터를 검증, 분석 및 공유하는 연구 생테계 추세에 따라 BIDS는 연구 커뮤니티에서 유용성을 더욱 높이고 있습니다. BIDS Format BIDS는 OpenfMRI repository에서 사용된 형식을 따서 만들어 졌고, 현재는 OpenNeuro로 알려져 있습니다. BIDS format은 본질적으로 계층적 폴더 구조 내에서 데이터와 메타데이터를 조직하는 방법입니다. 데이터를 조작하는 데 최소한의 도구만을 요함으로써 유연하고 광범위한 호환성을 갖습니다. Folders 폴더 계층 구조는 네 단계로 구성되어 있으며, 루트 폴더를 제외한 모든 하위 폴더는 특정한 형식의 이름으로 저장됩니다. 예시 폴더 구조와 이름은 다음과 같습니다: Project/ └─ Subject (e.g. 'sub-01/') └─ Session (e.g. 'ses-01/') └─ Datatype (e.g. 'anat') Project: dataset을 포함하는 폴더로, 어떤 이름으로도 저장될 수 있습니다. Subject: 한 개체(subject)의 데이터를 포함합니다. 한 subject는 고유한 이름을 갖습니다. Name format: sub-PARTICIPANT LABEL Session: 한 subject에 대해 촬영된 영상을 구분하는 폴더입니다. 각 subject는 여러 상황에서 촬영된 데이터가 있는 경우 여러 session을 가질 수 있습니다. 만약 session이 subject 당 하나만 존재하는 경우 session 단계는 생략될 수 있습니다. Name format: ses-SESSION LABEL Datatype: 데이터의 타입을 명시합니다. anat: anatomical MRI data func: functional MRI data fmap: fieldmap data dwi: diffusion MRI data perf: arterial spin labeling data eeg: electroencephalography data meg: magnetoencephalography data ieeg: intracranial EEG data beh: behavioral data pet: positron emission tomography data micr: microscopy data nirs: near-infrared spectroscopy data motion: motion capture data Files 파일의 유형으로는 기본적으로 세 가지가 있습니다: .json file: 메타데이터 관련 내용 .tsv file: 메타데이터 관련 내용 (특히 테이블 등) Raw data files: .jpg, .nii.gz, .dcm 등 파일 이름은 아래의 기준에 따라 표준화됩니다: 이름에 공백을 포함하지 않습니다. 문자, 숫자, -, _만 사용 가능합니다. 대소문자를 구분하지 않습니다: 운영체제에 따라 대소문자 구분이 되지 않을 수 있으므로 이름의 형식을 통일하여 체계적으로 이름을 짓습니다. CamelCase or snake_case 파일 이름 템플릿 최종적으로 BIDS format 예시는 아래와 같습니다: Dataset/ └─ participants.json └─ participants.tsv └─ sub-01/ └─ anat/ └─ sub-01_t1w.nii.gz └─ sub-01_t1w.json └─ func/ └─ sub-01_task-rest_bold.nii.gz └─ sub-01_task-rest_bold.json └─ dwi/ └─ sub-01-task-rest_dwi.nii.gz Reference BIDS Official Website BIDS Starter Kit BIDS Github]]></summary></entry><entry xml:lang="ko"><title type="html">[MRIQC 3] MRIQC 실행하기: 사전 작업부터 결과 확인까지</title><link href="https://alatteaday.github.io/ko/study/2024/05/20/mriqc_run/" rel="alternate" type="text/html" title="[MRIQC 3] MRIQC 실행하기: 사전 작업부터 결과 확인까지" /><published>2024-05-20T00:00:00-05:00</published><updated>2024-05-20T00:00:00-05:00</updated><id>https://alatteaday.github.io/study/2024/05/20/mriqc_run</id><content type="html" xml:base="https://alatteaday.github.io/study/2024/05/20/mriqc_run/"><![CDATA[<style>
+img {
+    display: inline;
+}
+p {
+   margin-top: 1em;
+   margin-bottom: 0em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+p.a{
+   margin-top: -0.5em;
+   margin-bottom: -1em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+p.b{
+   margin-top: 1em;
+   margin-bottom: -1em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+</style>
+
+<p>MRIQC는 입력된 MRI 이미지의 quality를 분석 및 평가하고, 관련 내용을 report로 정리해줍니다. MRIQC를 사용하기 위해서는 <a href="https://alatteaday.github.io/ko/study/2024/05/20/bids/">BIDS</a> 형식에 맞게 저장된 MRI 이미지가 필요합니다. 이번 포스트에서는 DICOM 파일을 가지고 MRIQC를 실행하고 분석 결과를 얻는 일련의 과정을 상세히 설명해보겠습니다.</p>
+
+<p><br /></p>
+
+<h1 id="nii2dcm">nii2dcm</h1>
+
+<p>여기서는 DICOM 파일을 사용하지만, NIfTI 형식의 파일 또한 일반적인 MRI 파일 포맷 중 하나입니다. NIfTI 파일을 사용하는 경우 NIfTI를 지원하는 BIDS converter를 사용하거나, NIfTI를 DICOM으로 변환한 뒤 DICOM 지원 BIDS converter를 사용할 수 있습니다. 개인적인 경험으로는 NIfTI 지원 BIDS converter들이 안정적으로 작동하지 않았습니다 (제가 실패한 것일 수도 있습니다만). <a href="https://github.com/tomaroberts/nii2dcm"><code class="language-plaintext highlighter-rouge">nii2dcm</code> 라이브러리</a>를 사용해 NIfTI를 DICOM으로 변환할 수 있습니다. 아래 코드를 실행할 수 있습니다:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nii2dcm NIFTI_FILE_DIR OUTPUT_DIR -d MR
+</code></pre></div></div>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">NIFTI_FILE_DIR</code>: 변환하고자 하는 NIfTI 파일 경로</li>
+  <li><code class="language-plaintext highlighter-rouge">OUTPUT_DIR</code>: 변환된 DICOM 파일을 저장할 경로</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="heudiconv">Heudiconv</h1>
+
+<p>저는 BIDS converter로 Heudiconv를 사용했습니다. 공식 페이지에서 제공하는 튜토리얼를 참고하며 제가 성공적으로 실행한 방법을 정리했습니다. 사용 방법은 다음과 같습니다.</p>
+
+<h2 id="heudiconv-설치">Heudiconv 설치</h2>
+
+<p>pip를 통해 설치합니다:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install heudiconv
+</code></pre></div></div>
+
+<h2 id="heuristicpy-작성">heuristic.py 작성</h2>
+
+<p>각 이미지가 BIDS 형식에 맞춰 저장되도록 규칙을 정의하는 코드를 작성합니다. 튜토리얼에 제공된 데이터 저장소에서 <code class="language-plaintext highlighter-rouge">heuristic.py</code> 파일을 참고하거나 직접 수정할 수 있습니다. 이 파일은 입력된 이미지 파일의 모달리티를 판단하고, 각 모달리티별로 BIDS 형식에 맞는 파일 경로를 생성하여 이미지를 새로 저장합니다. 필요한 경우 판단 조건과 저장 경로를 수정할 수 있습니다.</p>
+
+<p>참고 및 수정할 함수는 <code class="language-plaintext highlighter-rouge">heuristic.py</code> 내 <code class="language-plaintext highlighter-rouge">infotodict()</code> 입니다.</p>
+
+<ul>
+  <li>사용할 이미지의 모달리티를 인지합니다: T1WI, T2WI, DWI 등</li>
+  <li>사용할 모달리티가 아닌 경우 관련 코드를 삭제하거나 주석 처리합니다.</li>
+  <li>사용할 이미지의 모달리티가 저장될 경로 형식을 확인하고 필요한 경우 수정합니다.</li>
+  <li>각 모달리티를 구분할 수 있는 기준(차원, 현재 파일명 특징 등)을 조건문에 명시하여 수정합니다.</li>
+</ul>
+
+<p>제가 수정한 예시 코드는 아래와 같습니다. T1WI과 DWI를 사용하는 경우, 이미지가 저장될 경로와 이미지의 모달리티를 판단한 조건을 설정하였습니다.</p>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-20-mriqc_run/bids_ex1.png?raw=true" style="zoom: 70%;" />
+</p>
+
+<h2 id="heudiconv-실행">Heudiconv 실행</h2>
+
+<p>설치 후 아래와 같이 파라미터를 설정하여 실행합니다. Heudiconv는 여러 개의 subject 데이터, 즉 DICOM 파일 묶음 여러 개를 한 번에 처리할 수 있습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>heudiconv --files DICOM_FILE_DIRS -o OUTPUT_DIR -f HEURISTIC.PY -s SUB_ID -ss SES_ID -c dcm2niix -b minmeta --overwrite 
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">DICOM_FILE_DIRS</code>: 여러 subject의 DICOM 파일을 글로빙(globbing) 형식으로 입력 (e.g. dataset/sub-001/ses-001/*/*.dcm)</li>
+  <li><code class="language-plaintext highlighter-rouge">OUTPUT_DIR</code>: 변환된 BIDS 형식의 폴더가 저장될 경로</li>
+  <li><code class="language-plaintext highlighter-rouge">HEURISTIC.PY</code>: 위에서 작성한 <code class="language-plaintext highlighter-rouge">heuristic.py</code> 파일의 경로</li>
+  <li><code class="language-plaintext highlighter-rouge">SUB_ID</code>: Subject id (e.g. 001)</li>
+  <li><code class="language-plaintext highlighter-rouge">SES_ID</code>: Session id (e.g. 001)</li>
+</ul>
+
+<p>실행 예시는 다음과 같습니다. 아래 코드를 입력할 경우:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>heudiconv --files data/*/*.dcm -o bids/data/ -f heuristic.py -s 0 -ss 0 -c dcm2niix -b minmeta --overwrite 
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">bids/data/</code> 아래 다음과 같이 BIDS 형식의 폴더가 생성됩니다.</p>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-20-mriqc_run/bids_ex2.png?raw=true" style="zoom: 100%;" />
+</p>
+
+<p><br /></p>
+
+<h1 id="mriqc">MRIQC</h1>
+
+<p>BIDS 형식으로 저장된 MRI 이미지가 준비되었다면, 이를 MRIQC에 입력할 수 있습니다. MRIQC는 PyPI를 통해 다운로드하여 사용하거나, docker 컨테이너를 통해 사용할 수 있습니다.</p>
+
+<h2 id="with-pypi">With PyPI</h2>
+
+<p>우선 아래 코드를 통해 설치해줍니다:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python -m pip install -U mriqc
+</code></pre></div></div>
+
+<p>설치 후 실행 코드는 아래와 같습니다:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mriqc BIDS_ROOT_DIR OUTPUT_DIR participant --participant-label SUB_ID
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">BIDS_ROOT_DIR</code>: BIDS format 폴더의 루트 경로</li>
+  <li><code class="language-plaintext highlighter-rouge">OUTPUT_DIR</code>: MRIQC 결과를 저장할 경로</li>
+  <li><code class="language-plaintext highlighter-rouge">participant OR group</code>: <code class="language-plaintext highlighter-rouge">participant</code>로 지정할 경우 subject를 단위로, <code class="language-plaintext highlighter-rouge">group</code>으로 지정할 경우 루트 경로 하 모든 이미지를 대상으로 MRIQC 분석 결과를 얻습니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">SUB_ID</code>: <code class="language-plaintext highlighter-rouge">participant</code> 모드의 경우 <code class="language-plaintext highlighter-rouge">--participant-label</code>에 subject id를 입력하여 분석할 subject를 지정할 수 있습니다. 복수의 id를 한번에 입력할 수 있습니다 (e.g. <code class="language-plaintext highlighter-rouge">--participant-label 001 002 003</code>)</li>
+</ul>
+
+<h2 id="with-docker">With Docker</h2>
+
+<p>저는 Docker를 통해 MRIQC를 사용했습니다. Docker 컨테이너는 프로그램의 실행에 필요한 모든 종속성을 포함하기 때문에 일관된 환경을 보장하는 장점이 있습니다. 아래 코드를 입력하면 <code class="language-plaintext highlighter-rouge">participant</code> level에서 MRIQC를 실행할 수 있습니다:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run -it --rm -v BIDS_ROOT_DIR:/data:ro -v OUTPUT_DIR:/out nipreps/mriqc:latest /data /out participant --participant_label SUB_ID [--verbose-reports]
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">nipreps/mriqc</code> 이미지가 다운로드되어 있지 않아도 코드를 실행할 시 자동으로 다운로드됩니다.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">BIDS_ROOT_DIR</code>: BIDS format 폴더의 루트 경로. <code class="language-plaintext highlighter-rouge">-v</code> flag에 따라 컨테이너 내부의 <code class="language-plaintext highlighter-rouge">/data</code> 폴더와 연결됩니다. <code class="language-plaintext highlighter-rouge">ro</code> 옵션은 ‘read only’로, 로컬 경로에서 컨테이너 경로로 읽기만 가능하다는 의미를 가집니다.</li>
+  <li><code class="language-plaintext highlighter-rouge">OUTPUT_DIR</code>: MRIQC 결과를 저장할 경로. 컨테이너 내 <code class="language-plaintext highlighter-rouge">/out</code> 폴더와 연결됩니다. 컨테이너의 <code class="language-plaintext highlighter-rouge">/out</code> 폴더 내용을 로컬로 복사해보면 <code class="language-plaintext highlighter-rouge">OUTPUT_DIR</code>과 동일한 결과가 저장되어 있는 것을 확인할 수 있습니다.
+    <ul>
+      <li>컨테이너 내부 파일 내용 복사하기: 위 <code class="language-plaintext highlighter-rouge">docker run</code> 실행 시 <code class="language-plaintext highlighter-rouge">--rm</code> (작업 완료 후 삭제) 옵션을 삭제하고, 작업 완료 후 <code class="language-plaintext highlighter-rouge">docker cp CONTAINER_NAME:FILE_PATH LOCAL_PATH</code> 실행</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">SUB_ID</code>: Subject id. 여러 개의 id를 입력할 수 있습니다. (e.g. <code class="language-plaintext highlighter-rouge">--participant_label 001 002 003</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">--verbose-reports</code> (Optional): 이 flag를 입력하면 기본적으로 보고되는 visual report plot 외 다른 plot 4가지가 추가적으로 보고됩니다.</li>
+</ul>
+
+<p>위 코드 실행 후 docker image 및 container 리스트를 확인하면 실행된 MRIQC 관련 항목을 볼 수 있습니다.</p>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-20-mriqc_run/docker_ex.png?raw=true" alt="docker_ex" style="zoom: 70%;" />
+</p>
+
+<p><br /></p>
+
+<h1 id="mriqc-results">MRIQC Results</h1>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-20-mriqc_run/mriqc_ex1_1.png?raw=true" alt="mriqc_ex1_1" style="zoom: 30%;" />
+</p>
+
+<p>MRIQC 분석이 완료되면 <code class="language-plaintext highlighter-rouge">OUTPUT_DIR</code> 하에 위와 같은 파일들이 생깁니다. 이 중 <code class="language-plaintext highlighter-rouge">figures</code> 폴더 내 plot 이미지 파일 및 파일명을 이름으로 가지는 JSON과 HTML 파일, 위 예시에서는 <code class="language-plaintext highlighter-rouge">sub-0_ses-0_T1w.json</code> 과 <code class="language-plaintext highlighter-rouge">sub-0_ses-0_T1w.html</code>에 분석 결과가 담깁니다. Plot 이미지들과 JSON 파일을 기반으로 하여 HTML 파일로 결과 report가 작성됩니다.</p>
+
+<p class="b" style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/ex1.png?raw=true" alt="ex1" style="width: 32%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/ex2.png?raw=true" alt="ex2" style="width: 32%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/ex3.png?raw=true" alt="ex3" style="width: 32%;" />
+</p>
+
+<p>해당 <a href="">HTML 파일을 열면</a> 위와 같은 report를 볼 수 있습니다. Visualized plot과 quality metric score를 종합하여 <a href="https://alatteaday.github.io/ko/study/2024/05/28/mriqc_report/">report를 해석</a>하면 이미지의 quality를 알 수 있습니다.</p>
+
+<p><br /></p>
+
+<h1 id="references">References</h1>
+
+<ul>
+  <li><a href="https://github.com/tomaroberts/nii2dcm">nii2dcm Github</a></li>
+  <li><a href="https://heudiconv.readthedocs.io/en/latest/">Heudiconv’s Tutorial</a></li>
+  <li><a href="https://mriqc.readthedocs.io/en/latest/">MRIQC’s Documentation</a></li>
+</ul>
+
+<p><br /></p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Study" /><category term="bio" /><category term="brainImaging" /><summary type="html"><![CDATA[MRIQC는 입력된 MRI 이미지의 quality를 분석 및 평가하고, 관련 내용을 report로 정리해줍니다. MRIQC를 사용하기 위해서는 BIDS 형식에 맞게 저장된 MRI 이미지가 필요합니다. 이번 포스트에서는 DICOM 파일을 가지고 MRIQC를 실행하고 분석 결과를 얻는 일련의 과정을 상세히 설명해보겠습니다. nii2dcm 여기서는 DICOM 파일을 사용하지만, NIfTI 형식의 파일 또한 일반적인 MRI 파일 포맷 중 하나입니다. NIfTI 파일을 사용하는 경우 NIfTI를 지원하는 BIDS converter를 사용하거나, NIfTI를 DICOM으로 변환한 뒤 DICOM 지원 BIDS converter를 사용할 수 있습니다. 개인적인 경험으로는 NIfTI 지원 BIDS converter들이 안정적으로 작동하지 않았습니다 (제가 실패한 것일 수도 있습니다만). nii2dcm 라이브러리를 사용해 NIfTI를 DICOM으로 변환할 수 있습니다. 아래 코드를 실행할 수 있습니다: nii2dcm NIFTI_FILE_DIR OUTPUT_DIR -d MR NIFTI_FILE_DIR: 변환하고자 하는 NIfTI 파일 경로 OUTPUT_DIR: 변환된 DICOM 파일을 저장할 경로 Heudiconv 저는 BIDS converter로 Heudiconv를 사용했습니다. 공식 페이지에서 제공하는 튜토리얼를 참고하며 제가 성공적으로 실행한 방법을 정리했습니다. 사용 방법은 다음과 같습니다. Heudiconv 설치 pip를 통해 설치합니다: pip install heudiconv heuristic.py 작성 각 이미지가 BIDS 형식에 맞춰 저장되도록 규칙을 정의하는 코드를 작성합니다. 튜토리얼에 제공된 데이터 저장소에서 heuristic.py 파일을 참고하거나 직접 수정할 수 있습니다. 이 파일은 입력된 이미지 파일의 모달리티를 판단하고, 각 모달리티별로 BIDS 형식에 맞는 파일 경로를 생성하여 이미지를 새로 저장합니다. 필요한 경우 판단 조건과 저장 경로를 수정할 수 있습니다. 참고 및 수정할 함수는 heuristic.py 내 infotodict() 입니다. 사용할 이미지의 모달리티를 인지합니다: T1WI, T2WI, DWI 등 사용할 모달리티가 아닌 경우 관련 코드를 삭제하거나 주석 처리합니다. 사용할 이미지의 모달리티가 저장될 경로 형식을 확인하고 필요한 경우 수정합니다. 각 모달리티를 구분할 수 있는 기준(차원, 현재 파일명 특징 등)을 조건문에 명시하여 수정합니다. 제가 수정한 예시 코드는 아래와 같습니다. T1WI과 DWI를 사용하는 경우, 이미지가 저장될 경로와 이미지의 모달리티를 판단한 조건을 설정하였습니다. Heudiconv 실행 설치 후 아래와 같이 파라미터를 설정하여 실행합니다. Heudiconv는 여러 개의 subject 데이터, 즉 DICOM 파일 묶음 여러 개를 한 번에 처리할 수 있습니다. heudiconv --files DICOM_FILE_DIRS -o OUTPUT_DIR -f HEURISTIC.PY -s SUB_ID -ss SES_ID -c dcm2niix -b minmeta --overwrite DICOM_FILE_DIRS: 여러 subject의 DICOM 파일을 글로빙(globbing) 형식으로 입력 (e.g. dataset/sub-001/ses-001/*/*.dcm) OUTPUT_DIR: 변환된 BIDS 형식의 폴더가 저장될 경로 HEURISTIC.PY: 위에서 작성한 heuristic.py 파일의 경로 SUB_ID: Subject id (e.g. 001) SES_ID: Session id (e.g. 001) 실행 예시는 다음과 같습니다. 아래 코드를 입력할 경우: heudiconv --files data/*/*.dcm -o bids/data/ -f heuristic.py -s 0 -ss 0 -c dcm2niix -b minmeta --overwrite bids/data/ 아래 다음과 같이 BIDS 형식의 폴더가 생성됩니다. MRIQC BIDS 형식으로 저장된 MRI 이미지가 준비되었다면, 이를 MRIQC에 입력할 수 있습니다. MRIQC는 PyPI를 통해 다운로드하여 사용하거나, docker 컨테이너를 통해 사용할 수 있습니다. With PyPI 우선 아래 코드를 통해 설치해줍니다: python -m pip install -U mriqc 설치 후 실행 코드는 아래와 같습니다: mriqc BIDS_ROOT_DIR OUTPUT_DIR participant --participant-label SUB_ID BIDS_ROOT_DIR: BIDS format 폴더의 루트 경로 OUTPUT_DIR: MRIQC 결과를 저장할 경로 participant OR group: participant로 지정할 경우 subject를 단위로, group으로 지정할 경우 루트 경로 하 모든 이미지를 대상으로 MRIQC 분석 결과를 얻습니다. SUB_ID: participant 모드의 경우 --participant-label에 subject id를 입력하여 분석할 subject를 지정할 수 있습니다. 복수의 id를 한번에 입력할 수 있습니다 (e.g. --participant-label 001 002 003) With Docker 저는 Docker를 통해 MRIQC를 사용했습니다. Docker 컨테이너는 프로그램의 실행에 필요한 모든 종속성을 포함하기 때문에 일관된 환경을 보장하는 장점이 있습니다. 아래 코드를 입력하면 participant level에서 MRIQC를 실행할 수 있습니다: docker run -it --rm -v BIDS_ROOT_DIR:/data:ro -v OUTPUT_DIR:/out nipreps/mriqc:latest /data /out participant --participant_label SUB_ID [--verbose-reports] nipreps/mriqc 이미지가 다운로드되어 있지 않아도 코드를 실행할 시 자동으로 다운로드됩니다. BIDS_ROOT_DIR: BIDS format 폴더의 루트 경로. -v flag에 따라 컨테이너 내부의 /data 폴더와 연결됩니다. ro 옵션은 ‘read only’로, 로컬 경로에서 컨테이너 경로로 읽기만 가능하다는 의미를 가집니다. OUTPUT_DIR: MRIQC 결과를 저장할 경로. 컨테이너 내 /out 폴더와 연결됩니다. 컨테이너의 /out 폴더 내용을 로컬로 복사해보면 OUTPUT_DIR과 동일한 결과가 저장되어 있는 것을 확인할 수 있습니다. 컨테이너 내부 파일 내용 복사하기: 위 docker run 실행 시 --rm (작업 완료 후 삭제) 옵션을 삭제하고, 작업 완료 후 docker cp CONTAINER_NAME:FILE_PATH LOCAL_PATH 실행 SUB_ID: Subject id. 여러 개의 id를 입력할 수 있습니다. (e.g. --participant_label 001 002 003) --verbose-reports (Optional): 이 flag를 입력하면 기본적으로 보고되는 visual report plot 외 다른 plot 4가지가 추가적으로 보고됩니다. 위 코드 실행 후 docker image 및 container 리스트를 확인하면 실행된 MRIQC 관련 항목을 볼 수 있습니다. MRIQC Results MRIQC 분석이 완료되면 OUTPUT_DIR 하에 위와 같은 파일들이 생깁니다. 이 중 figures 폴더 내 plot 이미지 파일 및 파일명을 이름으로 가지는 JSON과 HTML 파일, 위 예시에서는 sub-0_ses-0_T1w.json 과 sub-0_ses-0_T1w.html에 분석 결과가 담깁니다. Plot 이미지들과 JSON 파일을 기반으로 하여 HTML 파일로 결과 report가 작성됩니다. 해당 HTML 파일을 열면 위와 같은 report를 볼 수 있습니다. Visualized plot과 quality metric score를 종합하여 report를 해석하면 이미지의 quality를 알 수 있습니다. References nii2dcm Github Heudiconv’s Tutorial MRIQC’s Documentation]]></summary></entry><entry xml:lang="ko"><title type="html">[MRIQC 1] MRIQC: Magnetic Resonance Imaging Quality Control</title><link href="https://alatteaday.github.io/ko/study/2024/05/19/mriqc/" rel="alternate" type="text/html" title="[MRIQC 1] MRIQC: Magnetic Resonance Imaging Quality Control" /><published>2024-05-19T00:00:00-05:00</published><updated>2024-05-19T00:00:00-05:00</updated><id>https://alatteaday.github.io/study/2024/05/19/mriqc</id><content type="html" xml:base="https://alatteaday.github.io/study/2024/05/19/mriqc/"><![CDATA[<p>MRI 영상을 대상으로 하는 연구의 진행과 퀄리티를 높이기 위해서는 영상 데이터의 상태를 체크하고 좋은 데이터를 확보해야 합니다. 그런데 MRI 품질 평가는 여러가지 요인으로 인해 난이도가 높습니다. MRI 촬영 시 발생할 수 있는 결함(artifact)의 종류가 많고, 사람마다 영상 품질에 대해 달리 평가하며, 일부 결함 사항은 사람이 인지하기 어렵기도 합니다. 이런 상황에서 객관적인 MRI 품질 관리(quality control; QC) 시스템은 MRI 품질 평가 초기에 도움이 될 수 있습니다. 또한 여러 스캔 사이트에서 매우 큰 영상 데이터 샘플을 획득하려 하는 최근의 추세에 따라 완전 자동화되고, 편향이 최소화된 QC 프로토콜이 점점 필요해지고 있습니다.</p>
+
+<h1 id="magnetic-resonance-imaging-quality-control-mriqc">Magnetic Resonance Imaging Quality Control (MRIQC)</h1>
+
+<p>MRI 품질 평가 자동화 도구로 MRIQC (Magnetic Resonance Imaging Quality Control)를 사용할 수 있습니다. MRIQC는 구조적(anatomical) 및 기능적(functional) MRI 이미지의 품질을 평가하기 위해 설계된 오픈 소스 도구입니다. MRIQC는 별도의 참조 이미지를 사용하지 않고, 입력된 이미지 자체만으로 <a href="https://alatteaday.github.io/ko/study/2024/05/28/mriqc_report/">품질 지표(image quality metrics; IQMs)</a>를 추출합니다. 더불어 다양한 출처나 세션에서 MRI 스캔을 평가하고 비교할 수 있는 표준화된 방법을 제공합니다.</p>
+
+<h1 id="priciples">Priciples</h1>
+
+<ul>
+  <li><strong>Modular and Integrable</strong>: Nipype 프레임워크를 기반으로 한 모듈형 workflow를 사용하여 ANTs나 AFNI와 같은 다양한 서드파티 소프트웨어 도구를 통합합니다.</li>
+  <li><strong>Minimal Preprocessing</strong>: 전처리를 최소화하여 이미지의 원본 상태 혹은 원본에 가까운 상태에서 IQM을 추정하고, IQM이 가능한 원본 데이터를 정확하게 반영할 수 있도록 합니다.</li>
+  <li><strong>Interoperability and Standards</strong>: <a href="https://alatteaday.github.io/ko/study/2024/05/20/bids/">Brain Imaging Data Structure (BIDS)</a> 표준을 준수하여 상호운용성을 촉진하고, 다양한 neuroimaging workflow 통합을 용이하게 합니다.</li>
+  <li><strong>Reliability and Robustness</strong>: 다양한 데이터와 파라미터에 대해 일관된 성능을 보장할 수 있게 테스트됩니다.</li>
+  <li><strong>Visual Report</strong>: 각 이미지와 이미지 그룹에 대한 <a href="https://alatteaday.github.io/ko/study/2024/05/28/mriqc_report/">visual report</a>를 제공합니다. Report는 각 이미지에 대한 모자이크 뷰(mosaic view) 및 segmentation contour, 그룹에 대한 scatter plot을 제공해 이상치를 식별할 수 있게 합니다.</li>
+</ul>
+
+<h1 id="image-quality-metrics-iqms">Image Quality Metrics (IQMs)</h1>
+
+<p>MRIQC는 크게 네 분류의 <a href="https://alatteaday.github.io/ko/study/2024/05/28/mriqc_report/">IQM</a>을 계산합니다:</p>
+<ul>
+  <li><strong>Noise-related metrics</strong>: 이미지 내 노이즈의 영향과 특성을 평가합니다.</li>
+  <li><strong>Information theory-based metrics</strong>: 지정된 마스크를 사용하여 정보의 공간 분포(spatial distribution)를 평가합니다.</li>
+  <li><strong>Artifact detection metrics</strong>: 불균일성(inhomogeneity)과 움직임에 의한 신호 누출(signal leakage)과 같은 특정 결함를 식별하고 그 영향을 측정합니다.</li>
+  <li><strong>Statistical and morphological metrics</strong>: 조직(tissue) 분포의 통계적 특성과 이미지의 선명도/흐림(sharpness/blurriness) 정도를 특정합니다.</li>
+</ul>
+
+<h1 id="paper">Paper</h1>
+
+<p>Esteban O, Birman D, Schaer M, Koyejo OO, Poldrack RA, Gorgolewski KJ (2017) MRIQC: Advancing the automatic prediction of image quality in MRI from unseen sites. PLoS ONE 12(9): e0184661. https://doi.org/10.1371/journal.pone.0184661</p>
+
+<h1 id="how-to-run-mriqc">How to run MRIQC</h1>
+
+<p>MRIQC를 실행하기 위해서는 몇 개의 스텝을 거쳐야 합니다. 자세한 실행 과정은 <a href="https://alatteaday.github.io/ko/study/2024/05/20/mriqc_run/">다음 포스트</a>를 참고해주세요!</p>
+
+<p><br /></p>
+
+<h1 id="references">References</h1>
+
+<ul>
+  <li><a href="https://mriqc.readthedocs.io/en/latest/">MRIQC’s Official Documentation</a></li>
+  <li><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0184661">Paper Link</a></li>
+</ul>
+
+<p><br /></p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Study" /><category term="bio" /><category term="brainImaging" /><summary type="html"><![CDATA[MRI 영상을 대상으로 하는 연구의 진행과 퀄리티를 높이기 위해서는 영상 데이터의 상태를 체크하고 좋은 데이터를 확보해야 합니다. 그런데 MRI 품질 평가는 여러가지 요인으로 인해 난이도가 높습니다. MRI 촬영 시 발생할 수 있는 결함(artifact)의 종류가 많고, 사람마다 영상 품질에 대해 달리 평가하며, 일부 결함 사항은 사람이 인지하기 어렵기도 합니다. 이런 상황에서 객관적인 MRI 품질 관리(quality control; QC) 시스템은 MRI 품질 평가 초기에 도움이 될 수 있습니다. 또한 여러 스캔 사이트에서 매우 큰 영상 데이터 샘플을 획득하려 하는 최근의 추세에 따라 완전 자동화되고, 편향이 최소화된 QC 프로토콜이 점점 필요해지고 있습니다. Magnetic Resonance Imaging Quality Control (MRIQC) MRI 품질 평가 자동화 도구로 MRIQC (Magnetic Resonance Imaging Quality Control)를 사용할 수 있습니다. MRIQC는 구조적(anatomical) 및 기능적(functional) MRI 이미지의 품질을 평가하기 위해 설계된 오픈 소스 도구입니다. MRIQC는 별도의 참조 이미지를 사용하지 않고, 입력된 이미지 자체만으로 품질 지표(image quality metrics; IQMs)를 추출합니다. 더불어 다양한 출처나 세션에서 MRI 스캔을 평가하고 비교할 수 있는 표준화된 방법을 제공합니다. Priciples Modular and Integrable: Nipype 프레임워크를 기반으로 한 모듈형 workflow를 사용하여 ANTs나 AFNI와 같은 다양한 서드파티 소프트웨어 도구를 통합합니다. Minimal Preprocessing: 전처리를 최소화하여 이미지의 원본 상태 혹은 원본에 가까운 상태에서 IQM을 추정하고, IQM이 가능한 원본 데이터를 정확하게 반영할 수 있도록 합니다. Interoperability and Standards: Brain Imaging Data Structure (BIDS) 표준을 준수하여 상호운용성을 촉진하고, 다양한 neuroimaging workflow 통합을 용이하게 합니다. Reliability and Robustness: 다양한 데이터와 파라미터에 대해 일관된 성능을 보장할 수 있게 테스트됩니다. Visual Report: 각 이미지와 이미지 그룹에 대한 visual report를 제공합니다. Report는 각 이미지에 대한 모자이크 뷰(mosaic view) 및 segmentation contour, 그룹에 대한 scatter plot을 제공해 이상치를 식별할 수 있게 합니다. Image Quality Metrics (IQMs) MRIQC는 크게 네 분류의 IQM을 계산합니다: Noise-related metrics: 이미지 내 노이즈의 영향과 특성을 평가합니다. Information theory-based metrics: 지정된 마스크를 사용하여 정보의 공간 분포(spatial distribution)를 평가합니다. Artifact detection metrics: 불균일성(inhomogeneity)과 움직임에 의한 신호 누출(signal leakage)과 같은 특정 결함를 식별하고 그 영향을 측정합니다. Statistical and morphological metrics: 조직(tissue) 분포의 통계적 특성과 이미지의 선명도/흐림(sharpness/blurriness) 정도를 특정합니다. Paper Esteban O, Birman D, Schaer M, Koyejo OO, Poldrack RA, Gorgolewski KJ (2017) MRIQC: Advancing the automatic prediction of image quality in MRI from unseen sites. PLoS ONE 12(9): e0184661. https://doi.org/10.1371/journal.pone.0184661 How to run MRIQC MRIQC를 실행하기 위해서는 몇 개의 스텝을 거쳐야 합니다. 자세한 실행 과정은 다음 포스트를 참고해주세요! References MRIQC’s Official Documentation Paper Link]]></summary></entry><entry xml:lang="ko"><title type="html">[Paper] Amyloid-β prediction machine learning model using source-based morphometry across neurocognitive disorders (2024)</title><link href="https://alatteaday.github.io/ko/papers/2024/04/18/keioAbMRI/" rel="alternate" type="text/html" title="[Paper] Amyloid-β prediction machine learning model using source-based morphometry across neurocognitive disorders (2024)" /><published>2024-04-18T00:00:00-05:00</published><updated>2024-04-18T00:00:00-05:00</updated><id>https://alatteaday.github.io/papers/2024/04/18/keioAbMRI</id><content type="html" xml:base="https://alatteaday.github.io/papers/2024/04/18/keioAbMRI/"><![CDATA[<p>Momota, Yuki, et al. “Amyloid-β prediction machine learning model using source-based morphometry across neurocognitive disorders.” <em>Scientific Reports</em> 14.1 (2024): 7633.</p>
+
+<p><a href="https://www.nature.com/articles/s41598-024-58223-3">Paper Link</a></p>
+
+<p><br /></p>
+
+<h1 id="points">Points</h1>
+
+<p><strong>Objective</strong></p>
+
+<ul>
+  <li>다양한 환자의 MRI를 기반으로 하는 machine leanring 모델을 사용해 Alzheimer’s disease (AD)를 예측하고자 한다.</li>
+  <li>Amyloid-beta (A$\beta$) 침착의 정도를 측정하기 위해 source-based morphometry (SBM)을 활용한다.</li>
+</ul>
+
+<p><strong>Methodology</strong></p>
+
+<ul>
+  <li>3D T1 weighted-image (WI)를 voxel-based 회백질 (gray matter; GM) 이미지로 전처리한 뒤 SBM에 적용했다.</li>
+  <li>Classifier로서 support vector machine (SVM)을 사용했다.</li>
+  <li>모델의 interpretability를 위해 SHapley Aditive exPlanations (SHAP)를 활용했다.</li>
+</ul>
+
+<p><strong>Results</strong></p>
+
+<ul>
+  <li>MR 이미지, 인지 검사 결과 및 apolipoprotein E (APOE)를 input feature로 사용한 최종 모델의 정확도가 89.8%를 달성했다.</li>
+  <li>MR 이미지만을 기반으로 한 모델의 경우 84.7%이다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="background">Background</h1>
+
+<ul>
+  <li>AD는 A$\beta$ 플라크, 신경 섬유 매듭(neurofibrillary tangles), 뇌 위축(brain atrophy) 등으로 특정되는 신경퇴행성 질환이다.</li>
+  <li>A$\beta$는 AD를 정의하는 특징 중 하나이지만 임상 실무에서 실질적으로 감지하기 어렵다.
+    <ul>
+      <li>Position emission tomography (PET), cerebrospinal fluid (CSF) 검사, 혈액 바이오 마커 등의 방법은 아직 실무에 적용되지 못했다.</li>
+    </ul>
+  </li>
+  <li>MRI 기반 A$\beta$ 예측은 위의 방법을 통한 정확한 진단 이전에 유용한 진단 도구로서 사용될 수 있다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="method">Method</h1>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/subfig1.png?raw=true" alt="supfig1" style="zoom: 90%;" />
+</p>
+
+<h2 id="features">Features</h2>
+
+<p><strong>Participants and clinical measurements</strong></p>
+<ul>
+  <li>2018년 6월 ~ 2021년 8월, Keio 대학 병원의 memory clinic에서 모집되었다.</li>
+  <li>진단명: AD, MCI, HC</li>
+</ul>
+
+<p><strong>Cognitive assessment</strong> (9 measures)</p>
+<ul>
+  <li>인지 기능 전반: Mimi-mental state examination (MMSE), Clinical dementia rating (CDR), Functional activity questionnaire (FAQ)</li>
+  <li>기억력: Wechsler Memory Scale-Revised (WMS-R) Lgical Memeory immediate recall (LM I) and delayed recall (LM II)</li>
+  <li>실행력 및 주의력: Word Fluency, Trail Making Test (TMT)</li>
+  <li>특정 인지 능력:  Japanese version of Alzheimer’s Disease Assessment Scale-Cognitive subscale (ADAS-cog-J), Japanese Adult Reading Test (JART)</li>
+</ul>
+
+<p><strong>APOE genotyping</strong></p>
+<ul>
+  <li>Magnetic nanoparticle DNA extraction kit (EX1 DNA Blodd 200 $\mu$L Kit)</li>
+  <li>real-time polymerase chain reaction (PCR)</li>
+</ul>
+
+<p><strong>[<sup>18</sup>F] Florbetaben (FBB) amyloid-PET imaging</strong></p>
+
+<ul>
+  <li>[<sup>18</sup>F] Florbetaben (FBB)
+    <blockquote>
+      <p>Florbetaben은 일반 임상에서 사용할 목적으로 개발된 진단 방사성 트레이서로, 아밀로이드 베타 플라크를 시각화하기 위해 만들어졌다.  [<a href="https://en.wikipedia.org/wiki/Florbetaben_(18F)">reference</a>]</p>
+    </blockquote>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="mri">MRI</h2>
+
+<h3 id="acquisition---3d-t1-weighted-mr-이미지-t1-wi">Acquisition - 3D T1 weighted MR 이미지 (T1 WI)</h3>
+<ul>
+  <li>MRI 스캐너: Discovery MR750 3.0 T scanner (GE Healthcare)</li>
+  <li>Coil: 32-channel head coil</li>
+  <li>Imaging parameters: field of view (FOV) 230mm, matrix size 256$\times$256, slice thickness 1.0mm, voxel size 0.9$\times$0.9$\times$1.0 mm</li>
+</ul>
+
+<h3 id="pre-processing">Pre-processing</h3>
+
+<ol>
+  <li>
+    <p><strong>Segmentation</strong>: MR 이미지를 조직 유형(GM, white matter (WH), CSF)에 따라 segmentation한다. (Statistical Parametric Mapping toolbox CAT12 사용)</p>
+  </li>
+  <li><strong>Nomarlization</strong>: segmented GM 이미지를 Montreal Neurological Institute (MNI) 템플릿에 맞춰 normalize한다.
+    <ul>
+      <li>Montreal Neurological Institute (MNI) Template: 신경 영상 연구에서 일반적으로 사용되는 뇌 표준판.
+        <blockquote>
+          <p>Standard anatomical templates are widely used in human neuroimaging processing pipelines to facilitate group level analyses and comparisons across different subjects and populations. The MNI-ICBM152 template is the most commonly used standard template, representing an average of 152 healthy young adult brains.  [<a href="https://nist.mni.mcgill.ca/mni-ftd-templates/">reference</a>]</p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+  <li><strong>Resampling and Smoothing</strong>: 이미지를 isotropic voxel size 2$\times$2$\times$2 mm<sup>3</sup> 로 resampling한 후,  5mm full-width-at-half-maximum Gaussian kernel을 사용해 smoothing한다.
+    <ul>
+      <li>이미지 사이즈를 표준화하고 이미지 내 noise를 줄이는 데에 도움이 될 수 있다.</li>
+    </ul>
+  </li>
+  <li><strong>Source-based morphometry (SBM)</strong>: 독립 성분 분석 (independent component analysis; ICA)을 통합하여 해부학적 뇌 이미지를 각 개체의 독립적인 spatial map으로 분해한다.
+    <blockquote>
+      <p>In signal processing, independent component analysis (ICA) is a computational method for separating a multivariate signal into additive subcomponents. This is done by assuming that at most one subcomponent is Gaussian and that the subcomponents are statistically independent from each other.  [<a href="https://en.wikipedia.org/wiki/Independent_component_analysis">reference</a>]</p>
+
+      <p align="center">
+<img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/ica.png?raw=true" alt="ica" style="zoom: 30%;" />
+</p>
+    </blockquote>
+  </li>
+  <li><strong>ICA processing</strong>
+    <ul>
+      <li>3D GM 이미지 (91$\times$109$\times$91 voxels)를 1D 배열 (1$\times$902,629) 형식으로 변환한다.</li>
+      <li>Scikit-learn의 FastICA를 사용해 ICA에 선택된 voxel에 관한 brain mask를 생성한다.</li>
+      <li>추출된 독립 성분 (IC) 수는 모델링 시 하이퍼파라미터로 작용한다.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Spatial Regression</strong>: 추출된 IC는 각 GM 이미지의 공간 회귀 변수 (spatial regressor)로 사용되며, 가중 계수 (weighting coefficient) $\beta$는 각 IC의 GM 이미지에 영향을 얼마나 줄지를 결정한다.</p>
+
+\[I_{GM}=\beta_1 IC_1 + \beta_2 IC_2 + ... + \beta_K IC_K\]
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="machine-learning">Machine learning</h2>
+
+<ul>
+  <li>Input features: ICA의 $\beta$ 값, demographic characteristics (나이 및 성별), 인지 평가, APOE 유전형</li>
+  <li>Input conduction: 다양한 input feature 조합을 모델 학습 및 테스트 시 사용했다.
+    <ol>
+      <li>모든 input feature 사용</li>
+      <li>각 feature를 다양하게 조합하여 사용: 뇌 이미지만 사용, 뇌 이미지+인지 평가 사용 등</li>
+      <li>진단명 별 데이터를 다양하게 조합하여 사용: AD+HC, AD+MCI+HC 등</li>
+    </ol>
+  </li>
+  <li>모델: Gaussian support vector machine (SVM)
+    <ul>
+      <li>5-fold cross-validation 방식으로 학습</li>
+      <li>모든 분할에서 테스트</li>
+    </ul>
+  </li>
+  <li>Interpretability: SHaply Additive exPlanations (SHAP)
+    <ul>
+      <li>게임 이론에 기초하여 구해지는 SHAP 값은 모델 예측 결과에 해당 feature가 미치는 영향을 나타낸다.</li>
+      <li>SHAP의 절댓값이 큰 feature일수록 예측에 강한 영향을 미친다.</li>
+      <li>양음성을 띠는 SHAP 값이 도출되는 임상적 feature는 A$\beta$의 양음성과 관련이 있다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="statistical-analysis">Statistical analysis</h2>
+
+<p>변수 간 관계성 탐색으로서 진단명과 관련이 있는지, Alzheimer’s disease 관련 기존 연구 가설과 연관이 있는지 판단해보았다.</p>
+
+<ul>
+  <li>Two-tailed t-test / Chi-square test
+    <ul>
+      <li>Two tailed t-test: 두 그룹의 평균을 비교하여 그들 사이에 유의한 차이가 있는지 결정하는 데 사용된다.</li>
+      <li>Chi-square test: 범주형 변수 간 독립성 (independence)을 테스트하는 데 사용된다.</li>
+    </ul>
+  </li>
+  <li>feature 간 관계성: 연속성 변수에 대한 피어슨 상관 분석 (Pearson’s correlation analysis)
+    <ul>
+      <li>연속성 변수 pair 간 선형 관계 (linear relationship)의 강도와 방향을 측정한다.</li>
+      <li>변수간 관계를 이해하는 데 도움을 준다.</li>
+    </ul>
+  </li>
+  <li>진단명과의 관련성: 분산 분석 (Analysis of variance; ANOVA)
+    <ul>
+      <li>한 표본 내에서 그룹 간 평균 차이를 분석한다.</li>
+      <li>그룹 평균 사이 통계적으로 유의미한 차이가 있는지 결정하므로, 비교할 그룹이 두 개 이상인 경우 특히 유용하다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="results">Results</h1>
+
+<p>최종 모델 구축에 118개 데이터가 사용되었다.</p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/table1.png?raw=true" alt="table1" style="zoom: 80%;" />
+</p>
+
+<p><br /></p>
+
+<h2 id="model-performance">Model performance</h2>
+
+<p align="center">
+    <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/table2.png?raw=true" alt="table2" style="zoom: 80%;" />
+    <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/fig1.png?raw=true" alt="fig1" style="zoom: 80%;" /> 
+    <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/table3.png?raw=true" alt="table3" style="zoom: 80%;" />
+</p>
+
+<p><strong>A$\beta$ positivity prediction</strong></p>
+<ul>
+  <li>최종 모델: 뇌 이미지 + 인지 기능 점수 + APOE를 input feature로 사용한 모델</li>
+  <li>최종 모델로 최고 성능 (accuracy 89.8%, AUC 0.888)을 달성했다.</li>
+  <li>뇌 이미지만 input feature로 사용한 모델이 최저 성능 (accuracy 84.7%, AUC 0.830)을 기록했다.</li>
+</ul>
+
+<p>최종 모델로 각 진단명의 데이터에 대해 A$\beta$ positivity prediction을 시험한 결과</p>
+<ul>
+  <li>모든 진단명 데이터를 사용한 경우 최고 성능 (accuracy 89.8%)을 얻었다.</li>
+  <li>MCI 데이터만을 가지고 테스트한 경우에 최저 성능 (accuracy 75.9%)을 기록했다.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="sbm">SBM</h2>
+
+<p align="center">
+    <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/table4.png?raw=true" alt="table4" style="zoom: 100%;" />
+    <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/addfig2.png?raw=true" alt="addfig2" style="zoom: 100%;" />
+    <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/fig2.png?raw=true" alt="fig2" style="zoom: 60%;" />
+</p>
+
+<p>최종 SBM 모델에서 7개의 IC를 추출했다.</p>
+<ul>
+  <li>각 component는 공간적으로 maximally independent GM volume 패턴을 나타낸다.</li>
+  <li>IC 1이 인지 검사 결과 및 A$\beta$ 양음성과 유의한 상관 관계를 보였다.</li>
+  <li>진단명 중에서는 AD와 IC 1만이 유의한 관련이 있었고, 다른 진단명은 어떤 IC와도 관련이 없었다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="discussion">Discussion</h1>
+
+<p>제안한 모델은 A$\beta$ positivity를 성공적으로 예측했다 (성능: accuracy 89.8%, AUC 0.888).</p>
+<ul>
+  <li>여러 feature로 구성된 118개의 데이터만을 가지고 좋은 결과를 내었다.</li>
+  <li>비 Alzheimer’s disease (non-AD) 개체도 정확히 구분했다: FTLD 신드롬이나 다른 정신 질환 등</li>
+  <li>최종 모델의 공분산 (convariant) 중 IC 1이 A$\beta$ positivity prediction에 강한 영향을 미쳤다.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="performance">Performance</h2>
+
+<ol>
+  <li>Non-AD 개체가 갖는 feature의 다양성(heterogeneity)
+    <ul>
+      <li>AD 개체만을 기반으로 학습된 모델이 모든 경우에 대해 학습한 모델보다 성능이 조금 낮았다. (88.4%)</li>
+    </ul>
+  </li>
+  <li>SBM의 장점
+    <ul>
+      <li>다양한 임상 인구를 기반으로 한 모델은 실제 임상 환경에서 적용되기에 더 적합할 것이다. (← 진료를 받으러 오는 환자들은 AD 외 다양한 인지 장애를 가지고 있을 것이다.)</li>
+      <li>뇌 이미지만을 사용하여 학습된 모델 (accuracy 84.7%)은 AD 관련 임상 시험에서 잠재적 환자를 선별하는 데 도움이 될 수 있을 것이다.</li>
+      <li>SBM은 기존의 아틀라스(atlas)에 의존하지 않고 ND 질환과 관련된 뇌 구조의 미묘한 형태학적 변화 및 알려지지 않은 패턴을 감지한다.</li>
+    </ul>
+  </li>
+  <li>봐줄만 한 MCI 환자 예측 성능
+    <ul>
+      <li>의사가 AD 환자를 70% 정확하게 진단하는데, 모델은 MCI 데이터만을 가지고 이것을 초과한 정확도 (75.9%)를 보였다.</li>
+      <li>다른 MRI 기반 모델의 MCI 개체 대상 예측 정확도와도 견줄만하다.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="feature-importance-of-the-model---shap">Feature Importance of the model - SHAP</h2>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/fig3.png?raw=true" alt="fig3" style="zoom: 80%;" />
+     <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/supfig3.png?raw=true" alt="supfig3" style="zoom: 80%;" />
+</p>
+
+<p>모든 IC가 인구 통계 및 MMSE 등과 같은 인지적 특성보다 모델 예측에 더 중요하게 작용하는 것으로 나타났다. 모델에 제일 중요하게 작용한 feature 세 가지는 다음과 같다: IC 1, LM 1, LM II</p>
+
+<ul>
+  <li>IC 1: A$\beta$ 양음성 및 인지 검사 결과와 유의한 상관 관계를 보였다.
+    <ul>
+      <li>IC 1의 공간적 패턴이 측두엽(parietal lobe)에서 관찰되는 AD의 신경 퇴행(neurodegeneration; ND) 피질 패턴(cortical pattern)과 유사했다.</li>
+      <li>전형적인 AD 양상인 내측두엽(medial temporal lobe; MTL) 위축이 어떤 IC에서도 관찰되지 않았다. 이것은 A$\beta$ 병변(pathodology)이 아닌 Tau pathodology를 가리킬 수도 있다.</li>
+    </ul>
+  </li>
+  <li>LM scores: AD의 주요 증상인 기억 장애를 반영한다.</li>
+  <li>APOE -$\epsilon$4의 유무도 중요한 요소로 나타났다.</li>
+</ul>
+
+<p>또한 IC 1과는 A$\beta$ 양음성이, IC 4와는 나이가 명확하게 관련되는 것으로 나타났다.</p>
+
+<ul>
+  <li>이것은 모델이 뇌 이미징에서 AD로 인한 ND와 정상적인 노화를 구별하는 능력이 있다는 것을 나타낸다.</li>
+  <li>즉, AD의 pathdology 과정은 나이와 절대적으로 관련이 있지는 않을 수 있음을 시사한다. → 정상적인 노화 과정에서 관찰되는 뇌 손상 패턴은 신경퇴행성 질환의 뇌 손상과 구별될 수 있다.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="limitation">Limitation</h2>
+
+<ol>
+  <li>PET 검사로만 결정된 A$\beta$ 양음성 여부: 임상 전 단계에서는 CSF A$\beta$로 판단하는 것이 더 정확할 수 있다.</li>
+  <li>부족한 샘플 수: 모델의 정확도에 영향을 줄 수 있다.</li>
+  <li>Cross-sectional 접근: 이보다는 Longitudinal follow-up 데이터가 모델 성능을 더 향상시킬 수도 있다.</li>
+</ol>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Papers" /><category term="bio" /><category term="brainImaging" /><category term="demensia" /><category term="atn" /><category term="amyloid" /><summary type="html"><![CDATA[Momota, Yuki, et al. “Amyloid-β prediction machine learning model using source-based morphometry across neurocognitive disorders.” Scientific Reports 14.1 (2024): 7633. Paper Link Points Objective 다양한 환자의 MRI를 기반으로 하는 machine leanring 모델을 사용해 Alzheimer’s disease (AD)를 예측하고자 한다. Amyloid-beta (A$\beta$) 침착의 정도를 측정하기 위해 source-based morphometry (SBM)을 활용한다. Methodology 3D T1 weighted-image (WI)를 voxel-based 회백질 (gray matter; GM) 이미지로 전처리한 뒤 SBM에 적용했다. Classifier로서 support vector machine (SVM)을 사용했다. 모델의 interpretability를 위해 SHapley Aditive exPlanations (SHAP)를 활용했다. Results MR 이미지, 인지 검사 결과 및 apolipoprotein E (APOE)를 input feature로 사용한 최종 모델의 정확도가 89.8%를 달성했다. MR 이미지만을 기반으로 한 모델의 경우 84.7%이다. Background AD는 A$\beta$ 플라크, 신경 섬유 매듭(neurofibrillary tangles), 뇌 위축(brain atrophy) 등으로 특정되는 신경퇴행성 질환이다. A$\beta$는 AD를 정의하는 특징 중 하나이지만 임상 실무에서 실질적으로 감지하기 어렵다. Position emission tomography (PET), cerebrospinal fluid (CSF) 검사, 혈액 바이오 마커 등의 방법은 아직 실무에 적용되지 못했다. MRI 기반 A$\beta$ 예측은 위의 방법을 통한 정확한 진단 이전에 유용한 진단 도구로서 사용될 수 있다. Method Features Participants and clinical measurements 2018년 6월 ~ 2021년 8월, Keio 대학 병원의 memory clinic에서 모집되었다. 진단명: AD, MCI, HC Cognitive assessment (9 measures) 인지 기능 전반: Mimi-mental state examination (MMSE), Clinical dementia rating (CDR), Functional activity questionnaire (FAQ) 기억력: Wechsler Memory Scale-Revised (WMS-R) Lgical Memeory immediate recall (LM I) and delayed recall (LM II) 실행력 및 주의력: Word Fluency, Trail Making Test (TMT) 특정 인지 능력: Japanese version of Alzheimer’s Disease Assessment Scale-Cognitive subscale (ADAS-cog-J), Japanese Adult Reading Test (JART) APOE genotyping Magnetic nanoparticle DNA extraction kit (EX1 DNA Blodd 200 $\mu$L Kit) real-time polymerase chain reaction (PCR) [18F] Florbetaben (FBB) amyloid-PET imaging [18F] Florbetaben (FBB) Florbetaben은 일반 임상에서 사용할 목적으로 개발된 진단 방사성 트레이서로, 아밀로이드 베타 플라크를 시각화하기 위해 만들어졌다. [reference] MRI Acquisition - 3D T1 weighted MR 이미지 (T1 WI) MRI 스캐너: Discovery MR750 3.0 T scanner (GE Healthcare) Coil: 32-channel head coil Imaging parameters: field of view (FOV) 230mm, matrix size 256$\times$256, slice thickness 1.0mm, voxel size 0.9$\times$0.9$\times$1.0 mm Pre-processing Segmentation: MR 이미지를 조직 유형(GM, white matter (WH), CSF)에 따라 segmentation한다. (Statistical Parametric Mapping toolbox CAT12 사용) Nomarlization: segmented GM 이미지를 Montreal Neurological Institute (MNI) 템플릿에 맞춰 normalize한다. Montreal Neurological Institute (MNI) Template: 신경 영상 연구에서 일반적으로 사용되는 뇌 표준판. Standard anatomical templates are widely used in human neuroimaging processing pipelines to facilitate group level analyses and comparisons across different subjects and populations. The MNI-ICBM152 template is the most commonly used standard template, representing an average of 152 healthy young adult brains. [reference] Resampling and Smoothing: 이미지를 isotropic voxel size 2$\times$2$\times$2 mm3 로 resampling한 후, 5mm full-width-at-half-maximum Gaussian kernel을 사용해 smoothing한다. 이미지 사이즈를 표준화하고 이미지 내 noise를 줄이는 데에 도움이 될 수 있다. Source-based morphometry (SBM): 독립 성분 분석 (independent component analysis; ICA)을 통합하여 해부학적 뇌 이미지를 각 개체의 독립적인 spatial map으로 분해한다. In signal processing, independent component analysis (ICA) is a computational method for separating a multivariate signal into additive subcomponents. This is done by assuming that at most one subcomponent is Gaussian and that the subcomponents are statistically independent from each other. [reference] ICA processing 3D GM 이미지 (91$\times$109$\times$91 voxels)를 1D 배열 (1$\times$902,629) 형식으로 변환한다. Scikit-learn의 FastICA를 사용해 ICA에 선택된 voxel에 관한 brain mask를 생성한다. 추출된 독립 성분 (IC) 수는 모델링 시 하이퍼파라미터로 작용한다. Spatial Regression: 추출된 IC는 각 GM 이미지의 공간 회귀 변수 (spatial regressor)로 사용되며, 가중 계수 (weighting coefficient) $\beta$는 각 IC의 GM 이미지에 영향을 얼마나 줄지를 결정한다. \[I_{GM}=\beta_1 IC_1 + \beta_2 IC_2 + ... + \beta_K IC_K\] Machine learning Input features: ICA의 $\beta$ 값, demographic characteristics (나이 및 성별), 인지 평가, APOE 유전형 Input conduction: 다양한 input feature 조합을 모델 학습 및 테스트 시 사용했다. 모든 input feature 사용 각 feature를 다양하게 조합하여 사용: 뇌 이미지만 사용, 뇌 이미지+인지 평가 사용 등 진단명 별 데이터를 다양하게 조합하여 사용: AD+HC, AD+MCI+HC 등 모델: Gaussian support vector machine (SVM) 5-fold cross-validation 방식으로 학습 모든 분할에서 테스트 Interpretability: SHaply Additive exPlanations (SHAP) 게임 이론에 기초하여 구해지는 SHAP 값은 모델 예측 결과에 해당 feature가 미치는 영향을 나타낸다. SHAP의 절댓값이 큰 feature일수록 예측에 강한 영향을 미친다. 양음성을 띠는 SHAP 값이 도출되는 임상적 feature는 A$\beta$의 양음성과 관련이 있다. Statistical analysis 변수 간 관계성 탐색으로서 진단명과 관련이 있는지, Alzheimer’s disease 관련 기존 연구 가설과 연관이 있는지 판단해보았다. Two-tailed t-test / Chi-square test Two tailed t-test: 두 그룹의 평균을 비교하여 그들 사이에 유의한 차이가 있는지 결정하는 데 사용된다. Chi-square test: 범주형 변수 간 독립성 (independence)을 테스트하는 데 사용된다. feature 간 관계성: 연속성 변수에 대한 피어슨 상관 분석 (Pearson’s correlation analysis) 연속성 변수 pair 간 선형 관계 (linear relationship)의 강도와 방향을 측정한다. 변수간 관계를 이해하는 데 도움을 준다. 진단명과의 관련성: 분산 분석 (Analysis of variance; ANOVA) 한 표본 내에서 그룹 간 평균 차이를 분석한다. 그룹 평균 사이 통계적으로 유의미한 차이가 있는지 결정하므로, 비교할 그룹이 두 개 이상인 경우 특히 유용하다. Results 최종 모델 구축에 118개 데이터가 사용되었다. Model performance A$\beta$ positivity prediction 최종 모델: 뇌 이미지 + 인지 기능 점수 + APOE를 input feature로 사용한 모델 최종 모델로 최고 성능 (accuracy 89.8%, AUC 0.888)을 달성했다. 뇌 이미지만 input feature로 사용한 모델이 최저 성능 (accuracy 84.7%, AUC 0.830)을 기록했다. 최종 모델로 각 진단명의 데이터에 대해 A$\beta$ positivity prediction을 시험한 결과 모든 진단명 데이터를 사용한 경우 최고 성능 (accuracy 89.8%)을 얻었다. MCI 데이터만을 가지고 테스트한 경우에 최저 성능 (accuracy 75.9%)을 기록했다. SBM 최종 SBM 모델에서 7개의 IC를 추출했다. 각 component는 공간적으로 maximally independent GM volume 패턴을 나타낸다. IC 1이 인지 검사 결과 및 A$\beta$ 양음성과 유의한 상관 관계를 보였다. 진단명 중에서는 AD와 IC 1만이 유의한 관련이 있었고, 다른 진단명은 어떤 IC와도 관련이 없었다. Discussion 제안한 모델은 A$\beta$ positivity를 성공적으로 예측했다 (성능: accuracy 89.8%, AUC 0.888). 여러 feature로 구성된 118개의 데이터만을 가지고 좋은 결과를 내었다. 비 Alzheimer’s disease (non-AD) 개체도 정확히 구분했다: FTLD 신드롬이나 다른 정신 질환 등 최종 모델의 공분산 (convariant) 중 IC 1이 A$\beta$ positivity prediction에 강한 영향을 미쳤다. Performance Non-AD 개체가 갖는 feature의 다양성(heterogeneity) AD 개체만을 기반으로 학습된 모델이 모든 경우에 대해 학습한 모델보다 성능이 조금 낮았다. (88.4%) SBM의 장점 다양한 임상 인구를 기반으로 한 모델은 실제 임상 환경에서 적용되기에 더 적합할 것이다. (← 진료를 받으러 오는 환자들은 AD 외 다양한 인지 장애를 가지고 있을 것이다.) 뇌 이미지만을 사용하여 학습된 모델 (accuracy 84.7%)은 AD 관련 임상 시험에서 잠재적 환자를 선별하는 데 도움이 될 수 있을 것이다. SBM은 기존의 아틀라스(atlas)에 의존하지 않고 ND 질환과 관련된 뇌 구조의 미묘한 형태학적 변화 및 알려지지 않은 패턴을 감지한다. 봐줄만 한 MCI 환자 예측 성능 의사가 AD 환자를 70% 정확하게 진단하는데, 모델은 MCI 데이터만을 가지고 이것을 초과한 정확도 (75.9%)를 보였다. 다른 MRI 기반 모델의 MCI 개체 대상 예측 정확도와도 견줄만하다. Feature Importance of the model - SHAP 모든 IC가 인구 통계 및 MMSE 등과 같은 인지적 특성보다 모델 예측에 더 중요하게 작용하는 것으로 나타났다. 모델에 제일 중요하게 작용한 feature 세 가지는 다음과 같다: IC 1, LM 1, LM II IC 1: A$\beta$ 양음성 및 인지 검사 결과와 유의한 상관 관계를 보였다. IC 1의 공간적 패턴이 측두엽(parietal lobe)에서 관찰되는 AD의 신경 퇴행(neurodegeneration; ND) 피질 패턴(cortical pattern)과 유사했다. 전형적인 AD 양상인 내측두엽(medial temporal lobe; MTL) 위축이 어떤 IC에서도 관찰되지 않았다. 이것은 A$\beta$ 병변(pathodology)이 아닌 Tau pathodology를 가리킬 수도 있다. LM scores: AD의 주요 증상인 기억 장애를 반영한다. APOE -$\epsilon$4의 유무도 중요한 요소로 나타났다. 또한 IC 1과는 A$\beta$ 양음성이, IC 4와는 나이가 명확하게 관련되는 것으로 나타났다. 이것은 모델이 뇌 이미징에서 AD로 인한 ND와 정상적인 노화를 구별하는 능력이 있다는 것을 나타낸다. 즉, AD의 pathdology 과정은 나이와 절대적으로 관련이 있지는 않을 수 있음을 시사한다. → 정상적인 노화 과정에서 관찰되는 뇌 손상 패턴은 신경퇴행성 질환의 뇌 손상과 구별될 수 있다. Limitation PET 검사로만 결정된 A$\beta$ 양음성 여부: 임상 전 단계에서는 CSF A$\beta$로 판단하는 것이 더 정확할 수 있다. 부족한 샘플 수: 모델의 정확도에 영향을 줄 수 있다. Cross-sectional 접근: 이보다는 Longitudinal follow-up 데이터가 모델 성능을 더 향상시킬 수도 있다.]]></summary></entry><entry xml:lang="ko"><title type="html">[Paper] Tabtransformer: Tabular data modeling using contextual embeddings (2020)</title><link href="https://alatteaday.github.io/ko/papers/2024/04/11/tabtf/" rel="alternate" type="text/html" title="[Paper] Tabtransformer: Tabular data modeling using contextual embeddings (2020)" /><published>2024-04-11T00:00:00-05:00</published><updated>2024-04-11T00:00:00-05:00</updated><id>https://alatteaday.github.io/papers/2024/04/11/tabtf</id><content type="html" xml:base="https://alatteaday.github.io/papers/2024/04/11/tabtf/"><![CDATA[<p>Huang, Xin, et al. “Tabtransformer: Tabular data modeling using contextual embeddings.” <em>arXiv preprint arXiv:2012.06678</em> (2020).</p>
+
+<p><a href="https://arxiv.org/abs/2012.06678">Paper Link</a></p>
+
+<p><br /></p>
+
+<h1 id="points">Points</h1>
+
+<ul>
+  <li><strong>TabTransformer</strong>: contextual embedding을 활용한 novel tabular data 모델</li>
+  <li>Two-phase pre-training 방법을 통해 질 좋은 feature representation을 추출한다.</li>
+  <li>Supervised 및 semi-supervised learning에서 모두 SOTA를 달성했다.</li>
+  <li>데이터가 누락되거나 일관되지 않은(noisy) 데이터에서도 성능이 안정적이다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="background">Background</h1>
+
+<p>기존 tabular data에 대한 모델은 주로 트리 기반 앙상블 방식으로, Gradient boosted decision trees (GBDT)모델이 대표적이다. 그러나 이런 모델은 딥러닝 모델과 비교하여 여러 제한을 가지고 있다:</p>
+
+<ul>
+  <li>스트리밍 데이터를 통한 continual learning에 적합하지 않다.</li>
+  <li>tabular data의 이미지나 텍스트 등 multi-modality를 end-to-end로 학습하는 데 효과적이지 않다.</li>
+  <li>Semi-supervised learning에 적합하지 않다.</li>
+</ul>
+
+<p>한편 Multi-layer perceptron (MLP)은 이미지와 텍스트 인코더를 end-to-end로 학습하는 것을 가능하게 하지만, 이것 역시 단점이 있다:</p>
+
+<ul>
+  <li>해석하기가(interpretability) 어렵다.</li>
+  <li>누락되거나 지저분한 데이터에 대해 취약하다.</li>
+  <li>Semi-supervised learning의 상황에서 성능이 제한된다.</li>
+  <li>성능이 트리 기반 모델보다 떨어진다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="method">Method</h1>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/archi.png?raw=true" alt="archi" style="zoom: 70%;" />
+</p>
+
+<ul>
+  <li>Transformer layer는 categorical input만을 입력으로 받는다.</li>
+  <li>Continuous input은 Transformer의 출력값과 concatenate된다.</li>
+  <li>Pre-training 동안 Transformer layer는 unlabeled data에 대해 두 가지 task를 학습한다.
+    <ul>
+      <li>Pre-training에서는 continuous input을 배제하고 categorical input만 활용된다.</li>
+    </ul>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/code1.png?raw=true" alt="code1" style="zoom: 100%;" />
+</p>
+  </li>
+  <li>Pre-trained model은 labeled data를 가지고 MLP head와 같이 target 예측 task에 fine-tuning된다.</li>
+  <li>
+    <p>Continuous value는 fine-tuning 단계에서 categorical value와 concat되어 사용된다.</p>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/code2.png?raw=true" alt="code2" style="zoom: 100%;" />
+</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="model-architecture">Model Architecture</h2>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/fig1.png?raw=true" alt="fig1" style="zoom: 60%;" />
+</p>
+
+<ul>
+  <li>각 입력값 $x\equiv \lbrace x_{cat}, x_{cont}\rbrace$은 해당하는 라벨 $y$를 갖는다: $(x, y)$.</li>
+  <li>$x_{cat} \equiv \lbrace x_1, x_2, …, x_m\rbrace$는 입력값 $x_i (i \in {1, …, m})$가 categorical value인 경우의 feature를 가리킨다.</li>
+  <li>
+    <p>$x_{cat}$은 $E_\phi$로 임베딩된다 (column embedding):</p>
+
+\[E_\phi(x_{cat}) \equiv \lbrace e_{\phi_1}(x_1), ..., e_{\phi_m}(x_m) \rbrace, \ e_{\phi_i}(x_i) \in \mathbb{R}^d\]
+  </li>
+  <li>
+    <p>이 임베딩이 여러 Transformer layer를 통과한다 (contextual embedding):</p>
+
+\[\{h_1, ..., h_m\}=f_\theta(E_\phi(x_{cat})), \ h\in \mathbb{R}^d\]
+  </li>
+  <li>$x_{cat}$의 contextual embedding은 $x_{cont} \in \mathbb{R}^c $와 concat된다 ($(d\times m+c)$ 차원).</li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>Column Embedding</strong></p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/colemb.png?raw=true" alt="colemb" style="zoom: 60%;" />
+</p>
+
+<ul>
+  <li>Categorical feature $x_i$는 각자의 embedding lookup table $e_{\phi_i}(.)$을 갖는다.</li>
+  <li>$d_i$개 클래스를 갖는 $i$th feature에 대해, embedding table $e_{\phi_i}(.)$은 $(d_1+1)$개의 embedding으로 구성되는데, 여기서 $d_1+1$번째 embedding은 누락된(masking된) 값을 표현하기 위해서 추가되었다.</li>
+  <li>각 embedding $e_{\phi_i}(j)$은 $[c_{\phi_i}, w_{\phi_{ij}}]$로 표현되는데,
+    <ul>
+      <li>$c_{\phi_i}$는 column $i$에 속하는 클래스를 다른 column 내 클래스와 구분하는 역할을 한다.</li>
+      <li>$w_{\phi_{ij}}$는 column $i$에 속하는 한 feature $j$의 클래스를 해당 column 내 다른 클래스들과 구분하는 역할을 한다.</li>
+    </ul>
+  </li>
+  <li>
+    <p>*차원 $d$는 코드 상으로 볼 때 hidden size인 $h$와 같은 것으로 보인다.</p>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/code3.png?raw=true" alt="code3" style="zoom: 100%;" />
+</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="pre-training">Pre-training</h2>
+
+<p>Transformer layer는 categorical value $x_{cat}=\lbrace x_1, x_2, …, x_m\rbrace$로 구성된 입력을 가지고 두 가지 task를 수행하며 pre-training된다.</p>
+
+<ol>
+  <li><strong>Masked language modeling (MLM)</strong>
+    <ul>
+      <li>입력값 중 $k\%$의 feature를 랜덤으로 masking한다. 실험에서는 $k$를 30으로 설정했다.</li>
+      <li>masking된 feature의 값을 예측하는 multi-class classifier의 cross-entropy loss를 구하여 최소화하는 방향으로 학습한다.</li>
+    </ul>
+  </li>
+  <li><strong>Replaced token detection (RTD)</strong>
+    <ul>
+      <li>입력값 중 일부의 feature를 랜덤하게 생성된 다른 값으로 바꾼다.</li>
+      <li>해당 feature가 바뀌었는지 아닌지를 예측하는 binary classifier의 loss를 최소화하는 방향으로 학습한다.</li>
+      <li>각 column은 embedding lookup table을 따로 가지므로, binary classifier 또한 각 column에 대해 따로 구현되었다.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h1 id="experiments">Experiments</h1>
+
+<h2 id="settings">Settings</h2>
+
+<p><strong>Data</strong></p>
+
+<ul>
+  <li>모든 모들은 15가지 public binary classification 데이터셋에 대해 평가되었다. 데이터셋 출처는 UCI repository, AutoML Challenge, Kaggle.</li>
+  <li>모든 데이터셋은 cross-validation을 위해 5개로 나뉘었다.</li>
+  <li>Training: Validation: Testing 비율 = 65:15:20 (%)</li>
+  <li>Categorical feature는 데이터셋마다 2에서 136가지로 분류된다.</li>
+  <li>Semi-supervised 및 supervised 실험 관련
+    <ul>
+      <li>Semi-supervised: $p$개의 labeled data와 unlabeled data로 학습 데이터를 구성하였다. $p$는 실험 세팅에 따라 $(50, 200, 500)$ 중 하나로 설정되었다.</li>
+      <li>Supervised: 모든 데이터가 labeled data.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Setup</strong></p>
+
+<ul>
+  <li>Hidden dimension: 32</li>
+  <li>Transformer layer 수: 6</li>
+  <li>Attention head 수: 8</li>
+  <li>MLP layer 구조: $\lbrace 4\times l, \ 2\times l \rbrace$ ($l$은 입력의 size를 나타낸다).</li>
+  <li>매 cross-validation split마다 hyperparamter optimization (HPO)를 20번 수행했다.</li>
+  <li>Pre-training은 semi-supervised learning의 경우에만 적용되었다.
+    <ul>
+      <li>모든 데이터가 라벨이 있는 경우(labeled data)에는 pre-training 유무의 차이를 크게 찾지 못했다.</li>
+      <li>Unlabeled data 개수가 많고, labeled data가 적은 학습 상황에서 pre-training의 효과를 더 명확히 발견하였다: 모델이 pre-training을 통해 labeled data에서만으로는 배울 수 없는 representation을 형성할 수 있게 되는 것으로 보인다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Baseline model</strong>: MLP 모델</p>
+
+<ul>
+  <li>TabTransformer에서 Transformer layer를 제거한 상태의 모델</li>
+  <li>Transformer layer의 효과를 평가하기 위해 baseline으로 설정하였다.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="the-effectiveness-of-the-transformer-layers">The effectiveness of the Transformer Layers</h2>
+
+<ol>
+  <li>
+    <p><strong>Performance comparison</strong></p>
+
+    <p>Supervised learning의 상황에서 TabTransformer와 MLP를 비교하였다.</p>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/table1.png?raw=true" alt="table1" style="zoom: 60%;" />
+</p>
+
+    <ul>
+      <li>TabTransformer가 14개의 dataset에서 AUC 상 평균적으로 1.0% 정도로 MLP보다 더 좋은 성능을 보였다.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>t-SNE visualization of contextual embeddings</strong></p>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/fig2.png?raw=true" alt="fig2" style="zoom: 100%;" />
+</p>
+
+    <ul>
+      <li>각 점은 특정 클래스에 속하는 테스트 데이터의 2차원 좌표값을 평균내어 표시하였다.</li>
+      <li>마지막 Transformer layer의 t-SNE plot (왼쪽)에서, 의미가 비슷한 클래스끼리 embedding space 상 cluster를 형성하며 가까이 모여있는 것을 볼 수 있다.</li>
+      <li>Transformer layer를 통과하기 전 (중간)에도, 성격이 다른 feature의 embedding 간에 구별이 시작되는 것을 볼 수 있다.</li>
+      <li>MLP의 embedding (오른쪽)의 경우 어떤 뚜렷한 경향성을 보지 못했다.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Prediction performance of linear models using the embeddings from different Transformer layers</strong></p>
+
+    <p>Logistic regression 모델을 사용해 학습된 embedding의 퀄리티를 평가하였다.</p>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/fig3.png?raw=true" alt="fig2" style="zoom: 60%;" />
+</p>
+
+    <ul>
+      <li>각 모델은 embedding과 continuous value를 사용하여 $y$를 예측한다.</li>
+      <li>Metrics: Test data를 가지고 평가했을 때, AUC 내 cross-validation 점수</li>
+      <li>Normalization: 각 예측 점수는 TabTransformer를 해당 데이터에 학습했을 때 제일 잘 나온 점수에 대해서 normalization되었다.</li>
+      <li>Features: embedding은 concatenation 대신 평균한 후 maximum pooling하는 것으로 처리되었다.</li>
+      <li>Findings: Transformer layer가 깊어질 수록 embedding의 효과가 커지는 것으로 보인다.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="the-robustness-of-tabtransformer">The robustness of TabTransformer</h2>
+
+<p>데이터가 noisy한 경우와 누락된 경우에 대해 TabTransformer의 성능 안정성을 평가하였다.</p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/fig4_5.png?raw=true" alt="fig4_5" style="zoom: 100%;" />
+</p>
+
+<ol>
+  <li><strong>Noisy data</strong>
+    <ul>
+      <li>Method: 데이터에 noise를 만들기 위해 특정 값을 해당 columns 내에 존재하는 값 중 랜덤한 값으로 교체한다. 이 데이터로 이미 학습된 모델을 평가한다.</li>
+      <li>Findings: 데이터가 noisy할 수록 TabTransformer가 MLP보다 확실히 더 좋은 성능을 보이는 것을 관찰할 수 있다 (fig. 4).</li>
+      <li>TabTransformer embedding의 contextual한 성질이 noisy한 데이터에서 큰 효과를 나타내는 것으로 여겨진다.</li>
+    </ul>
+  </li>
+  <li><strong>Data with missing value</strong>
+    <ul>
+      <li>Method: 일부 값을 일부러 삭제하여 데이터를 조작한 후, 미리 학습된 모델을 평가한다.
+        <ul>
+          <li>학습된 모델의 embedding 중 특정 column의 모든 클래스의 embedding 평균값으로 누락된 값을 처리했다.</li>
+        </ul>
+      </li>
+      <li>Findings: TabTransformer가 값이 누락된 데이터에서도 MLP보다 더 안정적인 성능을 보였다 (fig. 5).</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="supervised-learning">Supervised learning</h2>
+
+<p>Supervised learning의 상황에서 TabTransformer의 성능을 4가지 카테고리의 모델과 비교했다:</p>
+<ul>
+  <li>Logistic Regression and GBDT</li>
+  <li>MLP and sparse MLP</li>
+  <li>TabNet model</li>
+  <li>Variational Information Bottleneck (VIB) model</li>
+</ul>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/table2.png?raw=true" alt="table2" style="zoom: 70%;" />
+</p>
+
+<p>Findings:</p>
+<ul>
+  <li>TabTransformer가 성능이 제일 좋은 GBDT와 견줄만한 성능을 보였다.</li>
+  <li>한편 TabNet과 VIB와 같이 tabular data에 대해 고안된 최신 deep learning 모델보다 확실히 좋은 성능을 보였다.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="semi-supervised-learning">Semi-supervised learning</h2>
+
+<p>Semi-supervised learning의 상황에서는 TabTransformer의 성능을 다음 모델과 비교했다:</p>
+<ul>
+  <li>Entropy Regularization (ER)</li>
+  <li>Pseudo Labeling (PL) combined with MLP, TabTransformer, and GBDT</li>
+  <li>MLP (DAE): An unsupervised pre-training method designed for deep models on tabular data, specifically the swap noise Denoising AutoEncoder</li>
+</ul>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/table3_4.png?raw=true" alt="table3_4" style="zoom: 70%;" />
+</p>
+
+<p>Method:</p>
+<ul>
+  <li>Pre-trained model (TabTransformer-RTD/MLM 및 MLP)의 경우 unlabeled data에 pre-training한 후, labeled data에 fine-tuning했다.</li>
+  <li>Semi-supervised learning method (ER 및 PL)의 경우 labeled data와 unlabeled data를 모두 사용하여 학습하였다.</li>
+</ul>
+
+<p>Findings:</p>
+<ul>
+  <li>TabTransformer-RTD/MLM 두 모델이 다른 모델보다 좋은 결과를 나타냈다.</li>
+  <li>TabTransformer (ER), TabTransformer (PL) 및 GBDT (PL)은 다른 모델의 평균보다 더 안 좋은 성능을 보였다.</li>
+  <li>TabTransformer-RTD가 unlabeled data의 수가 줄어들 수록 더 나은 성능을 보였고, TabTransformer-MLM를 압도했다.
+    <ul>
+      <li>MLM task인 multi-class classification보다 RTD의 binary classification이 더 쉽기 때문에 학습이 잘 되어 나타난 차이라고 해석된다.</li>
+    </ul>
+  </li>
+  <li>50개의 data point를 가지고 평가했을 때, MLM (ER)과 MLM (PL)이 TabTransformer 모델보다 좋은 성능을 보였다.
+    <ul>
+      <li>TabTransformer 모델의 경우 unlabeled data에 대해 학습할 때 유용한 embedding을 추출하는 것에 주로 학습될 뿐, classifier 자체의 weight를 update하지 않으므로 나타난 결과라고 여겨진다.</li>
+    </ul>
+  </li>
+  <li>전반적으로 TabTransformer 모델이 unlabeled data에서 유용한 정보를 추출하는 데에 탁월하여, supervised learning 상황에서나, 특히 unlabeled data가 많은 상황에서도 잘 활용될 수 있을 것으로 보인다.</li>
+</ul>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Papers" /><category term="tabular" /><category term="transformer" /><summary type="html"><![CDATA[Huang, Xin, et al. “Tabtransformer: Tabular data modeling using contextual embeddings.” arXiv preprint arXiv:2012.06678 (2020). Paper Link Points TabTransformer: contextual embedding을 활용한 novel tabular data 모델 Two-phase pre-training 방법을 통해 질 좋은 feature representation을 추출한다. Supervised 및 semi-supervised learning에서 모두 SOTA를 달성했다. 데이터가 누락되거나 일관되지 않은(noisy) 데이터에서도 성능이 안정적이다. Background 기존 tabular data에 대한 모델은 주로 트리 기반 앙상블 방식으로, Gradient boosted decision trees (GBDT)모델이 대표적이다. 그러나 이런 모델은 딥러닝 모델과 비교하여 여러 제한을 가지고 있다: 스트리밍 데이터를 통한 continual learning에 적합하지 않다. tabular data의 이미지나 텍스트 등 multi-modality를 end-to-end로 학습하는 데 효과적이지 않다. Semi-supervised learning에 적합하지 않다. 한편 Multi-layer perceptron (MLP)은 이미지와 텍스트 인코더를 end-to-end로 학습하는 것을 가능하게 하지만, 이것 역시 단점이 있다: 해석하기가(interpretability) 어렵다. 누락되거나 지저분한 데이터에 대해 취약하다. Semi-supervised learning의 상황에서 성능이 제한된다. 성능이 트리 기반 모델보다 떨어진다. Method Transformer layer는 categorical input만을 입력으로 받는다. Continuous input은 Transformer의 출력값과 concatenate된다. Pre-training 동안 Transformer layer는 unlabeled data에 대해 두 가지 task를 학습한다. Pre-training에서는 continuous input을 배제하고 categorical input만 활용된다. Pre-trained model은 labeled data를 가지고 MLP head와 같이 target 예측 task에 fine-tuning된다. Continuous value는 fine-tuning 단계에서 categorical value와 concat되어 사용된다. Model Architecture 각 입력값 $x\equiv \lbrace x_{cat}, x_{cont}\rbrace$은 해당하는 라벨 $y$를 갖는다: $(x, y)$. $x_{cat} \equiv \lbrace x_1, x_2, …, x_m\rbrace$는 입력값 $x_i (i \in {1, …, m})$가 categorical value인 경우의 feature를 가리킨다. $x_{cat}$은 $E_\phi$로 임베딩된다 (column embedding): \[E_\phi(x_{cat}) \equiv \lbrace e_{\phi_1}(x_1), ..., e_{\phi_m}(x_m) \rbrace, \ e_{\phi_i}(x_i) \in \mathbb{R}^d\] 이 임베딩이 여러 Transformer layer를 통과한다 (contextual embedding): \[\{h_1, ..., h_m\}=f_\theta(E_\phi(x_{cat})), \ h\in \mathbb{R}^d\] $x_{cat}$의 contextual embedding은 $x_{cont} \in \mathbb{R}^c $와 concat된다 ($(d\times m+c)$ 차원). Column Embedding Categorical feature $x_i$는 각자의 embedding lookup table $e_{\phi_i}(.)$을 갖는다. $d_i$개 클래스를 갖는 $i$th feature에 대해, embedding table $e_{\phi_i}(.)$은 $(d_1+1)$개의 embedding으로 구성되는데, 여기서 $d_1+1$번째 embedding은 누락된(masking된) 값을 표현하기 위해서 추가되었다. 각 embedding $e_{\phi_i}(j)$은 $[c_{\phi_i}, w_{\phi_{ij}}]$로 표현되는데, $c_{\phi_i}$는 column $i$에 속하는 클래스를 다른 column 내 클래스와 구분하는 역할을 한다. $w_{\phi_{ij}}$는 column $i$에 속하는 한 feature $j$의 클래스를 해당 column 내 다른 클래스들과 구분하는 역할을 한다. *차원 $d$는 코드 상으로 볼 때 hidden size인 $h$와 같은 것으로 보인다. Pre-training Transformer layer는 categorical value $x_{cat}=\lbrace x_1, x_2, …, x_m\rbrace$로 구성된 입력을 가지고 두 가지 task를 수행하며 pre-training된다. Masked language modeling (MLM) 입력값 중 $k\%$의 feature를 랜덤으로 masking한다. 실험에서는 $k$를 30으로 설정했다. masking된 feature의 값을 예측하는 multi-class classifier의 cross-entropy loss를 구하여 최소화하는 방향으로 학습한다. Replaced token detection (RTD) 입력값 중 일부의 feature를 랜덤하게 생성된 다른 값으로 바꾼다. 해당 feature가 바뀌었는지 아닌지를 예측하는 binary classifier의 loss를 최소화하는 방향으로 학습한다. 각 column은 embedding lookup table을 따로 가지므로, binary classifier 또한 각 column에 대해 따로 구현되었다. Experiments Settings Data 모든 모들은 15가지 public binary classification 데이터셋에 대해 평가되었다. 데이터셋 출처는 UCI repository, AutoML Challenge, Kaggle. 모든 데이터셋은 cross-validation을 위해 5개로 나뉘었다. Training: Validation: Testing 비율 = 65:15:20 (%) Categorical feature는 데이터셋마다 2에서 136가지로 분류된다. Semi-supervised 및 supervised 실험 관련 Semi-supervised: $p$개의 labeled data와 unlabeled data로 학습 데이터를 구성하였다. $p$는 실험 세팅에 따라 $(50, 200, 500)$ 중 하나로 설정되었다. Supervised: 모든 데이터가 labeled data. Setup Hidden dimension: 32 Transformer layer 수: 6 Attention head 수: 8 MLP layer 구조: $\lbrace 4\times l, \ 2\times l \rbrace$ ($l$은 입력의 size를 나타낸다). 매 cross-validation split마다 hyperparamter optimization (HPO)를 20번 수행했다. Pre-training은 semi-supervised learning의 경우에만 적용되었다. 모든 데이터가 라벨이 있는 경우(labeled data)에는 pre-training 유무의 차이를 크게 찾지 못했다. Unlabeled data 개수가 많고, labeled data가 적은 학습 상황에서 pre-training의 효과를 더 명확히 발견하였다: 모델이 pre-training을 통해 labeled data에서만으로는 배울 수 없는 representation을 형성할 수 있게 되는 것으로 보인다. Baseline model: MLP 모델 TabTransformer에서 Transformer layer를 제거한 상태의 모델 Transformer layer의 효과를 평가하기 위해 baseline으로 설정하였다. The effectiveness of the Transformer Layers Performance comparison Supervised learning의 상황에서 TabTransformer와 MLP를 비교하였다. TabTransformer가 14개의 dataset에서 AUC 상 평균적으로 1.0% 정도로 MLP보다 더 좋은 성능을 보였다. t-SNE visualization of contextual embeddings 각 점은 특정 클래스에 속하는 테스트 데이터의 2차원 좌표값을 평균내어 표시하였다. 마지막 Transformer layer의 t-SNE plot (왼쪽)에서, 의미가 비슷한 클래스끼리 embedding space 상 cluster를 형성하며 가까이 모여있는 것을 볼 수 있다. Transformer layer를 통과하기 전 (중간)에도, 성격이 다른 feature의 embedding 간에 구별이 시작되는 것을 볼 수 있다. MLP의 embedding (오른쪽)의 경우 어떤 뚜렷한 경향성을 보지 못했다. Prediction performance of linear models using the embeddings from different Transformer layers Logistic regression 모델을 사용해 학습된 embedding의 퀄리티를 평가하였다. 각 모델은 embedding과 continuous value를 사용하여 $y$를 예측한다. Metrics: Test data를 가지고 평가했을 때, AUC 내 cross-validation 점수 Normalization: 각 예측 점수는 TabTransformer를 해당 데이터에 학습했을 때 제일 잘 나온 점수에 대해서 normalization되었다. Features: embedding은 concatenation 대신 평균한 후 maximum pooling하는 것으로 처리되었다. Findings: Transformer layer가 깊어질 수록 embedding의 효과가 커지는 것으로 보인다. The robustness of TabTransformer 데이터가 noisy한 경우와 누락된 경우에 대해 TabTransformer의 성능 안정성을 평가하였다. Noisy data Method: 데이터에 noise를 만들기 위해 특정 값을 해당 columns 내에 존재하는 값 중 랜덤한 값으로 교체한다. 이 데이터로 이미 학습된 모델을 평가한다. Findings: 데이터가 noisy할 수록 TabTransformer가 MLP보다 확실히 더 좋은 성능을 보이는 것을 관찰할 수 있다 (fig. 4). TabTransformer embedding의 contextual한 성질이 noisy한 데이터에서 큰 효과를 나타내는 것으로 여겨진다. Data with missing value Method: 일부 값을 일부러 삭제하여 데이터를 조작한 후, 미리 학습된 모델을 평가한다. 학습된 모델의 embedding 중 특정 column의 모든 클래스의 embedding 평균값으로 누락된 값을 처리했다. Findings: TabTransformer가 값이 누락된 데이터에서도 MLP보다 더 안정적인 성능을 보였다 (fig. 5). Supervised learning Supervised learning의 상황에서 TabTransformer의 성능을 4가지 카테고리의 모델과 비교했다: Logistic Regression and GBDT MLP and sparse MLP TabNet model Variational Information Bottleneck (VIB) model Findings: TabTransformer가 성능이 제일 좋은 GBDT와 견줄만한 성능을 보였다. 한편 TabNet과 VIB와 같이 tabular data에 대해 고안된 최신 deep learning 모델보다 확실히 좋은 성능을 보였다. Semi-supervised learning Semi-supervised learning의 상황에서는 TabTransformer의 성능을 다음 모델과 비교했다: Entropy Regularization (ER) Pseudo Labeling (PL) combined with MLP, TabTransformer, and GBDT MLP (DAE): An unsupervised pre-training method designed for deep models on tabular data, specifically the swap noise Denoising AutoEncoder Method: Pre-trained model (TabTransformer-RTD/MLM 및 MLP)의 경우 unlabeled data에 pre-training한 후, labeled data에 fine-tuning했다. Semi-supervised learning method (ER 및 PL)의 경우 labeled data와 unlabeled data를 모두 사용하여 학습하였다. Findings: TabTransformer-RTD/MLM 두 모델이 다른 모델보다 좋은 결과를 나타냈다. TabTransformer (ER), TabTransformer (PL) 및 GBDT (PL)은 다른 모델의 평균보다 더 안 좋은 성능을 보였다. TabTransformer-RTD가 unlabeled data의 수가 줄어들 수록 더 나은 성능을 보였고, TabTransformer-MLM를 압도했다. MLM task인 multi-class classification보다 RTD의 binary classification이 더 쉽기 때문에 학습이 잘 되어 나타난 차이라고 해석된다. 50개의 data point를 가지고 평가했을 때, MLM (ER)과 MLM (PL)이 TabTransformer 모델보다 좋은 성능을 보였다. TabTransformer 모델의 경우 unlabeled data에 대해 학습할 때 유용한 embedding을 추출하는 것에 주로 학습될 뿐, classifier 자체의 weight를 update하지 않으므로 나타난 결과라고 여겨진다. 전반적으로 TabTransformer 모델이 unlabeled data에서 유용한 정보를 추출하는 데에 탁월하여, supervised learning 상황에서나, 특히 unlabeled data가 많은 상황에서도 잘 활용될 수 있을 것으로 보인다.]]></summary></entry><entry xml:lang="ko"><title type="html">Github.io에서 markdown 수식 문법 적용이 안될 때</title><link href="https://alatteaday.github.io/ko/error%20resolution/2024/03/15/GitioMathError/" rel="alternate" type="text/html" title="Github.io에서 markdown 수식 문법 적용이 안될 때" /><published>2024-03-15T00:00:00-05:00</published><updated>2024-03-15T00:00:00-05:00</updated><id>https://alatteaday.github.io/error%20resolution/2024/03/15/GitioMathError</id><content type="html" xml:base="https://alatteaday.github.io/error%20resolution/2024/03/15/GitioMathError/"><![CDATA[<p>Github blog 포스트에 수식을 작성했는데, markdown 수식 문법 적용이 되지 않는 문제가 있었습니다. 해결 방법을 기록해두고자 포스팅합니다.</p>
+
+<h2 id="1-_configyml-파일-수정">1. _config.yml 파일 수정</h2>
+
+<p>markdown process 관련 설정을 확인하여 수정, 없으면 추가합니다. markdown engine을 kramdown으로 설정해야 한다고 합니다.</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/yaml1.png?raw=true" style="zoom:52%;" /></p>
+
+<h2 id="2-_includes-폴더-내-수식-문법-관련-html-파일-작성">2. _includes 폴더 내 수식 문법 관련 HTML 파일 작성</h2>
+
+<p>일반적으로 github blog 내에는 _include 폴더가 존재합니다. 폴더 내에 수식 문법이 포스트에 적용될 수 있게끔 하기 위한 스크립트를 작성합니다. 아래 내용이 HTML 파일에 작성되면 됩니다.</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/html0.png?raw=true" style="zoom:50%;" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">inlineMath</code> 와 <code class="language-plaintext highlighter-rouge">displayMath</code> 항목에서 각각의 수식 문법 기호를 설정할 수 있습니다. 위 예시의 <code class="language-plaintext highlighter-rouge">displayMath</code> 와 같이 리스트 내에 여러 기호를 설정할 수 있습니다. 위 예시에 따르면 수식을  <code class="language-plaintext highlighter-rouge">$$</code> 로 감싸거나, <code class="language-plaintext highlighter-rouge">\\[</code> <code class="language-plaintext highlighter-rouge">\\]</code> 사이에 입력하면 display style로 작성할 수 있게 됩니다.</p>
+
+<p>*<code class="language-plaintext highlighter-rouge">\\[</code> <code class="language-plaintext highlighter-rouge">\\]</code> 말고  <code class="language-plaintext highlighter-rouge">\[</code> <code class="language-plaintext highlighter-rouge">\]</code> 로 문법을 설정하여 포스트에 적용하면, [ ] 괄호를 사용한 일반 텍스트까지 수식으로 처리되는 경우가 있었습니다.</p>
+
+<h3 id="inline과-display-style">Inline과 Display style</h3>
+
+<p>수식 입력 방식에는 inline style과 display style이 있습니다.</p>
+
+<ul>
+  <li>
+    <p>Inline style: 줄 바꿈 없이, 문장 내에서 수식을 표기하는 방법</p>
+  </li>
+  <li>
+    <p>Display style: 수식을 블록으로 생성해 표기하는 방법</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$2$ plus $3$ is $5$: $$2+3=5$$
+</code></pre></div>    </div>
+
+    <p>$2$ plus $3$ is $5$: \[2+3=5\]</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="3-2에서-작성한-html-스크립트를-포스트에-적용">3. 2에서 작성한 HTML 스크립트를 포스트에 적용</h2>
+
+<p>위에서 작성한 스크립트를 실제 포스팅 시 적용하기 위해 layout에 관련한 HTML 파일을 수정합니다. _layout 폴더에 있는 HTML 파일 중 적합한 파일을 찾아 포스트의 내용 부분에 새로 작성한 HTML 파일의 내용을 가져와 적용합니다. 저는 ‘default.html’ 파일 중 content가 입력되는 부분을 찾아 수정했습니다. 아래 예시와 같습니다.</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/html1.png?raw=true" style="zoom:50%;" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">"content"</code> 블록 내 <code class="language-plaintext highlighter-rouge">{ content }</code> 의 위치에 작성한 포스트의 본문이 보여집니다. <code class="language-plaintext highlighter-rouge">include file.html</code> 은 ‘file.html’의 내용을 가져온다는 뜻입니다. 따라서 해당 블록 내에 ‘math.html’에서 작성한 수식 문법 사항을 적용하겠다는 의미의 코드가 됩니다.</p>
+
+<p>위 코드를 아래와 같이 수정하면 수식 문법 적용 여부를 포스팅 시 설정해 줄 수 있는데요,</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/html2.png?raw=true" style="zoom:50%;" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">page.use_math</code> 가 <code class="language-plaintext highlighter-rouge">true</code> 이면 ‘math.html’ 내용을 적용한다는 의미의 코드입니다. 여기서 <code class="language-plaintext highlighter-rouge">page</code> 는 각 포스트를 의미합니다. <code class="language-plaintext highlighter-rouge">page.use_math</code> 을 설정하기 위해서는 매 포스트 작성 시 Front Matter에 <code class="language-plaintext highlighter-rouge">use_math: true</code> 를 추가해주면 됩니다.</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/yaml2.png?raw=true" style="zoom:50%;" /></p>
+
+<p>수식이 필요 없거나, 수식을 적용하기 싫은 포스트에는 <code class="language-plaintext highlighter-rouge">use_math</code> 를 추가하지 않거나 <code class="language-plaintext highlighter-rouge">false</code> 로 설정하면 됩니다.</p>
+
+<p><br /></p>
+
+<h3 id="reference">Reference</h3>
+<p><a href="https://junia3.github.io/blog/markdown">https://junia3.github.io/blog/markdown</a><br />
+<a href="https://an-seunghwan.github.io/github.io/mathjax-error/">https://an-seunghwan.github.io/github.io/mathjax-error/</a></p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Error Resolution" /><category term="gitio" /><category term="markdown" /><summary type="html"><![CDATA[Github blog 포스트에 수식을 작성했는데, markdown 수식 문법 적용이 되지 않는 문제가 있었습니다. 해결 방법을 기록해두고자 포스팅합니다.]]></summary></entry><entry xml:lang="en"><title type="html">When mathematical expression syntax isn’t applying on GitHub Pages</title><link href="https://alatteaday.github.io/ko/dev%20tips%20&%20fixes/2024/03/15/GitioMathError/" rel="alternate" type="text/html" title="When mathematical expression syntax isn’t applying on GitHub Pages" /><published>2024-03-15T00:00:00-05:00</published><updated>2024-03-15T00:00:00-05:00</updated><id>https://alatteaday.github.io/dev%20tips%20&amp;%20fixes/2024/03/15/GitioMathError</id><content type="html" xml:base="https://alatteaday.github.io/dev%20tips%20&amp;%20fixes/2024/03/15/GitioMathError/"><![CDATA[<p>I wrote a math expression in a GitHub blog post, but there was an issue with applying markdown syntax. I’m posting this to document the solution that I applied.</p>
+
+<h2 id="1-modify-the-_configyml-file">1. Modify the _config.yml file</h2>
+
+<p>Check and modify the markdown-related settings in the _config.yml file like below. If they don’t exist, add them like below. It’s recommended to set the markdown engine to kramdown.</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/yaml1.png?raw=true" style="zoom:52%;" /></p>
+
+<h2 id="2-write-a-html-file-of-math-expression-syntax-within-the-_includes-folder">2. Write a HTML file of math expression syntax within the _includes folder</h2>
+
+<p>Generally, GitHub blogs contain an _include folder. Write a script within this folder to enable math expression syntax to be applied to posts. Let’s assume creating a html file named ‘math’</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/html0.png?raw=true" style="zoom:50%;" /></p>
+
+<p>You can set each math syntax mark for the <code class="language-plaintext highlighter-rouge">inlineMath</code> and <code class="language-plaintext highlighter-rouge">displayMath</code>. Similar to the <code class="language-plaintext highlighter-rouge">displayMath</code> item in the above code, you can specifiy multiple marks in the list. Following the example, if you wrap the formula in <code class="language-plaintext highlighter-rouge">$$</code> or <code class="language-plaintext highlighter-rouge">\\[</code> and <code class="language-plaintext highlighter-rouge">\\]</code>, the math style will be displayed as the display style.</p>
+
+<p>*When setting the syntax as <code class="language-plaintext highlighter-rouge">\[</code> and <code class="language-plaintext highlighter-rouge">\]</code> instead of <code class="language-plaintext highlighter-rouge">\\[</code> <code class="language-plaintext highlighter-rouge">\\]</code>, there might be instances where ordinary text enclosed within square brackets is also treated as part of the math expression.</p>
+
+<h3 id="inline-and-display-style">Inline and Display style</h3>
+
+<p>The inline style and the display style are two styles of math expression.</p>
+
+<ul>
+  <li>
+    <p>Inline style: Representing math expression within a sentence without line breaks</p>
+  </li>
+  <li>
+    <p>Display style: Generating math expression as blocks for representation</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$2$ plus $3$ is $5$: $$2+3=5$$
+</code></pre></div>    </div>
+
+    <p>$2$ plus $3$ is $5$: \[2+3=5\]</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="3-apply-the-html-script-created-in-2-to-the-post">3. Apply the HTML script created in 2. to the post</h2>
+
+<p>To apply the script created above to an actual post, you’ll need to modify the HTML file related to the layout. Find an appropriate file in the _layout folder and incorporate the content of the html file into the section where the post’s content is inserted. For example, I found and modified the ‘default.html’ file like the example below:</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/html1.png?raw=true" style="zoom:50%;" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">{ content }</code> displalys the main body of the post. <code class="language-plaintext highlighter-rouge">include file.html</code> means it includes the content of ‘file.html’. Therefore, within this block, it signifies applying the math syntax written in ‘math.html’</p>
+
+<p>You can modify the code and adjust if applying the math syntax or not,</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/html2.png?raw=true" style="zoom:50%;" /></p>
+
+<p>The code <code class="language-plaintext highlighter-rouge">page.use_math</code> being <code class="language-plaintext highlighter-rouge">true</code> indicates that the content of ‘math.html’ will be applied. Here, <code class="language-plaintext highlighter-rouge">page</code> refers to the each page. To set <code class="language-plaintext highlighter-rouge">page.use_math</code>, simply add <code class="language-plaintext highlighter-rouge">use_math: true</code> to the Front Matter of each post.</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/yaml2.png?raw=true" style="zoom:50%;" /></p>
+
+<p>For posts where math expressions are not needed or you prefer not to apply them, simply omit the <code class="language-plaintext highlighter-rouge">use_math</code> tag or set it to <code class="language-plaintext highlighter-rouge">false</code></p>
+
+<p><br /></p>
+
+<h3 id="reference">Reference</h3>
+<p><a href="https://junia3.github.io/blog/markdown">https://junia3.github.io/blog/markdown</a><br />
+<a href="https://an-seunghwan.github.io/github.io/mathjax-error/">https://an-seunghwan.github.io/github.io/mathjax-error/</a></p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Dev Tips &amp; Fixes" /><category term="gitio" /><category term="markdown" /><summary type="html"><![CDATA[I wrote a math expression in a GitHub blog post, but there was an issue with applying markdown syntax. I’m posting this to document the solution that I applied.]]></summary></entry></feed>

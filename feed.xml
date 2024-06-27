@@ -1,0 +1,1655 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://alatteaday.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://alatteaday.github.io/" rel="alternate" type="text/html" /><updated>2024-06-27T02:14:44-05:00</updated><id>https://alatteaday.github.io/feed.xml</id><title type="html">Coffee chat</title><subtitle>Curation of studies, techs, ideas and a journey as a maching learning engineer</subtitle><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><entry xml:lang="en"><title type="html">Summaries of papers on MRI Quality Assessment and Control</title><link href="https://alatteaday.github.io/paper/2024/06/14/mriqcsurvey/" rel="alternate" type="text/html" title="Summaries of papers on MRI Quality Assessment and Control" /><published>2024-06-14T00:00:00-05:00</published><updated>2024-06-14T00:00:00-05:00</updated><id>https://alatteaday.github.io/paper/2024/06/14/mriqcsurvey</id><content type="html" xml:base="https://alatteaday.github.io/paper/2024/06/14/mriqcsurvey/"><![CDATA[<p>I summarized four papers related to MRI quality assessment and control. Below are the summaries:</p>
+
+<h1 id="paper-list">Paper list</h1>
+
+<ul>
+  <li>Liao, Lufan, et al. “Joint image quality assessment and brain extraction of fetal MRI using deep learning.” <em>Medical Image Computing and Computer Assisted Intervention–MICCAI</em> <em>2020: 23rd International Conference, Lima, Peru, October 4–8, 2020, Proceedings, Part VI 23</em>. Springer International Publishing, 2020.</li>
+  <li>Giganti, Francesco, et al. “Prostate Imaging Quality (PI-QUAL): a new quality control scoring system for multiparametric magnetic resonance imaging of the prostate from the PRECISION trial.” European urology oncology 3.5 (2020): 615-619.</li>
+  <li>Esses, Steven J., et al. “Automated image quality evaluation of T2‐weighted liver MRI utilizing deep learning architecture.” <em>Journal</em> <em>of</em> <em>Magnetic</em> <em>Resonance</em> <em>Imaging</em> 47.3 (2018): 723-728.</li>
+  <li>Monereo-Sánchez, Jennifer, et al. “Quality control strategies for brain MRI segmentation and parcellation: Practical approaches and recommendations-insights from the Maastricht study.” <em>Neuroimage</em> 237 (2021): 118174.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="joint-image-quality-assessment-and-brain-extraction-of-fetal-mri-using-deep-learning-2020">Joint Image Quality Assessment and Brain Extraction of Fetal MRI Using Deep Learning (2020)</h1>
+
+<h2 id="background">Background</h2>
+
+<ul>
+  <li>Quality Assessment (QA): Evaluates MRI image quality for analysis suitability.</li>
+  <li>Brain Extraction (BE): Identifies and isolates the brain region from the MRI image.</li>
+</ul>
+
+<p>Traditionally handled separately, this paper proposes a joint deep learning model for simultaneous QA and BE, enhancing performance and efficiency, since both tasks focus on the brain region. Besides, dealing with fetal brain images are difficult, in that they can appear in different positions and angles within the MRI scans. And their shapes and appearances change as fetuses grow. To solve this difficulty, the study leverages deformable convolution method.</p>
+
+<h2 id="main-contributions">Main Contributions</h2>
+
+<ol>
+  <li>
+    <p>Joint Optimization: Combining QA and BE, allowing the network to learn shared features and reducing the risk of overfitting.</p>
+  </li>
+  <li>
+    <p>Multi-Stage Deep Learning Model:</p>
+
+    <ul>
+      <li>Brain Detector: Locates the brain region within the MRI scan. This helps in focusing the subsequent analysis on the relevant part of the image.</li>
+      <li>Deformable Convolution: Adapts the receptive field to the varying shapes and sizes of fetal brains. This is crucial because fetal brain shapes change significantly across different gestational ages.</li>
+      <li>Task-Specific Module: Simultaneously performs QA and BE.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Multi-Step Training Strategy: Progressive training enhances model learning.</p>
+  </li>
+</ol>
+
+<h2 id="evaluation">Evaluation</h2>
+
+<ul>
+  <li>Datasets: Fetal MRI images, focusing on 2D slice quality.</li>
+  <li>Metrics:
+    <ul>
+      <li>Dice Similarity Coefficient (DSC): The primary metric for evaluating the accuracy of brain extraction, measuring the overlap between the predicted and true brain regions.</li>
+      <li>Quality Scores: For image quality assessment, the model was trained to classify images into different quality levels.</li>
+    </ul>
+  </li>
+  <li>Results:
+    <ul>
+      <li>The model achieved a DSC score of 0.89, which is comparable to or better than existing methods, indicating high accuracy in brain extraction.</li>
+      <li>The image quality assessment module successfully classified image slices into quality categories, with 85% accuracy in distinguishing between high and low-quality images.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>The study introduces a DL model for simultaneous QA and BE in fetal MRI scans, using deformable convolutions to handle variability in brain images. The multi-step training and diverse dataset validation demonstrate its effectiveness, making it a promising tool for fetal MRI analysis.</p>
+
+<p><br /></p>
+
+<h1 id="prostate-imaging-quality-pi-qual-a-new-quality-control-scoring-system-for-multiparametric-magnetic-resonance-imaging-of-the-prostate-from-the-precision-trial-2020">Prostate Imaging Quality (PI-QUAL): A New Quality Control Scoring System for Multiparametric Magnetic Resonance Imaging of the Prostate from the PRECISION trial (2020)</h1>
+
+<h2 id="background-1">Background</h2>
+
+<p>The PRECISION trial was a multicenter randomized study that demonstrated multiparametric magnetic resonance imaging (mpMRI)-targeted biopsy is superior to standard transrectal ultrasound-guided biopsy for detecting prostate cancer. The success of mpMRI-targeted biopsies relies heavily on the quality of the mpMRI scans, but there was no existing scoring system to evaluate this quality.</p>
+
+<h2 id="prostate-imaging-quality-pi-qual">Prostate Imaging Quality (PI-QUAL)</h2>
+
+<p>To address this gap, the researchers introduced a novel scoring system called the Prostate Imaging Quality (PI-QUAL) score. PI-QUAL is a Likert scale from 1 to 5:</p>
+
+<ul>
+  <li>1: No mpMRI sequences are of diagnostic quality.</li>
+  <li>5: Each sequence is independently of optimal diagnostic quality.</li>
+</ul>
+
+<h2 id="method">Method</h2>
+
+<ol>
+  <li>Selection of MRI scans: From the PRECISION trial, 58 out of 252 mpMRI scans (23%) were randomly selected for evaluation. These scans were taken from 22 different centers involved in the trial.</li>
+  <li>Radiologist assessment: Two experienced radiologists from the coordinating trial center independently assessed the selected MRI scans. The radiologists were blinded to the pathology results to ensure unbiased evaluation.</li>
+  <li>Scoring system: The scans were scored using the newly developed PI-QUAL system.</li>
+  <li>Quality Metrics
+    <ul>
+      <li>Overall quality: The overall diagnostic quality of the scans was evaluated.</li>
+      <li>Specific sequence quality: The quality of individual sequences such as T2-weighted imaging (T2WI), diffusion-weighted imaging (DWI), and dynamic contrast-enhanced imaging (DCE) was assessed separately.</li>
+    </ul>
+  </li>
+  <li>Statistical Analysis
+    <ul>
+      <li>The percentage of scans with sufficient diagnostic quality (PI-QUAL score ≥3) was calculated.</li>
+      <li>The percentage of scans with good or optimal diagnostic quality (PI-QUAL score ≥4) was determined.</li>
+      <li>The diagnostic quality of the specific imaging sequences (T2WI, DWI, DCE) was also analyzed.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="results">Results</h2>
+
+<ul>
+  <li>Overall Diagnostic Quality:
+    <ul>
+      <li>55 out of 58 scans (95%) had sufficient diagnostic quality (PI-QUAL score ≥3).</li>
+      <li>35 out of 58 scans (60%) had good or optimal diagnostic quality (PI-QUAL score ≥4).</li>
+    </ul>
+  </li>
+  <li>Sequence-Specific Quality: 95% of T2WI scans, 79% of DWI scans, and 66% of DCE scans were of diagnostic quality.</li>
+</ul>
+
+<h2 id="conclusion-1">Conclusion</h2>
+
+<p>The introduction of the PI-QUAL score provides a standardized method to assess the quality of mpMRI scans. Further validation of this scoring system is recommended to ensure its effectiveness in various clinical settings.</p>
+
+<p><br /></p>
+
+<h1 id="automated-image-quality-evaluation-of-t2-weighted-liver-mri-utilizing-deep-learning-architecture-2018">Automated image quality evaluation of T2-weighted liver MRI utilizing deep learning architecture (2018)</h1>
+
+<h2 id="background-2">Background</h2>
+
+<p>Accurate screening of T2-weighted (T2WI) liver MRI scans is essential for effective diagnosis, but manual evaluation by radiologists is time-consuming and subject to variability. Automated methods, specifically using deep learning (DL) approaches like Convolutional Neural Networks (CNNs), offer a promising solution for consistent and efficient image quality assessment. This study aimed to develop and evaluate a CNN for automated screening to identify non-diagnostic images and compare its performance to radiologists’ evaluations.</p>
+
+<h2 id="method-1">Method</h2>
+
+<ul>
+  <li>Data Collection: The study utilized 522 liver MRI exams performed at 1.5T and 3T between November 2014 and May 2016 for training and validation of the CNN.</li>
+  <li>CNN Architecture: The CNN consisted of several layers, including an input layer, convolutional layer, fully connected layer, and output layer.</li>
+  <li>Training Data: 351 T2WI images were anonymized and labeled as diagnostic or non-diagnostic based on their ability to detect lesions and assess liver morphology. These were used to train CNN.</li>
+  <li>Validation Data: An independent set of 171 T2WI images was used for blind testing. Two radiologists independently evaluated these images, labeling them as diagnostic or non-diagnostic.</li>
+  <li>Comparison: The image quality (IQ) output from the CNN was compared to the evaluations made by the two radiologists.</li>
+</ul>
+
+<h2 id="results-1">Results</h2>
+
+<ul>
+  <li>The agreement between the CNN and the radiologists was: 79% with Reader 1, and 73% with Reader 2</li>
+  <li>Sensitivity and Specificity of the CNN in identifying non-diagnostic images:
+    <ul>
+      <li>Sensitivity: 67% with respect to Reader 1 and 47% with respect to Reader 2</li>
+      <li>Specificity: 81% with respect to Reader 1 and 80% with respect to Reader 2</li>
+    </ul>
+  </li>
+  <li>Negative predictive value: 94% with respect to Reader 1 and 86% with respect to Reader 2</li>
+</ul>
+
+<h2 id="conclusion-2">Conclusion</h2>
+
+<p>This research shows the potential of using deep learning, specifically a CNN, for automated quality evaluation of T2-weighted liver MRI images. The CNN’s performance was compared to radiologists’ assessments, showing a high negative predictive value, which indicates its reliability in identifying diagnostic images. This automated approach could be assist radiologists in clinical settings by quickly and accurately determining the quality of MRI scans.</p>
+
+<p><br /></p>
+
+<h1 id="quality-control-strategies-for-brain-mri-segmentation-and-parcellation-practical-approaches-and-recommendations---insights-from-the-maastricht-study-2021">Quality control strategies for brain MRI segmentation and parcellation: Practical approaches and recommendations - insights from the Maastricht study (2021)</h1>
+
+<h2 id="background-3">Background</h2>
+
+<p>Quality control (QC) in brain MRI segmentation is crucial for ensuring accurate data. Manual QC, although considered the gold standard, is impractical for large datasets due to its time-consuming nature. Automated methods offer faster and reproducible alternatives but lack a consensus on the best approach. This study aims to highlight the impact of manual edits on brain segmentation accuracy and compare various QC strategies to reduce measurement errors effectively.</p>
+
+<h2 id="method-2">Method</h2>
+
+<ul>
+  <li>Data: Structural brain MRI from 259 participants of The Maastricht Study.</li>
+  <li>Segmentation Tool: FreeSurfer 6.0 was used to automatically extract morphological estimates.</li>
+  <li>Manual Editing: Segmentations with inaccuracies were manually edited, and the differences in morphological estimates before and after editing were compared.</li>
+  <li>Quality Control Strategies:
+    <ul>
+      <li>Manual Strategies: Visual inspection to exclude or manually edit images.</li>
+      <li>Automated strategies: Exclusion of outliers using MRIQC and Qoala-T, and metrics such as morphological global measures, Euler numbers, and Contrast-to-Noise ratio.</li>
+      <li>Semi-Automated Strategies: Visual inspection and manual editing of outliers detected by tools and metrics without excluding them.</li>
+    </ul>
+  </li>
+  <li>Evaluation: Measuring the proportion of unexplained variance relative to the total variance after applying each strategy.</li>
+</ul>
+
+<h2 id="results-2">Results</h2>
+
+<ul>
+  <li>Manual Editing: Significant changes in subcortical brain volumes and moderate changes in cortical surface area, thickness, and hippocampal volumes.</li>
+  <li>Strategy Performance: Depended on the morphological measure of interest.
+    <ul>
+      <li>Manual Strategies: Provided the largest reduction in unexplained variance.</li>
+      <li>Automated Alternatives: Based on Euler numbers and MRIQC scores.</li>
+      <li>Global Morphological Measures: Excluding outliers increased unexplained variance.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="conclusion-3">Conclusion</h2>
+
+<p>The study underscores the importance of QC in brain MRI segmentation, advocating for manual methods as the most reliable, though impractical for large datasets. Automated methods, especially those using Euler numbers and MRIQC, provide effective alternatives. Excluding outliers based on global measures may increase errors, guiding practical QC recommendations for neuroimaging research to ensure data accuracy and reliability.</p>
+
+<p><br /></p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Paper" /><category term="brainImaging" /><category term="mri" /><summary type="html"><![CDATA[I summarized four papers related to MRI quality assessment and control. Below are the summaries: Paper list Liao, Lufan, et al. “Joint image quality assessment and brain extraction of fetal MRI using deep learning.” Medical Image Computing and Computer Assisted Intervention–MICCAI 2020: 23rd International Conference, Lima, Peru, October 4–8, 2020, Proceedings, Part VI 23. Springer International Publishing, 2020. Giganti, Francesco, et al. “Prostate Imaging Quality (PI-QUAL): a new quality control scoring system for multiparametric magnetic resonance imaging of the prostate from the PRECISION trial.” European urology oncology 3.5 (2020): 615-619. Esses, Steven J., et al. “Automated image quality evaluation of T2‐weighted liver MRI utilizing deep learning architecture.” Journal of Magnetic Resonance Imaging 47.3 (2018): 723-728. Monereo-Sánchez, Jennifer, et al. “Quality control strategies for brain MRI segmentation and parcellation: Practical approaches and recommendations-insights from the Maastricht study.” Neuroimage 237 (2021): 118174. Joint Image Quality Assessment and Brain Extraction of Fetal MRI Using Deep Learning (2020) Background Quality Assessment (QA): Evaluates MRI image quality for analysis suitability. Brain Extraction (BE): Identifies and isolates the brain region from the MRI image. Traditionally handled separately, this paper proposes a joint deep learning model for simultaneous QA and BE, enhancing performance and efficiency, since both tasks focus on the brain region. Besides, dealing with fetal brain images are difficult, in that they can appear in different positions and angles within the MRI scans. And their shapes and appearances change as fetuses grow. To solve this difficulty, the study leverages deformable convolution method. Main Contributions Joint Optimization: Combining QA and BE, allowing the network to learn shared features and reducing the risk of overfitting. Multi-Stage Deep Learning Model: Brain Detector: Locates the brain region within the MRI scan. This helps in focusing the subsequent analysis on the relevant part of the image. Deformable Convolution: Adapts the receptive field to the varying shapes and sizes of fetal brains. This is crucial because fetal brain shapes change significantly across different gestational ages. Task-Specific Module: Simultaneously performs QA and BE. Multi-Step Training Strategy: Progressive training enhances model learning. Evaluation Datasets: Fetal MRI images, focusing on 2D slice quality. Metrics: Dice Similarity Coefficient (DSC): The primary metric for evaluating the accuracy of brain extraction, measuring the overlap between the predicted and true brain regions. Quality Scores: For image quality assessment, the model was trained to classify images into different quality levels. Results: The model achieved a DSC score of 0.89, which is comparable to or better than existing methods, indicating high accuracy in brain extraction. The image quality assessment module successfully classified image slices into quality categories, with 85% accuracy in distinguishing between high and low-quality images. Conclusion The study introduces a DL model for simultaneous QA and BE in fetal MRI scans, using deformable convolutions to handle variability in brain images. The multi-step training and diverse dataset validation demonstrate its effectiveness, making it a promising tool for fetal MRI analysis. Prostate Imaging Quality (PI-QUAL): A New Quality Control Scoring System for Multiparametric Magnetic Resonance Imaging of the Prostate from the PRECISION trial (2020) Background The PRECISION trial was a multicenter randomized study that demonstrated multiparametric magnetic resonance imaging (mpMRI)-targeted biopsy is superior to standard transrectal ultrasound-guided biopsy for detecting prostate cancer. The success of mpMRI-targeted biopsies relies heavily on the quality of the mpMRI scans, but there was no existing scoring system to evaluate this quality. Prostate Imaging Quality (PI-QUAL) To address this gap, the researchers introduced a novel scoring system called the Prostate Imaging Quality (PI-QUAL) score. PI-QUAL is a Likert scale from 1 to 5: 1: No mpMRI sequences are of diagnostic quality. 5: Each sequence is independently of optimal diagnostic quality. Method Selection of MRI scans: From the PRECISION trial, 58 out of 252 mpMRI scans (23%) were randomly selected for evaluation. These scans were taken from 22 different centers involved in the trial. Radiologist assessment: Two experienced radiologists from the coordinating trial center independently assessed the selected MRI scans. The radiologists were blinded to the pathology results to ensure unbiased evaluation. Scoring system: The scans were scored using the newly developed PI-QUAL system. Quality Metrics Overall quality: The overall diagnostic quality of the scans was evaluated. Specific sequence quality: The quality of individual sequences such as T2-weighted imaging (T2WI), diffusion-weighted imaging (DWI), and dynamic contrast-enhanced imaging (DCE) was assessed separately. Statistical Analysis The percentage of scans with sufficient diagnostic quality (PI-QUAL score ≥3) was calculated. The percentage of scans with good or optimal diagnostic quality (PI-QUAL score ≥4) was determined. The diagnostic quality of the specific imaging sequences (T2WI, DWI, DCE) was also analyzed. Results Overall Diagnostic Quality: 55 out of 58 scans (95%) had sufficient diagnostic quality (PI-QUAL score ≥3). 35 out of 58 scans (60%) had good or optimal diagnostic quality (PI-QUAL score ≥4). Sequence-Specific Quality: 95% of T2WI scans, 79% of DWI scans, and 66% of DCE scans were of diagnostic quality. Conclusion The introduction of the PI-QUAL score provides a standardized method to assess the quality of mpMRI scans. Further validation of this scoring system is recommended to ensure its effectiveness in various clinical settings. Automated image quality evaluation of T2-weighted liver MRI utilizing deep learning architecture (2018) Background Accurate screening of T2-weighted (T2WI) liver MRI scans is essential for effective diagnosis, but manual evaluation by radiologists is time-consuming and subject to variability. Automated methods, specifically using deep learning (DL) approaches like Convolutional Neural Networks (CNNs), offer a promising solution for consistent and efficient image quality assessment. This study aimed to develop and evaluate a CNN for automated screening to identify non-diagnostic images and compare its performance to radiologists’ evaluations. Method Data Collection: The study utilized 522 liver MRI exams performed at 1.5T and 3T between November 2014 and May 2016 for training and validation of the CNN. CNN Architecture: The CNN consisted of several layers, including an input layer, convolutional layer, fully connected layer, and output layer. Training Data: 351 T2WI images were anonymized and labeled as diagnostic or non-diagnostic based on their ability to detect lesions and assess liver morphology. These were used to train CNN. Validation Data: An independent set of 171 T2WI images was used for blind testing. Two radiologists independently evaluated these images, labeling them as diagnostic or non-diagnostic. Comparison: The image quality (IQ) output from the CNN was compared to the evaluations made by the two radiologists. Results The agreement between the CNN and the radiologists was: 79% with Reader 1, and 73% with Reader 2 Sensitivity and Specificity of the CNN in identifying non-diagnostic images: Sensitivity: 67% with respect to Reader 1 and 47% with respect to Reader 2 Specificity: 81% with respect to Reader 1 and 80% with respect to Reader 2 Negative predictive value: 94% with respect to Reader 1 and 86% with respect to Reader 2 Conclusion This research shows the potential of using deep learning, specifically a CNN, for automated quality evaluation of T2-weighted liver MRI images. The CNN’s performance was compared to radiologists’ assessments, showing a high negative predictive value, which indicates its reliability in identifying diagnostic images. This automated approach could be assist radiologists in clinical settings by quickly and accurately determining the quality of MRI scans. Quality control strategies for brain MRI segmentation and parcellation: Practical approaches and recommendations - insights from the Maastricht study (2021) Background Quality control (QC) in brain MRI segmentation is crucial for ensuring accurate data. Manual QC, although considered the gold standard, is impractical for large datasets due to its time-consuming nature. Automated methods offer faster and reproducible alternatives but lack a consensus on the best approach. This study aims to highlight the impact of manual edits on brain segmentation accuracy and compare various QC strategies to reduce measurement errors effectively. Method Data: Structural brain MRI from 259 participants of The Maastricht Study. Segmentation Tool: FreeSurfer 6.0 was used to automatically extract morphological estimates. Manual Editing: Segmentations with inaccuracies were manually edited, and the differences in morphological estimates before and after editing were compared. Quality Control Strategies: Manual Strategies: Visual inspection to exclude or manually edit images. Automated strategies: Exclusion of outliers using MRIQC and Qoala-T, and metrics such as morphological global measures, Euler numbers, and Contrast-to-Noise ratio. Semi-Automated Strategies: Visual inspection and manual editing of outliers detected by tools and metrics without excluding them. Evaluation: Measuring the proportion of unexplained variance relative to the total variance after applying each strategy. Results Manual Editing: Significant changes in subcortical brain volumes and moderate changes in cortical surface area, thickness, and hippocampal volumes. Strategy Performance: Depended on the morphological measure of interest. Manual Strategies: Provided the largest reduction in unexplained variance. Automated Alternatives: Based on Euler numbers and MRIQC scores. Global Morphological Measures: Excluding outliers increased unexplained variance. Conclusion The study underscores the importance of QC in brain MRI segmentation, advocating for manual methods as the most reliable, though impractical for large datasets. Automated methods, especially those using Euler numbers and MRIQC, provide effective alternatives. Excluding outliers based on global measures may increase errors, guiding practical QC recommendations for neuroimaging research to ensure data accuracy and reliability.]]></summary></entry><entry xml:lang="en"><title type="html">[MRIQC 4] MRIQC Report and Image Quality Metrics (IQMs)</title><link href="https://alatteaday.github.io/study/2024/05/28/mriqc_report/" rel="alternate" type="text/html" title="[MRIQC 4] MRIQC Report and Image Quality Metrics (IQMs)" /><published>2024-05-28T00:00:00-05:00</published><updated>2024-05-28T00:00:00-05:00</updated><id>https://alatteaday.github.io/study/2024/05/28/mriqc_report</id><content type="html" xml:base="https://alatteaday.github.io/study/2024/05/28/mriqc_report/"><![CDATA[<style>
+img {
+    display: inline;
+}
+p {
+   margin-top: 1em;
+   margin-bottom: 0em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+p.a{
+   margin-top: -0.5em;
+   margin-bottom: -1em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+p.b{
+   margin-top: 1em;
+   margin-bottom: -1em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+</style>
+
+<h1 id="mriqc-results">MRIQC Results</h1>
+
+<p class="b" style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/ex1.png?raw=true" alt="ex1" style="width: 32%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/ex2.png?raw=true" alt="ex2" style="width: 32%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/ex3.png?raw=true" alt="ex3" style="width: 32%;" />
+</p>
+
+<p>Using MRIQC to analyze magnetic resonance imaging (MRI) images yields a report in HTML format. The report is divided into two main sections:</p>
+
+<ol>
+  <li><strong>Basic visual report</strong>: View of the background of the anatomical image, Zoomed-in mosaic view of the brain</li>
+  <li><strong>About</strong>: Errors, Reproducibility and provenance information</li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="view-of-the-background-of-the-anatomical-image">View of the background of the anatomical image</h2>
+
+<p>The extent of artifacts in the background surrounding the brain region on MRI scans is visualized. Here, the background outside the brain is referred to as air. Typically, there is no signal in the air surrounding the head. Any signal detected in this air mask can be considered noise or unusual patterns, known as artifacts, generated during the imaging process. Let’s compare an MRIQC report of a well-acquired <a href="http://localhost:4000/ko/study/2023/12/26/mri2/">T1 weighted image (T1WI)</a> with that of a T1WI with artificially added noise. The noise was introduced using the torchio library to create a <a href="https://mriquestions.com/ghosting.html">ghosting effect</a>.</p>
+
+<p style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/mosaic_bg_normal1.png?raw=true" alt="mosaic_bg_normal1" style="width: 49%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/mosaic_bg_normal2.png?raw=true" alt="mosaic_bg_normal2" style="width: 49%;" />
+</p>
+
+<p class="a" style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/mosaic_bg_abnormal1.png?raw=true" alt="mosaic_bg_abnormal1" style="width: 49%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/mosaic_bg_abnormal2.png?raw=true" alt="mosaic_bg_abnormal2" style="width: 49%;" />
+</p>
+<p>The top result is from the well-acquired image (1), and the bottom is from the noise-added image (2). Signal intensity within the slices is indicated by brightness; the stronger the signal, the darker the color. In the first image, the head mask is generally dark, and the air mask is bright, making a clear distinction. In contrast, the second image shows less difference in brightness between the head and air masks, and some head regions appear weaker than the air. A closer look reveals wave-like patterns, indicating the artificially induced ghosting effect. Through this background artifact check, it is possible to qualitatively assess whether the brain region was well-captured without noise interference, ensuring the background is excluded.</p>
+
+<p><br /></p>
+
+<h2 id="zoomed-in-mosaic-view-of-brain">Zoomed-in mosaic view of brain</h2>
+
+<p>The MRI slices are arranged in order and displayed in a mosaic view. To examine the brain area in detail, the background is mostly excluded, and the images are zoomed in to fit the size of the head mask. Using the mosaic view, we can assess the quality by checking for head motion during the MRI scan, uniformity of image intensity (intensity inhomogeneities), and the presence of global or local noise. Let’s compare the MRIQC report results of the two images used earlier.</p>
+
+<p style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/mosaic_zo_normal1.png?raw=true" alt="mosaic_bg_normal1" style="width: 48.5%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/mosaic_zo_normal2.png?raw=true" alt="mosaic_bg_normal2" style="width: 50.5%;" />
+</p>
+
+<p class="a" style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/mosaic_zo_abnormal1.png?raw=true" alt="mosaic_bg_abnormal1" style="width: 48.5%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/mosaic_zo_abnormal2.png?raw=true" alt="mosaic_bg_abnormal2" style="width: 50.5%;" />
+</p>
+<p>The top result is from image 1, and the bottom is from image 2. Overall, image 1 appears sharper based on the image quality and the distinction between different structures. Regarding head motion, neither image shows significant related issues when reviewing all slices in the mosaic view. However, in image 2, the artificially added ghosting noise is observed within the slices. Wave patterns within the head mask degrade the image quality. By directly examining the images through the mosaic view, we can identify and assess such issues.</p>
+
+<p><br /></p>
+
+<h2 id="reproducibility-and-provenance-information">Reproducibility and provenance information</h2>
+
+<p>To ensure the reproducibility and transparency of the MRIQC report results, provenance information related to quality checks is provided.</p>
+
+<h3 id="provenance-information">Provenance Information</h3>
+
+<p>Provenance and reproducibility metadata are provided. This includes information such as the analysis environment (Execution environment), the path of the data used (Input filename), the versions of the packages used (Versions), and the MD5 checksum for file integrity verification (MD5sum).</p>
+
+<p class="b" style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/prov_info.png?raw=true" alt="prov_info" style="width: 100%;" />
+</p>
+<ul>
+  <li><strong>Execution environment</strong>: The analysis environment. Here, it means that the execution was done in a ‘singularity’ container environment.</li>
+  <li><strong>Input filename</strong>: The path of the data used.</li>
+  <li><strong>Versions</strong>: The versions of the packages used, such as MRIQC, NiPype, and TemplateFlow.</li>
+  <li><strong>MD5sum</strong>: The MD5 checksum for verifying the integrity of the input file.</li>
+  <li><strong>Warnings</strong>: ‘large_rot_frame’ indicates whether there were large rotation frames in the image, and ‘small_air_mask’ indicates whether there were small air masks. Both factors can affect the accuracy of image analysis.</li>
+</ul>
+
+<h3 id="dataset-information">Dataset Information</h3>
+
+<p>Metadata related to the data used in the analysis is provided.</p>
+
+<p class="b" style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/data_info.png?raw=true" alt="data_info" style="width: 100%;" />
+</p>
+<ul>
+  <li><strong>AcquisitionMatrixPE</strong>: The size of the matrix in the encoding direction. In this example, it is 256 x 256.</li>
+  <li><strong>AcquisitionTime</strong>: The time the image scan was performed.</li>
+  <li><strong>ConversionSoftware</strong>: The software used to convert DICOM to NIfTI. Here, ‘dcm2niix’ was used.</li>
+  <li><strong>ConversionSoftwareVersion</strong>: The version of the above conversion software.</li>
+  <li><strong>HeudiconvVersion</strong>: The version of Heudiconv used to convert files to BIDS format.</li>
+  <li><strong>ImageOrientationPatientDICOM</strong>: Vector information related to the orientation of the patient’s body.</li>
+  <li><strong>ImageType</strong>: The type of image, which here means it is a ‘derivative’ image.</li>
+  <li><strong>InstitutionName</strong>: The name of the institution where the data originated.</li>
+  <li><strong>Modality</strong>: The imaging method. Here, ‘Magnetic Resonance (MR)’ imaging was used.</li>
+  <li><strong>ProtocolName</strong>: The name of the protocol used.</li>
+  <li><strong>RawImage</strong>: Indicates whether it is a raw image or not.</li>
+  <li><strong>ReconMatrixPE</strong>: The size of the reconstructed matrix in the encoding direction. Here, it is 256 x 256.</li>
+  <li><strong>ScanningSequence</strong>: The scanning sequence used.</li>
+  <li><strong>SeriesNumber</strong>: The series number, used to identify the series to which the dataset belongs.</li>
+  <li><strong>SliceThickness</strong>: The thickness of the slices.</li>
+  <li><strong>SpacingBetweenSlice</strong>: The spacing between each slice.</li>
+</ul>
+
+<h3 id="image-quality-metrics">Image Quality Metrics</h3>
+
+<p>Various Image Quality Metrics (IQMs) scores are reported to quantitatively evaluate the image quality. The metric items vary depending on the image modality.</p>
+
+<ul>
+  <li><strong>IQMs for structural images</strong>: Such as T1WI, T2WI, etc.</li>
+  <li><strong>IQMs for functional images</strong>: Such as fMRI-related images, etc.</li>
+  <li><strong>IQMs for diffusion images</strong>: Such as DWI, etc.</li>
+</ul>
+
+<p>IQM score results can also be found in the JSON files generated in the MRIQC output directory for each image.</p>
+
+<p class="b" style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/iqm.png?raw=true" alt="iqm" style="width: 100%;" />
+</p>
+<p><br /></p>
+
+<h1 id="iqms-for-structural-images">IQMs for Structural Images</h1>
+
+<p>In this example, let’s explore IQMs for structural images, considering the use of T1-weighted imaging (T1WI).</p>
+
+<h2 id="measures-based-on-noise-measurements">Measures based on noise measurements</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">cjv</code> <span style="background-color:#FFEFD5">Coefficient of joint variation (CJV)</span>
+    <ul>
+      <li>A measure of relative variation considering two or more variables simultaneously, indicating how much variation of several variables is compared to their mean.</li>
+      <li>It is useful when dealing with datasets that include multiple variables and helps understand overall variability</li>
+      <li>It is calculated as the ratio of the standard deviation of multiple variables to their mean:</li>
+    </ul>
+
+\[CJV={(Standard \ Deviation \ of \ Combined \ Variables)\over(Mean \ of \ Combined \ Variables)}\times100\%\]
+
+    <ul>
+      <li>MRIQC calculates CJV between gray matter (GM) and white matter (WM) of the brain. The CJV of GM and WM serves as the objective function for optimizing the Intensity Non-Uniformity (INU) correction algorithm, as proposed by <a href="https://www.frontiersin.org/articles/10.3389/fninf.2016.00010/full">Ganzetti et al.</a>.
+        <ul>
+          <li>INU refers to the unevenness in brightness observed across different regions in MRI, often caused by non-uniformity in the magnetic field, especially by variations in radiofrequency (RF) transmission intensity.</li>
+          <li>INU can degrade image accuracy, making interpretation difficult, hence it’s advisable to correct INU for improving MRI quality.</li>
+        </ul>
+      </li>
+      <li>A higher CJV implies stronger head motion or larger INU defects, indicating poorer image quality. Therefore, lower CJV values are indicative of better image quality.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">snr</code> <span style="background-color:#FFEFD5">Signal-to-noise ratio (SNR)</span>
+    <ul>
+      <li>A measure of the relationship between the strength of the measured signal and the level of surrounding noise, indicating the quality and accuracy of the measured signal. Signal represents the signal observed in the tissue of interest, while noise refers to signals arising from patient motion or electronic interference, among others. SNR is used to distinguish between the two.</li>
+      <li>A higher SNR indicates that the signal of interest is larger compared to the noise, signifying better data quality.</li>
+    </ul>
+
+\[SNR={Signal \ Strength\over Stnadard \ Deviation \ of \ Noise}\]
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">snrd</code> <span style="background-color:#FFEFD5">Dietrich’s SNR (SNRd)</span>
+    <ul>
+      <li>Calculates SNR with reference to the surrounding air background in MRI, serving as a vital metric for assessing MRI quality. <a href="https://onlinelibrary.wiley.com/doi/10.1002/jmri.20969">Proposed by Dietrich et al.</a>.</li>
+      <li>Since air typically exhibits uniform signal, referencing it allows for a more precise differentiation between signal and noise, thereby enhancing diagnostic accuracy.</li>
+    </ul>
+
+\[SNRd={Signal \ Strength\over Stnadard \ Deviation \ of \ Air Background}\]
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">cnr</code> <span style="background-color:#FFEFD5">Contrast-to-noise ratio (CNR)</span>
+    <ul>
+      <li>Extends the concept of SNR, representing the relationship between contrast and noise levels in an image. Contrast refers to the brightness difference between structures or objects in an image, while noise refers to irregular or random signals.</li>
+      <li>A Higher CNR indicates lower noise when achieving the desired image contrast, signifying a clearer representation of objects or structures with minimal noise.  This facilitates easier interpretation and improves image quality.</li>
+      <li>MRIQC employs CNR to evaluate how well GM and WM are delineated and how easily the image can be interpreted.</li>
+    </ul>
+
+\[CNR={|\mu_{GM}-\mu_{WM}|\over \sqrt{\sigma^2_{GM}+\sigma^2_{wM}}}\]
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">qi_2</code> <span style="background-color:#FFEFD5">Mortamet’s Quality index 2 (QI2)</span>
+    <ul>
+      <li>Evaluates the appropriateness of data distribution within the air mask after the removal of artificial intensities. The suitability of data distribution within the air mask region can affect the reliability of image processing and interpretation.</li>
+      <li>Lower values indicate better quality.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="measures-based-on-information-theory">Measures based on information theory</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">efc</code> <span style="background-color:#FFEFD5">Entropy-focus criterion (EFC)</span>
+    <ul>
+      <li>Uses the Shannon entropy of voxel intensities to measure ghosting and blurring caused by head movements. <a href="https://ieeexplore.ieee.org/document/650886">Proposed by Atkinson et al.</a>.</li>
+      <li>As ghosting and blurring increase, voxels lose information, causing the Shannon entropy of the voxels to increase. Thus, EFC has higher values with more ghosting and blurring, meaning that lower values indicate better image quality.</li>
+      <li>The formula is normalized by maximum entropy, allowing comparison across images of different dimensions. $p_i$ represents the probability of each voxel, and $N$ represents the number of pixels.</li>
+    </ul>
+
+\[EFC={-\sum^N_i=1 p_i\log_2(p_i) \over \log_2(N)}\]
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">fber</code> <span style="background-color:#FFEFD5">Fraction of brain explained by resting-state data (FBER)</span>
+    <ul>
+      <li>Compares the mean energy of brain tissue within the image to the mean air value outside the brain, measuring how much brain tissue is included in the image to assess image quality. <a href="">Proposed by Shehzad et al.</a></li>
+      <li>It is one of the Quality Assurance Protocol (QAP) metrics.</li>
+    </ul>
+
+\[FBER ={Mean \ energy \ of image \ value \ within \ the \ head \over Mean \ energy \ of image \ value \ outside \ the \ head}\]
+  </li>
+</ul>
+
+<h2 id="measures-targeting-specific-artifacts">Measures targeting specific artifacts</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">inu</code> : <span style="background-color:#FFEFD5">Summary statistics of the INU bias field extracted by N4ITK (max, min, median)</span>
+    <ul>
+      <li>The <a href="https://ieeexplore.ieee.org/document/5445030">N4ITK</a> algorithm is an advanced technique that improves MRI image quality by correcting RF field inhomogeneity.</li>
+      <li>The INU field, or bias field, refers to the field filtered through N4ITK. The quality of an image can be assessed through the statistics of the INU field. Values closer to 0 indicate greater RF field inhomogeneity, while values closer to 1 indicate better correction and higher quality images.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">qi_1</code> <span style="background-color:#FFEFD5">Mortamet’s Quality index 1 (QI1)</span>
+    <ul>
+      <li>An index used to detect artificial intensities on air masks. It is used to properly analyze air masks by removing artificial intensities.</li>
+      <li>It is generally considered an important metric in preprocessing stages of image data, such as MRI, to enhance image quality.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">wm2max</code> <span style="background-color:#FFEFD5">White-matter to maximum intensity ratio</span>
+    <ul>
+      <li>The ratio of the median intensity within the WM to the 95th percentile of the overall intensity distribution. This measures the proportion of significant intensities within the WM region.</li>
+      <li>This ratio can reveal when the tail of the intensity distribution is extended, which often occurs due to the intensities from arterial blood vessels or fatty tissue.</li>
+      <li>If the ratio falls outside the range of 0.6 to 0.8, the WM region of the image is considered non-uniform, indicating lower quality.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="other-measures">Other measures</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">fwhm</code> <span style="background-color:#FFEFD5">Full width ad half maximum (FWHM)</span>
+    <ul>
+      <li>Represents the full width at half maximum of the intensity values’ spatial distribution in an image, used to measure the image’s resolution and sharpness.</li>
+      <li>Determined by the full width value at half the maximum point of the spatial distribution.</li>
+      <li>Lower FWHM values indicate sharper, higher-resolution images.</li>
+      <li>In MRIQC, FWHM is calculated using the Gaussian width estimator filter implemented in AFNI’s 3dWHMx.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">icvs_*</code> <span style="background-color:#FFEFD5">Intracranial volume scaling (ICVS)</span>
+    <ul>
+      <li>Intracranial volume (ICV) refers to the total volume of fluid within the cranial membrane surrounding the brain and intracranial fluid. ICVS represents the relative proportion of a specific tissue based on ICV in MRI.</li>
+      <li>In MRIQC, the <code class="language-plaintext highlighter-rouge">volume_fraction()</code> function is used to calculate the ICVS for cerebrospinal fluid (CSF), GM, and WM</li>
+      <li>The state of the brain can be assessed by determining whether each ICVS fluctuates within the normal range and whether they maintain ideal ratios to one another.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">summary_*_*</code>
+    <ul>
+      <li>MRIQC’s <code class="language-plaintext highlighter-rouge">summary_stats()</code> function provides various statistics related to the pixel distribution in the background, CSF, GM, and WM regions of an MRI. These statistics can be used to evaluate image quality.</li>
+      <li>Includes mean, median, median absolute deviation (MAD), standard deviation, kurtosis, 5th percentile, 95th percentile, and number of voxels.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">tpm</code> <span style="background-color:#FFEFD5">Tissue probability map (TPM)</span>
+    <ul>
+      <li>Refers to the probability distribution of brain tissue types (e.g., GM, WM). In MRIQC, it measures the overlap between the estimated TPM from the image and the map of the ICBM nonlinear-asymmetric 2009c template.</li>
+      <li>ICBM nonlinear-asymmetric 2009c template: One of the standard brain maps provided by the International Consortium for Brain Mapping (ICBM).
+        <blockquote>
+          <p>A number of unbiased non-linear averages of the MNI152 database have been generated that combines the attractions of both high-spatial resolution and signal-to-noise while not being subject to the vagaries of any single brain (Fonov et al., 2011). … We present an unbiased standard magnetic resonance imaging template brain volume for normal population. These volumes were created using data from ICBM project.</p>
+
+          <p>6 different templates are available: …</p>
+
+          <p>ICBM 2009c Nonlinear Asymmetric template – 1×1x1mm template which includes T1w,T2w,PDw modalities, and tissue probabilities maps. Intensity inhomogeneity was performed using N3 version 1.11 Also included brain mask, eye mask and face mask.Sampling is different from 2009a template. … <a href="https://nist.mni.mcgill.ca/icbm-152-nonlinear-atlases-2009/">[Reference]</a></p>
+        </blockquote>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="references">References</h1>
+
+<ul>
+  <li><a href="https://mriqc.readthedocs.io/en/latest/iqms/t1w.html#ganzetti2016">MRIQC’s Documentation - IQMs for Structural Images</a></li>
+</ul>
+
+<p><br /></p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Study" /><category term="bio" /><category term="brainImaging" /><summary type="html"><![CDATA[MRIQC Results Using MRIQC to analyze magnetic resonance imaging (MRI) images yields a report in HTML format. The report is divided into two main sections: Basic visual report: View of the background of the anatomical image, Zoomed-in mosaic view of the brain About: Errors, Reproducibility and provenance information View of the background of the anatomical image The extent of artifacts in the background surrounding the brain region on MRI scans is visualized. Here, the background outside the brain is referred to as air. Typically, there is no signal in the air surrounding the head. Any signal detected in this air mask can be considered noise or unusual patterns, known as artifacts, generated during the imaging process. Let’s compare an MRIQC report of a well-acquired T1 weighted image (T1WI) with that of a T1WI with artificially added noise. The noise was introduced using the torchio library to create a ghosting effect. The top result is from the well-acquired image (1), and the bottom is from the noise-added image (2). Signal intensity within the slices is indicated by brightness; the stronger the signal, the darker the color. In the first image, the head mask is generally dark, and the air mask is bright, making a clear distinction. In contrast, the second image shows less difference in brightness between the head and air masks, and some head regions appear weaker than the air. A closer look reveals wave-like patterns, indicating the artificially induced ghosting effect. Through this background artifact check, it is possible to qualitatively assess whether the brain region was well-captured without noise interference, ensuring the background is excluded. Zoomed-in mosaic view of brain The MRI slices are arranged in order and displayed in a mosaic view. To examine the brain area in detail, the background is mostly excluded, and the images are zoomed in to fit the size of the head mask. Using the mosaic view, we can assess the quality by checking for head motion during the MRI scan, uniformity of image intensity (intensity inhomogeneities), and the presence of global or local noise. Let’s compare the MRIQC report results of the two images used earlier. The top result is from image 1, and the bottom is from image 2. Overall, image 1 appears sharper based on the image quality and the distinction between different structures. Regarding head motion, neither image shows significant related issues when reviewing all slices in the mosaic view. However, in image 2, the artificially added ghosting noise is observed within the slices. Wave patterns within the head mask degrade the image quality. By directly examining the images through the mosaic view, we can identify and assess such issues. Reproducibility and provenance information To ensure the reproducibility and transparency of the MRIQC report results, provenance information related to quality checks is provided. Provenance Information Provenance and reproducibility metadata are provided. This includes information such as the analysis environment (Execution environment), the path of the data used (Input filename), the versions of the packages used (Versions), and the MD5 checksum for file integrity verification (MD5sum). Execution environment: The analysis environment. Here, it means that the execution was done in a ‘singularity’ container environment. Input filename: The path of the data used. Versions: The versions of the packages used, such as MRIQC, NiPype, and TemplateFlow. MD5sum: The MD5 checksum for verifying the integrity of the input file. Warnings: ‘large_rot_frame’ indicates whether there were large rotation frames in the image, and ‘small_air_mask’ indicates whether there were small air masks. Both factors can affect the accuracy of image analysis. Dataset Information Metadata related to the data used in the analysis is provided. AcquisitionMatrixPE: The size of the matrix in the encoding direction. In this example, it is 256 x 256. AcquisitionTime: The time the image scan was performed. ConversionSoftware: The software used to convert DICOM to NIfTI. Here, ‘dcm2niix’ was used. ConversionSoftwareVersion: The version of the above conversion software. HeudiconvVersion: The version of Heudiconv used to convert files to BIDS format. ImageOrientationPatientDICOM: Vector information related to the orientation of the patient’s body. ImageType: The type of image, which here means it is a ‘derivative’ image. InstitutionName: The name of the institution where the data originated. Modality: The imaging method. Here, ‘Magnetic Resonance (MR)’ imaging was used. ProtocolName: The name of the protocol used. RawImage: Indicates whether it is a raw image or not. ReconMatrixPE: The size of the reconstructed matrix in the encoding direction. Here, it is 256 x 256. ScanningSequence: The scanning sequence used. SeriesNumber: The series number, used to identify the series to which the dataset belongs. SliceThickness: The thickness of the slices. SpacingBetweenSlice: The spacing between each slice. Image Quality Metrics Various Image Quality Metrics (IQMs) scores are reported to quantitatively evaluate the image quality. The metric items vary depending on the image modality. IQMs for structural images: Such as T1WI, T2WI, etc. IQMs for functional images: Such as fMRI-related images, etc. IQMs for diffusion images: Such as DWI, etc. IQM score results can also be found in the JSON files generated in the MRIQC output directory for each image. IQMs for Structural Images In this example, let’s explore IQMs for structural images, considering the use of T1-weighted imaging (T1WI). Measures based on noise measurements cjv Coefficient of joint variation (CJV) A measure of relative variation considering two or more variables simultaneously, indicating how much variation of several variables is compared to their mean. It is useful when dealing with datasets that include multiple variables and helps understand overall variability It is calculated as the ratio of the standard deviation of multiple variables to their mean: \[CJV={(Standard \ Deviation \ of \ Combined \ Variables)\over(Mean \ of \ Combined \ Variables)}\times100\%\] MRIQC calculates CJV between gray matter (GM) and white matter (WM) of the brain. The CJV of GM and WM serves as the objective function for optimizing the Intensity Non-Uniformity (INU) correction algorithm, as proposed by Ganzetti et al.. INU refers to the unevenness in brightness observed across different regions in MRI, often caused by non-uniformity in the magnetic field, especially by variations in radiofrequency (RF) transmission intensity. INU can degrade image accuracy, making interpretation difficult, hence it’s advisable to correct INU for improving MRI quality. A higher CJV implies stronger head motion or larger INU defects, indicating poorer image quality. Therefore, lower CJV values are indicative of better image quality. snr Signal-to-noise ratio (SNR) A measure of the relationship between the strength of the measured signal and the level of surrounding noise, indicating the quality and accuracy of the measured signal. Signal represents the signal observed in the tissue of interest, while noise refers to signals arising from patient motion or electronic interference, among others. SNR is used to distinguish between the two. A higher SNR indicates that the signal of interest is larger compared to the noise, signifying better data quality. \[SNR={Signal \ Strength\over Stnadard \ Deviation \ of \ Noise}\] snrd Dietrich’s SNR (SNRd) Calculates SNR with reference to the surrounding air background in MRI, serving as a vital metric for assessing MRI quality. Proposed by Dietrich et al.. Since air typically exhibits uniform signal, referencing it allows for a more precise differentiation between signal and noise, thereby enhancing diagnostic accuracy. \[SNRd={Signal \ Strength\over Stnadard \ Deviation \ of \ Air Background}\] cnr Contrast-to-noise ratio (CNR) Extends the concept of SNR, representing the relationship between contrast and noise levels in an image. Contrast refers to the brightness difference between structures or objects in an image, while noise refers to irregular or random signals. A Higher CNR indicates lower noise when achieving the desired image contrast, signifying a clearer representation of objects or structures with minimal noise. This facilitates easier interpretation and improves image quality. MRIQC employs CNR to evaluate how well GM and WM are delineated and how easily the image can be interpreted. \[CNR={|\mu_{GM}-\mu_{WM}|\over \sqrt{\sigma^2_{GM}+\sigma^2_{wM}}}\] qi_2 Mortamet’s Quality index 2 (QI2) Evaluates the appropriateness of data distribution within the air mask after the removal of artificial intensities. The suitability of data distribution within the air mask region can affect the reliability of image processing and interpretation. Lower values indicate better quality. Measures based on information theory efc Entropy-focus criterion (EFC) Uses the Shannon entropy of voxel intensities to measure ghosting and blurring caused by head movements. Proposed by Atkinson et al.. As ghosting and blurring increase, voxels lose information, causing the Shannon entropy of the voxels to increase. Thus, EFC has higher values with more ghosting and blurring, meaning that lower values indicate better image quality. The formula is normalized by maximum entropy, allowing comparison across images of different dimensions. $p_i$ represents the probability of each voxel, and $N$ represents the number of pixels. \[EFC={-\sum^N_i=1 p_i\log_2(p_i) \over \log_2(N)}\] fber Fraction of brain explained by resting-state data (FBER) Compares the mean energy of brain tissue within the image to the mean air value outside the brain, measuring how much brain tissue is included in the image to assess image quality. Proposed by Shehzad et al. It is one of the Quality Assurance Protocol (QAP) metrics. \[FBER ={Mean \ energy \ of image \ value \ within \ the \ head \over Mean \ energy \ of image \ value \ outside \ the \ head}\] Measures targeting specific artifacts inu : Summary statistics of the INU bias field extracted by N4ITK (max, min, median) The N4ITK algorithm is an advanced technique that improves MRI image quality by correcting RF field inhomogeneity. The INU field, or bias field, refers to the field filtered through N4ITK. The quality of an image can be assessed through the statistics of the INU field. Values closer to 0 indicate greater RF field inhomogeneity, while values closer to 1 indicate better correction and higher quality images. qi_1 Mortamet’s Quality index 1 (QI1) An index used to detect artificial intensities on air masks. It is used to properly analyze air masks by removing artificial intensities. It is generally considered an important metric in preprocessing stages of image data, such as MRI, to enhance image quality. wm2max White-matter to maximum intensity ratio The ratio of the median intensity within the WM to the 95th percentile of the overall intensity distribution. This measures the proportion of significant intensities within the WM region. This ratio can reveal when the tail of the intensity distribution is extended, which often occurs due to the intensities from arterial blood vessels or fatty tissue. If the ratio falls outside the range of 0.6 to 0.8, the WM region of the image is considered non-uniform, indicating lower quality. Other measures fwhm Full width ad half maximum (FWHM) Represents the full width at half maximum of the intensity values’ spatial distribution in an image, used to measure the image’s resolution and sharpness. Determined by the full width value at half the maximum point of the spatial distribution. Lower FWHM values indicate sharper, higher-resolution images. In MRIQC, FWHM is calculated using the Gaussian width estimator filter implemented in AFNI’s 3dWHMx. icvs_* Intracranial volume scaling (ICVS) Intracranial volume (ICV) refers to the total volume of fluid within the cranial membrane surrounding the brain and intracranial fluid. ICVS represents the relative proportion of a specific tissue based on ICV in MRI. In MRIQC, the volume_fraction() function is used to calculate the ICVS for cerebrospinal fluid (CSF), GM, and WM The state of the brain can be assessed by determining whether each ICVS fluctuates within the normal range and whether they maintain ideal ratios to one another. summary_*_* MRIQC’s summary_stats() function provides various statistics related to the pixel distribution in the background, CSF, GM, and WM regions of an MRI. These statistics can be used to evaluate image quality. Includes mean, median, median absolute deviation (MAD), standard deviation, kurtosis, 5th percentile, 95th percentile, and number of voxels. tpm Tissue probability map (TPM) Refers to the probability distribution of brain tissue types (e.g., GM, WM). In MRIQC, it measures the overlap between the estimated TPM from the image and the map of the ICBM nonlinear-asymmetric 2009c template. ICBM nonlinear-asymmetric 2009c template: One of the standard brain maps provided by the International Consortium for Brain Mapping (ICBM). A number of unbiased non-linear averages of the MNI152 database have been generated that combines the attractions of both high-spatial resolution and signal-to-noise while not being subject to the vagaries of any single brain (Fonov et al., 2011). … We present an unbiased standard magnetic resonance imaging template brain volume for normal population. These volumes were created using data from ICBM project. 6 different templates are available: … ICBM 2009c Nonlinear Asymmetric template – 1×1x1mm template which includes T1w,T2w,PDw modalities, and tissue probabilities maps. Intensity inhomogeneity was performed using N3 version 1.11 Also included brain mask, eye mask and face mask.Sampling is different from 2009a template. … [Reference] References MRIQC’s Documentation - IQMs for Structural Images]]></summary></entry><entry xml:lang="en"><title type="html">[MRIQC 3-1] Opening an HTML file using Flask</title><link href="https://alatteaday.github.io/study/dev%20tips%20&%20fixes/2024/05/21/html_flask/" rel="alternate" type="text/html" title="[MRIQC 3-1] Opening an HTML file using Flask" /><published>2024-05-21T00:00:00-05:00</published><updated>2024-05-21T00:00:00-05:00</updated><id>https://alatteaday.github.io/study/dev%20tips%20&amp;%20fixes/2024/05/21/html_flask</id><content type="html" xml:base="https://alatteaday.github.io/study/dev%20tips%20&amp;%20fixes/2024/05/21/html_flask/"><![CDATA[<p>MRIQC analyzes and evaluates the quality of MRI images and outputs a report as an HTML file. To view the HTML file, I used Flask. Here is a summary of the method I used.</p>
+
+<h1 id="flask">Flask</h1>
+
+<p>Flask is a micro web framework written in Python. With its lightweight and flexible structure, it helps you quickly develop simple web applications and API servers. Since it includes only basic features, it is highly extensible, allowing you to add various plugins and extension modules as needed. It also has an easy-to-learn and intuitive code structure, making it suitable for beginners. However, because it comes with minimal features, you need to use external libraries to add complex functionalities, and maintaining the project can become challenging as the project size grows.</p>
+
+<h1 id="opening-an-html-file-using-flask">Opening an HTML file using Flask</h1>
+
+<h2 id="installing-flask">Installing Flask</h2>
+
+<p>You can install it via PyPI:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install Flask
+</code></pre></div></div>
+
+<h2 id="static-and-templates">‘static/’ and ‘templates/’</h2>
+
+<p>Flask requires two folders, <code class="language-plaintext highlighter-rouge">static/</code> and <code class="language-plaintext highlighter-rouge">templates/</code>. <code class="language-plaintext highlighter-rouge">static/</code> stores static files such as images, CSS, and JavaScript that exist in or are applied to HTML files. <code class="language-plaintext highlighter-rouge">templates/</code> stores the HTML files to be rendered.</p>
+
+<p>Let me explain the process of opening an MRIQC report as an example. After creating these two folders in your project folder, save the static files and the HTML file you want to open in each respective folder:</p>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-21-html_flask/1.png?raw=true" style="zoom: 70%;" />
+</p>
+
+<p>If the file path stored in the HTML file under <code class="language-plaintext highlighter-rouge">static/</code> already exists, it will be updated to the new path. When opening the MRIQC report HTML file, you’ll find that image files are specified with relative paths. Since the images have been moved to the <code class="language-plaintext highlighter-rouge">static/</code> directory, the paths will be changed to absolute paths accordingly:</p>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-21-html_flask/2.png?raw=true" style="zoom: 70%;" />
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-21-html_flask/3.png?raw=true" style="zoom: 70%;" />
+</p>
+
+<h2 id="writing-execution-code">Writing execution code</h2>
+
+<p>And then, write the code to render the HTML file. Here is the code I used in <code class="language-plaintext highlighter-rouge">main.py</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="n">flask</span> <span class="kn">import</span> <span class="o">*</span> 
+
+<span class="n">app</span> <span class="o">=</span> <span class="nc">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">"/"</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
+    <span class="k">return</span> <span class="nf">render_template</span><span class="p">(</span><span class="s">"sub-001_ses-001_T1w.html"</span><span class="p">)</span>
+<span class="n">app</span><span class="p">.</span><span class="nf">run</span><span class="p">(</span><span class="s">"0.0.0.0"</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">5001</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">app = Flask(__name__)</code>: Creates an instance of a Flask application. <code class="language-plaintext highlighter-rouge">__name__</code> refers to the name of the current module and is used by Flask to locate resources for the application.</li>
+  <li><code class="language-plaintext highlighter-rouge">@app.route("/")</code>: A decorator that instructs Flask to call the test function for the root URL (/).</li>
+  <li><code class="language-plaintext highlighter-rouge">test()</code>: The function that will be executed when the root URL is requested</li>
+  <li><code class="language-plaintext highlighter-rouge">return render_template("HTML_FILE_NAME.html")</code>: Renders and returns the HTML file located in the <code class="language-plaintext highlighter-rouge">templates/</code> directory.</li>
+  <li><code class="language-plaintext highlighter-rouge">app.run("0.0.0.0", port=5001)</code>: Runs the application on address 0.0.0.0 and port 5001.</li>
+</ul>
+
+<h2 id="result">Result</h2>
+
+<p>When you visit the specified address, you will see that the HTML file is displayed correctly.</p>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-21-html_flask/4.png?raw=true" style="zoom: 70%;" />
+</p>
+
+<p><br /></p>
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+  <li><a href="https://flask.palletsprojects.com/en/3.0.x/">Flask’s Documentation</a></li>
+  <li><a href="https://daeunnniii.tistory.com/103">https://daeunnniii.tistory.com/103</a></li>
+</ul>
+
+<p><br /></p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Study" /><category term="Dev Tips &amp; Fixes" /><category term="bio" /><category term="brainImaging" /><summary type="html"><![CDATA[MRIQC analyzes and evaluates the quality of MRI images and outputs a report as an HTML file. To view the HTML file, I used Flask. Here is a summary of the method I used. Flask Flask is a micro web framework written in Python. With its lightweight and flexible structure, it helps you quickly develop simple web applications and API servers. Since it includes only basic features, it is highly extensible, allowing you to add various plugins and extension modules as needed. It also has an easy-to-learn and intuitive code structure, making it suitable for beginners. However, because it comes with minimal features, you need to use external libraries to add complex functionalities, and maintaining the project can become challenging as the project size grows. Opening an HTML file using Flask Installing Flask You can install it via PyPI: pip install Flask ‘static/’ and ‘templates/’ Flask requires two folders, static/ and templates/. static/ stores static files such as images, CSS, and JavaScript that exist in or are applied to HTML files. templates/ stores the HTML files to be rendered. Let me explain the process of opening an MRIQC report as an example. After creating these two folders in your project folder, save the static files and the HTML file you want to open in each respective folder: If the file path stored in the HTML file under static/ already exists, it will be updated to the new path. When opening the MRIQC report HTML file, you’ll find that image files are specified with relative paths. Since the images have been moved to the static/ directory, the paths will be changed to absolute paths accordingly: Writing execution code And then, write the code to render the HTML file. Here is the code I used in main.py: from flask import * app = Flask(__name__) @app.route("/") def test(): return render_template("sub-001_ses-001_T1w.html") app.run("0.0.0.0", port=5001) app = Flask(__name__): Creates an instance of a Flask application. __name__ refers to the name of the current module and is used by Flask to locate resources for the application. @app.route("/"): A decorator that instructs Flask to call the test function for the root URL (/). test(): The function that will be executed when the root URL is requested return render_template("HTML_FILE_NAME.html"): Renders and returns the HTML file located in the templates/ directory. app.run("0.0.0.0", port=5001): Runs the application on address 0.0.0.0 and port 5001. Result When you visit the specified address, you will see that the HTML file is displayed correctly. Reference Flask’s Documentation https://daeunnniii.tistory.com/103]]></summary></entry><entry xml:lang="en"><title type="html">[MRIQC 2] Brain Imaging Data Structure (BIDS)</title><link href="https://alatteaday.github.io/study/2024/05/20/bids/" rel="alternate" type="text/html" title="[MRIQC 2] Brain Imaging Data Structure (BIDS)" /><published>2024-05-20T00:00:00-05:00</published><updated>2024-05-20T00:00:00-05:00</updated><id>https://alatteaday.github.io/study/2024/05/20/bids</id><content type="html" xml:base="https://alatteaday.github.io/study/2024/05/20/bids/"><![CDATA[<h1 id="brain-imaging-data-structure-bids">Brain Imaging Data Structure (BIDS)</h1>
+
+<p>The Brain Imaging Data Structure (BIDS) was created to streamline the organization and sharing of neuroimaging and behavioral data. The driving force behind BIDS is the need for a standardized format in neuroimaging research to prevent misunderstandings, eliminate the time spent on data reorganization, and improve reproducibility. By offering a straightforward and intuitive structure for data, BIDS aims to promote collaboration, speed up research, and make neuroimaging data more accessible to a diverse range of scientists.</p>
+
+<p>BIDS provides detailed guidelines on how to format and name files, ensuring consistency across studies. It supports various neuroimaging modalities, including MRI, MEG, EEG, and iEEG, and is extensible, allowing for the integration of new data types and metadata. Additionally, BIDS is supported by a growing ecosystem of tools and software that facilitate data validation, analysis, and sharing, further enhancing its utility in the research community.</p>
+
+<h1 id="bids-format">BIDS Format</h1>
+
+<p>BIDS was inspired by the format used by the OpenfMRI repository, which is now known as OpenNeuro. The BIDS format is essentially a method for organizing data and metadata within a hierarchical folder structure. It makes minimal assumptions about the tools needed to interact with the data, allowing for flexibility and broad compatibility. This structure helps standardize data organization, facilitating easier data sharing, analysis, and collaboration within the neuroimaging research community.</p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-20-bids/fig1.png?raw=true" alt="fig1" style="zoom: 70%;" />
+</p>
+
+<h2 id="folders">Folders</h2>
+
+<p>There are four levels of the folder hierarchy, and all sub-folders except for the root folder have a specific structure to their name. The format and the example names can be described as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Project/
+└─ Subject (e.g. 'sub-01/')
+  └─ Session (e.g. 'ses-01/')
+    └─ Datatype (e.g. 'anat')
+</code></pre></div></div>
+
+<ul>
+  <li>Project: contains all the dataset. can have any name.</li>
+  <li>Subject: contains data of one subject. One folder per subject. A subject has a unique label.
+    <ul>
+      <li>Name format: <code class="language-plaintext highlighter-rouge">sub-PARTICIPANT LABEL</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>Session: represents a recording session. Each subject may have multiple sessions if the data is gathered from several occasions.</p>
+
+    <ul>
+      <li>If there’s only a single session per subject, this level may be omitted.</li>
+      <li>Name format: <code class="language-plaintext highlighter-rouge">ses-SESSION LABEL</code></li>
+    </ul>
+  </li>
+  <li>
+    <p>Datatype: represents different types of data.</p>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-20-bids/fig2.png?raw=true" alt="fig2" style="zoom: 70%;" />
+</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">anat</code>: anatomical MRI data</li>
+      <li><code class="language-plaintext highlighter-rouge">func</code>: functional MRI data</li>
+      <li><code class="language-plaintext highlighter-rouge">fmap</code>: fieldmap data</li>
+      <li><code class="language-plaintext highlighter-rouge">dwi</code>: diffusion MRI data</li>
+      <li><code class="language-plaintext highlighter-rouge">perf</code>: arterial spin labeling data</li>
+      <li><code class="language-plaintext highlighter-rouge">eeg</code>: electroencephalography data</li>
+      <li><code class="language-plaintext highlighter-rouge">meg</code>: magnetoencephalography data</li>
+      <li><code class="language-plaintext highlighter-rouge">ieeg</code>: intracranial EEG data</li>
+      <li><code class="language-plaintext highlighter-rouge">beh</code>: behavioral data</li>
+      <li><code class="language-plaintext highlighter-rouge">pet</code>: positron emission tomography data</li>
+      <li><code class="language-plaintext highlighter-rouge">micr</code>: microscopy data</li>
+      <li><code class="language-plaintext highlighter-rouge">nirs</code>: near-infrared spectroscopy data</li>
+      <li><code class="language-plaintext highlighter-rouge">motion</code>: motion capture data</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="files">Files</h2>
+
+<p>Three main types of files:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.json</code> file: contains metadata</li>
+  <li><code class="language-plaintext highlighter-rouge">.tsv</code> file: contains tables of metadata</li>
+  <li>Raw data files: e.g. <code class="language-plaintext highlighter-rouge">.jpg</code>, <code class="language-plaintext highlighter-rouge">.nii.gz</code></li>
+</ul>
+
+<p>Standardized ways of naming files:</p>
+
+<ul>
+  <li>Do not include white spaces in file names</li>
+  <li>Use only letters, numbers, hyphens, and underscores.</li>
+  <li>Do not rely on letter case: Some operating systems regard <code class="language-plaintext highlighter-rouge">a</code> as the same as <code class="language-plaintext highlighter-rouge">A</code></li>
+  <li>Use separators and case in a systematic and meaningful way.
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">CamelCase</code> or <code class="language-plaintext highlighter-rouge">snake_case</code></li>
+    </ul>
+  </li>
+</ul>
+
+<p>Filename template</p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-20-bids/fig3.png?raw=true" alt="fig3" style="zoom: 70%;" />
+</p>
+
+<p>Example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Dataset/
+ └─ participants.json
+ └─ participants.tsv
+ └─ sub-01/
+   └─ anat/
+     └─ sub-01_t1w.nii.gz
+     └─ sub-01_t1w.json
+   └─ func/
+     └─ sub-01_task-rest_bold.nii.gz
+     └─ sub-01_task-rest_bold.json
+   └─ dwi/
+     └─ sub-01-task-rest_dwi.nii.gz
+</code></pre></div></div>
+
+<p><br /></p>
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+  <li><a href="https://bids.neuroimaging.io/">BIDS Official Website</a></li>
+  <li><a href="https://bids-standard.github.io/bids-starter-kit/index.html">BIDS Starter Kit</a></li>
+  <li><a href="https://github.com/bids-standard">BIDS Github</a></li>
+</ul>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Study" /><category term="bio" /><category term="brainImaging" /><summary type="html"><![CDATA[Brain Imaging Data Structure (BIDS) The Brain Imaging Data Structure (BIDS) was created to streamline the organization and sharing of neuroimaging and behavioral data. The driving force behind BIDS is the need for a standardized format in neuroimaging research to prevent misunderstandings, eliminate the time spent on data reorganization, and improve reproducibility. By offering a straightforward and intuitive structure for data, BIDS aims to promote collaboration, speed up research, and make neuroimaging data more accessible to a diverse range of scientists. BIDS provides detailed guidelines on how to format and name files, ensuring consistency across studies. It supports various neuroimaging modalities, including MRI, MEG, EEG, and iEEG, and is extensible, allowing for the integration of new data types and metadata. Additionally, BIDS is supported by a growing ecosystem of tools and software that facilitate data validation, analysis, and sharing, further enhancing its utility in the research community. BIDS Format BIDS was inspired by the format used by the OpenfMRI repository, which is now known as OpenNeuro. The BIDS format is essentially a method for organizing data and metadata within a hierarchical folder structure. It makes minimal assumptions about the tools needed to interact with the data, allowing for flexibility and broad compatibility. This structure helps standardize data organization, facilitating easier data sharing, analysis, and collaboration within the neuroimaging research community. Folders There are four levels of the folder hierarchy, and all sub-folders except for the root folder have a specific structure to their name. The format and the example names can be described as: Project/ └─ Subject (e.g. 'sub-01/') └─ Session (e.g. 'ses-01/') └─ Datatype (e.g. 'anat') Project: contains all the dataset. can have any name. Subject: contains data of one subject. One folder per subject. A subject has a unique label. Name format: sub-PARTICIPANT LABEL Session: represents a recording session. Each subject may have multiple sessions if the data is gathered from several occasions. If there’s only a single session per subject, this level may be omitted. Name format: ses-SESSION LABEL Datatype: represents different types of data. anat: anatomical MRI data func: functional MRI data fmap: fieldmap data dwi: diffusion MRI data perf: arterial spin labeling data eeg: electroencephalography data meg: magnetoencephalography data ieeg: intracranial EEG data beh: behavioral data pet: positron emission tomography data micr: microscopy data nirs: near-infrared spectroscopy data motion: motion capture data Files Three main types of files: .json file: contains metadata .tsv file: contains tables of metadata Raw data files: e.g. .jpg, .nii.gz Standardized ways of naming files: Do not include white spaces in file names Use only letters, numbers, hyphens, and underscores. Do not rely on letter case: Some operating systems regard a as the same as A Use separators and case in a systematic and meaningful way. CamelCase or snake_case Filename template Example: Dataset/ └─ participants.json └─ participants.tsv └─ sub-01/ └─ anat/ └─ sub-01_t1w.nii.gz └─ sub-01_t1w.json └─ func/ └─ sub-01_task-rest_bold.nii.gz └─ sub-01_task-rest_bold.json └─ dwi/ └─ sub-01-task-rest_dwi.nii.gz Reference BIDS Official Website BIDS Starter Kit BIDS Github]]></summary></entry><entry xml:lang="en"><title type="html">[MRIQC 3] Running MRIQC: A Step-by-Step Guide using nii2dcm, Heudiconv, and MRIQC</title><link href="https://alatteaday.github.io/study/2024/05/20/mriqc_run/" rel="alternate" type="text/html" title="[MRIQC 3] Running MRIQC: A Step-by-Step Guide using nii2dcm, Heudiconv, and MRIQC" /><published>2024-05-20T00:00:00-05:00</published><updated>2024-05-20T00:00:00-05:00</updated><id>https://alatteaday.github.io/study/2024/05/20/mriqc_run</id><content type="html" xml:base="https://alatteaday.github.io/study/2024/05/20/mriqc_run/"><![CDATA[<style>
+img {
+    display: inline;
+}
+p {
+   margin-top: 1em;
+   margin-bottom: 0em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+p.a{
+   margin-top: -0.5em;
+   margin-bottom: -1em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+p.b{
+   margin-top: 1em;
+   margin-bottom: -1em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+</style>
+
+<p>MRIQC analyzes and evaluates the quality of the input MRI images and compiles the relevant information into a report. To use MRIQC, you need MRI images stored in the <a href="https://alatteaday.github.io/ko/study/2024/05/20/bids/">BIDS</a> format. In this post, I will detail the process of running MRIQC and obtaining analysis results using DICOM files.</p>
+
+<p><br /></p>
+
+<h1 id="nii2dcm">nii2dcm</h1>
+
+<p>While I used DICOM files here, NIfTI is also a common MRI file format. If you are using NIfTI files, you can use a BIDS converter that supports NIfTI or convert the NIfTI files to DICOM and then use a DICOM-supported BIDS converter. Based on my personal experience, BIDS converters that support NIfTI did not work reliably (though this might have been due to my own mistakes). You can use the <a href="https://github.com/tomaroberts/nii2dcm"><code class="language-plaintext highlighter-rouge">nii2dcm</code> library</a> to convert NIfTI files to DICOM. Refer to the code below:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nii2dcm NIFTI_FILE_DIR OUTPUT_DIR -d MR
+</code></pre></div></div>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">NIFTI_FILE_DIR</code>: Path to the NIfTI file you want to convert</li>
+  <li><code class="language-plaintext highlighter-rouge">OUTPUT_DIR</code>: Path where the converted DICOM files will be saved</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="heudiconv">Heudiconv</h1>
+
+<p>I used Heudiconv as the BIDS converter. I summarized the instructions by referring to the tutorial provided on the official page. Here’s how to use it:</p>
+
+<h2 id="installing-heudiconv">Installing Heudiconv</h2>
+
+<p>Install via PyPI:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install heudiconv
+</code></pre></div></div>
+
+<h2 id="adjusting-heuristicpy">Adjusting heuristic.py</h2>
+
+<p>Write a code to define the rules for saving each image in the BIDS format. You can refer to or modify the <code class="language-plaintext highlighter-rouge">heuristic.py</code> file from the data repository provided in the tutorial. This file determines the modality of the input image files and creates file paths that conform to the BIDS format for each modality, saving the images accordingly. Modify the judgment criteria and save paths as necessary.</p>
+
+<p>The function to refer to and modify is <code class="language-plaintext highlighter-rouge">infotodict()</code> in <code class="language-plaintext highlighter-rouge">heuristic.py</code>.</p>
+
+<ul>
+  <li>Identify the modality of the images to be used: T1WI, T2WI, DWI, etc.</li>
+  <li>Delete or comment out the code related to unused modalities.</li>
+  <li>Check the path format where the modality images will be saved and modify it if needed.</li>
+  <li>Specify and modify the criteria (dimensions, current filename characteristics, etc.) in the conditional statements to distinguish each modality.</li>
+</ul>
+
+<p>The modified example code is as follows. For T1WI and DWI, the path where the images will be saved and the conditions to determine the image modality have been set.</p>
+
+<p align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-20-mriqc_run/bids_ex1.png?raw=true" style="zoom: 90%;" />
+</p>
+
+<h2 id="running-heudiconv">Running Heudiconv</h2>
+
+<p>After installation, set the parameters and run it as follows. Heudiconv can process multiple sets of subject data, i.e., multiple bundles of DICOM files, at once.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>heudiconv --files DICOM_FILE_DIRS -o OUTPUT_DIR -f HEURISTIC.PY -s SUB_ID -ss SES_ID -c dcm2niix -b minmeta --overwrite 
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">DICOM_FILE_DIRS</code>: Input the DICOM files for multiple subjects in a globbing format (e.g., dataset/sub-001/ses-001/<em>/</em>.dcm)</li>
+  <li><code class="language-plaintext highlighter-rouge">OUTPUT_DIR</code>: Path where the converted BIDS format folder will be saved</li>
+  <li><code class="language-plaintext highlighter-rouge">HEURISTIC.PY</code>: Path to the <code class="language-plaintext highlighter-rouge">heuristic.py</code> file created above</li>
+  <li><code class="language-plaintext highlighter-rouge">SUB_ID</code>: Subject id (e.g. 001)</li>
+  <li><code class="language-plaintext highlighter-rouge">SES_ID</code>: Session id (e.g. 001)</li>
+</ul>
+
+<p>Here is an example of how to run it. Enter the following code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>heudiconv --files data/*/*.dcm -o bids/data/ -f heuristic.py -s 0 -ss 0 -c dcm2niix -b minmeta --overwrite 
+</code></pre></div></div>
+
+<p>BIDS format folders will be created under <code class="language-plaintext highlighter-rouge">bids/data/</code> as follows:</p>
+
+<p class="b" align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-20-mriqc_run/bids_ex2.png?raw=true" style="zoom: 100%;" />
+</p>
+
+<p><br /></p>
+
+<h1 id="mriqc">MRIQC</h1>
+
+<p>Once the MRI images are stored in the BIDS format, they can be input into MRIQC. MRIQC can be used by downloading the package via PyPI or through a Docker container.</p>
+
+<h2 id="with-pypi">With PyPI</h2>
+
+<p>First, install it using the following code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python -m pip install -U mriqc
+</code></pre></div></div>
+
+<p>After installation, run the following code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mriqc BIDS_ROOT_DIR OUTPUT_DIR participant --participant-label SUB_ID
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">BIDS_ROOT_DIR</code>: Root path of the BIDS format folder</li>
+  <li><code class="language-plaintext highlighter-rouge">OUTPUT_DIR</code>: Path where the MRIQC results will be saved</li>
+  <li><code class="language-plaintext highlighter-rouge">participant OR group</code>: If set to <code class="language-plaintext highlighter-rouge">participant</code>, MRIQC analysis results will be obtained per subject; if set to <code class="language-plaintext highlighter-rouge">group</code>, MRIQC will analyze all images under the root path.</li>
+  <li><code class="language-plaintext highlighter-rouge">SUB_ID</code>: In <code class="language-plaintext highlighter-rouge">participant</code> mode, specify the subject ID for analysis by entering it in <code class="language-plaintext highlighter-rouge">--participant-label</code>. Multiple IDs can be entered at once (e.g., <code class="language-plaintext highlighter-rouge">--participant-label 001 002 003</code>).</li>
+</ul>
+
+<h2 id="with-docker">With Docker</h2>
+
+<p>I used MRIQC through Docker. The advantage of Docker containers is that they include all dependencies needed to run the program, ensuring a consistent environment. Enter the following code to run MRIQC at the <code class="language-plaintext highlighter-rouge">participant</code> level:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run -it --rm -v BIDS_ROOT_DIR:/data:ro -v OUTPUT_DIR:/out nipreps/mriqc:latest /data /out participant --participant_label SUB_ID [--verbose-reports]
+</code></pre></div></div>
+
+<p>Even if the <code class="language-plaintext highlighter-rouge">nipreps/mriqc</code> image is not downloaded, it will automatically download when you run the code.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">BIDS_ROOT_DIR</code>: Root path of the BIDS format folder. This is connected to the <code class="language-plaintext highlighter-rouge">/data</code> folder inside the container using the <code class="language-plaintext highlighter-rouge">-v</code> flag. The <code class="language-plaintext highlighter-rouge">ro</code> option stands for ‘read only’, meaning the path can only be read from the local path to the container path.</li>
+  <li><code class="language-plaintext highlighter-rouge">OUTPUT_DIR</code>: Path where the MRIQC results will be saved. This is connected to the <code class="language-plaintext highlighter-rouge">/out</code> folder inside the container. If you copy the contents of the <code class="language-plaintext highlighter-rouge">/out</code> folder in the container to your local machine, you will see that the results are saved in the <code class="language-plaintext highlighter-rouge">OUTPUT_DIR</code>.
+    <ul>
+      <li>To copy the internal container files: When running the above <code class="language-plaintext highlighter-rouge">docker run</code> command, remove the <code class="language-plaintext highlighter-rouge">--rm</code> (remove container after completion) option. After completion, execute <code class="language-plaintext highlighter-rouge">docker cp CONTAINER_NAME:FILE_PATH LOCAL_PATH</code>.</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">SUB_ID</code>: Subject ID. Multiple IDs can be entered.  (e.g. <code class="language-plaintext highlighter-rouge">--participant_label 001 002 003</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">--verbose-reports</code> (Optional): If this flag is included, four additional plots will be reported along with the default visual report plot.</li>
+</ul>
+
+<p>After running the above code, you can check the list of Docker images and containers to see the MRIQC-related items that have been executed.</p>
+
+<p class="b" align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-20-mriqc_run/docker_ex.png?raw=true" alt="docker_ex" style="zoom: 100%;" />
+</p>
+
+<p><br /></p>
+
+<h1 id="mriqc-results">MRIQC Results</h1>
+
+<p class="b" align="center">
+   <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-20-mriqc_run/mriqc_ex1_1.png?raw=true" alt="mriqc_ex1_1" style="zoom: 45%;" />
+</p>
+
+<p>When the MRIQC analysis is complete, the above-mentioned files will appear under the <code class="language-plaintext highlighter-rouge">OUTPUT_DIR</code>. Among these, the analysis results are contained in the plot image files within the <code class="language-plaintext highlighter-rouge">figures</code> folder, and the JSON and HTML files named after the respective files, such as <code class="language-plaintext highlighter-rouge">sub-0_ses-0_T1w.json</code> and <code class="language-plaintext highlighter-rouge">sub-0_ses-0_T1w.html</code> in this example. The results report is generated as an HTML file based on the plot images and JSON files.</p>
+
+<p class="b" style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/ex1.png?raw=true" alt="ex1" style="width: 32%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/ex2.png?raw=true" alt="ex2" style="width: 32%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-05-28-mriqc_report/ex3.png?raw=true" alt="ex3" style="width: 32%;" />
+</p>
+<p>By <a href="">opening the HTML file</a>, you can view a report like the one above. By <a href="https://alatteaday.github.io/ko/study/2024/05/28/mriqc_report/">interpreting the report</a> using the visualized plots and quality metric scores, you can determine the quality of the images.</p>
+
+<p><br /></p>
+
+<h1 id="references">References</h1>
+
+<ul>
+  <li><a href="https://github.com/tomaroberts/nii2dcm">nii2dcm Github</a></li>
+  <li><a href="https://heudiconv.readthedocs.io/en/latest/">Heudiconv’s Tutorial</a></li>
+  <li><a href="https://mriqc.readthedocs.io/en/latest/">MRIQC’s Documentation</a></li>
+</ul>
+
+<p><br /></p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Study" /><category term="bio" /><category term="brainImaging" /><summary type="html"><![CDATA[MRIQC analyzes and evaluates the quality of the input MRI images and compiles the relevant information into a report. To use MRIQC, you need MRI images stored in the BIDS format. In this post, I will detail the process of running MRIQC and obtaining analysis results using DICOM files. nii2dcm While I used DICOM files here, NIfTI is also a common MRI file format. If you are using NIfTI files, you can use a BIDS converter that supports NIfTI or convert the NIfTI files to DICOM and then use a DICOM-supported BIDS converter. Based on my personal experience, BIDS converters that support NIfTI did not work reliably (though this might have been due to my own mistakes). You can use the nii2dcm library to convert NIfTI files to DICOM. Refer to the code below: nii2dcm NIFTI_FILE_DIR OUTPUT_DIR -d MR NIFTI_FILE_DIR: Path to the NIfTI file you want to convert OUTPUT_DIR: Path where the converted DICOM files will be saved Heudiconv I used Heudiconv as the BIDS converter. I summarized the instructions by referring to the tutorial provided on the official page. Here’s how to use it: Installing Heudiconv Install via PyPI: pip install heudiconv Adjusting heuristic.py Write a code to define the rules for saving each image in the BIDS format. You can refer to or modify the heuristic.py file from the data repository provided in the tutorial. This file determines the modality of the input image files and creates file paths that conform to the BIDS format for each modality, saving the images accordingly. Modify the judgment criteria and save paths as necessary. The function to refer to and modify is infotodict() in heuristic.py. Identify the modality of the images to be used: T1WI, T2WI, DWI, etc. Delete or comment out the code related to unused modalities. Check the path format where the modality images will be saved and modify it if needed. Specify and modify the criteria (dimensions, current filename characteristics, etc.) in the conditional statements to distinguish each modality. The modified example code is as follows. For T1WI and DWI, the path where the images will be saved and the conditions to determine the image modality have been set. Running Heudiconv After installation, set the parameters and run it as follows. Heudiconv can process multiple sets of subject data, i.e., multiple bundles of DICOM files, at once. heudiconv --files DICOM_FILE_DIRS -o OUTPUT_DIR -f HEURISTIC.PY -s SUB_ID -ss SES_ID -c dcm2niix -b minmeta --overwrite DICOM_FILE_DIRS: Input the DICOM files for multiple subjects in a globbing format (e.g., dataset/sub-001/ses-001//.dcm) OUTPUT_DIR: Path where the converted BIDS format folder will be saved HEURISTIC.PY: Path to the heuristic.py file created above SUB_ID: Subject id (e.g. 001) SES_ID: Session id (e.g. 001) Here is an example of how to run it. Enter the following code: heudiconv --files data/*/*.dcm -o bids/data/ -f heuristic.py -s 0 -ss 0 -c dcm2niix -b minmeta --overwrite BIDS format folders will be created under bids/data/ as follows: MRIQC Once the MRI images are stored in the BIDS format, they can be input into MRIQC. MRIQC can be used by downloading the package via PyPI or through a Docker container. With PyPI First, install it using the following code: python -m pip install -U mriqc After installation, run the following code: mriqc BIDS_ROOT_DIR OUTPUT_DIR participant --participant-label SUB_ID BIDS_ROOT_DIR: Root path of the BIDS format folder OUTPUT_DIR: Path where the MRIQC results will be saved participant OR group: If set to participant, MRIQC analysis results will be obtained per subject; if set to group, MRIQC will analyze all images under the root path. SUB_ID: In participant mode, specify the subject ID for analysis by entering it in --participant-label. Multiple IDs can be entered at once (e.g., --participant-label 001 002 003). With Docker I used MRIQC through Docker. The advantage of Docker containers is that they include all dependencies needed to run the program, ensuring a consistent environment. Enter the following code to run MRIQC at the participant level: docker run -it --rm -v BIDS_ROOT_DIR:/data:ro -v OUTPUT_DIR:/out nipreps/mriqc:latest /data /out participant --participant_label SUB_ID [--verbose-reports] Even if the nipreps/mriqc image is not downloaded, it will automatically download when you run the code. BIDS_ROOT_DIR: Root path of the BIDS format folder. This is connected to the /data folder inside the container using the -v flag. The ro option stands for ‘read only’, meaning the path can only be read from the local path to the container path. OUTPUT_DIR: Path where the MRIQC results will be saved. This is connected to the /out folder inside the container. If you copy the contents of the /out folder in the container to your local machine, you will see that the results are saved in the OUTPUT_DIR. To copy the internal container files: When running the above docker run command, remove the --rm (remove container after completion) option. After completion, execute docker cp CONTAINER_NAME:FILE_PATH LOCAL_PATH. SUB_ID: Subject ID. Multiple IDs can be entered. (e.g. --participant_label 001 002 003) --verbose-reports (Optional): If this flag is included, four additional plots will be reported along with the default visual report plot. After running the above code, you can check the list of Docker images and containers to see the MRIQC-related items that have been executed. MRIQC Results When the MRIQC analysis is complete, the above-mentioned files will appear under the OUTPUT_DIR. Among these, the analysis results are contained in the plot image files within the figures folder, and the JSON and HTML files named after the respective files, such as sub-0_ses-0_T1w.json and sub-0_ses-0_T1w.html in this example. The results report is generated as an HTML file based on the plot images and JSON files. By opening the HTML file, you can view a report like the one above. By interpreting the report using the visualized plots and quality metric scores, you can determine the quality of the images. References nii2dcm Github Heudiconv’s Tutorial MRIQC’s Documentation]]></summary></entry><entry xml:lang="en"><title type="html">[MRIQC 1] MRIQC: Magnetic Resonance Imaging Quality Control</title><link href="https://alatteaday.github.io/study/2024/05/19/mriqc/" rel="alternate" type="text/html" title="[MRIQC 1] MRIQC: Magnetic Resonance Imaging Quality Control" /><published>2024-05-19T00:00:00-05:00</published><updated>2024-05-19T00:00:00-05:00</updated><id>https://alatteaday.github.io/study/2024/05/19/mriqc</id><content type="html" xml:base="https://alatteaday.github.io/study/2024/05/19/mriqc/"><![CDATA[<p>To advance research on MRI images and enhance quality, it is essential to check the condition of the image data and secure high-quality data. However, assessing MRI quality is challenging due to several factors. There are many types of artifacts that can occur during MRI scans, people evaluate image quality differently, and some artifacts are difficult for humans to detect. In this context, an objective MRI quality control (QC) system can be helpful in the early stages of MRI quality assessment. Additionally, the recent trend of acquiring very large image data samples from multiple scanning sites increases the need for fully automated and minimally biased QC protocols.</p>
+
+<h1 id="magnetic-resonance-imaging-quality-control-mriqc">Magnetic Resonance Imaging Quality Control (MRIQC)</h1>
+
+<p>MRIQC (Magnetic Resonance Imaging Quality Control) can be used as an automated tool for assessing MRI quality. MRIQC is an open-source tool designed to evaluate the quality of structural(anatomical) and functional MRI images. MRIQC extracts <a href="https://alatteaday.github.io/study/2024/05/28/mriqc_report/">image quality metrics (IQMs)</a> solely from the input images themselves, without referencing any target images. Additionally, it provides a standardized method for evaluating and comparing MRI scans from various sources or sessions.</p>
+
+<h1 id="priciples">Priciples</h1>
+
+<ul>
+  <li><strong>Modular and Integrable</strong>: MRIQC uses a modular workflow built on the Nipype framework, integrating various third-party software toolboxes such as ANTs and AFNI​.</li>
+  <li><strong>Minimal Preprocessing</strong>: It focuses on minimal preprocessing to estimate IQMs from the original or minimally processed data, ensuring that the quality metrics reflect the raw image data as closely as possible​.</li>
+  <li><strong>Interoperability and Standards</strong>: MRIQC adheres to the <a href="https://alatteaday.github.io/study/2024/05/20/bids/">Brain Imaging Data Structure (BIDS)</a> standard, promoting interoperability and facilitating integration into various neuroimaging workflows​​.</li>
+  <li><strong>Reliability and Robustness</strong>: The tool is rigorously tested for robustness against data variability, ensuring consistent performance across different datasets and acquisition parameters​.</li>
+  <li><strong>Visual Reports</strong>: MRIQC generates detailed <a href="https://alatteaday.github.io/study/2024/05/28/mriqc_report/">visual reports</a> for both individual images and group analyses. These reports include mosaic views and segmentation contours for individual images, and scatter plots for group analyses to identify outliers​.</li>
+</ul>
+
+<h1 id="image-quality-metrics-iqms">Image Quality Metrics (IQMs)</h1>
+
+<p>MRIQC computes a range of <a href="https://alatteaday.github.io/study/2024/05/28/mriqc_report/">IQMs</a> categorized into four main groups:</p>
+<ul>
+  <li><strong>Noise-related metrics</strong>: Evaluate the impact and characteristics of noise within the images.</li>
+  <li><strong>Information theory-based metrics</strong>: Assess the spatial distribution of information using prescribed masks.</li>
+  <li><strong>Artifact detection metrics</strong>: Identify and measure the impact of specific artifacts, such as inhomogeneity and motion-related signal leakage.</li>
+  <li><strong>Statistical and morphological metrics</strong>: Characterize the statistical properties of tissue distributions and the sharpness/blurriness of images​.</li>
+</ul>
+
+<h1 id="paper">Paper</h1>
+
+<p>Esteban O, Birman D, Schaer M, Koyejo OO, Poldrack RA, Gorgolewski KJ (2017) MRIQC: Advancing the automatic prediction of image quality in MRI from unseen sites. PLoS ONE 12(9): e0184661. https://doi.org/10.1371/journal.pone.0184661</p>
+
+<h1 id="how-to-run-mriqc">How to run MRIQC</h1>
+
+<p>Interested in running MRIQC? Check out <a href="https://alatteaday.github.io/study/2024/05/20/mriqc_run/">this post</a> for detailed instructions.</p>
+
+<p><br /></p>
+
+<h1 id="references">References</h1>
+
+<ul>
+  <li><a href="https://mriqc.readthedocs.io/en/latest/">MRIQC’s Official Documentation</a></li>
+  <li><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0184661">Paper Link</a></li>
+</ul>
+
+<p><br /></p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Study" /><category term="bio" /><category term="brainImaging" /><summary type="html"><![CDATA[To advance research on MRI images and enhance quality, it is essential to check the condition of the image data and secure high-quality data. However, assessing MRI quality is challenging due to several factors. There are many types of artifacts that can occur during MRI scans, people evaluate image quality differently, and some artifacts are difficult for humans to detect. In this context, an objective MRI quality control (QC) system can be helpful in the early stages of MRI quality assessment. Additionally, the recent trend of acquiring very large image data samples from multiple scanning sites increases the need for fully automated and minimally biased QC protocols. Magnetic Resonance Imaging Quality Control (MRIQC) MRIQC (Magnetic Resonance Imaging Quality Control) can be used as an automated tool for assessing MRI quality. MRIQC is an open-source tool designed to evaluate the quality of structural(anatomical) and functional MRI images. MRIQC extracts image quality metrics (IQMs) solely from the input images themselves, without referencing any target images. Additionally, it provides a standardized method for evaluating and comparing MRI scans from various sources or sessions. Priciples Modular and Integrable: MRIQC uses a modular workflow built on the Nipype framework, integrating various third-party software toolboxes such as ANTs and AFNI​. Minimal Preprocessing: It focuses on minimal preprocessing to estimate IQMs from the original or minimally processed data, ensuring that the quality metrics reflect the raw image data as closely as possible​. Interoperability and Standards: MRIQC adheres to the Brain Imaging Data Structure (BIDS) standard, promoting interoperability and facilitating integration into various neuroimaging workflows​​. Reliability and Robustness: The tool is rigorously tested for robustness against data variability, ensuring consistent performance across different datasets and acquisition parameters​. Visual Reports: MRIQC generates detailed visual reports for both individual images and group analyses. These reports include mosaic views and segmentation contours for individual images, and scatter plots for group analyses to identify outliers​. Image Quality Metrics (IQMs) MRIQC computes a range of IQMs categorized into four main groups: Noise-related metrics: Evaluate the impact and characteristics of noise within the images. Information theory-based metrics: Assess the spatial distribution of information using prescribed masks. Artifact detection metrics: Identify and measure the impact of specific artifacts, such as inhomogeneity and motion-related signal leakage. Statistical and morphological metrics: Characterize the statistical properties of tissue distributions and the sharpness/blurriness of images​. Paper Esteban O, Birman D, Schaer M, Koyejo OO, Poldrack RA, Gorgolewski KJ (2017) MRIQC: Advancing the automatic prediction of image quality in MRI from unseen sites. PLoS ONE 12(9): e0184661. https://doi.org/10.1371/journal.pone.0184661 How to run MRIQC Interested in running MRIQC? Check out this post for detailed instructions. References MRIQC’s Official Documentation Paper Link]]></summary></entry><entry xml:lang="en"><title type="html">[Paper] Amyloid-β prediction machine learning model using source-based morphometry across neurocognitive disorders (2024)</title><link href="https://alatteaday.github.io/papers/2024/04/18/keioAbMRI/" rel="alternate" type="text/html" title="[Paper] Amyloid-β prediction machine learning model using source-based morphometry across neurocognitive disorders (2024)" /><published>2024-04-18T00:00:00-05:00</published><updated>2024-04-18T00:00:00-05:00</updated><id>https://alatteaday.github.io/papers/2024/04/18/keioAbMRI</id><content type="html" xml:base="https://alatteaday.github.io/papers/2024/04/18/keioAbMRI/"><![CDATA[<p>Momota, Yuki, et al. “Amyloid-β prediction machine learning model using source-based morphometry across neurocognitive disorders.” <em>Scientific Reports</em> 14.1 (2024): 7633.</p>
+
+<p><a href="https://www.nature.com/articles/s41598-024-58223-3">Paper Link</a></p>
+
+<p><br /></p>
+
+<h1 id="points">Points</h1>
+
+<p><strong>Objective</strong></p>
+<ul>
+  <li>Investigated MRI-based machine learning models to predict Alzheimer’s disease (AD), with a focus on diverse patient populations.</li>
+  <li>Utilized source-based morphometry (SBM) to assess Amyloid-beta deposition.</li>
+</ul>
+
+<p><strong>Methodology</strong></p>
+<ul>
+  <li>Preprocessed 3D T1 weighted images into voxel-based gray matter (GM) images, then subjected them to SBM.</li>
+  <li>Implemented a support vector machine (SVM) as a classifier.</li>
+  <li>Employed SHapley ADditive exPlanations (SHAP) for model interpretability and accountability.</li>
+</ul>
+
+<p><strong>Results</strong></p>
+<ul>
+  <li>Achieved a final model accuracy of 89.8% when incorporating MR images, cognitive test results, and apolipoprotein E status.</li>
+  <li>Attained an 84.7% accuracy with the model based solely on MR images.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="background">Background</h1>
+
+<ul>
+  <li>AD is a neurodegenerative disorder characterized by the presentce of A$\beta$ plaques, neurofibrillary tangles, and brain atrophy.</li>
+  <li>A$\beta$ is a defining characteristics of AD, but detecting it is not covenient in routine clinical practice.
+    <ul>
+      <li>Methods such as position emission tomography (PET), cerebrospinal fluid (CSF) testing, and Blood biomarkers are used for A$\beta$ detection but are not yet applicable in routine clinical practice.</li>
+    </ul>
+  </li>
+  <li>MRI-based A$\beta$ prediction may serve as a useful screening tool before definitive diagnosis through the aforementioned methods.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="method">Method</h1>
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/subfig1.png?raw=true" alt="supfig1" style="zoom: 90%;" />
+</p>
+
+<h2 id="features">Features</h2>
+
+<p><strong>Participants and clinical measurements</strong></p>
+<ul>
+  <li>Recruited in Jury 2018 ~ August 2021 from the memory clinic at Keio University Hospital.</li>
+  <li>AD / MCI / HC</li>
+</ul>
+
+<p><strong>Cognitive assessment</strong> (9 measures)</p>
+<ul>
+  <li>Global cognitive function: Mimi-mental state examination (MMSE), Clinical dementia rating (CDR), Functional activity questionnaire (FAQ)</li>
+  <li>Memory: Wechsler Memory Scale-Revised (WMS-R) Lgical Memeory immediate recall (LM I) and delayed recall (LM II)</li>
+  <li>Executive function and attention: Word Fluency, Trail Making Test (TMT)</li>
+  <li>Specific cognitive abilities: Japanese version of Alzheimer’s Disease Assessment Scale-Cognitive subscale (ADAS-cog-J), Japanese Adult Reading Test (JART)</li>
+</ul>
+
+<p><strong>Apolipoprotein E (APOE) genotyping</strong></p>
+<ul>
+  <li>Magnetic nanoparticle DNA extraction kit (EX1 DNA Blodd 200 $\mu$L Kit)</li>
+  <li>real-time polymerase chain reaction (PCR)</li>
+</ul>
+
+<p><strong>[<sup>18</sup>F] Florbetaben (FBB) amyloid-PET imaging</strong></p>
+
+<ul>
+  <li>
+    <p>[<sup>18</sup>F] Florbetaben (FBB)</p>
+
+    <blockquote>
+      <p>Florbetaben, a fluorine-18 (18F)-labeled stilbene derivative (formerly known as BAY-949172), trade name NeuraCeq, is a diagnostic radiotracer developed for routine clinical application to visualize β-amyloid plaques in the brain.  [<a href="https://en.wikipedia.org/wiki/Florbetaben_(18F)">reference</a>]</p>
+    </blockquote>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="mri">MRI</h2>
+
+<h3 id="acquisition---3d-t1-weighted-mr-images-t1-wi">Acquisition - 3D T1 weighted MR images (T1 WI)</h3>
+<ul>
+  <li>MRI scanner: Discovery MR750 3.0 T scanner (GE Healthcare)</li>
+  <li>Coil: 32-channel head coil</li>
+  <li>Imaging parameters: field of view (FOV) 230mm, matrix size 256$\times$256, slice thickness 1.0mm, voxel size 0.9$\times$0.9$\times$1.0mm</li>
+</ul>
+
+<h3 id="pre-processing">Pre-processing</h3>
+
+<ol>
+  <li>
+    <p><strong>Segmentation</strong>: Segmented the MR images into different tissue types: gray matter (GM), white matter (WM), and cerebrospinal fluid (CSF) using Statistical Parametric Mapping toolbox CAT12.</p>
+  </li>
+  <li>
+    <p><strong>Normalization</strong>: The Segmented GM images are then normalized to the Montreal Neurological Institute (MNI) template, which is a standard anatomical template commonly used in neuroimaging research.</p>
+
+    <blockquote>
+      <p>Standard anatomical templates are widely used in human neuroimaging processing pipelines to facilitate group level analyses and comparisons across different subjects and populations. The MNI-ICBM152 template is the most commonly used standard template, representing an average of 152 healthy young adult brains.  [<a href="https://nist.mni.mcgill.ca/mni-ftd-templates/">reference</a>]</p>
+    </blockquote>
+  </li>
+  <li><strong>Resampling and Smoothing</strong>: Resampled the images to an isotropic voxel size of 2$\times$2$\times$2mm<sup>3</sup> and smoothed using a 5mm full-width-at-half-maximum Gaussian kernel.
+    <ul>
+      <li>This step helps to standardize the voxel size an reduce noise in the images.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Source-based morphometry (SBM)</strong>: Incorporates independent component analysis (ICA) to automatically decompose the anatomical brain images into independent spatial maps characterizing different modes of anatomical variability accorss all individuals.</p>
+
+    <blockquote>
+      <p>In signal processing, independent component analysis (ICA) is a computational method for separating a multivariate signal into additive subcomponents. This is done by assuming that at most one subcomponent is Gaussian and that the subcomponents are statistically independent from each other.  [<a href="https://en.wikipedia.org/wiki/Independent_component_analysis">reference</a>]</p>
+
+      <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/ica.png?raw=true" alt="ica" style="zoom: 30%;" />
+</p>
+    </blockquote>
+  </li>
+  <li><strong>ICA processing</strong>: The 3D GM images (91$\times$109$\times$91 voxels) are loaded and converted into a 1D array format (1$\times$902,629) for processing.
+    <ul>
+      <li>A brain mask is created to select relevant (208,082) voxels for ICA using FastICA.</li>
+      <li>The number of extracted independent components (ICs) is a hyperparameter that is tuned for subsequent model building.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Spatial Regression</strong>: The extracted ICs are used as spatial regressors for each participant’s GM images, with weighting coefficients ($\beta$) determining the effect of each IC on the GM image.</p>
+
+\[I_{GM}=\beta_1 IC_1 + \beta_2 IC_2 + ... + \beta_K IC_K\]
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="machine-learning">Machine learning</h2>
+
+<ul>
+  <li>Input features: ICA’s $\beta$-values, demographic characteristics (age and sex), cognitive assessments, APOE genotype</li>
+  <li>Input conduction: The model is trained and tested using various combinations of input features.
+    <ol>
+      <li>All input features together</li>
+      <li>Each combination of features: brain images alone, brain images + cognitive assessments, etc.</li>
+      <li>Different combination of diagnoses: AD+HC, AD+MCI+HC</li>
+    </ol>
+  </li>
+  <li>Model: Gaussian kernel support vector machine (SVM)
+    <ul>
+      <li>Training involves classification using 5-vold cross-validation.</li>
+      <li>Testing is performed over all splits (5 times), ensuring robust evaluation.</li>
+    </ul>
+  </li>
+  <li>Interpretability: SHaply Additive exPlanations (SHAP)
+    <ul>
+      <li>SHAP values, based on game theory, indicate the influence of features on predictions.</li>
+      <li>Features with large absolute SHAP values have a strong influence on predictions.</li>
+      <li>Clinical features with positive and negative SHAP values were associated with A$\beta$+ and  A$\beta$- conditions, respectively</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="statistical-analysis">Statistical analysis</h2>
+
+<p>Explores relationships between variables, identifying associations with diagnoses, and testing hypotheses in the context of Alzheimer’s disease research.</p>
+<ul>
+  <li>Two-tailed t-test / Chi-square test
+    <ul>
+      <li>Two-tailed t-test: used to compare the means of two groups to determine if there is a significant difference between them.</li>
+      <li>Chi-square test: used to test the independence between categorical variables.</li>
+    </ul>
+  </li>
+  <li>Relationships among features: Pearson’s correlation analysis for continous variables
+    <ul>
+      <li>Measures the strength and direction of linear relationships between pairs of continuous variables.</li>
+      <li>Provides insights into how variables are related to each other.</li>
+    </ul>
+  </li>
+  <li>Associations with diagnoses: Analysis of variance (ANOVA)
+    <ul>
+      <li>Used to anaylze the difference among group menas in a sample.</li>
+      <li>Useful when there’re more than two groups being compared, as it determines whether there are statistically significant differences among the group means.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="results">Results</h1>
+
+<p>118 cases used for the final model building</p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/table1.png?raw=true" alt="table1" style="zoom: 80%;" />
+</p>
+
+<p><br /></p>
+
+<h2 id="model-performance">Model performance</h2>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/table2.png?raw=true" alt="table2" style="zoom: 80%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/fig1.png?raw=true" alt="fig1" style="zoom: 80%;" /> 
+</p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/table3.png?raw=true" alt="table3" style="zoom: 80%;" />
+</p>
+
+<p><strong>A$\beta$ positivity prediction</strong></p>
+<ul>
+  <li>The final model: the model trained with brain images + cognition + APOE as input</li>
+  <li>The highest accuracy (89.8%) and AUC (0.888) with brain images + cognition + APOE</li>
+  <li>The lowest accuracy (84.7%) and AUC (0.830) with brain images alone</li>
+</ul>
+
+<p>The final model’s performance for predicting A$\beta$ positivity in each diagnosis</p>
+<ul>
+  <li>The highest accuracy (89.8%) when including all the paticipants</li>
+  <li>The lowest accuarcy (75.9%) based solely on MCI</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="sbm">SBM</h2>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/table4.png?raw=true" alt="table4" style="zoom: 100%;" />
+</p>
+<p align="center">
+    <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/addfig2.png?raw=true" alt="addfig2" style="zoom: 100%;" />
+    <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/fig2.png?raw=true" alt="fig2" style="zoom: 80%;" />
+</p>
+
+<p>7 independent components (ICs) were derived from the final SBM model</p>
+
+<ul>
+  <li>Each component showed spatially maximally independent GM volum patters.</li>
+  <li>IC 1 showed a significant correlation with cognitive measures an A$\beta$ positivity.</li>
+  <li>Only AD and IC 1 showed a significant association.</li>
+  <li>Other diagnoses were not associated with any ICs.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="discussion">Discussion</h1>
+
+<p>The proposed model predicted A$\beta$ positivity successfully. (accuracy 89.8%, AUC 0.888)</p>
+<ul>
+  <li>With 118 participants’ data consisting of the features: brain MRI, cognitive info., genetic info.</li>
+  <li>Predicted correctly in non-AD subjects, such as those with FTLD syndrome and psychiatric disorders.</li>
+  <li>Among covariants in the final model, IC 1 had the strongest impact realted to A$\beta$ positivity prediction.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="performance">Performance</h2>
+
+<ol>
+  <li>Informative heterogeneity of features among non-AD participants
+    <ul>
+      <li>The performance of the model based only on AD continuum achieved slightly lower (88.4%) than on all cases.</li>
+    </ul>
+  </li>
+  <li>Advantages of SBM
+    <ul>
+      <li>The model based on diverse clinical populations may be better suited for application in clinical settings.
+        <ul>
+          <li>Patients visiting physicians’ would have various neurocongitive disorders beyond the AD continuum.</li>
+        </ul>
+      </li>
+      <li>The proposed model based only on brain images (accuracy 84.7%) may assist for screening of potential candidates for AD-related clinical trials.</li>
+      <li>SBM detects subtle morphological changes and unknown patterns in brain structures associated with ND diseases without relying on existing atlases.</li>
+    </ul>
+  </li>
+  <li>Comparable prediction performance in MCI patiences
+    <ul>
+      <li>Surpassed the accuracy of the physician’s clinical diagnosis of AD (75.9%  &gt; 70%)</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="feature-importance-of-the-model---shap">Feature Importance of the model - SHAP</h2>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-18-keioab/fig3.png?raw=true" alt="fig3" style="zoom: 80%;" />
+</p>
+
+<p>All ICs demonstrated greater importance compared to demoghrapic and cognitive features such as MMSE. The three most influential features in the model were identified as follows: IC 1, logical memory (LM) I, and LM II.</p>
+
+<ul>
+  <li>IC 1 exhibited a significantly correlation with A$\beta$ positivity and cognivite measures.
+    <ul>
+      <li>Its spacial pattern of the loading coefficients closely resembled the cortical pattern observed in neurodegeneration (ND) in AD, particularly in the parietal lobe.</li>
+      <li>No Medial temporal lobe (MTL) atrophy was observed in any IC, which is the typical AD pattern.
+        <ul>
+          <li>This discrepance suggests a potential indication of tau pathodology rather than A$\beta$ pathology.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>LM scores reflected memory impairments, a cardinal symptom of AD.</li>
+  <li>The presence of APOE -$\epsilon#4 also emerged as a significant factor.</li>
+</ul>
+
+<p>Furthermore, the model revealed distinct associations between IC 1 and A$\beta$ positivity, as well as IC 4 and age.</p>
+<ul>
+  <li>This indicates the model’s ability to discriminate between AD-related ND from normal aging in brain imaging, suggesting that the pathological process of AD is not strictly age-dependent. 
+→ Brain atrophy patterns in normal aging processes can be distinguished from those in neurodegeneartive disease.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="limitation">Limitation</h2>
+
+<ol>
+  <li>A$\beta$ positivity was determined only by amyloid-PET scan: CSF A$\beta$ would be a more sensitive marker in the pre-clinical status.</li>
+  <li>a limited number of samples: could be affect accuracy of a machine learning model.</li>
+  <li>Longitudinal follow-up data might improve model performance, rather than a cross-sectional approach.</li>
+</ol>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Papers" /><category term="bio" /><category term="brainImaging" /><category term="demensia" /><category term="atn" /><category term="amyloid" /><summary type="html"><![CDATA[Momota, Yuki, et al. “Amyloid-β prediction machine learning model using source-based morphometry across neurocognitive disorders.” Scientific Reports 14.1 (2024): 7633. Paper Link Points Objective Investigated MRI-based machine learning models to predict Alzheimer’s disease (AD), with a focus on diverse patient populations. Utilized source-based morphometry (SBM) to assess Amyloid-beta deposition. Methodology Preprocessed 3D T1 weighted images into voxel-based gray matter (GM) images, then subjected them to SBM. Implemented a support vector machine (SVM) as a classifier. Employed SHapley ADditive exPlanations (SHAP) for model interpretability and accountability. Results Achieved a final model accuracy of 89.8% when incorporating MR images, cognitive test results, and apolipoprotein E status. Attained an 84.7% accuracy with the model based solely on MR images. Background AD is a neurodegenerative disorder characterized by the presentce of A$\beta$ plaques, neurofibrillary tangles, and brain atrophy. A$\beta$ is a defining characteristics of AD, but detecting it is not covenient in routine clinical practice. Methods such as position emission tomography (PET), cerebrospinal fluid (CSF) testing, and Blood biomarkers are used for A$\beta$ detection but are not yet applicable in routine clinical practice. MRI-based A$\beta$ prediction may serve as a useful screening tool before definitive diagnosis through the aforementioned methods. Method Features Participants and clinical measurements Recruited in Jury 2018 ~ August 2021 from the memory clinic at Keio University Hospital. AD / MCI / HC Cognitive assessment (9 measures) Global cognitive function: Mimi-mental state examination (MMSE), Clinical dementia rating (CDR), Functional activity questionnaire (FAQ) Memory: Wechsler Memory Scale-Revised (WMS-R) Lgical Memeory immediate recall (LM I) and delayed recall (LM II) Executive function and attention: Word Fluency, Trail Making Test (TMT) Specific cognitive abilities: Japanese version of Alzheimer’s Disease Assessment Scale-Cognitive subscale (ADAS-cog-J), Japanese Adult Reading Test (JART) Apolipoprotein E (APOE) genotyping Magnetic nanoparticle DNA extraction kit (EX1 DNA Blodd 200 $\mu$L Kit) real-time polymerase chain reaction (PCR) [18F] Florbetaben (FBB) amyloid-PET imaging [18F] Florbetaben (FBB) Florbetaben, a fluorine-18 (18F)-labeled stilbene derivative (formerly known as BAY-949172), trade name NeuraCeq, is a diagnostic radiotracer developed for routine clinical application to visualize β-amyloid plaques in the brain. [reference] MRI Acquisition - 3D T1 weighted MR images (T1 WI) MRI scanner: Discovery MR750 3.0 T scanner (GE Healthcare) Coil: 32-channel head coil Imaging parameters: field of view (FOV) 230mm, matrix size 256$\times$256, slice thickness 1.0mm, voxel size 0.9$\times$0.9$\times$1.0mm Pre-processing Segmentation: Segmented the MR images into different tissue types: gray matter (GM), white matter (WM), and cerebrospinal fluid (CSF) using Statistical Parametric Mapping toolbox CAT12. Normalization: The Segmented GM images are then normalized to the Montreal Neurological Institute (MNI) template, which is a standard anatomical template commonly used in neuroimaging research. Standard anatomical templates are widely used in human neuroimaging processing pipelines to facilitate group level analyses and comparisons across different subjects and populations. The MNI-ICBM152 template is the most commonly used standard template, representing an average of 152 healthy young adult brains. [reference] Resampling and Smoothing: Resampled the images to an isotropic voxel size of 2$\times$2$\times$2mm3 and smoothed using a 5mm full-width-at-half-maximum Gaussian kernel. This step helps to standardize the voxel size an reduce noise in the images. Source-based morphometry (SBM): Incorporates independent component analysis (ICA) to automatically decompose the anatomical brain images into independent spatial maps characterizing different modes of anatomical variability accorss all individuals. In signal processing, independent component analysis (ICA) is a computational method for separating a multivariate signal into additive subcomponents. This is done by assuming that at most one subcomponent is Gaussian and that the subcomponents are statistically independent from each other. [reference] ICA processing: The 3D GM images (91$\times$109$\times$91 voxels) are loaded and converted into a 1D array format (1$\times$902,629) for processing. A brain mask is created to select relevant (208,082) voxels for ICA using FastICA. The number of extracted independent components (ICs) is a hyperparameter that is tuned for subsequent model building. Spatial Regression: The extracted ICs are used as spatial regressors for each participant’s GM images, with weighting coefficients ($\beta$) determining the effect of each IC on the GM image. \[I_{GM}=\beta_1 IC_1 + \beta_2 IC_2 + ... + \beta_K IC_K\] Machine learning Input features: ICA’s $\beta$-values, demographic characteristics (age and sex), cognitive assessments, APOE genotype Input conduction: The model is trained and tested using various combinations of input features. All input features together Each combination of features: brain images alone, brain images + cognitive assessments, etc. Different combination of diagnoses: AD+HC, AD+MCI+HC Model: Gaussian kernel support vector machine (SVM) Training involves classification using 5-vold cross-validation. Testing is performed over all splits (5 times), ensuring robust evaluation. Interpretability: SHaply Additive exPlanations (SHAP) SHAP values, based on game theory, indicate the influence of features on predictions. Features with large absolute SHAP values have a strong influence on predictions. Clinical features with positive and negative SHAP values were associated with A$\beta$+ and A$\beta$- conditions, respectively Statistical analysis Explores relationships between variables, identifying associations with diagnoses, and testing hypotheses in the context of Alzheimer’s disease research. Two-tailed t-test / Chi-square test Two-tailed t-test: used to compare the means of two groups to determine if there is a significant difference between them. Chi-square test: used to test the independence between categorical variables. Relationships among features: Pearson’s correlation analysis for continous variables Measures the strength and direction of linear relationships between pairs of continuous variables. Provides insights into how variables are related to each other. Associations with diagnoses: Analysis of variance (ANOVA) Used to anaylze the difference among group menas in a sample. Useful when there’re more than two groups being compared, as it determines whether there are statistically significant differences among the group means. Results 118 cases used for the final model building Model performance A$\beta$ positivity prediction The final model: the model trained with brain images + cognition + APOE as input The highest accuracy (89.8%) and AUC (0.888) with brain images + cognition + APOE The lowest accuracy (84.7%) and AUC (0.830) with brain images alone The final model’s performance for predicting A$\beta$ positivity in each diagnosis The highest accuracy (89.8%) when including all the paticipants The lowest accuarcy (75.9%) based solely on MCI SBM 7 independent components (ICs) were derived from the final SBM model Each component showed spatially maximally independent GM volum patters. IC 1 showed a significant correlation with cognitive measures an A$\beta$ positivity. Only AD and IC 1 showed a significant association. Other diagnoses were not associated with any ICs. Discussion The proposed model predicted A$\beta$ positivity successfully. (accuracy 89.8%, AUC 0.888) With 118 participants’ data consisting of the features: brain MRI, cognitive info., genetic info. Predicted correctly in non-AD subjects, such as those with FTLD syndrome and psychiatric disorders. Among covariants in the final model, IC 1 had the strongest impact realted to A$\beta$ positivity prediction. Performance Informative heterogeneity of features among non-AD participants The performance of the model based only on AD continuum achieved slightly lower (88.4%) than on all cases. Advantages of SBM The model based on diverse clinical populations may be better suited for application in clinical settings. Patients visiting physicians’ would have various neurocongitive disorders beyond the AD continuum. The proposed model based only on brain images (accuracy 84.7%) may assist for screening of potential candidates for AD-related clinical trials. SBM detects subtle morphological changes and unknown patterns in brain structures associated with ND diseases without relying on existing atlases. Comparable prediction performance in MCI patiences Surpassed the accuracy of the physician’s clinical diagnosis of AD (75.9% &gt; 70%) Feature Importance of the model - SHAP All ICs demonstrated greater importance compared to demoghrapic and cognitive features such as MMSE. The three most influential features in the model were identified as follows: IC 1, logical memory (LM) I, and LM II. IC 1 exhibited a significantly correlation with A$\beta$ positivity and cognivite measures. Its spacial pattern of the loading coefficients closely resembled the cortical pattern observed in neurodegeneration (ND) in AD, particularly in the parietal lobe. No Medial temporal lobe (MTL) atrophy was observed in any IC, which is the typical AD pattern. This discrepance suggests a potential indication of tau pathodology rather than A$\beta$ pathology. LM scores reflected memory impairments, a cardinal symptom of AD. The presence of APOE -$\epsilon#4 also emerged as a significant factor. Furthermore, the model revealed distinct associations between IC 1 and A$\beta$ positivity, as well as IC 4 and age. This indicates the model’s ability to discriminate between AD-related ND from normal aging in brain imaging, suggesting that the pathological process of AD is not strictly age-dependent. → Brain atrophy patterns in normal aging processes can be distinguished from those in neurodegeneartive disease. Limitation A$\beta$ positivity was determined only by amyloid-PET scan: CSF A$\beta$ would be a more sensitive marker in the pre-clinical status. a limited number of samples: could be affect accuracy of a machine learning model. Longitudinal follow-up data might improve model performance, rather than a cross-sectional approach.]]></summary></entry><entry xml:lang="en"><title type="html">[Paper] Tabtransformer: Tabular data modeling using contextual embeddings (2020)</title><link href="https://alatteaday.github.io/papers/2024/04/11/tabtf/" rel="alternate" type="text/html" title="[Paper] Tabtransformer: Tabular data modeling using contextual embeddings (2020)" /><published>2024-04-11T00:00:00-05:00</published><updated>2024-04-11T00:00:00-05:00</updated><id>https://alatteaday.github.io/papers/2024/04/11/tabtf</id><content type="html" xml:base="https://alatteaday.github.io/papers/2024/04/11/tabtf/"><![CDATA[<p>Huang, Xin, et al. “Tabtransformer: Tabular data modeling using contextual embeddings.” <em>arXiv preprint arXiv:2012.06678</em> (2020).</p>
+
+<p><a href="https://arxiv.org/abs/2012.06678">Paper Link</a></p>
+
+<p><br /></p>
+
+<h1 id="points">Points</h1>
+
+<ul>
+  <li><strong>TabTransformer</strong>: A cutting-edge tabular data model leveraging contextual embeddings.</li>
+  <li>Pre-trained by innovative two-phase approach for robust feature representation.</li>
+  <li>Showed SOTA performance in both supervised and semi-supervised learning.</li>
+  <li>Handles missing and noisy data robustly, ensuring reliable performance.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="background">Background</h1>
+
+<p>The current state-of-the-art (SOTA) mdoels for tabular data primarily consist of tree-based ensemble methods, notably gradient boosted decision trees (GBDT). However, these models exhibit several limitations in comparison to deep learning models:</p>
+
+<ul>
+  <li>Not suitable for continual learning from streaming data.</li>
+  <li>Ineffective for end-to-end learning of multi-modality of tabular data, such as incorporating image or text features.</li>
+  <li>Not suitable for semi-supervised learning.</li>
+</ul>
+
+<p>On the other had, while multi-layer perceptrons (MLPs) offer the potential for end-to-end learning of image or text encoders, they are constrained by several drawbacks:</p>
+
+<ul>
+  <li>Lack of interpretability.</li>
+  <li>Vulnerability to missing and noisy data.</li>
+  <li>Limited performance in semi-supervised learning scenarios.</li>
+  <li>Inability to match the performance of tree-based models.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="method">Method</h1>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/archi.png?raw=true" alt="archi" style="zoom: 70%;" />
+</p>
+
+<ul>
+  <li>The Transformer layers receive only categorical inputs $x_{cat}$.</li>
+  <li>Continuous inputs $x_{cont}$ are concatenated with the outputs of the Transformer modules of the categorical inputs.</li>
+  <li>During the pre-training phase, the Transformer layers undergo training on two different tasks using unlabeled data
+    <ul>
+      <li>Only the categorical inputs are utilized for pre-training, with the exclusion of the continuous inputs.</li>
+    </ul>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/code1.png?raw=true" alt="code1" style="zoom: 100%;" />
+</p>
+  </li>
+  <li>The pre-trained model is fine-tuned alongsidethe MLP head, utilizing labeled data to predict a target $y$.</li>
+  <li>
+    <p>Continuous values are incorporated during the fine-tuning phase by concatenating them with the categorical values.</p>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/code2.png?raw=true" alt="code2" style="zoom: 100%;" />
+</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="model-architecture">Model Architecture</h2>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/fig1.png?raw=true" alt="fig1" style="zoom: 60%;" />
+</p>
+
+<ul>
+  <li>Each instance $x\equiv \lbrace x_{cat}, x_{cont}\rbrace$ is paired with its corresponding label $y$: $(x, y)$.</li>
+  <li>$x_{cat} \equiv \lbrace x_1, x_2, …, x_m\rbrace$ represents categorical features, with each $x_i$ being a categorical feature $i \in {1, …, m}$.</li>
+  <li>
+    <p>$x_{cat}$ undergoes transformation into column embedding $E_\phi$:</p>
+
+\[E_\phi(x_{cat}) \equiv \lbrace e_{\phi_1}(x_1), ..., e_{\phi_m}(x_m) \rbrace, \ e_{\phi_i}(x_i) \in \mathbb{R}^d\]
+  </li>
+  <li>
+    <p>The embeddings are fed into the multiple Transformer layers $f_\theta$, producing contextual embeddings:</p>
+
+\[\{h_1, ..., h_m\}=f_\theta(E_\phi(x_{cat})), \ h\in \mathbb{R}^d\]
+  </li>
+  <li>Contextual embeddings of $x_{cat}$ are concatenated with the $x_{cont} \in \mathbb{R}^c $ to form a vector of dimension $(d\times m+c)$.</li>
+  <li>
+    <p>The vector is passed through an MLP layer $g_\psi$ and a cross-entropy loss $H$ is computed between the predicted output and the target $y$:</p>
+
+\[L(x, y) \equiv H(g_\psi(f_\theta(E_\phi(x_{cat})), x_{cont}), y)\]
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><strong>Column Embedding</strong></p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/colemb.png?raw=true" alt="colemb" style="zoom: 60%;" />
+</p>
+
+<ul>
+  <li>Each categorical feature $x_i$ has its own embedding lookup table $e_{\phi_i}(.)$.</li>
+  <li>For the $i$th feature with $d_i$ classes, the embedding table $e_{\phi_i}(.)$ contains $(d_1+1)$ embeddings. The additional $d_1+1$th embedding is reserved for representing the missing(masked) values.</li>
+  <li>Each embedding $e_{\phi_i}(j)$ is represented as $[c_{\phi_i}, w_{\phi_{ij}}]$, where:
+    <ul>
+      <li>$c_{\phi_i}$ helps distinguish the classes in column $i$ from those in the other columns.</li>
+      <li>$w_{\phi_{ij}}$ distinguishes the class of the feature $j$ within the $i$th column from the other classes within the same column.</li>
+    </ul>
+  </li>
+  <li>
+    <p>*The dimension $d$ likely is set to be the same as the hidden dimension $h$ according to the codes.</p>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/code3.png?raw=true" alt="code3" style="zoom: 100%;" />
+</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="pre-training">Pre-training</h2>
+
+<p>The Transformer layers are trained using inputs consisting of categorical values $x_{cat}=\lbrace x_1, x_2, …, x_m\rbrace$ on two pre-training tasks:</p>
+
+<ol>
+  <li><strong>Masked language modeling (MLM)</strong>
+    <ul>
+      <li>Randomly masks $k\%$ features of the input, where $k$ is set to 30 in experiments.</li>
+      <li>Minimizes the cross-entropy loss of a multi-class classifier $g_\psi$, which predicts the original features of the masked features.</li>
+    </ul>
+  </li>
+  <li><strong>Replaced token detection (RTD)</strong>
+    <ul>
+      <li>Replaces the original feature by a random value of that feature.</li>
+      <li>Minimizes the loss of a binary classifier predicting whether the feature has been replaced.</li>
+      <li>Each column has its own embedding lookup table, necessitating the definition of a separate binary classifier for each column.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h1 id="experiments">Experiments</h1>
+
+<h2 id="settings">Settings</h2>
+
+<p><strong>Data</strong></p>
+
+<ul>
+  <li>Models were evaluated on 15 publicly available binary classification datasets sourced from UCI repository, AutoML Challenge, and Kaggle.</li>
+  <li>Each dataset was divided into 5 cross-validation splits.</li>
+  <li>Training:Validation:Testing proportion was set to 65:15:20 (%).</li>
+  <li>The number of categorical features ranged from 2 to136.</li>
+  <li>Semi-supervised and supervised experiments
+    <ul>
+      <li>Semi-supervised: Training data consisted of $p$ labeled data points + the remaining unlabeled data, with $p\in (50, 200, 500)$ for 3 different scenarios.</li>
+      <li>Supervised: Fully labeled training data was used.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Setup</strong></p>
+<ul>
+  <li>Hidden dimension: 32</li>
+  <li>The num of layers: 6</li>
+  <li>The num of attention heads: 8</li>
+  <li>MLP layer architecture: $\lbrace 4\times l, \ 2\times l \rbrace$ (where $l$ represents the size of its input).</li>
+  <li>Hyperparamter optimization (HPO) conducted with 20 rounds for each cross-validation split.</li>
+  <li>Metrics: Area under the curve (AUC).</li>
+  <li>Pre-training was exclusively applied in the semi-supervised scenario.
+    <ul>
+      <li>It was not found to be significantly beneficial when the entire dataset was labeled.</li>
+      <li>Its benefits were more apparent when there is a large number of unlabeled examples and a few labeled examples, as pre-training provided representations of the data that could not be learned solely from the labeled examples.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Baseline model</strong>: An MLP model without Transformers was employed to evaluate the effectiveness of Transformers in comparison.</p>
+
+<p><br /></p>
+
+<h2 id="the-effectiveness-of-the-transformer-layers">The effectiveness of the Transformer Layers</h2>
+
+<ol>
+  <li>
+    <p><strong>Performance comparison</strong></p>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/table1.png?raw=true" alt="table1" style="zoom: 60%;" />
+</p>
+
+    <ul>
+      <li>Conducted in a supervised learning scenario, comparing TabTransformer to MLP.</li>
+      <li>TabTransformer outperforms the baseline MLP on 14 datasets, achieving an average 1.0% gain in AUC.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>t-SNE visualization of contextual embeddings</strong></p>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/fig2.png?raw=true" alt="fig2" style="zoom: 100%;" />
+</p>
+
+    <ul>
+      <li>Each marker in the plot represents an average of 2D points over the test data points for a certain class.</li>
+      <li>In the t-SNE plot of the last layer of TabTransformer (Left), semantically similar classes are closely grouped, forming clusters in the embedding space.</li>
+      <li>Before passing into the Transformer (Center), the embeddings start to distinguish features with different characteristics.</li>
+      <li>The embeddings of MLP (Right) do not reveal any discernible pattern.</li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>Prediction performance of linear models using the embeddings from different Transformer layers</strong></p>
+
+    <p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/fig3.png?raw=true" alt="fig2" style="zoom: 60%;" />
+</p>
+
+    <ul>
+      <li>Logistic regression models are employed to evaluate the quality of learned embeddings.</li>
+      <li>Each model predicts $y$ using embedding features along with continuous values.</li>
+      <li>Metrics: Cross-validation score in AUC on the test data.</li>
+      <li>Normalization: Each prediction score is normalized by the best score from an end-to-end trained TabTransformer for the corresponding dataset.</li>
+      <li>Features: Embeddings are averaged and processed using maximum pooling instead of concatenation.</li>
+      <li>The effectiveness of the embeddings improves as the Transformer layers progress.</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="the-robustness-of-tabtransformer">The robustness of TabTransformer</h2>
+
+<p>The robustness of TabTransformer was evaluated by assessing its performance on datasets containing noisy data and data with missing values.</p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/fig4_5.png?raw=true" alt="fig4_5" style="zoom: 100%;" />
+</p>
+
+<ol>
+  <li><strong>Noisy data</strong>
+    <ul>
+      <li>Method: Values were replaced with randomly generated ones from corresponding columns, introducing noise into datasets.</li>
+      <li>Findings: As the noise increases, TabTransformer demonstrated significantly significantly superior compared to the MLP (see fig. 4).</li>
+      <li>The contextual property of embeddings likely contributes to TabTransformer’s robustness in noisy environments.</li>
+    </ul>
+  </li>
+  <li><strong>Data with missing values</strong>
+    <ul>
+      <li>Method: Some values artificially made missing, and models were evaluated on these modified datasets.
+        <ul>
+          <li>The average learned embeddings over all classes in the corresponding columns were used to handle the embeddings of missing values.</li>
+        </ul>
+      </li>
+      <li>Findings: TabTransformer exhibited better stability than MLP in handling missing values (see fig. 5).</li>
+    </ul>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h2 id="supervised-learning">Supervised learning</h2>
+
+<p>TabTransformer’s performance was compared against four categories of methods:</p>
+<ul>
+  <li>Logistic Regression and GBDT</li>
+  <li>MLP and sparse MLP</li>
+  <li>TabNet model</li>
+  <li>Variational Information Bottleneck (VIB) model</li>
+</ul>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/table2.png?raw=true" alt="table2" style="zoom: 70%;" />
+</p>
+
+<p>Findings:</p>
+<ul>
+  <li>TabTransformer demonstrated comparable performance with GBDT.</li>
+  <li>It significantly outperformed than recent deep learning models designed for tabular data, including TabNet and VIB.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="semi-supervised-learning">Semi-supervised learning</h2>
+
+<p>TabTransformer was evaluated under the semi-supervised learning scenario and compared against other semi-supervised models, including baseline models:</p>
+<ul>
+  <li>Entropy Regularization (ER)</li>
+  <li>Pseudo Labeling (PL) combined with MLP, TabTransformer, and GBDT</li>
+  <li>MLP (DAE): An unsupervised pre-training method designed for deep models on tabular data, specifically the swap noise Denoising AutoEncoder</li>
+</ul>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-04-11-tabtf/table3_4.png?raw=true" alt="table3_4" style="zoom: 70%;" />
+</p>
+
+<p>Method:</p>
+<ul>
+  <li>Pre-trained models (TabTransformer-RTD/MLM and MLP): pre-trained on the unlabeled data and then fine-tuned on labeled data.</li>
+  <li>Semi-supervised learning methods (ER and PL): trained on the mix of labeled and unlabeled training data.</li>
+</ul>
+
+<p>Findings:</p>
+<ul>
+  <li>TabTransformer-RTD/MLM are outperformed all the other models.</li>
+  <li>TabTransformer (ER), TabTransformer (PL) and GBDT (PL) performed worse than the average of all the models.</li>
+  <li>TabTransformer-RTD consistently showed better results when the number of unlabeled data decreased, surpassing TabTransformer-MLM.
+    <ul>
+      <li>This could be attributed to the easier pre-training task of a binary classification compared to the multi-class classification of MLM.</li>
+    </ul>
+  </li>
+  <li>With only 50 data points, MLM (ER) and MLM (PL) outperformed TabTransformer models.
+    <ul>
+      <li>The suggests that the proposed approach allows for informative embeddings but does not enable the weights of the classifier itself to be trained with unlabeled data.</li>
+    </ul>
+  </li>
+  <li>Overall, TabTransformer models are promise in extracting useful information from unlabeled data to aid supervised training, and are particularly useful when the size of unlabeled data is large.</li>
+</ul>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Papers" /><category term="tabular" /><category term="transformer" /><summary type="html"><![CDATA[Huang, Xin, et al. “Tabtransformer: Tabular data modeling using contextual embeddings.” arXiv preprint arXiv:2012.06678 (2020). Paper Link Points TabTransformer: A cutting-edge tabular data model leveraging contextual embeddings. Pre-trained by innovative two-phase approach for robust feature representation. Showed SOTA performance in both supervised and semi-supervised learning. Handles missing and noisy data robustly, ensuring reliable performance. Background The current state-of-the-art (SOTA) mdoels for tabular data primarily consist of tree-based ensemble methods, notably gradient boosted decision trees (GBDT). However, these models exhibit several limitations in comparison to deep learning models: Not suitable for continual learning from streaming data. Ineffective for end-to-end learning of multi-modality of tabular data, such as incorporating image or text features. Not suitable for semi-supervised learning. On the other had, while multi-layer perceptrons (MLPs) offer the potential for end-to-end learning of image or text encoders, they are constrained by several drawbacks: Lack of interpretability. Vulnerability to missing and noisy data. Limited performance in semi-supervised learning scenarios. Inability to match the performance of tree-based models. Method The Transformer layers receive only categorical inputs $x_{cat}$. Continuous inputs $x_{cont}$ are concatenated with the outputs of the Transformer modules of the categorical inputs. During the pre-training phase, the Transformer layers undergo training on two different tasks using unlabeled data Only the categorical inputs are utilized for pre-training, with the exclusion of the continuous inputs. The pre-trained model is fine-tuned alongsidethe MLP head, utilizing labeled data to predict a target $y$. Continuous values are incorporated during the fine-tuning phase by concatenating them with the categorical values. Model Architecture Each instance $x\equiv \lbrace x_{cat}, x_{cont}\rbrace$ is paired with its corresponding label $y$: $(x, y)$. $x_{cat} \equiv \lbrace x_1, x_2, …, x_m\rbrace$ represents categorical features, with each $x_i$ being a categorical feature $i \in {1, …, m}$. $x_{cat}$ undergoes transformation into column embedding $E_\phi$: \[E_\phi(x_{cat}) \equiv \lbrace e_{\phi_1}(x_1), ..., e_{\phi_m}(x_m) \rbrace, \ e_{\phi_i}(x_i) \in \mathbb{R}^d\] The embeddings are fed into the multiple Transformer layers $f_\theta$, producing contextual embeddings: \[\{h_1, ..., h_m\}=f_\theta(E_\phi(x_{cat})), \ h\in \mathbb{R}^d\] Contextual embeddings of $x_{cat}$ are concatenated with the $x_{cont} \in \mathbb{R}^c $ to form a vector of dimension $(d\times m+c)$. The vector is passed through an MLP layer $g_\psi$ and a cross-entropy loss $H$ is computed between the predicted output and the target $y$: \[L(x, y) \equiv H(g_\psi(f_\theta(E_\phi(x_{cat})), x_{cont}), y)\] Column Embedding Each categorical feature $x_i$ has its own embedding lookup table $e_{\phi_i}(.)$. For the $i$th feature with $d_i$ classes, the embedding table $e_{\phi_i}(.)$ contains $(d_1+1)$ embeddings. The additional $d_1+1$th embedding is reserved for representing the missing(masked) values. Each embedding $e_{\phi_i}(j)$ is represented as $[c_{\phi_i}, w_{\phi_{ij}}]$, where: $c_{\phi_i}$ helps distinguish the classes in column $i$ from those in the other columns. $w_{\phi_{ij}}$ distinguishes the class of the feature $j$ within the $i$th column from the other classes within the same column. *The dimension $d$ likely is set to be the same as the hidden dimension $h$ according to the codes. Pre-training The Transformer layers are trained using inputs consisting of categorical values $x_{cat}=\lbrace x_1, x_2, …, x_m\rbrace$ on two pre-training tasks: Masked language modeling (MLM) Randomly masks $k\%$ features of the input, where $k$ is set to 30 in experiments. Minimizes the cross-entropy loss of a multi-class classifier $g_\psi$, which predicts the original features of the masked features. Replaced token detection (RTD) Replaces the original feature by a random value of that feature. Minimizes the loss of a binary classifier predicting whether the feature has been replaced. Each column has its own embedding lookup table, necessitating the definition of a separate binary classifier for each column. Experiments Settings Data Models were evaluated on 15 publicly available binary classification datasets sourced from UCI repository, AutoML Challenge, and Kaggle. Each dataset was divided into 5 cross-validation splits. Training:Validation:Testing proportion was set to 65:15:20 (%). The number of categorical features ranged from 2 to136. Semi-supervised and supervised experiments Semi-supervised: Training data consisted of $p$ labeled data points + the remaining unlabeled data, with $p\in (50, 200, 500)$ for 3 different scenarios. Supervised: Fully labeled training data was used. Setup Hidden dimension: 32 The num of layers: 6 The num of attention heads: 8 MLP layer architecture: $\lbrace 4\times l, \ 2\times l \rbrace$ (where $l$ represents the size of its input). Hyperparamter optimization (HPO) conducted with 20 rounds for each cross-validation split. Metrics: Area under the curve (AUC). Pre-training was exclusively applied in the semi-supervised scenario. It was not found to be significantly beneficial when the entire dataset was labeled. Its benefits were more apparent when there is a large number of unlabeled examples and a few labeled examples, as pre-training provided representations of the data that could not be learned solely from the labeled examples. Baseline model: An MLP model without Transformers was employed to evaluate the effectiveness of Transformers in comparison. The effectiveness of the Transformer Layers Performance comparison Conducted in a supervised learning scenario, comparing TabTransformer to MLP. TabTransformer outperforms the baseline MLP on 14 datasets, achieving an average 1.0% gain in AUC. t-SNE visualization of contextual embeddings Each marker in the plot represents an average of 2D points over the test data points for a certain class. In the t-SNE plot of the last layer of TabTransformer (Left), semantically similar classes are closely grouped, forming clusters in the embedding space. Before passing into the Transformer (Center), the embeddings start to distinguish features with different characteristics. The embeddings of MLP (Right) do not reveal any discernible pattern. Prediction performance of linear models using the embeddings from different Transformer layers Logistic regression models are employed to evaluate the quality of learned embeddings. Each model predicts $y$ using embedding features along with continuous values. Metrics: Cross-validation score in AUC on the test data. Normalization: Each prediction score is normalized by the best score from an end-to-end trained TabTransformer for the corresponding dataset. Features: Embeddings are averaged and processed using maximum pooling instead of concatenation. The effectiveness of the embeddings improves as the Transformer layers progress. The robustness of TabTransformer The robustness of TabTransformer was evaluated by assessing its performance on datasets containing noisy data and data with missing values. Noisy data Method: Values were replaced with randomly generated ones from corresponding columns, introducing noise into datasets. Findings: As the noise increases, TabTransformer demonstrated significantly significantly superior compared to the MLP (see fig. 4). The contextual property of embeddings likely contributes to TabTransformer’s robustness in noisy environments. Data with missing values Method: Some values artificially made missing, and models were evaluated on these modified datasets. The average learned embeddings over all classes in the corresponding columns were used to handle the embeddings of missing values. Findings: TabTransformer exhibited better stability than MLP in handling missing values (see fig. 5). Supervised learning TabTransformer’s performance was compared against four categories of methods: Logistic Regression and GBDT MLP and sparse MLP TabNet model Variational Information Bottleneck (VIB) model Findings: TabTransformer demonstrated comparable performance with GBDT. It significantly outperformed than recent deep learning models designed for tabular data, including TabNet and VIB. Semi-supervised learning TabTransformer was evaluated under the semi-supervised learning scenario and compared against other semi-supervised models, including baseline models: Entropy Regularization (ER) Pseudo Labeling (PL) combined with MLP, TabTransformer, and GBDT MLP (DAE): An unsupervised pre-training method designed for deep models on tabular data, specifically the swap noise Denoising AutoEncoder Method: Pre-trained models (TabTransformer-RTD/MLM and MLP): pre-trained on the unlabeled data and then fine-tuned on labeled data. Semi-supervised learning methods (ER and PL): trained on the mix of labeled and unlabeled training data. Findings: TabTransformer-RTD/MLM are outperformed all the other models. TabTransformer (ER), TabTransformer (PL) and GBDT (PL) performed worse than the average of all the models. TabTransformer-RTD consistently showed better results when the number of unlabeled data decreased, surpassing TabTransformer-MLM. This could be attributed to the easier pre-training task of a binary classification compared to the multi-class classification of MLM. With only 50 data points, MLM (ER) and MLM (PL) outperformed TabTransformer models. The suggests that the proposed approach allows for informative embeddings but does not enable the weights of the classifier itself to be trained with unlabeled data. Overall, TabTransformer models are promise in extracting useful information from unlabeled data to aid supervised training, and are particularly useful when the size of unlabeled data is large.]]></summary></entry><entry xml:lang="ko"><title type="html">Github.io에서 markdown 수식 문법 적용이 안될 때</title><link href="https://alatteaday.github.io/error%20resolution/2024/03/15/GitioMathError/" rel="alternate" type="text/html" title="Github.io에서 markdown 수식 문법 적용이 안될 때" /><published>2024-03-15T00:00:00-05:00</published><updated>2024-03-15T00:00:00-05:00</updated><id>https://alatteaday.github.io/error%20resolution/2024/03/15/GitioMathError</id><content type="html" xml:base="https://alatteaday.github.io/error%20resolution/2024/03/15/GitioMathError/"><![CDATA[<p>Github blog 포스트에 수식을 작성했는데, markdown 수식 문법 적용이 되지 않는 문제가 있었습니다. 해결 방법을 기록해두고자 포스팅합니다.</p>
+
+<h2 id="1-_configyml-파일-수정">1. _config.yml 파일 수정</h2>
+
+<p>markdown process 관련 설정을 확인하여 수정, 없으면 추가합니다. markdown engine을 kramdown으로 설정해야 한다고 합니다.</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/yaml1.png?raw=true" style="zoom:52%;" /></p>
+
+<h2 id="2-_includes-폴더-내-수식-문법-관련-html-파일-작성">2. _includes 폴더 내 수식 문법 관련 HTML 파일 작성</h2>
+
+<p>일반적으로 github blog 내에는 _include 폴더가 존재합니다. 폴더 내에 수식 문법이 포스트에 적용될 수 있게끔 하기 위한 스크립트를 작성합니다. 아래 내용이 HTML 파일에 작성되면 됩니다.</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/html0.png?raw=true" style="zoom:50%;" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">inlineMath</code> 와 <code class="language-plaintext highlighter-rouge">displayMath</code> 항목에서 각각의 수식 문법 기호를 설정할 수 있습니다. 위 예시의 <code class="language-plaintext highlighter-rouge">displayMath</code> 와 같이 리스트 내에 여러 기호를 설정할 수 있습니다. 위 예시에 따르면 수식을  <code class="language-plaintext highlighter-rouge">$$</code> 로 감싸거나, <code class="language-plaintext highlighter-rouge">\\[</code> <code class="language-plaintext highlighter-rouge">\\]</code> 사이에 입력하면 display style로 작성할 수 있게 됩니다.</p>
+
+<p>*<code class="language-plaintext highlighter-rouge">\\[</code> <code class="language-plaintext highlighter-rouge">\\]</code> 말고  <code class="language-plaintext highlighter-rouge">\[</code> <code class="language-plaintext highlighter-rouge">\]</code> 로 문법을 설정하여 포스트에 적용하면, [ ] 괄호를 사용한 일반 텍스트까지 수식으로 처리되는 경우가 있었습니다.</p>
+
+<h3 id="inline과-display-style">Inline과 Display style</h3>
+
+<p>수식 입력 방식에는 inline style과 display style이 있습니다.</p>
+
+<ul>
+  <li>
+    <p>Inline style: 줄 바꿈 없이, 문장 내에서 수식을 표기하는 방법</p>
+  </li>
+  <li>
+    <p>Display style: 수식을 블록으로 생성해 표기하는 방법</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$2$ plus $3$ is $5$: $$2+3=5$$
+</code></pre></div>    </div>
+
+    <p>$2$ plus $3$ is $5$: \[2+3=5\]</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="3-2에서-작성한-html-스크립트를-포스트에-적용">3. 2에서 작성한 HTML 스크립트를 포스트에 적용</h2>
+
+<p>위에서 작성한 스크립트를 실제 포스팅 시 적용하기 위해 layout에 관련한 HTML 파일을 수정합니다. _layout 폴더에 있는 HTML 파일 중 적합한 파일을 찾아 포스트의 내용 부분에 새로 작성한 HTML 파일의 내용을 가져와 적용합니다. 저는 ‘default.html’ 파일 중 content가 입력되는 부분을 찾아 수정했습니다. 아래 예시와 같습니다.</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/html1.png?raw=true" style="zoom:50%;" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">"content"</code> 블록 내 <code class="language-plaintext highlighter-rouge">{ content }</code> 의 위치에 작성한 포스트의 본문이 보여집니다. <code class="language-plaintext highlighter-rouge">include file.html</code> 은 ‘file.html’의 내용을 가져온다는 뜻입니다. 따라서 해당 블록 내에 ‘math.html’에서 작성한 수식 문법 사항을 적용하겠다는 의미의 코드가 됩니다.</p>
+
+<p>위 코드를 아래와 같이 수정하면 수식 문법 적용 여부를 포스팅 시 설정해 줄 수 있는데요,</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/html2.png?raw=true" style="zoom:50%;" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">page.use_math</code> 가 <code class="language-plaintext highlighter-rouge">true</code> 이면 ‘math.html’ 내용을 적용한다는 의미의 코드입니다. 여기서 <code class="language-plaintext highlighter-rouge">page</code> 는 각 포스트를 의미합니다. <code class="language-plaintext highlighter-rouge">page.use_math</code> 을 설정하기 위해서는 매 포스트 작성 시 Front Matter에 <code class="language-plaintext highlighter-rouge">use_math: true</code> 를 추가해주면 됩니다.</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/yaml2.png?raw=true" style="zoom:50%;" /></p>
+
+<p>수식이 필요 없거나, 수식을 적용하기 싫은 포스트에는 <code class="language-plaintext highlighter-rouge">use_math</code> 를 추가하지 않거나 <code class="language-plaintext highlighter-rouge">false</code> 로 설정하면 됩니다.</p>
+
+<p><br /></p>
+
+<h3 id="reference">Reference</h3>
+<p><a href="https://junia3.github.io/blog/markdown">https://junia3.github.io/blog/markdown</a><br />
+<a href="https://an-seunghwan.github.io/github.io/mathjax-error/">https://an-seunghwan.github.io/github.io/mathjax-error/</a></p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Error Resolution" /><category term="gitio" /><category term="markdown" /><summary type="html"><![CDATA[Github blog 포스트에 수식을 작성했는데, markdown 수식 문법 적용이 되지 않는 문제가 있었습니다. 해결 방법을 기록해두고자 포스팅합니다.]]></summary></entry><entry xml:lang="en"><title type="html">When mathematical expression syntax isn’t applying on GitHub Pages</title><link href="https://alatteaday.github.io/dev%20tips%20&%20fixes/2024/03/15/GitioMathError/" rel="alternate" type="text/html" title="When mathematical expression syntax isn’t applying on GitHub Pages" /><published>2024-03-15T00:00:00-05:00</published><updated>2024-03-15T00:00:00-05:00</updated><id>https://alatteaday.github.io/dev%20tips%20&amp;%20fixes/2024/03/15/GitioMathError</id><content type="html" xml:base="https://alatteaday.github.io/dev%20tips%20&amp;%20fixes/2024/03/15/GitioMathError/"><![CDATA[<p>I wrote a math expression in a GitHub blog post, but there was an issue with applying markdown syntax. I’m posting this to document the solution that I applied.</p>
+
+<h2 id="1-modify-the-_configyml-file">1. Modify the _config.yml file</h2>
+
+<p>Check and modify the markdown-related settings in the _config.yml file like below. If they don’t exist, add them like below. It’s recommended to set the markdown engine to kramdown.</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/yaml1.png?raw=true" style="zoom:52%;" /></p>
+
+<h2 id="2-write-a-html-file-of-math-expression-syntax-within-the-_includes-folder">2. Write a HTML file of math expression syntax within the _includes folder</h2>
+
+<p>Generally, GitHub blogs contain an _include folder. Write a script within this folder to enable math expression syntax to be applied to posts. Let’s assume creating a html file named ‘math’</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/html0.png?raw=true" style="zoom:50%;" /></p>
+
+<p>You can set each math syntax mark for the <code class="language-plaintext highlighter-rouge">inlineMath</code> and <code class="language-plaintext highlighter-rouge">displayMath</code>. Similar to the <code class="language-plaintext highlighter-rouge">displayMath</code> item in the above code, you can specifiy multiple marks in the list. Following the example, if you wrap the formula in <code class="language-plaintext highlighter-rouge">$$</code> or <code class="language-plaintext highlighter-rouge">\\[</code> and <code class="language-plaintext highlighter-rouge">\\]</code>, the math style will be displayed as the display style.</p>
+
+<p>*When setting the syntax as <code class="language-plaintext highlighter-rouge">\[</code> and <code class="language-plaintext highlighter-rouge">\]</code> instead of <code class="language-plaintext highlighter-rouge">\\[</code> <code class="language-plaintext highlighter-rouge">\\]</code>, there might be instances where ordinary text enclosed within square brackets is also treated as part of the math expression.</p>
+
+<h3 id="inline-and-display-style">Inline and Display style</h3>
+
+<p>The inline style and the display style are two styles of math expression.</p>
+
+<ul>
+  <li>
+    <p>Inline style: Representing math expression within a sentence without line breaks</p>
+  </li>
+  <li>
+    <p>Display style: Generating math expression as blocks for representation</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$2$ plus $3$ is $5$: $$2+3=5$$
+</code></pre></div>    </div>
+
+    <p>$2$ plus $3$ is $5$: \[2+3=5\]</p>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="3-apply-the-html-script-created-in-2-to-the-post">3. Apply the HTML script created in 2. to the post</h2>
+
+<p>To apply the script created above to an actual post, you’ll need to modify the HTML file related to the layout. Find an appropriate file in the _layout folder and incorporate the content of the html file into the section where the post’s content is inserted. For example, I found and modified the ‘default.html’ file like the example below:</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/html1.png?raw=true" style="zoom:50%;" /></p>
+
+<p><code class="language-plaintext highlighter-rouge">{ content }</code> displalys the main body of the post. <code class="language-plaintext highlighter-rouge">include file.html</code> means it includes the content of ‘file.html’. Therefore, within this block, it signifies applying the math syntax written in ‘math.html’</p>
+
+<p>You can modify the code and adjust if applying the math syntax or not,</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/html2.png?raw=true" style="zoom:50%;" /></p>
+
+<p>The code <code class="language-plaintext highlighter-rouge">page.use_math</code> being <code class="language-plaintext highlighter-rouge">true</code> indicates that the content of ‘math.html’ will be applied. Here, <code class="language-plaintext highlighter-rouge">page</code> refers to the each page. To set <code class="language-plaintext highlighter-rouge">page.use_math</code>, simply add <code class="language-plaintext highlighter-rouge">use_math: true</code> to the Front Matter of each post.</p>
+
+<p><img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-03-15-GitioMathError/yaml2.png?raw=true" style="zoom:50%;" /></p>
+
+<p>For posts where math expressions are not needed or you prefer not to apply them, simply omit the <code class="language-plaintext highlighter-rouge">use_math</code> tag or set it to <code class="language-plaintext highlighter-rouge">false</code></p>
+
+<p><br /></p>
+
+<h3 id="reference">Reference</h3>
+<p><a href="https://junia3.github.io/blog/markdown">https://junia3.github.io/blog/markdown</a><br />
+<a href="https://an-seunghwan.github.io/github.io/mathjax-error/">https://an-seunghwan.github.io/github.io/mathjax-error/</a></p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Dev Tips &amp; Fixes" /><category term="gitio" /><category term="markdown" /><summary type="html"><![CDATA[I wrote a math expression in a GitHub blog post, but there was an issue with applying markdown syntax. I’m posting this to document the solution that I applied.]]></summary></entry></feed>
