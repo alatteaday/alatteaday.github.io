@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!--site.title site.tagline-->
+  <title>
+    
+      데이터베이스 1: 데이터베이스 설계 &middot; Coffee Chat
+    
+  </title>
+
+  
+  <link rel="canonical" href="https://alatteaday.github.io/ko/cs%20basics/2024/07/21/db1/">
+  
+
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/poole.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/syntax.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://alatteaday.github.io/public/favicon.ico/apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://alatteaday.github.io/public/favicon.ico/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://alatteaday.github.io/ko/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Curation of studies, techs, ideas and a journey as a maching learning engineer</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/about">About</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/">Home</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/tags">Tags</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/tags">Papers</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/tags">Study</a>
+
+    
+
+    
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+          <a class="sidebar-nav-item" 
+          href="https://alatteaday.github.io/ko/about/">About</a>
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/cs/">CS Basics</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/error/">Dev Tips & Fixes</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+    <!--
+    <a class="sidebar-nav-item" href="/ko/archive/v1.1.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span> 
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2024. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <!--site.title site.tagline-->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container" >
+          <h3 class="masthead-title">
+            <a href="/ko/" title="Home">Coffee Chat</a>
+            <small>Brewing AI Knowledge</small>
+          </h3>
+          <div class="lang-switcher">
+    
+    
+        
+            <a href=" /cs%20basics/2024/07/21/db1/">eng</a>
+        
+    
+
+    
+    
+        kor
+    
+
+</div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">데이터베이스 1: 데이터베이스 설계</h1>
+  <p class="post-date">21 Jul 2024&nbsp;&nbsp;&nbsp;&nbsp;
+    <!--<span class="post-date">21 Jul 2024</span>-->
+    
+      
+        
+          <span class="tag" data-tag="cs">
+            <a href="https://alatteaday.github.io/ko/tags/?tag=cs">
+              #cs
+            </a>
+          </span>
+        
+      
+    
+  </p>
+  <style>
+.wavy {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: skyblue;
+}
+img {
+    display: inline;
+}
+p {
+   margin-top: 1em;
+   margin-bottom: 0em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+p.a{
+   margin-top: -0.5em;
+   margin-bottom: -1em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+p.b{
+   margin-top: 1em;
+   margin-bottom: -1em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+</style>
+
+<h1 id="dbms와-스키마">DBMS와 스키마</h1>
+
+<h2 id="dbms-database-management-system">DBMS (DataBase Management System)</h2>
+<p>사용자와 데이터베이스(DB) 사이에서 사용자의 요구에 따라 정보를 생성하고 DB를 관리하는 소프트웨어.</p>
+<ul>
+  <li>DBMS 관련 요구사항 식별 시 고려사항: 가용성, 성능, 기술지원, 상호호환성, 구축비용</li>
+</ul>
+
+<h3 id="dbms-필수-기능">DBMS 필수 기능</h3>
+<ul>
+  <li>정의 (Definition): 데이터 형(type)과 구조 정의. 이용 방식, 제약 조건 명시.</li>
+  <li>조작 (Manipulation): 데이터 검색, 갱신, 삽입, 삭제 등을 위해 인터페이스 제공.</li>
+  <li>제어 (Control): 데이터의 무결성/보안/권한 검사, 병행 제어 제공.</li>
+</ul>
+
+<h2 id="스키마-schema">스키마 (Schema)</h2>
+<p>DB의 구조와 제약 조건에 고간한 명세를 기술한 것</p>
+
+<h3 id="스키마의-종류">스키마의 종류</h3>
+<ul>
+  <li>외부 스키마: 사용자나 응용 프로그래머 등 각 개인의 입장에서 필요한 DB의 논리적 구조.</li>
+  <li>개념 스키마: DB 전체의 논리적 구조. 모든 사용자나 응용 프로그램이 필요로 하는 데이터 조직 전체의 DB로 하나만 존재함.</li>
+  <li>내부 스키마: 저장장치 입장에서의 DB 구조. 실제 저장될 레코드의 형식, 표현, 물리적 순서 등을 나타냄.</li>
+</ul>
+
+<h2 id="데이터-모델">데이터 모델</h2>
+<p>현실 세계의 정보를 컴퓨터에 표현하기 위해 단순화/추상화하여 체계적으로 표현한 개념적 모형.</p>
+
+<h3 id="데이터-모델의-요소">데이터 모델의 요소</h3>
+<ul>
+  <li>구조 (Structure): 논리적으로 표현된 개체 타입 간 관계. 데이터 구조 및 정적 성질 표현.</li>
+  <li>연산 (Operation): 실제 데이터를 처리하는 작업에 대한 명세. DB를 조작하는 기본 도구.</li>
+  <li>제약 조건 (Constraint): 데이터가 DB에 저장되기 위한 논리적인 제약 조건.</li>
+</ul>
+
+<h2 id="시스템-카탈로그-system-catalog">시스템 카탈로그 (System Catalog)</h2>
+<p>시스템과 관련된 다양한 객체에 관한 정보를 포함하는 시스템 DB.</p>
+<ul>
+  <li>시스템 카탈로그 내 각 테이블은 사용자를 포함하여 DBMS에서 지원하는 모든 데이터 객체에 대한 정의나 명세 정보를 유지 관리하는 시스템 테이블.</li>
+  <li>데이터 사전 (Data Dictionary)에 카탈로그가 저장되므로, 좁은 의미로는 카탈로그를 데이터 사전이라고도 함.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="데이터베이스-설계-순서">데이터베이스 설계 순서</h1>
+
+<ol>
+  <li>요구 조건 분석:
+    <ul>
+      <li>요구 조건 명세서 작성</li>
+    </ul>
+  </li>
+  <li>개념적 설계 (정보 모델링, 개념화): 현실 세계를 추상적 개념으로 표현하는 과정.
+    <ul>
+      <li>개념 스키마 모델링 및 트랜잭션 모델링을 병행 수행.</li>
+      <li>요구 조건 명세를 DBMS에 독립적인 E-R 다이어그램으로 작성.</li>
+    </ul>
+  </li>
+  <li>논리적 설계 (데이터 모델링): 현실 세계의 자료를 특정 DBMS가 지원하는 논리적 자료 구조로 변환(mapping)하는 과정.
+    <ul>
+      <li>개념적 데이터를 논리적 데이터로 모델링: 데이터 타입(필드)과 데이터 타입 간 관계로 표현.</li>
+      <li>개념 스키마를 정제하여 DBMS에 따라 다른 논리적 스키마를 설계.</li>
+    </ul>
+  </li>
+  <li>물리적 설계 (데이터 구조화): 논리적 구조의 데이터를 특정 DBMS가 지원하는 물리적 구조의 데이터로 변환하는 과정.
+    <ul>
+      <li>다양한 DB에 응용 가능하도록 DB 파일의 저장 구조 및 액세스 경로를 결정.</li>
+      <li>저장 레코드의 형식, 순서, 접근 경로, 조회 집중 레코드 등의 정보를 사용해 데이터가 저장되는 방법을 묘사.</li>
+    </ul>
+  </li>
+  <li>구현: 목표 DBMS의 DDL로 DB 생성 및 트랜잭션 작성.</li>
+</ol>
+
+<h2 id="e-r-다이어그램-entity-relationship-diagram">E-R 다이어그램 (Entity-Relationship Diagram)</h2>
+
+<p>데이터베이스의 논리적 구조를 시각적으로 표현하여 개체 (Entity), 엔티티 간의 관계 (Relationship), 속성 (Attribute)을 나타내는 다이어그램.</p>
+
+<p class="b" style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/er_diag.png?raw=true" alt="erd" style="width: 49%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/er_diag_2.png?raw=true" alt="erd" style="width: 49%;" />
+</p>
+
+<p><br /></p>
+
+
+</div>
+
+
+<div class="related">
+  <h2 class="related-title">Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/ko/study/2024/07/31/hopkins/">
+            Hopkins Statistic&nbsp;
+            <small>31 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/cs%20basics/2024/07/22/sw7_2/">
+            소프트웨어 관리 2: 애플리케이션 테스트&nbsp;
+            <small>22 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/cs%20basics/2024/07/22/sw7/">
+            소프트웨어 관리 1: 프로젝트 관리와 품질 관리&nbsp;
+            <small>22 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+        
+          <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+        
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

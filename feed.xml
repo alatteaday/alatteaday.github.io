@@ -1,0 +1,1181 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://alatteaday.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://alatteaday.github.io/" rel="alternate" type="text/html" /><updated>2024-09-09T23:56:55-05:00</updated><id>https://alatteaday.github.io/feed.xml</id><title type="html">Coffee chat</title><subtitle>Curation of studies, techs, ideas and a journey as a maching learning engineer</subtitle><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><entry xml:lang="en"><title type="html">Hopkins Statistic</title><link href="https://alatteaday.github.io/study/2024/07/31/hopkins/" rel="alternate" type="text/html" title="Hopkins Statistic" /><published>2024-07-31T00:00:00-05:00</published><updated>2024-07-31T00:00:00-05:00</updated><id>https://alatteaday.github.io/study/2024/07/31/hopkins</id><content type="html" xml:base="https://alatteaday.github.io/study/2024/07/31/hopkins/"><![CDATA[<p>The Hopkins statistic (Lawson and Jurs 1990) is a measure used to determine the clustering tendency of a dataset. It is particularly useful in assessing whether the data points are uniformly distributed or if there is a significant clustering structure present. Using the Hopkins statistic can help decide whether to proceed with clustering algorithms or not, serving as a preliminary step in many clustering analyses to ensure that the data is suitable for such methods.</p>
+
+<h1 id="how-hopkins-statistic-works">How Hopkins Statistic works</h1>
+
+<p>The Hopkins statistic is calculated as follows. If $D$ is the original dataset:</p>
+
+<ol>
+  <li>A subset $R$ of the $m$ data points $(p_1, …, p_m)$ is randomly selected from $D$.</li>
+  <li>A set of $m$ points $(q_1, …, q_n)$ is generated from a random uniform distribution $U$ within the same range as $D$.</li>
+  <li>For each point $p_i$ in $R$, the distance to the nearest neighbor $p_j$ is calculated: $w_i=dist(p_i, p_j)$</li>
+  <li>For each point $q_i$ in $U$, the distance to the nearest neighbor $p_j$ withtin $R$ is calculated: $u_i=dist(q_i, p_j)$</li>
+  <li>The Hopkins statistic $H$ is then defined as the mean nearest neighbor distance in $U$ divided by the sum of the mean nearest neighbor distances in $R$ and across the $U$:</li>
+</ol>
+
+\[H={\Sigma_{i=1}^n u_i^d \over \Sigma_{i=1}^n u_i^d + \Sigma_{i=1}^n w_i^d}\]
+
+<ul>
+  <li>$d$: the dimension of the data</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="interpretation-of-hopkins-statistic">Interpretation of Hopkins Statistic</h1>
+
+<p>If $D$ were unifomly distributed, then the distances for real points ($\Sigma_{i=1}^n w_i$) and the artificial one ($\Sigma_{i=1}^n u_i$) would be close to each other. Thus, $H$ would be about 0.5. However, if clusters are present in $D$, then $\Sigma_{i=1}^n w_i$ would be substantially larger than for $\Sigma_{i=1}^n u_i$ in expectation. And thus, the $H$ will increase.</p>
+
+<ul>
+  <li>If $H$ is close to 0.5, the data is uniformly distributed, indicating no clustering tendency. This is defined as the null hypothesis.</li>
+  <li>If $H$ is close to 0, the data points are regularly spaced.</li>
+  <li>If $H$ is close to 1, the data has a strong clustering tendency. This is defined as the alternative hypothesis.</li>
+</ul>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-31-TS/hopkins.jpg?raw=true" alt="hopkins" style="zoom: 70%;" />
+</p>
+
+<p>In practice, if the value for $H$ is significantly greater than 0.5, it suggests that the dataset is clusterable. A value for $H$ higher than 0.75 indicates a clustering tendency at the 90% confidence level. Conversely, if it is much lower than 0.5, it indicates a regular spacing between data points, which is not typical for clustering applications.</p>
+
+<p>To determine the dataset’s clustering tendency, you can iteratively conduct the Hopkins statistics test using 0.5 as the threshold. If the $H$ value is consistently smaller than 0.5, the dataset has no clustering tendency. Conversely, if it is consistently larger than 0.5, the null hypothesis is rejected, indicating the clustering tendency.</p>
+
+<p><br /></p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>https://www.datanovia.com/en/lessons/assessing-clustering-tendency/</li>
+</ul>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Study" /><category term="statistic" /><summary type="html"><![CDATA[The Hopkins statistic (Lawson and Jurs 1990) is a measure used to determine the clustering tendency of a dataset. It is particularly useful in assessing whether the data points are uniformly distributed or if there is a significant clustering structure present. Using the Hopkins statistic can help decide whether to proceed with clustering algorithms or not, serving as a preliminary step in many clustering analyses to ensure that the data is suitable for such methods.]]></summary></entry><entry xml:lang="ko"><title type="html">소프트웨어 개발 2: 소프트웨어 요구사항 개발</title><link href="https://alatteaday.github.io/cs%20basics/2024/07/22/sw2/" rel="alternate" type="text/html" title="소프트웨어 개발 2: 소프트웨어 요구사항 개발" /><published>2024-07-22T00:00:00-05:00</published><updated>2024-07-22T00:00:00-05:00</updated><id>https://alatteaday.github.io/cs%20basics/2024/07/22/sw2</id><content type="html" xml:base="https://alatteaday.github.io/cs%20basics/2024/07/22/sw2/"><![CDATA[<h1 id="요구사항-개발-requirements-development">요구사항 개발 (Requirements Development)</h1>
+<p>요구공학의 한 요소로, 개발 대상에 대한 요구사항을 체계적으로 도출하고 검증하는 일련의 구조화된 활동입니다.</p>
+<ul>
+  <li>요구공학 (Requirements Engineering): 소프트웨어 시스템의 요구사항을 식별, 문서화, 검증 및 관리하는 프로세스</li>
+  <li>요구사항 개발 과정 이전에 타당성 조사(Feasibility Study)가 진행되어야 합니다.</li>
+</ul>
+
+<h2 id="요구사항-개발-과정">요구사항 개발 과정</h2>
+<p>도출 (Elicitation) → 분석 (Analysis) → 명세 (Specification) → 확인 (Validation)</p>
+<ul>
+  <li>요구사항 도출 (Requirements Elicitation): 사용자와 이해관계자로부터 요구사항을 수집하는 단계</li>
+  <li>요구사항 분석 (Requirements Analysis): 수집된 요구사항을 분석하여 중복되거나 충돌하는 요구사항을 해결하고, 우선순위를 정하는 단계</li>
+  <li>요구사항 명세 (Requirements Specification): 분석된 요구사항을 체계적이고 명확하게 문서화하는 단계
+요구사항 확인 (Requirements Validation): 명세된 요구사항이 정확하고 완전한지 검토하고, 모든 이해관계자가 동의하는지 확인하는 단계</li>
+</ul>
+
+<h2 id="요구사항의-분류">요구사항의 분류</h2>
+<ul>
+  <li>기능 요구사항 (Fuctional Requirements): 시스템의 기능과 수행에 관한 요구사항. 시스템이 반드시 수행해야 하는 기능.
+    <ul>
+      <li>e.g. 어떤 것을 입/출력 하는지, 어떤 데이터를 사용하는지 등</li>
+    </ul>
+  </li>
+  <li>비기능 요구사항 (Non-functional Requirements): 시스템 품질, 제약사항과 관련된 요구사항.
+    <ul>
+      <li>e.g. 장비 구성, 성능, 인터페이스, 테스트, 보안 등</li>
+      <li>품질 요구사항: 가용성, 정합성, 상호호환성, 대응성, 이식성, 확장성, 보안성 등</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="요구사항-분석-requirement-analysis">요구사항 분석 (Requirement Analysis)</h1>
+<p>SW 개발의 첫 단계료, 개발 대상에 대한 요구사항을 이해하고 문서화하는 활동.</p>
+<ul>
+  <li>사용자 요구가 타당한지 조사, 비용과 일정에 대해 제약 설정.</li>
+  <li>사용자 요구를 정확히 파악해 목표 설정.</li>
+</ul>
+
+<h3 id="자료-흐름도-dfd-data-flow-diagram">자료 흐름도 (DFD; Data Flow Diagram)</h3>
+<p>요구사항 분석에서 자료의 흐름, 변환 과정, 기능을 도형 중심으로 기술하는 방법.</p>
+<ul>
+  <li>버블 차트, 자료 흐름 그래프라고도 함.</li>
+  <li>구조적 분석 기법에 사용됨: 자료 흐름과 처리 중심.</li>
+  <li>구성 요소
+    <ul>
+      <li>Process (Bubble): 자료를 변환시키는 시스템의 부분(처리 과정). 처리, 기능, 변환, 버블이라고도 함.</li>
+      <li>Data Flow: 자료의 이동(흐름)이나 자료 간 연관관계.</li>
+      <li>Data Store: 자료 저장소(파일, 데이터베이스).</li>
+      <li>Terminator: 시스템과 교신하는 외부개체, 입력 데이터를 주고 출력 데이터를 받는 대상.</li>
+    </ul>
+  </li>
+  <li>자료 사전 (DD; Data Dictionary): 자료 흐름도의 자료를 더 자세히 기록한 것.
+    <ul>
+      <li>메타 데이터 (Meta Data)라고도 함: 데이터를 설명하는 데이터.</li>
+      <li>자료 사전의 기호:
+        <ul>
+          <li>$=$: 자료의 정의, is composed of(~로 구성되어 있음)</li>
+          <li>$+$: 자료의 연결, and</li>
+          <li>$()$: 자료의 생략, Optional</li>
+          <li>$[]$: 자료의 선택, or</li>
+          <li>${}$: 자료의 반복, Iteration of</li>
+          <li>$**$: 자료의 설명, Comment(주석)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="요구사항-명세-기법">요구사항 명세 기법</h1>
+<h2 id="정형-명세-기법">정형 명세 기법</h2>
+<p>수학적 원리를 사용해 요구사항을 표현하는 명세 기법.</p>
+<ul>
+  <li>작성 방법: 수학적 기호, 정형화된 표기법.</li>
+  <li>특징:
+    <ul>
+      <li>정확하고 간결한 요구사항 표현.</li>
+      <li>일관성이 있음 → 완전성 검증이 가능함.</li>
+      <li>표기법이 어려움 → 사용자가 이해하기 어려움.</li>
+    </ul>
+  </li>
+  <li>종류: VDM, Z, Petri-net, CSP 등</li>
+</ul>
+
+<h2 id="비정형-명세-기법">비정형 명세 기법</h2>
+<p>상태, 기능, 객체를 중심으로 자연어로써 요구사항을 표현하는 명세 기법.</p>
+<ul>
+  <li>작성 방법: 자연어나 다이어그램.</li>
+  <li>특징:
+    <ul>
+      <li>자연어로 표현하므로 일관성이 떨어지고 해석이 달라질 수 있음.</li>
+      <li>내용 이해하기 쉬움 → 의사소통 용이.</li>
+    </ul>
+  </li>
+  <li>종류: FSM, Decision Table, E-R Model, SADT (State Chart), HIPO Chart 등</li>
+</ul>
+
+<h3 id="sadt-state-chart">SADT (State Chart)</h3>
+<p>시스템 정의, 요구사항 분석, SW 설계를 위한 도구. SoftTech에서 개발.</p>
+<ul>
+  <li>블록 다이어그램을 사용해 구조적 요구 분석을 하는 자동화 도구.</li>
+</ul>
+
+<h3 id="hipo-hierachy-input-process-output">HIPO (Hierachy Input Process Output)</h3>
+<p>시스템 분석, 설계, 문서화 시 시스템의 실행 과정인 입력, 처리, 출력의 기능을 표현한 것.</p>
+<ul>
+  <li>하향식 SW 개발을 위한 명세 도구.</li>
+  <li>HIPO Chart: 시스템의 기능을 여러 모듈로 분할하여, 이들 간 인터페이스를 계층구조로 표현한 것.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="요구사항-확인-방법">요구사항 확인 방법</h1>
+<h3 id="요구사항-검토-requirements-review">요구사항 검토 (Requirements Review)</h3>
+<p>요구사항 명세서의 결함(오류나 표준 준수 여부 등) 여부를 검토 담당자들이 일일이 분석하는 방법입니다.</p>
+<ul>
+  <li>동료 검토(Peer Review): 요구사항 명세서 작성자가 직접 내용을 설명하고, 동료들이 이를 들으면서 결함을 발견하는 방법</li>
+  <li>워크 스루 (Walk Through): 요구사항 명세서를 검토 회의 전 배포하여 사전 검토한 후, 짧은 검토 회의를 통해 결함을 발견하는 방법</li>
+  <li>인스펙션 (Inspection): 요구사항 명세서 작성자를 제외한 검토 전문가들이 명세서를 확인하며 결함을 발견하는 방법</li>
+</ul>
+
+<h3 id="프로토타이핑-prototyping">프로토타이핑 (Prototyping)</h3>
+<p>요구사항을 정확히 파악하기 위해 견본품(Prototype)을 만들어 개발될 SW의 결과물을 예측하는 방법입니다.</p>
+
+<h3 id="테스트-설계">테스트 설계</h3>
+<p>요구사항이 테스트 가능한지 여부를 확인하기 위해 테스트 케이스를 생성해 사용하는 방법입니다.</p>
+
+<h3 id="case-도구-활용">CASE 도구 활용</h3>
+<p>일관성 분석(Consistency Analysis)를 통해 요구사항 변경 사항 추적, 분석, 관리, 표준 준수 여부를 확인.</p>
+<ul>
+  <li>CASE (Computer Aided Software Engineering)</li>
+</ul>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="CS Basics" /><category term="cs" /><summary type="html"><![CDATA[요구사항 개발 (Requirements Development) 요구공학의 한 요소로, 개발 대상에 대한 요구사항을 체계적으로 도출하고 검증하는 일련의 구조화된 활동입니다. 요구공학 (Requirements Engineering): 소프트웨어 시스템의 요구사항을 식별, 문서화, 검증 및 관리하는 프로세스 요구사항 개발 과정 이전에 타당성 조사(Feasibility Study)가 진행되어야 합니다.]]></summary></entry><entry xml:lang="ko"><title type="html">소프트웨어 설계 4: 모듈과 결합도 및 응집도, 코드</title><link href="https://alatteaday.github.io/cs%20basics/2024/07/22/sw3_4/" rel="alternate" type="text/html" title="소프트웨어 설계 4: 모듈과 결합도 및 응집도, 코드" /><published>2024-07-22T00:00:00-05:00</published><updated>2024-07-22T00:00:00-05:00</updated><id>https://alatteaday.github.io/cs%20basics/2024/07/22/sw3_4</id><content type="html" xml:base="https://alatteaday.github.io/cs%20basics/2024/07/22/sw3_4/"><![CDATA[<h1 id="모듈">모듈</h1>
+<p>모듈화를 통해 분리된 시스템의 각 기능으로, 서브루틴, 서브시스템, 프로그램, 작업 단위 등을 말합니다. 한 개 혹은 여러 개의 기능을 논리적으로 수행하므로 명령어의 집합이라고도 볼 수 있습니다.</p>
+<ul>
+  <li>모듈의 독립성: 한 SW 내 모듈들이 기능적으로 독립되는 성질로, 결합도와 응집도에 의해 측정됩니다.</li>
+</ul>
+
+<h2 id="단위-모듈-unit-module">단위 모듈 (Unit Module)</h2>
+<p>SW 구현에서 동작 하나를 수행하는 기능을 모듈로 구현한 것으, 독립적인 컴파일이 가능하고, 다른 모듈에 호출되거나 삽입됩니다.</p>
+<ul>
+  <li>단위 기능: 단위 모듈로 구현되는 기능</li>
+  <li>단위 모듈 구현 과정: 단위 기능 명세서 작성 → 입출력 기능 구현 → 알고리즘 구현</li>
+</ul>
+
+<h2 id="공통-모듈과-공통-모듈-명세-기법">공통 모듈과 공통 모듈 명세 기법</h2>
+<p>여러 프로그램에서 공통으로 사용 가능한 모듈로, 공통 모듈을 구현할 때는 기능을 명확히 표시할 수 있도록 다음과 같은 명세 기법을 준수해야 합니다:</p>
+<ul>
+  <li>정확성 (Correctness): 구현 시 해당 기능이 필요하다는 것을 명시함</li>
+  <li>명확성 (Clarity): 기능 이해 시 중의적으로 해석되지 않도록 명확히 작성함</li>
+  <li>완전성 (Completeness): 구현을 위해 필요한 모든 것을 작성함</li>
+  <li>일관성 (Consistency): 공통 기능 간 충돌이 없도록 작성함</li>
+  <li>추적성 (Traceability): 기능에 관한 요구사항의 출처, 관련된 시스템 등 관계 사항을 파악할 수 있게 작성함</li>
+</ul>
+
+<h2 id="ipc-inter-process-communication">IPC (Inter-Process Communication)</h2>
+<p>모듈 간 통신 방식 구현을 위해 사용되는 대표적인 프로그래밍 인터페이스 집합입니다. 복수의 프로세스가 수행되는 동안의 통신도 구현 가능합니다.</p>
+<ul>
+  <li>대표 메소드: Shared Memory(공유 메모리), Socket(소켓), Semaphores, Pipes &amp; named Pipes, Message Queuing</li>
+</ul>
+
+<h1 id="결합도-coupling">결합도 (Coupling)</h1>
+<p>모듈 간 상호 의존하는 정도를 말합니다. 결합도가 약할수록 SW 품질이 높습니다. 종류는 아래와 같습니다. 결합도가 강한 것부터 약한 것 순으로 나열했습니다, 즉 아래로 갈수록 품질이 높습니다:</p>
+<ul>
+  <li>내용 결합도 (Content Coupling): 다른 모듈의 내부 기능과 자료를 직접 참조 및 수정할 때의 결합도</li>
+  <li>공통 결합도 (Common Coupling): 공통 데이터 영역을 여러 모듈이 사용할 때의 결합도, 전역 변수를 갱신하며 상호작용 할 때.</li>
+  <li>외부 결합도 (Exteranl Coupling): 한 모듈이 선언한 데이터(변수)를 외부 모듈이 참조할 때의 결합도</li>
+  <li>제어 결합도 (Control Coupling): 다른 모듈의 논리 흐름을 제어하기 위해 제어 신호나 요소를 전달하는 결합도, 하위 모듈이 상위 모듈로 제어 신호를 보내 명령을 내리는 권리 전도 현상이 발생할 수 있음.</li>
+  <li>스탬프 결합도 (Stamp Coupling): 모듈 간 인터페이스로 자료 구조(배열, 레코드 등)가 전달될 때의 결합도</li>
+  <li>자료 결합도 (Data Coupling): 모듈 간 인터페이스가 자료로만 구성될 떄의 결합도.</li>
+</ul>
+
+<h2 id="팬인과-팬아웃-fan-infan-out">팬인과 팬아웃 (Fan-In/Fan-Out)</h2>
+<ul>
+  <li>팬인 (Fan-In)은 특정 모듈을 제어하는 모듈의 수를,</li>
+  <li>팬아웃 (Fan-Out)은 특정 모듈에 의해 제어되는 모듈의 수를 말합니다.</li>
+</ul>
+
+<h1 id="응집도-cohesion">응집도 (Cohesion)</h1>
+<p>모듈 내부 요소들이 서로 관련된 정도를 말합니다. 응집도가 강할수록 SW 품질이 높습니다. 아래 나열된 종류는 응집도가 약한 것부터 강한 것 순으로 정리되었습니다, 즉 아래로 갈수록 품질이 높습니다:</p>
+<ul>
+  <li>우연적 응집도 (Coincidental Cohesion): 모듈이 서로 관련 없는 요소로만 구성되었을 때의 응집도</li>
+  <li>논리적 응집도 (Logical Cohesion): 모듈이 유사하거나 같은 것으로 분류되는 요소로 구성되었을 때의 응집도</li>
+  <li>시간적 응집도 (Temporal Cohesion): 모듈이 특정 시간에 처리되는 여러 기능으로 구성되었을 때의 응집도</li>
+  <li>절차적 응집도 (Procedural Cohension): 모듈의 구성 요소들이 모듈 내 다수 기능을 순차적으로 수행할 경우의 응집도</li>
+  <li>교환적 응집도 (Communicational Cohension): 모듈이 동일 입/출력으로 서로 다른 기능을 수행하는 요소로 구성되었을 때의 응집도</li>
+  <li>순차적 응집도 (Sequential Cohension): 모듈 내에서 하나의 연산으로부터 나온 출력을 다음 연산의 입력으로 사용할 때의 응집도</li>
+  <li>기능적 응집도 (Functional Cohesion): 모듈 내 모든 요소가 단일 문제와 연관되어 있을 때의 응집도</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="코드-code">코드 (Code)</h1>
+<p>데이터의 분류, 집계, 추출 등을 용이하게 하기 위해 사용하는 기호입니다.</p>
+<ul>
+  <li>주요 기능: 식별, 분류, 배열, 표준화, 간소화</li>
+</ul>
+
+<h2 id="코드의-종류">코드의 종류</h2>
+<ul>
+  <li>순차 코드 (Sequence Code; 순서 코드, 일련번호 코드): 일정 기준(자료 발생일, 크기 등)에 따라 차례로 일련번호를 부여하는 방법</li>
+  <li>블록 코드 (Block Code; 구분 코드): 공통적인 것끼리 블록으로 구분하고, 각 블록 내에서 일련번호를 부여하는 방법</li>
+  <li>10진 코드 (Decimal Code; 도서 분류식 코드): 항목을 0~9로 10진 분할하고, 그 각각에 대해 다시 10진 분할하며 이것을 반복하는 방법 (
+    <ul>
+      <li>e.g. 1000 = Engineering, 1100 = SW Engineering, 1110 = SW Analysis)</li>
+    </ul>
+  </li>
+  <li>그룹 분류 코드 (Group Classification Code): 항목을 대, 중, 소분류 등으로 구분하고, 각 그룹 내 일련번호를 부여하는 방법
+    <ul>
+      <li>e.g. 1-01-001 = Grade1-Math-Calculus, 2-01-001 = Grade2-Math-Calculus</li>
+    </ul>
+  </li>
+  <li>연상 코드 (Mnemonic Code): 항목의 명칭이나 약호와 관련된 숫자, 문자, 기호를 이용해 코드를 부여하는 방법
+    <ul>
+      <li>e.g. TV-40 = 40-inch TV, L-15W-220 = 15W 220V Lamp</li>
+    </ul>
+  </li>
+  <li>표의 숫자 코드 (Significant Digit Code; 유효 숫자 코드): 항목의 성질(길이, 넓이, 부피 등)의 물리적 수치를 그대로 적용시키는 방법
+    <ul>
+      <li>120-70-1500 = A table of which the size is 120$\times$720$\times$1500</li>
+    </ul>
+  </li>
+  <li>합성 코드 (Combined Code): 2개 이상의 코드를 조합해서 만드는 방법
+    <ul>
+      <li>e.g. KE-711: 대한항공 711기 (연상 코드 + 숫자 코드)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="CS Basics" /><category term="cs" /><summary type="html"><![CDATA[모듈 모듈화를 통해 분리된 시스템의 각 기능으로, 서브루틴, 서브시스템, 프로그램, 작업 단위 등을 말합니다. 한 개 혹은 여러 개의 기능을 논리적으로 수행하므로 명령어의 집합이라고도 볼 수 있습니다. 모듈의 독립성: 한 SW 내 모듈들이 기능적으로 독립되는 성질로, 결합도와 응집도에 의해 측정됩니다.]]></summary></entry><entry xml:lang="ko"><title type="html">소프트웨어 관리 1: 프로젝트 관리와 품질 관리</title><link href="https://alatteaday.github.io/cs%20basics/2024/07/22/sw7/" rel="alternate" type="text/html" title="소프트웨어 관리 1: 프로젝트 관리와 품질 관리" /><published>2024-07-22T00:00:00-05:00</published><updated>2024-07-22T00:00:00-05:00</updated><id>https://alatteaday.github.io/cs%20basics/2024/07/22/sw7</id><content type="html" xml:base="https://alatteaday.github.io/cs%20basics/2024/07/22/sw7/"><![CDATA[<h1 id="프로젝트-관리-project-management">프로젝트 관리 (Project Management)</h1>
+<p>SW 개발 목표 달성을 위해 프로젝트 계획, 실행, 모니터링 및 완료를 체계적으로 수행하는 과정입니다. 비용 관리, 일정 관리 등이 이에 해당합니다.</p>
+
+<h2 id="소프트웨어-비용-산정-cost-estimation">소프트웨어 비용 산정 (Cost Estimation)</h2>
+<p>SW 개발 프로젝트의 비용과 필요한 노력을 예측하는 과정. 프로젝트 계획, 자원 할당, 일정 관리 등의 효과적인 수행, 프로젝트의 성공적인 완료, 예산 초과 방지 등에 중요한 역할.</p>
+
+<h3 id="loc-source-line-of-code-기법">LOC (source Line Of Code) 기법</h3>
+<p>SW 원시 코드 라인 수(LOC)의 비관치, 낙관치, 기대치를 측정해 예측치를 구하고, 이를 이용해 비용을 산정하는 기법입니다.</p>
+<ul>
+  <li>공식: 비용 = LOC / (개발 기간 $\times$ 투입 인원)</li>
+</ul>
+
+<h3 id="수학적-산정-기법">수학적 산정 기법</h3>
+<p>상향식 비용 산정 기법으로 개발 비용 산정의 자동화를 목표로 합니다.</p>
+<ul>
+  <li>경험적 추정 모형, 실험적 추정 모형이라고도 합니다.</li>
+  <li>주요 기법: COCOMO 모형, Putnam 모형, FP 모형</li>
+</ul>
+
+<h3 id="cocomo-constructive-cost-model-모형">COCOMO (COnstructive COst MOdel) 모형</h3>
+<p>LOC에 의한 비용 산정 기법으로 Boehm이 제안했습니다. LOC를 예측한 후 이를 SW에 따라 다른 비용 산정 방정식에 대입해 비용을 산정하는 방법입니다.</p>
+<ul>
+  <li>Man-Month: 프로젝트를 완성하는 데 필요한 노력. COCOMO 비용 산정 결과의 형식입니다.</li>
+  <li>개발 유형:
+    <ul>
+      <li>조직형 (Organic Model): 중소규모 5만(50KDSI) 라인 이하의 SW 개발에 쓰이는 유형으로, 사무 처리나 과학용 응용 SW 개발에 적합합니다.</li>
+      <li>반분리형 (Semi-Detached Model): 중간 규모 30만(300KDSI) 라인 이하의 SW 개발에 쓰이는 유형으로, 컴파일러, 인터프리터 등 유틸리티 개발에 적합합니다.</li>
+      <li>내장형 (Embedded Model): 초대형 규모, 30만(300KDSI) 라인 이상의 SW 개발에 쓰이는 유형으로, 신호기 제어, 실시간 처리 등 시스템 프로그램 개발에 적합합니다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="putnam-모형">Putnam 모형</h3>
+<p>소프트웨어 개발 생명 주기의 전 과정 동안 사용될 노력의 분포를 예상하는 모형으로, Putnam이 제안했습니다.</p>
+<ul>
+  <li>생명 주기 예측 모형이라고도 합니다.</li>
+  <li>Rayleigh-Norden 곡선의 노력 분포도를 기초로 하여 시간에 따른 함수로 표현합니다.</li>
+</ul>
+
+<h3 id="fp-function-point-기능-점수-모델">FP (Function Point; 기능 점수) 모델</h3>
+<p>SW의 기능을 증대시키는 요인별로 기능 점수(FP)를 구한 후 이를 이용해 비용을 산정하는 기법입니다.</p>
+<ul>
+  <li>FP 산출: 요인 별 가중치를 합산 해 총 FP를 구하고, 총 FP와 영향도를 이용해 각 요인의 FP를 구합니다.</li>
+  <li>기능 증대 요인: 입력 양식, 출력 보고서, 사용자 질의 수, 데이터 파일, 인터페이스.</li>
+</ul>
+
+<h3 id="비용-산정-자동화-추정-도구">비용 산정 자동화 추정 도구</h3>
+<ul>
+  <li>SLIM: Rayleigh-Norden 곡선과 Putnam 모델을 기초로 개발된 자동화 추정 도구.</li>
+  <li>ESTIMACS: FP 모델을 기초로 하여 다양한 프로젝트와 개인별 요소를 수용하도록 개발된 자동화 추정 도구.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="스케줄링-기법-scheduling">스케줄링 기법 (Scheduling)</h2>
+
+<h3 id="pert-program-evaluation-and-review-technique">PERT (Program Evaluation and Review Technique)</h3>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/pert.png?raw=true" alt="pert" style="zoom: 70%;" />
+</p>
+
+<p>프로젝트 전체 작업 간 상호 관계를 표시하는 네트워크입니다.</p>
+<ul>
+  <li>결정 경로, 작업에 대한 경계 시간, 작업 간 상호 관련성 등을 알 수 있습니다.</li>
+  <li>각 작업을 단계로 나누어 종료 시기를 결정합니다: 낙관적, 가능성이 있음, 비관적</li>
+</ul>
+
+<h3 id="cpm-critical-path-method-임계-경로-기법">CPM (Critical Path Method; 임계 경로 기법)</h3>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/cpm.png?raw=true" alt="cpm" style="zoom: 70%;" />
+</p>
+
+<p>프로젝트 완성에 필요한 작업을 나열하고, 작업에 필요한 소요시간을 예측하는 데 사용하는 기법입니다.</p>
+<ul>
+  <li>노드와 간선으로 구성된 네트워크: 노드는 작업, 간선은 작업 간 전후 의존 관계를 나타냅니다.</li>
+  <li>임계 경로: 작업 소요 시간이 제일 길게 걸리는 경로.</li>
+</ul>
+
+<h3 id="간트-차트-gantt-chart">간트 차트 (Gantt Chart)</h3>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/gantt.png?raw=true" alt="gantt" style="zoom: 70%;" />
+</p>
+
+<p>프로젝트 작업 일정을 막대 도표를 사용해 표시하는 프로젝트 일정표로, 시간선(Time-Line) 차트라고도 합니다. 중간 목표 미달성 시 이유와 기간을 예측하는 데 도움이 됩니다.</p>
+
+<p><br /></p>
+
+<h1 id="소프트웨어-품질-관리-quality-management">소프트웨어 품질 관리 (Quality Management)</h1>
+<p>SW 품질을 보장하고 향상시키는 데 초점을 두어, 제품이 요구되는 품질 기준을 충족하도록 보장하는 활동입니다.</p>
+
+<h2 id="테스트-케이스-test-case와-isoiecieee-29119-3">테스트 케이스 (Test Case)와 ISO/IEC/IEEE 29119-3</h2>
+<p>구현된 SW가 요구사항을 정확히 준수했는지 확인하기 위해 테스트할 때, 이 테스트 항목에 대한 명세서입니다. ISO/IEC/IEEE 29119-3 표준에 따른 테스트 케이스 구성 요소로는:</p>
+<ul>
+  <li>식별자: 항목 식별자, 일련번호</li>
+  <li>테스트 항목: 테스트의 대상(모듈, 기능 등)</li>
+  <li>입력 명세: 테스트 데이터, 테스트 조건</li>
+  <li>출력 명세: 테스트 케이스 수행 시 예상되는 출력 결과</li>
+  <li>환경 설정: 필요한 HW, SW 환경</li>
+  <li>특수 절차 요구: 테스트 케이스 수행 시 특별히 요구되는 절차</li>
+  <li>의존성 기술: 테스트 케이스 간 의존성</li>
+</ul>
+
+<h2 id="isoiec-12207">ISO/IEC 12207</h2>
+<p>ISO(국제표준화기구)에서 만든 표준 SW 생명 주기 프로세스입니다. SW 개발, 운영, 유지보수 등을 체계적으로 관리하기 위한 SW 생명 주기 표준을 제공합니다. 아래와 같이 구분됩니다:</p>
+<ul>
+  <li>기본 생명 주기 프로세스: 획득, 공급, 개발, 운영, 유지보수</li>
+  <li>지원 생명 주기 프로세스: 품질 보증, 검증, 확인, 활동 검토, 감사, 문서화, 형상 관리, 문제 해결</li>
+  <li>조직 생명 주기 프로세스: 관리, 기반 구조, 훈련, 개선</li>
+</ul>
+
+<h2 id="spice-software-process-improvement-and-capability-determination">SPICE (Software Process Improvement and Capability dEtermination)</h2>
+<p>공식 명칭은 ISO/IEC 15504로, SW 품질 및 생산성 향상을 위해 SW 프로세스를 평가, 개선하는 국제 표준입니다.</p>
+
+<h3 id="spice-기준-프로세스-수행-능력-단계">SPICE 기준 프로세스 수행 능력 단계</h3>
+<ul>
+  <li>0 Incomplete (불완전): 프로세스가 구현되지 않았거나 목적을 달성하지 못한 단계</li>
+  <li>1 Performed (수행): 프로세스가 수행되고 목적이 달성된 단계</li>
+  <li>2 Managed (관리): 자원의 한도 내에서 프로세스가 작업의 산출물을 내는 단계</li>
+  <li>3 Established (확립): 소프트웨어 공학 원칙에 기반하여 정의된 프로세스가 수행되는 단계</li>
+  <li>4 Predictable (예측): 프로세스가 목적 달성을 위해 통제되고 양적 측정을 통해 일관적으로 수행되는 단계</li>
+  <li>5 Optimizing (최적화): 프로세스 수행이 최적화되고 지속적으로 개선되어 목적을 만족하는 단계</li>
+</ul>
+
+<h2 id="cmmi-capability-maturity-model-integration">CMMI (Capability Maturity Model Integration)</h2>
+<p>SW 개발 조직의 업무 능력 및 성숙도를 평가하는 모델입니다. 성숙도 단계는 아래와 같습니다:</p>
+<ul>
+  <li>1 Initial (초기): 작업자의 능력에 성공 여부가 달림</li>
+  <li>2 Managed (관리): 특정 프로젝트 안에서 프로세스가 정의 및 수행됨</li>
+  <li>3 Defined (정의): 조직의 표준 프로세스가 존재하여 이에 따라 업무 수행</li>
+  <li>4 Quantitatively Managed (정량적 관리): 프로젝트를 정량적으로 관리 및 통제함</li>
+  <li>5 Optimized (최적화): 프로세스 역량 강화를 위해 지속적으로 프로세스를 개선함</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="소프트웨어-재사용-software-reuse">소프트웨어 재사용 (Software Reuse)</h1>
+<p>이미 개발되어 인정 받은 SW를 다른 SW 개발이나 유지에 사용하는 것을 말합니다.</p>
+<ul>
+  <li>Composition-Based (합성 중심; 블록 구성 방법): SW 부품(블록)을 만들어 끼워 맞추며 SW를 완성시키는 방법.</li>
+  <li>Geneeration-Based (생성 중심; 패턴 구성 방법): 추상화된 명세를 구체화하여 프로그램을 만드는 방법.</li>
+</ul>
+
+<p><span style="background-color:#EAEDED"># 요구 명세 기법과 UML: 요구 명세 기법은 사용자 요구사항을 수집하고 명확히 정의하는 기법으로, 유스케이스 다이어그램과 같이 UML을 사용할 수도 있습니다. 한편, UML은 요구사항을 포함한 시스템의 다양한 측면을 시각적으로 표현하는 데 사용되는 표준 모델링 언어입니다. 즉, UML이 더 넓은 개념이라고 할 수 있습니다.</span></p>
+
+<h1 id="case-computer-aided-software-engineering">CASE (Computer Aided Software Engineering)</h1>
+<p>SW 개발 과정 전체 혹은 일부를 컴퓨터 및 전용 SW 도구를 사용해 자동화하는 것을 말합니다.</p>
+<ul>
+  <li>주요 기능: 소프트웨어 생명 주기 전 단계 연결, 다양한 소프트웨어 개발 모형 지원, 그래픽 지원.</li>
+</ul>
+
+<p><br /></p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="CS Basics" /><category term="cs" /><summary type="html"><![CDATA[프로젝트 관리 (Project Management) SW 개발 목표 달성을 위해 프로젝트 계획, 실행, 모니터링 및 완료를 체계적으로 수행하는 과정입니다. 비용 관리, 일정 관리 등이 이에 해당합니다.]]></summary></entry><entry xml:lang="ko"><title type="html">소프트웨어 관리 2: 애플리케이션 테스트</title><link href="https://alatteaday.github.io/cs%20basics/2024/07/22/sw7_2/" rel="alternate" type="text/html" title="소프트웨어 관리 2: 애플리케이션 테스트" /><published>2024-07-22T00:00:00-05:00</published><updated>2024-07-22T00:00:00-05:00</updated><id>https://alatteaday.github.io/cs%20basics/2024/07/22/sw7_2</id><content type="html" xml:base="https://alatteaday.github.io/cs%20basics/2024/07/22/sw7_2/"><![CDATA[<h1 id="애플리케이션-테스트-application-testing">애플리케이션 테스트 (Application Testing)</h1>
+<p>개발된 SW 애플리케이션에 잠재된 결함을 찾아내는 행위 또는 절차입니다.</p>
+
+<h2 id="애플리케이션-테스트의-기본-원리">애플리케이션 테스트의 기본 원리</h2>
+<ul>
+  <li>파레토 법칙 (Pareto Princlple): 20%의 코드에서 전체 결함의 80%가 발견된다는 법칙</li>
+  <li>살충제 패러독스 (Pesticide Paradox): 동일한 테스트 케이스로 테스트를 반복하면 결함이 더 이상 발견되지 않는 현상</li>
+  <li>오류-부재의 궤변 (Absence of Errors Fallacy): SW의 결함을 모두 제거해도 요구사항을 만족하지 못하면, 해당 SW는 품질이 높다고 할 수 없는 것</li>
+</ul>
+
+<h1 id="애플리케이션-테스트의-분류">애플리케이션 테스트의 분류</h1>
+<h2 id="시각에-따른-분류">시각에 따른 분류</h2>
+<ul>
+  <li>검증 테스트 (Verification): 개발자의 시각에서 제품의 생산 과정을 테스트, 제품이 명세서대로 완성되었는지를 테스트합니다.</li>
+  <li>확인 테스트 (Validation): 사용자의 시각에서 제품의 결과를 테스트, 제품이 요구사항대로 완성되었는지, 정상적으로 동작하는지를 테스트합니다.</li>
+</ul>
+
+<h2 id="목적에-따른-분류">목적에 따른 분류</h2>
+<ul>
+  <li>회복 테스트 (Recovery): 여러 결함을 주어 실패하게 한 후, 잘 복구되는지를 테스트합니다.</li>
+  <li>안전 테스트 (Security): 시스템 내 시스템 보호 도구가 불법 침입을 잘 보호하는지를 테스트합니다.</li>
+  <li>강도 테스트 (Stress): 과도한 정보량 등으로 과부하를 주어도 정상적으로 실행되는지를 테스트합니다.</li>
+  <li>성능 테스트 (Performance): 효율성이나 실시간 성능을 진단하는 것으로, 처리량 및 응답 시간 등을 테스트합니다.</li>
+  <li>구조 테스트 (Structure): SW 내부의 논리적 경로, 코드의 복잡도 등을 테스트합니다.</li>
+  <li>회귀 테스트 (Regression): SW가 변경/수정된 경우 새로운 결함이 없다는 것을 확인하는 테스트입니다.</li>
+  <li>병행 테스트 (Parallel): 변경된 SW와 기존 SW에 동일 데이터를 입력하여 결과를 비교하는 테스트입니다.</li>
+</ul>
+
+<h3 id="애플리케이션-성능-측정-지표">애플리케이션 성능 측정 지표</h3>
+<ul>
+  <li>처리량 (Throughput): 일정 시간 내 애플리케이션이 처리하는 일의 양</li>
+  <li>응답 시간 (Response Time): 애플리케이션에 요청한 시간부터 응답 받은 시간까지 걸린 시간</li>
+  <li>경과 시간 (Turn Around Time): 애플리케이션이 작업을 요청 받고 처리 완료할 때까지 걸린 시간</li>
+  <li>자원 사용률 (Resource Usage): 애플리케이션이</li>
+</ul>
+
+<h2 id="프로그램-실행-여부에-따른-분류">프로그램 실행 여부에 따른 분류</h2>
+<ul>
+  <li>정적 테스트: 프로그램을 실행하지 않고 명세서나 코드를 대상으로 분석하는 테스트입니다. 코드의 코딩 표준, 스타일, 복잡도, 결함 등을 발견합니다.
+    <ul>
+      <li>종류: 코드 검사, 워크스루, 인스펙션 등</li>
+    </ul>
+  </li>
+  <li>동적 테스트: 프로그램을 실행하여 오류를 찾는 테스트로, 개발의 모든 단계에서 수행합니다.
+    <ul>
+      <li>종류: 화이트박스 테스트, 블랙박스 테스트</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="개발-단계에-따른-분류">개발 단계에 따른 분류</h2>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/vmodel.jpg?raw=true" alt="vmodel" style="zoom: 70%;" />
+</p>
+
+<ul>
+  <li>테스트 레벨: SW 개발 단계에 따라 분류된 테스트 단계</li>
+  <li>V-모델: SW 개발 단계와 애플리케이션 테스트를 연결하여 표현한 모델</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="화이트박스-테스트와-블랙박스-테스트">화이트박스 테스트와 블랙박스 테스트</h1>
+<h2 id="화이트박스-테스트-white-box-test">화이트박스 테스트 (White Box Test)</h2>
+<p>SW 소스 코드의 논리적인 모든 경로를 테스트하는 방법입니다. 코드 내 모든 문장을 실행하여 수행하고, 실행함으로써 모듈 내 작동을 직접 관찰합니다.</p>
+
+<h3 id="화이트박스-테스트의-종류">화이트박스 테스트의 종류</h3>
+<ul>
+  <li>기초 경로 검사 (Base Path Testing): 대표적인 화이트박스 테스트 기법으로, 테스트 케이스 설계자가 설계의 복잡성을 측정할 수 있게 해줍니다.</li>
+  <li>제어 구조 검사 (Condition Structure Testing):
+    <ul>
+      <li>조건 검사 (Conditon Testing): 모듈 내 논리적 조건을 테스트하기 위한 테스트 케이스 설계 기법</li>
+      <li>루프 검사 (Loop Testing): 반복(Loop) 구조에 초점을 두어 실시하는 테스트 케이스 설계 기법</li>
+      <li>데이터 흐름 검사 (Data Flow Testing): 변수의 정의와 사용 위치에 초점을 두어 실시하는 테스트 케이스 설계 기법</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="화이트박스-테스트의-검증-기준">화이트박스 테스트의 검증 기준</h3>
+<ul>
+  <li>문장 검증 기준 (Statement Coverage): 코드의 모든 구문이 한 번 이상 수행되도록 테스트 케이스를 설계합니다.</li>
+  <li>분기 검증 기준 (Branch Coverage): 모든 조건문에 대해 결과가 True인 경우와 False인 경우가 한 번 이상 수행되도록 테스트 케이스를 설계합니다. 결정 검증 기준 (Decision Coverage)이라고도 합니다.</li>
+  <li>조건 검증 기중 (Condition Coverage): 조건문 내 개별 조건식의 결과가 True인 경우와 False인 경우가 한 번 이상 수행되도록 테스트 케이스를 설계합니다.</li>
+  <li>분기/조건 기준 (Branch/Condition Coverage): 분기 검증과 조건 검증 기준을 모두 만족하는 설계입니다. 분기 검증에 따라 조건문이 True인 경우와 False인 경우에 따라 조건 검증 기준의 입력 데이터를 구분하는 테스트 케이스를 설계합니다.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="블랙박스-테스트-black-box-test">블랙박스 테스트 (Black Box Test)</h2>
+<p>SW의 각 기능이 완전히 작동되는 것을 입증하는 테스트입니다. 요구사항 명세를 보면서, 인터페이스를 통해 실시합니다. 구현된 기능을 테스트 하므로 기능 테스트라고도 합니다.</p>
+
+<h3 id="블랙박스-테스트의-종류">블랙박스 테스트의 종류</h3>
+<ul>
+  <li>동치 분할 검사 (Equivalent Partitioning Testing): 입력 조건에 타당한 입력과 타당하지 않은 입력의 개수를 균등하게 하여 테스트 케이스를 설계하고, 입력에 맞게 결과가 출력되는지 확인하는 방법입니다. 동등 분할 기법 혹은 동치 클래스 분해라고도 합니다.</li>
+  <li>경계값 분석 (Boundary Value Analysis): 입력 조건의 경계값을 테스트 케이스로 선정하는 방법입니다. 입력 조건의 중간보다 경계에서 오류가 발생할 확률이 높다는 것을 이용합니다</li>
+  <li>원인-효과 그래프 검사 (Cause-Effect Graphing Testing): 입력 간 관계와 출력에 영향을 미치는 상황을 분석하여 효용성 높은 테스트 케이스를 선정하는 방법입니다.</li>
+  <li>오류 예측 검사 (Error Guessing): 과거 경험이나 감각으로 테스트하는 방법입니다.</li>
+  <li>비교 검사 (Comparison Testing): SW의 여러 버전이 있을 때, 여러 버전에 동일한 테스트를 하여 동일한 결과가 출력되는지 보는 기법입니다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="단위-통합-시스템-인수-테스트">단위, 통합, 시스템, 인수 테스트</h1>
+<h2 id="단위-테스트-unit-test">단위 테스트 (Unit Test)</h2>
+<p>코딩 직후 SW의 최소 단위인 모듈이나 컴포넌트를 대상으로 하는 테스트입니다.</p>
+<ul>
+  <li>검사 항목: 인터페이스, I/O, 자료구조, 기초 경로, 오류 처리 경로, 경계 조건 등</li>
+  <li>기능성 테스트를 최우선으로 수행: 요구사항을 기반으로 테스트</li>
+  <li>분류: 구조 기반 테스트, 명세 기반 테스트. 주로 구조 기반 테스트를 합니다.</li>
+</ul>
+
+<h2 id="통합-테스트-integration-test">통합 테스트 (Integration Test)</h2>
+<p>모듈을 결합하여 시스템으로 완성하는 과정에서 하는 테스트입니다. 모듈 또는 통합된 컴포넌트 간 상호 작용 오류, 즉 인터페이스가 정상적으로 실행되는지 검사합니다.</p>
+<ul>
+  <li>통합 방식의 분류: 비점진적 통합, 점진적 통합
+    <ul>
+      <li>비점진적 통합 방식: 모든 모듈이 미리 결합된 상태의 프로그램 전체를 테스트하는 방법. 빅뱅 통합 테스트 등이 있습니다.</li>
+      <li>점진적 통합 방식: 모듈을 단계적으로 통합하면서 테스트하는 방법. 하향식, 상향식, 혼합식 통합 테스트 등이 있습니다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="하향식-통합-테스트-top-down-integration-test">하향식 통합 테스트 (Top Down Integration Test)</h3>
+<p>상위 모듈에서 하위 모듈 방향으로 통합하며 테스트하는 방법입니다.</p>
+<ol>
+  <li>주요 제어 모듈(상위 모듈)은 작성된 것을 사용하고, 종속 모듈은 스텁(Stub)으로 대체</li>
+  <li>통합 방식(깊이 우선, 넓이 우선 등)에 따라 스텁을 하나씩 실제 모듈로 교체</li>
+  <li>모듈이 통합될 때마다 테스트 실시</li>
+  <li>회귀 테스트를 실시해 새로운 오류가 발생하지 않음을 보증</li>
+</ol>
+
+<ul>
+  <li>스텁 (Stub): 제어 모듈이 호출하는 모듈의 기능을 단순히 수행하는 일시적 시험용 모듈</li>
+</ul>
+
+<h3 id="상향식-통합-테스트-bottom-up-integration-test">상향식 통합 테스트 (Bottom Up Integration Test)</h3>
+<p>하위 모듈에서 상위 모듈 방향으로 통합하며 테스트하는 방법입니다.</p>
+<ol>
+  <li>하위 모듈을 클러스터(Cluster)로 결합</li>
+  <li>드라이버(Driver)를 작성해 상위 모듈의 데이터 입/출력을 확인</li>
+  <li>통합된 클러스터 단위로 테스트</li>
+  <li>테스트가 완료되면 클러스터를 구조 상 상위로 이동하고, 드라이버를 실제 모듈로 교체</li>
+</ol>
+
+<ul>
+  <li>테스트 드라이버 (Test Driver): 테스트 대상인 하위 모듈 호출, 파라미터 전달, 테스트 결과를 도출하는 도구</li>
+</ul>
+
+<h3 id="회귀-테스트-">회귀 테스트 ()</h3>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="CS Basics" /><category term="cs" /><summary type="html"><![CDATA[애플리케이션 테스트 (Application Testing) 개발된 SW 애플리케이션에 잠재된 결함을 찾아내는 행위 또는 절차입니다.]]></summary></entry><entry xml:lang="ko"><title type="html">소프트웨어 설계 5: 미들웨어와 인터페이스</title><link href="https://alatteaday.github.io/cs%20basics/2024/07/22/sw3_5/" rel="alternate" type="text/html" title="소프트웨어 설계 5: 미들웨어와 인터페이스" /><published>2024-07-22T00:00:00-05:00</published><updated>2024-07-22T00:00:00-05:00</updated><id>https://alatteaday.github.io/cs%20basics/2024/07/22/sw3_5</id><content type="html" xml:base="https://alatteaday.github.io/cs%20basics/2024/07/22/sw3_5/"><![CDATA[<h1 id="미들웨어-middleware">미들웨어 (Middleware)</h1>
+<p>운영체제-응용 프로그램, 서버-클라이언트 등 서로 다른 소프트웨어 모듈이나 시스템 간의 통신을 지원하는 중간 계층 소프트웨어입니다. 다양한 애플리케이션이 상호작용하고 데이터를 주고받을 수 있도록 하는 인터페이스를 제공합니다.</p>
+
+<p><span style="background-color:#EAEDED"># 인터페이스와 미들웨어: 인터페이스는 모듈 간의 통신 방법과 규칙을 정의하고, 미들웨어는 이러한 인터페이스를 통해 다양한 시스템과 애플리케이션 간의 원활한 통신을 중재하는 역할을 합니다. 미들웨어는 인터페이스를 통해 데이터를 교환하고 기능을 호출하는 작업을 쉽게 수행할 수 있게 합니다.</span></p>
+
+<h2 id="미들웨어의-종류">미들웨어의 종류</h2>
+<ul>
+  <li>DB (DataBase): 데이터베이스 벤더에서 제공하는 클라이언트에서 원격 데이터베이스와 연결하는 미들웨어입니다.
+    <ul>
+      <li>2-Tier 아키텍쳐: DB를 이용해 시스템을 구축하는 경우를 일컫는 말</li>
+    </ul>
+  </li>
+  <li>RPC (Remote Procedure Call; 원격 프로시저 호출): 응용 프로그램의 프로시저를 사용해 원격 프로시저를 마치 로컬 프로시저처럼 호출하는 미들웨어입니다.</li>
+  <li>MOM (Message Oriented Middleware; 메시지 지향 미들웨어): 메시지 기반의 비동기형 메시지를 전달하는 미들웨어입니다. 온라인 업무보다는 이기종 분산 데이터 시스템의 데이터 동기를 위해 많이 사용됩니다.</li>
+  <li>TP-Monitor (Transaction Processing Monitor; 트랜잭션 처리 모니터): 온라인 트랜잭션 업무에서 트랜잭션을 처리 및 모니터링하는 미들웨어입니다. 사용자 수가 많아도 빨리 응답해야 하는 업무(항공기, 철도 예약 등)에 주로 사용됩니다.</li>
+  <li>ORB (Object Request Broker; 객체 요청 브로커): CORBA 표준 스펙을 구현한 객체 지향 미들웨어입니다. 최근에는 TP Monitor의 트랜잭션 처리 및 모니터링 기능을 추가한 제품도 있습니다.</li>
+  <li>WAS (Web Application Server): 동적인 콘텐츠를 처리하기 위한, 클라이언트-서버 환경보다는 웹 환경을 구현하기 위한 미들웨어입니다. 웹 서버 기능 및 미션 크리티컬한 기업 업무 모두 JAVA, EJB 컴포넌트 기반으로 구현할 수 있습니다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="eai-enterprise-application-integration">EAI (Enterprise Application Integration)</h1>
+<p>기업 내 애플리케이션 및 플랫폼 간 상호 연동이 가능하게 해주는 애플리케이션 통합 솔루션입니다.</p>
+<ul>
+  <li>Point-to-Point: 가장 기본적인 방식으로, 애플리케이션을 일대일로 연결합니다. 변경이나 재사용이 어렵다는 단점이 있습니다.</li>
+  <li>Hub &amp; Spoke: 허브 시스템이 단일 접점으로 작용하고, 이를 통해 데이터를 전송하는 중앙 집중형 방식입니다. 확장 및 유지보수가 용이하지만, 허브에 장애가 발생하면 시스템 전체가 영향을 받습니다.</li>
+  <li>Message Bus (=ESB): 애플리케이션 사이에 미들웨어를 두어 처리하는 방식으로, 확장성과 대용량 처리 기능이 뛰어납니다.</li>
+  <li>Bus Hybrid: Hub &amp; Spoke와 Message Bus를 혼합한 방식으로, 그룸 내에서는 Hub &amp; Spoke, 그룹 간에는 Message Bus 방식을 사용합니다. 필요 시 한 가지 방식으로만 구현이 가능합니다. 데이터 병목현상을 최소화할 수 있습니다.</li>
+</ul>
+
+<h3 id="esb-enterprise-service-bus">ESB (Enterprise Service Bus)</h3>
+<p>애플리케이션 간 표준 인터페이스를 제공하는 솔루션입니다. EAI와 애플리케이션을 통합한다는 측면에서 유사하나, 초점이 애플리케이션보다는 서비스 통합에 있습니다. 애플리케이션을 특정 서비스에 국한하지 않고 범용적으로 사용하기 위해, 애플리케이션과의 결합도를 약하게 유지합니다.</p>
+
+<p><br /></p>
+
+<h1 id="json과-ajax">JSON과 AJAX</h1>
+<ul>
+  <li>JSON (JavaScript Object Notation): 웹과 프로그램 사이 용량이 작은 데이터를 교환하기 위해 데이터 객체를 속성-값 쌍(Attribute-Value Pair)으로 표현하는 개방형 표준 포맷
+    <ul>
+      <li>AJAX에서 XML을 대신해 사용되고 있음</li>
+    </ul>
+  </li>
+  <li>AJAX (Asynchronous JavaScript and XML): 자바스크립트를 사용해 클라이언트와 서버 간 XML 데이터를 주고 받는 비동기 통신 기술
+    <ul>
+      <li>전체 웹 페이지를 새로고침하지 않고도 페이지의 일부를 업데이트할 수 있음</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="인터페이스-interface">인터페이스 (Interface)</h1>
+<p>소프트웨어 모듈 간의 상호작용을 정의하는 명세서입니다. 모듈이 다른 모듈과 데이터를 주고받는 방법과 규칙을 정의하며, 주요 요소로는 함수, 메서드, 프로토콜, API 등이 있습니다.</p>
+
+<h1 id="인터페이스-보안">인터페이스 보안</h1>
+<p>인터페이스 보안성 향상을 위해 취약점을 분석한 후 적절한 보안 기술을 적용하는 것으로, 네트워크, 애플리케이션, 데이터베이스 영역에 적용됩니다.</p>
+<ul>
+  <li>네트워크 영역: 인터페이스 송/수신 간 데이터 탈취 및 변조(스니핑(Sniffing) 등)를 방지하기위해 네트워크 트래픽을 암호화합니다.
+    <ul>
+      <li>암호화 방법: IPSec, SSL, S-HTTP 등</li>
+    </ul>
+  </li>
+  <li>애플리케이션 영역: 애플리케이션 코드 상 보안 취약점에 보안 기능을 적용합니다.</li>
+  <li>데이터베이스 영역: 데이터베이스, 스키마, 엔티티의 접근 권한 및 프로시저, 트리거 등 데이터베이스 동작 개체의 보안 취약점에 보안 기능을 적용합니다.</li>
+</ul>
+
+<h2 id="네트워크-인터페이스-보안-기법">네트워크 인터페이스 보안 기법</h2>
+<ul>
+  <li>IPSec (IP Security): 네트워크 계층에서 IP 패킷 단위의 데이터 변조 방지 및 은닉 기능을 제공하는 프로토콜</li>
+  <li>SSL (Secure Sockets Layer): TCP/IP 계층과 애플리케이션 계층 간의 인증, 암호화, 무결성을 보장하는 프로토콜</li>
+  <li>S-HTTP (Secure Hypertext Transfer Protocol): 클라이언트-서버 간 전송되는 메시지를 암호화하는 프로토콜</li>
+</ul>
+
+<h2 id="데이터-무결성-검사-도구">데이터 무결성 검사 도구</h2>
+<p>인터페이스 보안 취약점을 분석하는데 사용되는 도구로, 시스템 파일 변경 유무를 확인해 변경 시 관리자에게 알리는 역할을 합니다.</p>
+<ul>
+  <li>종류: Tripwire, AIDE, Samhain, Claymore, Slipwire, Fcheck 등</li>
+</ul>
+
+<h1 id="인터페이스-구현-검증-도구-통합-테스트-자동화-도구">인터페이스 구현 검증 도구: 통합 테스트 자동화 도구</h1>
+<p>인터페이스가 구현이 잘 되었는지 검증하기 위해서는 인터페이스 단위 기능, 시나리오 등을 기반으로 통합 테스트(Integration test)를 해야 합니다. 대표적인 통합 테스트 자동화 도구는 다음과 같습니다:</p>
+<ul>
+  <li>xUnit: 단위 테스트 프레임워크로 자동화된 해법을 제공합니다.
+    <ul>
+      <li>기능: 같은 테스트 코드 여러 번 작성하지 않게 해줌, 테스트의 예상 결과를 기억할 필요가 없게 도와줌 등.</li>
+      <li>역사: Smaltalk에 ‘SUnit’이라는 이름으로 처음 적용 → ‘JUnit’(Java용), ‘CppUnit’(C++), ‘NUnit’(.NET) 등 다양한 언어에 적용 → ‘xUnit’으로 통칭</li>
+    </ul>
+  </li>
+  <li>STAF: 크로스 플랫폼이나 분산 SW의 테스트 환경 조성을 지원하는 테스트 프레임워크입니다.
+    <ul>
+      <li>기능: 서비스 호출, 컴포넌트 재사용 등 다양한 환경 지원</li>
+      <li>분산 SW의 경우 각 분산 환경의 데몬(Daemon)이 테스트 응답을 대신하고, 테스트가 완료되면 응답을 통합하여 프로그램을 완성함</li>
+    </ul>
+  </li>
+  <li>FitNesse: 웹 기반 테스트 프레임워크</li>
+  <li>NTAF: FitNesse의 협업 기능과 STAF의 재사용 및 확장성을 통합한 테스트 자동화 프레임워크로, NHN이 개발했습니다.</li>
+  <li>Selenium: 웹 애플리케이션 테스트 프레임워크로, 다양한 브라우저와 개발 언어를 지원합니다.</li>
+  <li>watir: 애플리케이션 테스트 프레임워크로, Ruby를 언어로 사용합니다.
+    <ul>
+      <li>Ruby: 인터프리터 방식의 객체지향 스크립트 언어</li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="CS Basics" /><category term="cs" /><summary type="html"><![CDATA[미들웨어 (Middleware) 운영체제-응용 프로그램, 서버-클라이언트 등 서로 다른 소프트웨어 모듈이나 시스템 간의 통신을 지원하는 중간 계층 소프트웨어입니다. 다양한 애플리케이션이 상호작용하고 데이터를 주고받을 수 있도록 하는 인터페이스를 제공합니다.]]></summary></entry><entry xml:lang="ko"><title type="html">소프트웨어 설계 1: 소프트웨어 아키텍쳐와 객체지향</title><link href="https://alatteaday.github.io/cs%20basics/2024/07/22/sw3_1/" rel="alternate" type="text/html" title="소프트웨어 설계 1: 소프트웨어 아키텍쳐와 객체지향" /><published>2024-07-22T00:00:00-05:00</published><updated>2024-07-22T00:00:00-05:00</updated><id>https://alatteaday.github.io/cs%20basics/2024/07/22/sw3_1</id><content type="html" xml:base="https://alatteaday.github.io/cs%20basics/2024/07/22/sw3_1/"><![CDATA[<h1 id="소프트웨어-아키텍쳐-software-architecture">소프트웨어 아키텍쳐 (Software Architecture)</h1>
+<p>SW를 구성하는 요소 간 관계를 표현하는 시스템의 구조 혹은 구조체입니다.</p>
+<ul>
+  <li>소프트웨어 아키텍쳐 설계 기본 원리: 모듈화, 추상화, 단계적 분해, 정보 은닉</li>
+</ul>
+
+<h3 id="모듈화-modularity">모듈화 (Modularity)</h3>
+<p>시스템의 기능을 모듈 단위로 나누는 것을 말합니다. 모듈화는 SW의 성능 향상 및 시스템의 수정, 재사용, 유지관리 등이 용이하도록 합니다. 결합도(Coupling)를 최소화하고 응집도(Cohesion)의 최대화하는 것을 목표로 합니다.</p>
+
+<h3 id="추상화-abstraction">추상화 (Abstraction)</h3>
+<p>문제의 포괄적인 개념을 설계한 후 이를 구체화해나가는 것을 말합니다. 유형은 다음과 같습니다:</p>
+<ul>
+  <li>과정 추상화: 수행 과정 설계 시 전반적인 흐름만 파악할 수 있게 설계</li>
+  <li>자료 추상화: 데이터 정의 시 데이터 구조를 대표할 수 있는 표현만 사용</li>
+  <li>제어 추상화: 이벤트 관련 정의 시 절차나 방법을 대표할 수 있는 표현을 사용</li>
+</ul>
+
+<h3 id="단계적-분해-stepwise-refinement">단계적 분해 (Stepwise Refinement)</h3>
+<p>문제를 중요한 상위 개념에서 하위 개념으로 구체화하는 분할 기법으로, Niklaus Wirth가 제안한 하향식 설계 전략입니다. SW의 포괄적 기능에서 점차 알고리즘, 자료 구조 등 상세한 부분으로 설계해나갑니다.</p>
+
+<h3 id="정보-은닉-information-hiding">정보 은닉 (Information Hiding)</h3>
+<p>모듈 내부에 포함된 정보를 감추어 다른 모듈이 접근 및 변경하지 못하게 하는 기법입니다. 이를 통해 모듈을 독립적으로 수행할 수 있고, 모듈이 변경되어도 다른 모듈에 영향을 주지 않아 수정, 테스트, 유지보수가 용이합니다.</p>
+
+<h1 id="협약-contract에-의한-설계">협약 (Contract)에 의한 설계</h1>
+<p>컴포넌트의 정확한 인터페이스를 명세하는 것입니다. 컴포넌트 설계 시 클래스에 대한 가정을 공유할 수 있게 합니다. 명세에 포함될 조건으로는:</p>
+<ul>
+  <li>Precondition (선행 조건): 연산이 호출되기 전에 만족되어야 하는 조건</li>
+  <li>Postcondition (결과 조건): 연산이 수행된 후 만족되어야 하는 조건</li>
+  <li>Invariant (불변 조건): 연산 실행 중 항상 만족되어야 하는 조건</li>
+</ul>
+
+<h1 id="아키텍쳐-패턴-pattern">아키텍쳐 패턴 (Pattern)</h1>
+<p>아키텍쳐 설계 시 참조할 수 있는 해결 방식 혹은 예제로, 시스템 구조의 기본적인 윤곽을 제시합니다. 각 패턴에는 서브 시스템과 각각의 역할이 정의되어 있습니다.</p>
+
+<ul>
+  <li>레이어 패턴 (Layers Pattern): 시스템을 계층으로 구성하는 고전적인 패턴입니다.
+    <ul>
+      <li>상위 계층은 하위 계층의 클라이언트가, 하위 계층은 서비스 제공자가 됩니다.</li>
+      <li>상호작용은 마주 보는 두 계층 사이에서만 이뤄집니다.</li>
+      <li>대표적 사례: OSI 참조 모델</li>
+    </ul>
+  </li>
+  <li>클라이언트-서버 패턴 (Client-Server Pattern): 하나의 서버 컴포넌트와 다수의 클라이언트 컴포넌트로 구성되는 패턴입니다.
+    <ul>
+      <li>사용자는 클라이언트에 요청하고, 클라이언트가 서버의 응답을 받아 사용자에게 제공합니다.</li>
+    </ul>
+  </li>
+  <li>파이프-필터 패턴 (Pipe-Filter Pattern): 데이터 스트림의 각 단계를 필터로 캡슐화하여, 파이프를 통해 전송하는 패턴입니다.
+    <ul>
+      <li>파이프를 통해 이전 시스템의 결과물을 전달 받아 처리한 후, 그 결과를 다음 시스템에 넘겨주는 것을 반복합니다.</li>
+      <li>데이터 변환, 버퍼링, 동기화 등에 사용됩니다.</li>
+      <li>대표적 사례: UNIX의 Shell</li>
+    </ul>
+  </li>
+  <li>모델-뷰-컨트롤러 패턴 (Model-View-Controller Pattern): 서브시스템을 모델, 뷰, 컨트롤러로 구조화하는 패턴입니다.
+    <ul>
+      <li>사용자는 컨트롤러에 요청하고, 컨트롤러는 기능과 데이터가 보관된 모델에서 처리한 후, 뷰에 결과를 출력합니다.</li>
+      <li>뷰는 여러 개 만들 수 있습니다.</li>
+      <li>대화형 애플리케이션에 적합합니다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="객체-지향-object-oriented">객체 지향 (Object-Oriented)</h1>
+<p>SW의 각 요소를 객체(object)로 만들고, 객체를 조립해서 SW를 개발하는 기법입니다.</p>
+<ul>
+  <li>구성 요소: 객체, 클래스, 메시지</li>
+  <li>특징: 캡슐화, 상속, 다형성, 연관성</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="객체-지향의-구성-요소">객체 지향의 구성 요소</h2>
+<h3 id="객체-object">객체 (Object)</h3>
+<p>데이터와 함수를 묶어 놓은 SW 모듈입니다.</p>
+<ul>
+  <li>데이터: 속성, 상태 등 객체가 갖고 있는 정보</li>
+  <li>함수: 객체가 수행하는 기능, 데이터를 처리하는 알고리즘. 객체의 상태를 참조/변경하는 수단</li>
+</ul>
+
+<h3 id="클래스-class">클래스 (Class)</h3>
+<p>공통된 속성과 연산을 갖는 객체의 집합, 객체들의 속성과 연산을 정의하는 틀입니다.</p>
+<ul>
+  <li>인스턴스 (Instance): 클래스에 속한 각 객체</li>
+</ul>
+
+<h3 id="메시지-message">메시지 (Message)</h3>
+<p>객체 간 상호작용에 사용되는 수단으로, 객체의 연산을 일으키는 외부의 요구사항입니다. 객체가 메시지를 받으면 그에 맞는 연산을 수행하고 예상된 결과를 반환합니다.</p>
+
+<h3 id="캡슐화-encapsulation">캡슐화 (Encapsulation)</h3>
+<p>객체의 인터페이스를 제외한 세부 내용을 은닉하는 것으로, 외부로부터 오는 접근을 제한합니다. 캡슐화된 객체는 외부 모듈이 변경되어도 영향을 적게 받습니다. 또한 메시지를 주고 받을 때 상대 객체의 세부 내용은 알 필요가 없으므로, 인터페이스가 단순해지고 결합도가 낮아집니다.</p>
+
+<p><br /></p>
+
+<h2 id="객체-지향의-특징">객체 지향의 특징</h2>
+<h3 id="상속-inheritance">상속 (Inheritance)</h3>
+<p>어떤 클래스의 모든 속성과 연산을 물려받는 것으로, 상속 되는 클래스를 상위 클래스, 상속 받는 클래스를 하위 클래스라고 합니다. 하위 클래스는 물려받은 속성과 연산을 즉시 자신의 것으로 사용할 수 있습니다. 또한 상속 받은 것 외의 새로운 속성과 연산을 추가해 사용할 수 있습니다.</p>
+
+<h3 id="다형성-polymrphism">다형성 (Polymrphism)</h3>
+<p>메시지에 대해 각 객체의 고유한 방법으로 응답할 수 있는 능력입니다. 이것으로 인해 같은 클래스를 상속한 여러 하위 객체들이 서로 다른 특성을 갖는 객체로 이용될 수 있습니다.</p>
+
+<h3 id="연관성-relationship">연관성 (Relationship)</h3>
+<p>두 개 이상의 객체들이 상호 참조하는 관계를 말합니다. 종류로는:</p>
+<ul>
+  <li>연관화 (Association; is member of): 둘 이상의 객체가 상호 관련되어 있는 관계</li>
+  <li>분류화 (Classification; is instance of): 동일한 형 특성을 갖는 객체들을 모아 구성하는 것</li>
+  <li>집단화 (Aggregation, is part of): 관련 있는 객체들을 묶어 하나의 상위 객체를 구성하는 것</li>
+  <li>일반화 (Generalization, is a): 공통 성질로 추상화한 상위 객체를 구성하는 것</li>
+  <li>특수화 (Specialization, is a): 상위 객체를 구체화하여 하위 객체를 구성하는 것</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="객체지향-분석-ooa-object-oriented-analysis">객체지향 분석 (OOA; Object Oriented Analysis)</h1>
+<p>요구사항과 관련된 객체, 속성, 연산, 관계 등을 정의해 모델링하는 작업으로, 클래스를 식별하는 것이 주 목적입니다. 개발 업무를 객체와 속성, 클래스와 멤버, 전체와 부분 등으로 나눠 분석하는 작업입니다.</p>
+
+<h2 id="객체지향-분석-방법론">객체지향 분석 방법론</h2>
+<ul>
+  <li>Rumbaugh(럼바우): 객체 모델, 동적 모델, 기능 모델로 나눠 분석함.</li>
+  <li>Booch: 미시적(micro) 및 거시적(macro) 개발 프로세스를 모두 사용해 클래스와 객체를 분석하고 클래스를 정의함.</li>
+  <li>Jacobson: 유스케이스(use case)를 강조하여 사용.</li>
+  <li>Coad &amp; Yourdon: E-R 다이어그램을 사용해 객체의 행위를 모델링. 객체 식별, 구조 식별, 주제 정의, 속성과 인스턴스 연결 정의, 연ㅅ나과 메시지 연결 정의 등의 과정으로 구성.</li>
+  <li>Wirfs-Brock: 고객 명세서를 평가해 설계까지 연속적으로 수행. 분석과 설계를 구분하지 않음.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="객체지향-설계-원칙-solid">객체지향 설계 원칙 (SOLID)</h1>
+<p>객체지향 설계에서 유지보수성과 확장성을 높이기 위한 다섯 가지 기본 원칙을 의미합니다. 각 원칙은 소프트웨어 모듈이 어떻게 설계되어야 하는지를 규정합니다.</p>
+<h3 id="단일-책임-원칙-srp-single-responsibility-principle">단일 책임 원칙 (SRP; Single Responsibility Principle)</h3>
+<p>클래스는 하나의 책임만 가져야 하며, 클래스가 변경되는 이유는 오직 하나뿐이어야 한다는 원칙입니다.</p>
+<ul>
+  <li>예시: 하나의 클래스가 데이터베이스 접근과 UI 처리를 동시에 하지 않도록 분리.</li>
+</ul>
+
+<h3 id="개방-폐쇄-원칙-openclosed-principle-ocp">개방-폐쇄 원칙 (Open/Closed Principle, OCP)</h3>
+<p>소프트웨어 요소는 확장에는 열려 있어야 하고, 변경에는 닫혀 있어야 한다는 원칙입니다. 기존 코드를 변경하지 않고 새로운 기능을 추가할 수 있도록 설계 되어야 합니다.</p>
+
+<h3 id="리스코프-치환-원칙-liskov-substitution-principle-lsp">리스코프 치환 원칙 (Liskov Substitution Principle, LSP)</h3>
+<p>서브 타입은 언제나 기반 타입으로 교체할 수 있어야 한다는 원칙입니다. 자식 클래스는 부모 클래스의 기능은 수행할 수 있어야 하고, 이를 손상시키지 않고 확장만 수행해야 합니다.</p>
+
+<h3 id="인터페이스-분리-원칙-interface-segregation-principle-isp">인터페이스 분리 원칙 (Interface Segregation Principle, ISP)</h3>
+<p>특정 클라이언트를 위한 인터페이스 여러 개가 범용 인터페이스 하나보다 낫다. 클라이언트가 사용하지 않는 메서드가 포함된 거대한 인터페이스 대신, 세분화된 여러 인터페이스를 제공.</p>
+
+<h3 id="의존-역전-원칙-dependency-inversion-principle-dip">의존 역전 원칙 (Dependency Inversion Principle, DIP)</h3>
+<p>고수준 모듈은 저수준 모듈에 의존해서는 안 되며, 둘 다 추상화에 의존해야 한다. 구체적인 클래스에 의존하지 않고 인터페이스나 추상 클래스에 의존하여 구현.</p>
+
+<p><br /></p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="CS Basics" /><category term="cs" /><summary type="html"><![CDATA[소프트웨어 아키텍쳐 (Software Architecture) SW를 구성하는 요소 간 관계를 표현하는 시스템의 구조 혹은 구조체입니다. 소프트웨어 아키텍쳐 설계 기본 원리: 모듈화, 추상화, 단계적 분해, 정보 은닉]]></summary></entry><entry xml:lang="ko"><title type="html">소프트웨어 설계 3: UML</title><link href="https://alatteaday.github.io/dev%20tips%20&%20fixes/2024/07/22/sw3_3/" rel="alternate" type="text/html" title="소프트웨어 설계 3: UML" /><published>2024-07-22T00:00:00-05:00</published><updated>2024-07-22T00:00:00-05:00</updated><id>https://alatteaday.github.io/dev%20tips%20&amp;%20fixes/2024/07/22/sw3_3</id><content type="html" xml:base="https://alatteaday.github.io/dev%20tips%20&amp;%20fixes/2024/07/22/sw3_3/"><![CDATA[<h1 id="uml-unified-modeling-language">UML (Unified Modeling Language)</h1>
+<p>소프트웨어 시스템의 구조 및 동작 설계와 명세를 시각적으로 표현하는 데 사용되는 표준화된 객체지향 모델링 언어.</p>
+<ul>
+  <li>시스템 개발 과정에서 개발자 간, 개발자와 사용자 간 의사소통이 원활하도록 도움이 될 수 있음.</li>
+  <li>Rumbaugh (OMT), Booch, Jacobson 등 객체지향 방법론의 장점을 통합함.</li>
+  <li>구성 요소: 사물 (Things), 관계 (Relationship), 다이어그램 (Diagram)</li>
+</ul>
+
+<p>*요구 명세 기법과 UML: 요구 명세 기법은 사용자 요구사항을 수집하고 명확히 정의하는 기법 (e.g. 유스케이스 다이어그램(UML 사용 가능)). 한편 UML은 요구사항을 포함한 시스템의 다양한 측면을 시각적으로 표현하는 데 사용되는 표준 모델링 언어.</p>
+
+<h2 id="사물과-클래스">사물과 클래스</h2>
+<ul>
+  <li>클래스: UML에 표현되는 사물의 하나. 객체가 갖는 속성과 동작을 표현. 일반적으로 직사각형으로 표현됨.</li>
+  <li>인터페이스: UML에 표현되는 사물의 하나. 컴포넌트의 동작을 모아놓은 것, 가시화되는 행동. 인터페이스를 구현하는 클래스나 컴포넌트와 함께 사용됨.</li>
+</ul>
+
+<h2 id="관계와-관계의-종류">관계와 관계의 종류</h2>
+<p>관계: 사물과 사물 사이의 연관성.</p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/uml_rela.png?raw=true" alt="uml" style="zoom: 70%;" />
+</p>
+
+<ul>
+  <li>연관 (Association): 사물이 서로 관련이 있는 관계.
+    <ul>
+      <li>기호: 양방향 관계는 실선으로 표시. 다중도를 선 위에 표기할 수 있음.</li>
+    </ul>
+  </li>
+  <li>집합 (Aggregation): 하나의 사물이 다른 사물에 포함되어 있는 관계.
+    <ul>
+      <li>포함하는 쪽(whole)과 포함되는 쪽(part)은 서로 독립적.</li>
+      <li>기호: 마름모를 포함하는 쪽으로 향하게 연결.</li>
+      <li>e.g. 프린터(part)는 컴퓨터에 연결해 사용하고, 다른 컴퓨터에 연결할 수도 있다.</li>
+    </ul>
+  </li>
+  <li>포함 (Composition): 집합의 특수한 관계, 포함하는 사물의 변화가 포함되는 사물에 영향을 주는 관계.
+    <ul>
+      <li>양쪽은 서로 독립될 수 없고, 생명 주기를 같이함.</li>
+      <li>기호: 채워진 마름모를 포함하는 쪽으로 향하게 연결.</li>
+      <li>e.g. 열쇠로 문을 열 수 있다. 문(whole)이 없어지면 열쇠(part)가 필요 없어진다.</li>
+    </ul>
+  </li>
+  <li>일반화 (Generalization): 어떤 사물이 다른 사물에 비해 일반적 혹은 구체적인 관계.
+    <ul>
+      <li>일반적인 사물을 상위(부모), 구체적인 사물을 하위(자식)라고 함.</li>
+      <li>기호: 빈 화살표가 일반적인 쪽을 향하게 연결.</li>
+      <li>e.g. 비행기와 자동차(하위)는 탈 것(상위)이다.</li>
+    </ul>
+  </li>
+  <li>의존 (Dependency): 필요에 의해 서로 영향을 주는 시간 동안만 연관되는 관계.
+    <ul>
+      <li>한 사물(이용자)의 변화가 다른 사물(제공자)에 영향을 줌.</li>
+      <li>한 클래스가 다른 클래스를 매개 변수로 사용하는 경우.</li>
+      <li>기호: 영향을 받는 사물(제공자) 쪽으로 향하게 점선 화살표로 연결.</li>
+      <li>e.g. 등급이 높으면 할인율을 제공하고, 아니면 적용하지 않음.</li>
+    </ul>
+  </li>
+  <li>실체화 (Realization): 그룹화되는 관계.
+    <ul>
+      <li>한 객체가 다른 객체에게 연산을 수행하도록 지정하는 의미적 관계.</li>
+      <li>기호: 사물에서 기능 쪽으로 빈 점선 화살표를 연결.</li>
+      <li>e.g. 비행기와 새는 ‘비행’이라는 기능으로 그룹화 됨.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="다이어그램-diagram">다이어그램 (Diagram)</h2>
+<p>사물과 관계를 도형으로 표현한 것.</p>
+<ul>
+  <li>뷰 (View): 시스템을 어떤 관점에서 가시화한 것.</li>
+  <li>분류: 구조적 다이어그램, 행위 다이어그램
+    <ul>
+      <li>구조적 다이어그램은 정적 모델링, 행위 다이어그램은 동적 모델링에 사용함.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="구조적-다이어그램의-종류">구조적 다이어그램의 종류</h3>
+<ul>
+  <li>클래스 다이어그램 (Object Diagram): 클래스와 클래스의 속성, 클래스 간 관계를 표현</li>
+  <li>객체 다이어그램 (Object Diagram): 클래스에 속한 객체(사물), 즉 인스턴스 (Instance)를 특정 시점의 객체와 객체 간 관계로서 표현. 럼바우(Rumbaugh) 객체지향 분석 기법에서 객체 모델링에 활용됨.</li>
+  <li>컴포넌트 다이어그램 (Component Diagram): 실제 구현 모듈인 컴포넌트 간 관계나 인터페이스를 표현. 구현 단계에서 사용.</li>
+  <li>배치 다이어그램 (Deployment Diagram): 물리적 요소(결과물, 프로세스, 컴포넌트 등)의 위치를 표현. 구현 단계에서 사용.</li>
+  <li>복합체 구조 다이어그램 (Composite Structure Diagram): 클래스나 컴포넌트가 복합 구조를 갖는 경우 그 내부 구조를 표현.</li>
+  <li>패키지 다이어그램 (Package Diagram): 모델의 요소(유스케이스, 클래스 등)를 그룹화한 패키지 간 관계를 표현.</li>
+</ul>
+
+<h3 id="행위-다이어그램의-종류">행위 다이어그램의 종류</h3>
+<ul>
+  <li>유스케이스 다이어그램 (Use Case Diagram): 사용자의 요구를 분석, 기능 모델링에 사용함. 사용자(Actor)와 사용 사레(Use Case)로 구성됨.</li>
+  <li>순차 다이어그램 (Sequence Diagram): 시스템이나 객체 간 주고 받는 메시지를 표현.</li>
+  <li>커뮤니케이션 다이어그램 (Communication Diagram): 객체 간 메시지와 객체 사이의 연관관계를 표현.</li>
+  <li>상태 다이어그램 (State Diagram): 객체의 상태가 자신이 속한 클래스의 변화나 다른 객체와의 상호작용에 따라 어떻게 변하는지를 표현. 럼바우 객체지향 분석 기법에서 동적 모델링에 활용됨.</li>
+  <li>활동 다이어그램 (Activity Diagram): 시스템의 기능, 객체의 로직, 조건에 따른 처리의 흐름을 순서에 딸라 표현.</li>
+  <li>상호작용 개요 다이어그램 (Interactive Overview Diagram): 상호작용 다이어그램 간 제어 흐름을 표현.</li>
+  <li>타이밍 다이어그램 (Timing Diagram): 객체 상태 변화와 시간 제약을 표현.</li>
+</ul>
+
+<h3 id="스테레오-타입-stereotype">스테레오 타입 (Stereotype)</h3>
+<p>UML의 기본 기능 외에 추가적인 기능을 표현하는 것. $« »$(Guilemet) 안에 내용을 기술하여 표현.</p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="Dev Tips &amp; Fixes" /><category term="cs" /><summary type="html"><![CDATA[UML (Unified Modeling Language) 소프트웨어 시스템의 구조 및 동작 설계와 명세를 시각적으로 표현하는 데 사용되는 표준화된 객체지향 모델링 언어. 시스템 개발 과정에서 개발자 간, 개발자와 사용자 간 의사소통이 원활하도록 도움이 될 수 있음. Rumbaugh (OMT), Booch, Jacobson 등 객체지향 방법론의 장점을 통합함. 구성 요소: 사물 (Things), 관계 (Relationship), 다이어그램 (Diagram)]]></summary></entry><entry xml:lang="ko"><title type="html">소프트웨어 설계 2: 디자인 패턴</title><link href="https://alatteaday.github.io/cs%20basics/2024/07/22/sw3_2/" rel="alternate" type="text/html" title="소프트웨어 설계 2: 디자인 패턴" /><published>2024-07-22T00:00:00-05:00</published><updated>2024-07-22T00:00:00-05:00</updated><id>https://alatteaday.github.io/cs%20basics/2024/07/22/sw3_2</id><content type="html" xml:base="https://alatteaday.github.io/cs%20basics/2024/07/22/sw3_2/"><![CDATA[<h1 id="디자인-패턴-design-pattern">디자인 패턴 (Design Pattern)</h1>
+<p>모듈 간 관계 및 인터페이스를 설계할 때 참조할 수 있는 전형적인 해결 방식 또는 예제를 말합니다. 1995년 Gang of Four (GoF)라 불리는 Erich Gamma, Richard Helm, Ralph Johnson, John Vissides가 체계화했습니다. 수많은 패턴 중 제일 일반적인 패턴을 분류 및 정리하였으므로, 현업에서 제일 많이 사용되는 패턴들이 포함되어 있습니다.</p>
+<ul>
+  <li>문제, 배경, 실제 적용 사례, 재사용 가능 샘플 코드 등으로 구성되어 있습니다.</li>
+  <li>생성, 구조, 행위 패턴으로 구분됩니다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="생성-패턴-creational-pattern">생성 패턴 (Creational Pattern)</h1>
+<p>클래스/객체의 생성과 참조 과정을 정의하는 패턴입니다.</p>
+
+<h3 id="추상-팩토리-abstract-factory">추상 팩토리 (Abstract Factory)</h3>
+<p>객체 그룹을 인터페이스를 통해 서로 의존하는 것으로 생성하여 추상적으로 표현하는 패턴으로, 연관된 서브클래스를 묶어 한 번에 교체할 수 있습니다.</p>
+
+<h3 id="팩토리-메서드-factory-method">팩토리 메서드 (Factory Method)</h3>
+<p>객체 생성을 서브 클래스에서 처리하도록 분리하여 캡슐화한 패턴으로, 상위 클래스에서는 인터페이스만 정의하고 실제 생성은 서브 클래스가 담당합니다. 가상 생성자 (Virtual Constructor) 패턴이라고도 합니다.</p>
+
+<h3 id="빌더-builder">빌더 (Builder)</h3>
+<p>인스턴스를 조합하여 객체를 생성하는 패턴입니다. 객체의 생성과 표현을 분리하므로, 동일한 객체를 생성했음에도 표현에 있어 다른 결과를 보일 수 있습니다.</p>
+
+<h3 id="프로토타입-prototype">프로토타입 (Prototype)</h3>
+<p>원본 객체를 복제함으로써 객체를 생성하는 패턴으로, 비용이 큰 경우 유용합니다.</p>
+
+<h3 id="싱글톤-singleton">싱글톤 (Singleton)</h3>
+<p>생성된 객체를 어디서든 참조할 수 있지만, 여러 프로세스가 동시 참조할 수는 없는 패턴입니다. 클래스 내 인스턴스가 하나뿐음을 보장하고, 불필요하게 메모리를 낭비하지 않게 합니다.</p>
+
+<p><br /></p>
+
+<h1 id="구조-패턴-structural-pattern">구조 패턴 (Structural Pattern)</h1>
+<p>클래스나 객체를 조합하여 큰 구조를 만드는 패턴으로, 구조가 복잡한 시스템을 개발이 쉽도록 합니다.</p>
+
+<h3 id="어댑터-adapter">어댑터 (Adapter)</h3>
+<p>다른 클래스가 특정 클래스를 이용하고자 할 때, 해당 클래스가 호환성이 없는 경우(인터페이스가 일치하지 않는 경우), 그 클래스의 인터페이스를 변환하여 이용 가능하게 만드는 패턴입니다.</p>
+
+<h3 id="브리지-bridge">브리지 (Bridge)</h3>
+<p>구현 부분에서 추상층을 분리하여 각각 독립적으로 확장될 수 있게 구성한 패턴으로, 구현과 기능을 별도의 클래스로 취급합니다.</p>
+
+<h3 id="컴포지트-composite">컴포지트 (Composite)</h3>
+<p>단일 객체와 여러 객체로 구성된 복합 객체를 구분 없이 다루고자 할 때 사용하는 패턴입니다. 객체들을 트리 구조로 구성하여, 복합 객체 내 복합 객체가 포함되는 구조를 구현할 수 있습니다.</p>
+
+<h3 id="데코레이터-decorator">데코레이터 (Decorator)</h3>
+<p>객체 간 결합을 통해 기능을 확장할 수 있는 패턴으로, 특정 객체에 객체를 덧붙여 부가적인 기능을 추가합니다.</p>
+
+<h3 id="퍼싸드-facade">퍼싸드 (Facade)</h3>
+<p>클래스들 상위에 인터페이스를 구성하여 서브 클래스들의 기능을 간편하게 사용할 수 있게 하는 패턴입니다. 이 통합 인터페이스를 제공하는 Wrapper 객체가 필요합니다.</p>
+
+<h3 id="플라이웨이트-flyweight">플라이웨이트 (Flyweight)</h3>
+<p>인스턴스를 매번 생성하지 않고 가능한 공유해서 사용하는 패턴입니다. 많은 유사 객체를 생성, 조작할 때 유용하며, 메모리를 절약할 수 있습니다.</p>
+
+<h3 id="프록시-proxy">프록시 (Proxy)</h3>
+<p>클래스/객체를 조합하여 복잡한 시스템을 개발하는 작업을 쉽게 해주는 패턴으로, 대리자라고도 불립니다. 내부에서는 객체 간 관계를 단순화해주고, 외부에서는 객체의 세부 내용을 숨겨주는 역할을 합니다.</p>
+
+<p><br /></p>
+
+<h1 id="행위-패턴-behavioral-pattern">행위 패턴 (Behavioral Pattern)</h1>
+<p>클래스나 객체 간 상호작용이나 책임 분배 방법을 정의하는 패턴입니다.</p>
+
+<h3 id="책임-연쇄-chain-of-responsibility">책임 연쇄 (Chain of Responsibility)</h3>
+<p>한 객체가 요청을 처리하지 못하면 다음 객체가 그것을 처리하는 형태의 패턴입니다. 요청을 처리할 수 있는 객체가 둘 이상 존재하고, 이 객체들이 고리(chain)로 묶여 있어 요청이 완료될 때까지 고리를 따라 책임이 넘어갑니다.</p>
+
+<h3 id="커맨드-command">커맨드 (Command)</h3>
+<p>요청을 객체 형태로 캡슐화하여, 요청에 필요한 정보를 저장하거나 로그에 남기는 패턴입니다. 요청에 사용되는 명령어들을 추상 클래스와 구체 클래스로 분리하여 단순화합니다.</p>
+
+<h3 id="인터프리터-interpreter">인터프리터 (Interpreter)</h3>
+<p>언어 문법 표현을 정의하는 패턴으로, SQL이나 통신 프로토콜 등을 개발할 때 사용합니다.</p>
+
+<h3 id="반복자-iterator">반복자 (Iterator)</h3>
+<p>접근이 잦은 객체에 대해(자료구조 등) 동일한 인터페이스를 사용하도록 하는 패턴으로, 내부 표현 노출 없이 순차적인 접근을 가능하게 합니다.</p>
+
+<h3 id="중재자-mediator">중재자 (Mediator)</h3>
+<p>인터페이스를 객체 형태로 캡슐화하는 패턴입니다. 객체 간 의존성을 줄여 결합도를 감소시킬 수 있습니다.</p>
+
+<h3 id="메멘토-memento">메멘토 (Memento)</h3>
+<p>특정 시점의 객체 내부 상태를 객체화하여 이후 해당 시점의 상태로 객체를 돌릴 수 있는 기능을 제공하는 패턴입니다. 대표적으로 취소(Ctrl+Z) 기능이 있습니다.</p>
+
+<h3 id="옵서버-observer">옵서버 (Observer)</h3>
+<p>상위 객체의 상태가 변화하면 하위 객체들에게 변화된 상태를 전달하는 패턴으로, 일대다 의존성을 정의합니다. 주로 분산 시스템에서 이벤트를 발행하고 수신할 때 이용합니다.</p>
+
+<h3 id="상태-state">상태 (State)</h3>
+<p>객체 상태를 캡슐화하여 이를 참조하는 방식으로 처리하는 패턴으로, 객체의 상태에 따라 동일 동작을 다르게 처리할 때 사용합니다.</p>
+
+<h3 id="전략-stretegy">전략 (Stretegy)</h3>
+<p>동일 계열의 알고리즘을 각각 캡슐화하여 상호 교환(대체)될 수 있게 정의하는 패턴입니다. 클라이언트는 독립적으로 알고리즘을 원하는대로 선택할 수 있고, 클라이언트 영향 없이 알고리즘을 변경할 수 있습니다.</p>
+
+<h3 id="템플릿-메소드-template-method">템플릿 메소드 (Template Method)</h3>
+<p>상위 클래스에서 골격을 정의하고, 하위 클래스에서 세부 처리를 구체화하는 패턴입니다. 유사한 클래스를 묶어 공통된 내용을 상위 클래스에서 정의함으로써 코드 양을 줄이고 유지보수를 용이하게 합니다.</p>
+
+<h3 id="방문자-visitor">방문자 (Visitor)</h3>
+<p>각 클래스의 데이터 구조에서 처리 기능을 분리해 별도의 클래스로 구성하는 패턴입니다. 분리된 처리 기능을 각 클래스를 방문함으로써 수행됩니다.</p>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="CS Basics" /><category term="cs" /><summary type="html"><![CDATA[디자인 패턴 (Design Pattern) 모듈 간 관계 및 인터페이스를 설계할 때 참조할 수 있는 전형적인 해결 방식 또는 예제를 말합니다. 1995년 Gang of Four (GoF)라 불리는 Erich Gamma, Richard Helm, Ralph Johnson, John Vissides가 체계화했습니다. 수많은 패턴 중 제일 일반적인 패턴을 분류 및 정리하였으므로, 현업에서 제일 많이 사용되는 패턴들이 포함되어 있습니다. 문제, 배경, 실제 적용 사례, 재사용 가능 샘플 코드 등으로 구성되어 있습니다. 생성, 구조, 행위 패턴으로 구분됩니다.]]></summary></entry><entry xml:lang="ko"><title type="html">정보 보안 2: 여러 보안 솔루션과 보안 공격</title><link href="https://alatteaday.github.io/cs%20basics/2024/07/22/secure2/" rel="alternate" type="text/html" title="정보 보안 2: 여러 보안 솔루션과 보안 공격" /><published>2024-07-22T00:00:00-05:00</published><updated>2024-07-22T00:00:00-05:00</updated><id>https://alatteaday.github.io/cs%20basics/2024/07/22/secure2</id><content type="html" xml:base="https://alatteaday.github.io/cs%20basics/2024/07/22/secure2/"><![CDATA[<h1 id="보안-솔루션-security-solution">보안 솔루션 (Security Solution)</h1>
+<p>컴퓨터 시스템, 네트워크, 데이터의 보안을 강화하기 위해 사용되는 기술, 소프트웨어, 하드웨어, 정책 및 절차의 집합.</p>
+
+<h2 id="침입-방지-시스템">침입 방지 시스템</h2>
+<ul>
+  <li>침입 방지 시스템 (IPS; Intrusion Prevention System): 비정상적 트래픽을 차단 및 격리하는 등 방어 조치하는 보안 솔루션.
+    <ul>
+      <li>침입 방지 시스템 = 방화벽 + 침입 탐지 시스템</li>
+      <li>침입 탐지 시스템으로 패킷을 검사 → 비정상적 패킷이 탐지되면 → 방화벽으로 해당 패킷을 차단</li>
+    </ul>
+  </li>
+  <li>침입 탐지 시스템 (IDS; Intrusion Detection System): 시스템의 비정상적 사용, 오용, 남용 등을 실시간으로 탐지하는 시스템.
+    <ul>
+      <li>오용 탐지 (Misuse Detection): 미리 입력해 둔 공격 패턴이 감지되면 알림</li>
+      <li>이상 탐지 (Anomaly Detection): 평균적인 시스템의 상태와 다른, 비정상적 행위나 자원 사용이 감지되면 알림</li>
+    </ul>
+  </li>
+  <li>방화벽 (Firewall): 기업이나 조직 내부의 네트워크로 들어오는 정보를 선별하여 수용, 거부, 수정하는 기능을 하는 침입 차단 시스템.
+    <ul>
+      <li>내부 네트워크에서 나가는 패킷은 통과시키고, 외부에서 내부로 들어오는 패킷은 내용을 체크하여 인증된 패킷만 통과시킴.</li>
+    </ul>
+  </li>
+  <li>웹 방화벽 (Web Firewall): 웹 서버에 특화된 방화벽.
+    <ul>
+      <li>일반 방화벽이 탐지하지 못하는 웹 기반 공격(SQL 삽입 공격, XSS 등)을 방어할 목적으로 만들어짐.</li>
+      <li>웹 기반 공격을 감시하고, 사전 차단해 줌.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="보안-관련-규격-및-대책">보안 관련 규격 및 대책</h2>
+<ul>
+  <li>AAA (3A): 컴퓨터 자원 접근에 대한 처리와 서비스를 제공하는 기반 구조 또는 규격
+    <ul>
+      <li>Authentication (인증): 접근하는 사용자의 신원을 검증하는 기능. 로그인 요청 시 정보를 확인하고 접근 권한을 검증하는 보안 절차.
+        <ul>
+          <li>지식 기반 인증 (Something You Know): 패스워드, i-Pin 등</li>
+          <li>소유 기반 인증 (Something You Have): 신분증, 메모리 카드, 스마트 카드, OTP 등</li>
+          <li>행위 기반 인증 (Someting You Do): 서명, 동작 등</li>
+          <li>생체 기반 인증 (Something You Are): 지문, 홍채/망막, 얼굴, 음성, 정맥 등</li>
+          <li>위치 기반 인증 (Somewhere You Are): GPS, IP, Callback 등</li>
+        </ul>
+      </li>
+      <li>Authorization (인가): 신원이 검증된 사용자에게 특정 권한과 서비스를 허용하는 기능.</li>
+      <li>Accounting (과금): 사용자가 이용한 서비스, 사용한 자원량 등을 기록 및 보관하는 기능.</li>
+    </ul>
+  </li>
+  <li>ISMS (Information Security Management System; 정보보호 관리 체계): 정보 자산을 보호하기 위한 절차와 대책.
+    <ul>
+      <li>조직에 맞는 정보보호 정책을 수립하고, 위험에 상시 대응하는 여러 보안 대책을 통합 관리 및 운용함.</li>
+      <li>한국에서는 한국인터넷진흥원(KISA)에서 ISMS를 평가하고 이증하는 사업을 운영하고 있음.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="그-외-보안-솔루션">그 외 보안 솔루션</h2>
+<ul>
+  <li>DLP (Data Leakage/Loss Prevention; 데이터 유출 방지): 내부 정보가 외부로 유출되는 것을 방지하는 보안 솔루션.
+    <ul>
+      <li>사내 직원의 PC와 네트워크 상의 모든 정보를 검색하고, 메일, 메신저, 웹하드, 프린터 등의 사용자 행위를 탐지 및 통제함으로써 외부 유출을 사전 방지함.</li>
+    </ul>
+  </li>
+  <li>VPN (Virtual Private Network; 가상 사설 통신망): 통신 사업자의 공중 네트워크와 암호화 기술을 이용해, 전용 회선을 사용하는 것처럼 만드는 보안 솔루션.
+    <ul>
+      <li>SSL VPN: PC에 VPN Client 프로그램을 설치하여 VPN 서버에 접속하는 방식. 암호화를 위해 SSL 프로토콜을 사용.</li>
+      <li>IPSec VPN: VPN 서버가 설치된 각 네트워크를 서로 연결하는 방식. 암호화를 위해 IPSec 프로토콜을 사용.</li>
+    </ul>
+  </li>
+  <li>NAC (Network Access Control): 네트워크에 접속하는 PC의 MAC 주소를 IP 관리 시스템에 등록하고, 일관된 보안 관리를 하는 보안 솔루션.
+    <ul>
+      <li>내부 PC의 소프트웨어 사용 현황을 관리하여, 불법적인 소프트웨어 설치를 방지.</li>
+    </ul>
+  </li>
+  <li>SIEM (Security Information and Event Management): 로그 및 보안 이벤트를 통합 관리하는 빅 데이터 기반의 보안 솔루션.
+    <ul>
+      <li>방화벽, IDS, IPS, VPN 등에서 발생한 로그 및 보안 이벤트를 통합 관리, 비용 및 자원 절약</li>
+      <li>장기간의 로그 및 보안 이벤트를 수집 및 검색할 수 있는 빅데이터 기반의 통합 로그 수집 시스템</li>
+    </ul>
+  </li>
+  <li>SSH (Secure SHell; 시큐어 셸): 다른 컴퓨터에 원격 접속하여 작업할 수 있도록 다양한 기능을 지원하는 프로토콜.
+    <ul>
+      <li>데이터 암호화, 강력한 인증 방법으로 안전하게 통신할 수 있음.</li>
+      <li>키(key)를 통한 인증 방법을 사용하려면 사전에 클라이언트의 공개키를 서버에 등록해야 함.</li>
+      <li>기본적으로는 22번 포트를 사용함.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="보안-공격-security-attack">보안 공격 (Security Attack)</h1>
+<p>시스템의 취약점을 이용하여 무단 접근, 데이터 훼손, 정보 도용 등을 시도하는 악의적인 행위입니다.</p>
+
+<h2 id="서비스-거부-공격-dos-denial-of-service">서비스 거부 공격 (DoS; Denial of Service)</h2>
+<p>대량의 데이터를 한 서버에 집중적으로 전송하여, 해당 서버의 정상적인 기능을 방해하는 보안 공격. 표적인 서버의 자원을 고갈시키기 위해 행해짐.</p>
+<ul>
+  <li>Ping of Death: Ping 명령을 전송할 때 패킷의 크기를 허용 범위 이상으로 하여, 공격 대사의 네트워크를 마비시키는 방법.
+    <ul>
+      <li>원리: 공격 패킷은 수백 개의 패킷으로 분할되어 타겟 서버에 전송됨. 타겟 서버는 분할된 대량의 패킷을 받아 재조립해야 하고, 각 패킷의 ICMP Ping 메시지에 대해 응답하느라 시스템이 다운되게 됨.</li>
+    </ul>
+  </li>
+  <li>SMURFING (스머핑): IP나 ICMP의 특성을 악용해, 대량의 데이터를 한 사이트에 집중적으로 보내어 네트워크를 불능으로 만드는 방법.
+    <ul>
+      <li>방지 방법: 네트워크 라우터에서 브로드캐스트 주소를 사용할 수 없게 미리 설정.</li>
+    </ul>
+  </li>
+  <li>SYN Flooding: 공격자가 가상의 클라이언트로 위장하여 TCP의 3-way-handshake 과정을 중단시킴으로써 타겟 서버가 정상적 서비스를 수행하지 못하게 하는 방법.
+    <ul>
+      <li>원리: TCP(Transmission Control Protocol)는 신뢰성 있는 전송을 위해 3-way-handshake를 거친 후 데이터를 전송하는데, 이 과정이 중단되면 서버가 데이터를 전송하지 못하고 대기 상태에 놓이게 됨.</li>
+    </ul>
+  </li>
+  <li>TearDrop: 패킷 분할 순서 정보를 나타내는 Offset값을 변경시켜 수신 측의 과부하를 발생시키는 방법.
+    <ul>
+      <li>원리: 데이터 송/수신 시 패킷의 크기가 크면 패킷을 분할해서 전송함. 이 때 분할 순서를 알 수 있는 Fragment offset 값을 함께 전송함. 이 값을 변경시킴으로써 패킷 재조립 시 오류를 발생시키고, 시스템을 다운시킴.</li>
+    </ul>
+  </li>
+  <li>LAND Attack (Local Area Network Denial Attack): 패킷 전송 시 송/수신 IP 주소를 모두 타겟의 IP 주소로 하여 전송함으로써 타겟이 스스로 무한히 응답하게 하는 방법.
+    <ul>
+      <li>원리: 송/수신 IP 주소가 모두 자신이면, 자신이 수신 받은 패킷에 대한 응답을 자신에게 보내게 됨. 이런 패킷이 계속 전송되면 무한히 응답하게 됨.</li>
+      <li>방지 방법: 송/수신 주소가 같은 패킷을 사전 차단.</li>
+    </ul>
+  </li>
+  <li>DDoS (Distributed Denial of Service): 분산된 공격 지점에서 한 곳의 타겟 서버에 대해 DoS 공격을 수행하는 것.
+    <ul>
+      <li>네트워크가 취약한 호스트를 여럿 탐색한 후, 이들에 DDoS 공격 툴(Daemon)을 설치해 에이전트로 만든 후 DDoS 공격에 이용.</li>
+      <li>Daemon (데몬): 에이전트(Agent) 역할을 하도록 설계된 프로그램. 종류로는:
+        <ul>
+          <li>Trin00: 최초 형태의 데몬, 주로 UDP Flooding 공격을 수행</li>
+          <li>TFN (Tribe Flood Network): UDP Flooding 외에도 TCP SYN Flooding, ICMP 응담 요청, SMURFING 등을 수행</li>
+          <li>TFN2K: TFN의 확장판</li>
+          <li>Stacheldraht: 이전 툴들의 기능 유지 + 공격자, 마스터, 에이전트가 쉽게 노출되지 않게 암호화된 통신 수행. 툴이 자동 업데이트 됨.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="그-외-보안-공격">그 외 보안 공격</h2>
+<ul>
+  <li>세션 하이재킹 (Session Hijacking): 접속 중인 클라이언트와 서버 사이의 세션 정보를 가로채는 공격 기법. 접속을 위한 인증을 거치지 않고 가로챈 세션을 이용해 원래의 클라이언트로 위장하여 타겟 서버의 자원 및 데이터를 무단으로 사용.
+    <ul>
+      <li>TCP 세션 하이재킹: TCP 3-way-handshaking 과정에 끼어들어 클라이언트-서버 간 동기화된 시퀀스 번호를 가로채어, 타겟 서버에 무단으로 접근.</li>
+    </ul>
+  </li>
+  <li>타이포시쿼팅 (Typosquatting): 기존 유명 도메인과 유사한 도메인을 미리 등록하는 것. 사용자들이 사이트 접속 시 주소를 잘못 입력하는 실수를 이용함.
+    <ul>
+      <li>URL 하이재킹(URL Hijacking)이라고도 함.</li>
+    </ul>
+  </li>
+  <li>키로거 공격 (Key Logger Attack): 사용자의 키보드 움직임을 탐지해 중요 개인 정보를 빼가는 해킹 공격.</li>
+  <li>워터링 홀 (Watering Hole): 사용자가 자주 방문하는 웹 사이트를 사전 감염시켜, 해당 사이트에 방문했을 때 악성 코드에 감염되게 하는 웹 기반 공격. 감염된 PC를 통해 사용자가 속한 중요 시스템에 접근하거나, 불능으로 만들 수도 있음.</li>
+  <li>ARP 스푸핑 (ARP Spoofing): ARP의 취약점을 이용해 자신의 MAC를 타겟의 것으로 변조하여, 타겟에 도달할 데이터 패킷을 가로채거나 전송을 방해하는 기법.</li>
+  <li>스니핑 (Sniffing): 네트워크 중간에서 남의 패킷 정보를 도청하는 수동적 공격.</li>
+  <li>랜섬웨어 (Ransomware): 사용자의 컴퓨터에 잠입해 문서나 파일 등을 암호화해 사용자가 열지 못하게 하는 프로그램. 암호 해독을 조건으로 돈을 요구하기도 함.</li>
+  <li>사회 공학 (Social Engineering): 인간 사이 신뢰를 바탕으로 사람들을 속여 정상 보안 절차를 깨트리기 위한 비기술적 시스템 침입 수단.</li>
+  <li>다크 데이터 (Dark Data): 활용되지 않고 저장만 되어 있는 대량의 데이터로, 저장 공간 낭비 뿐만 아니라 보안 위험을 초래할 수 있음.</li>
+  <li>백도어 (Back Door, Trap Door): 시스템 설계자가 액세스 편의를 위해 시스템 보안을 제거하여 만들어 놓은 비밀 통로로, 컴퓨터 범죄에 악용될 수 있음.
+    <ul>
+      <li>백도어 탐지 방법: 무결성 검사, 열린 포트 확인, 로그 분석, SetUID 파일 검사 등</li>
+    </ul>
+  </li>
+</ul>]]></content><author><name>Jiyun</name><email>jyuun.k@gmail.com</email></author><category term="CS Basics" /><category term="cs" /><summary type="html"><![CDATA[보안 솔루션 (Security Solution) 컴퓨터 시스템, 네트워크, 데이터의 보안을 강화하기 위해 사용되는 기술, 소프트웨어, 하드웨어, 정책 및 절차의 집합.]]></summary></entry></feed>

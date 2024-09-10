@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!--site.title site.tagline-->
+  <title>
+    
+      네트워크 4: 통합 구현 &middot; Coffee Chat
+    
+  </title>
+
+  
+  <link rel="canonical" href="https://alatteaday.github.io/cs%20basics/2024/07/21/network4/">
+  
+
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/poole.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/syntax.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://alatteaday.github.io/public/favicon.ico/apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://alatteaday.github.io/public/favicon.ico/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://alatteaday.github.io/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Curation of studies, techs, ideas and a journey as a maching learning engineer</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/about">About</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/">Home</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/tags">Tags</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/tags">Papers</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/tags">Study</a>
+
+    
+
+    
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+          <a class="sidebar-nav-item" 
+          href="https://alatteaday.github.io/about/">About</a>
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/category/cs/">CS Basics</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/category/error/">Dev Tips & Fixes</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+    <!--
+    <a class="sidebar-nav-item" href="/archive/v1.1.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span> 
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2024. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <!--site.title site.tagline-->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container" >
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Coffee Chat</a>
+            <small>Brewing AI Knowledge</small>
+          </h3>
+          <div class="lang-switcher">
+    
+    
+        eng
+    
+
+    
+    
+        
+            <a href="/ko/cs%20basics/2024/07/21/network4/">kor</a>
+        
+    
+
+</div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">네트워크 4: 통합 구현</h1>
+  <p class="post-date">21 Jul 2024&nbsp;&nbsp;&nbsp;&nbsp;
+    <!--<span class="post-date">21 Jul 2024</span>-->
+    
+      
+        
+          <span class="tag" data-tag="cs">
+            <a href="https://alatteaday.github.io/tags/?tag=cs">
+              #cs
+            </a>
+          </span>
+        
+      
+    
+  </p>
+  <style>
+p.wavy {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+}
+</style>
+
+<h1 id="통합-구현">통합 구현</h1>
+<p>요구사항에 맞게 송/수신 모듈과 중계 모듈 간의 연계를 구현하는 것입니다.</p>
+<ul>
+  <li>송/수신 방식 및 모듈 구현 방법, 시스템 아키텍쳐 등에 따라 다르므로 요구사항과 환경에 적합하게 설계해야 합니다.</li>
+  <li>구성: 송/수신 시스템 및 모듈, 중계 시스템, 연계 데이터, 네트워크</li>
+</ul>
+
+<h1 id="연계-매커니즘">연계 매커니즘</h1>
+
+<h2 id="연계-방식">연계 방식</h2>
+<ul>
+  <li>직접 연계 방식: 중간 매개체 없이 송/수신 시스템이 직접 연계하는 방식
+    <ul>
+      <li>DB Link, API/Open API, DB Connection, JDBC 등</li>
+    </ul>
+  </li>
+  <li>간접 연계 방식: 중간 매개체를 두고 송/수신 시스템이 연계하는 방식
+    <ul>
+      <li>연계 솔루션, ESB, 소켓, 웹 서버 등</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="연계-서버와-송수신-시스템">연계 서버와 송/수신 시스템</h2>
+<ul>
+  <li>연계 서버: 데이터 형식 변환, 송/수신 수행 등 관련 모든 처리 수행</li>
+  <li>송신 시스템: 인터페이스 테이블이나 데이터를 형식에 맞게 생성 및 전송</li>
+  <li>수신 시스템: 데이터 수신 및 DB 반영, 인터페이스 테이블이나 파일로 생성</li>
+</ul>
+
+<h2 id="연계-테스트">연계 테스트</h2>
+<p>연계 시스템과 그 구성 요소가 정상적으로 작동하는지 확인하는 활동입니다.</p>
+<ul>
+  <li>과정: 연계 테스트 케이스 작성 → 테스트 환경 구축 → 테스트 수행 → 테스트 수행 결과 검증</li>
+</ul>
+
+<h2 id="연계-데이터-보안">연계 데이터 보안</h2>
+<p>송신 시스템에서 수신 시스템으로 전송되는 연계 데이터는 보안에 취약할 수 있으므로 이에 신경써야 합니다. 보안 방식으로는:</p>
+<ul>
+  <li>전송 구간 보안: 전송 중인 데이터나 패킷(packet)을 가로채지 못하게 암호화 기능이 있는 프로토콜을 사용</li>
+  <li>데이터 보안: 송신 시스템에서 연계 데이터를 추출할 때, 수신 시스템에서 데이터를 DB에 반영할 때 데이터를 암호화/복호화 하는 것</li>
+</ul>
+
+<h1 id="xml-json-">XML JSON ?</h1>
+
+</div>
+
+
+<div class="related">
+  <h2 class="related-title">Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/study/2024/07/31/hopkins/">
+            Hopkins Statistic&nbsp;
+            <small>31 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/cs%20basics/2024/07/22/sw7_2/">
+            소프트웨어 관리 2: 애플리케이션 테스트&nbsp;
+            <small>22 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/cs%20basics/2024/07/22/sw7/">
+            소프트웨어 관리 1: 프로젝트 관리와 품질 관리&nbsp;
+            <small>22 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+        
+          <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+        
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

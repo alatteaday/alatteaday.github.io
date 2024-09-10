@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!--site.title site.tagline-->
+  <title>
+    
+      네트워크 3: IP 주소와 서브네팅 &middot; Coffee Chat
+    
+  </title>
+
+  
+  <link rel="canonical" href="https://alatteaday.github.io/ko/cs%20basics/2024/07/21/network3/">
+  
+
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/poole.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/syntax.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://alatteaday.github.io/public/favicon.ico/apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://alatteaday.github.io/public/favicon.ico/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://alatteaday.github.io/ko/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Curation of studies, techs, ideas and a journey as a maching learning engineer</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/about">About</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/">Home</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/tags">Tags</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/tags">Papers</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/tags">Study</a>
+
+    
+
+    
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+          <a class="sidebar-nav-item" 
+          href="https://alatteaday.github.io/ko/about/">About</a>
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/cs/">CS Basics</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/error/">Dev Tips & Fixes</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+    <!--
+    <a class="sidebar-nav-item" href="/ko/archive/v1.1.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span> 
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2024. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <!--site.title site.tagline-->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container" >
+          <h3 class="masthead-title">
+            <a href="/ko/" title="Home">Coffee Chat</a>
+            <small>Brewing AI Knowledge</small>
+          </h3>
+          <div class="lang-switcher">
+    
+    
+        
+            <a href=" /cs%20basics/2024/07/21/network3/">eng</a>
+        
+    
+
+    
+    
+        kor
+    
+
+</div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">네트워크 3: IP 주소와 서브네팅</h1>
+  <p class="post-date">21 Jul 2024&nbsp;&nbsp;&nbsp;&nbsp;
+    <!--<span class="post-date">21 Jul 2024</span>-->
+    
+      
+        
+          <span class="tag" data-tag="cs">
+            <a href="https://alatteaday.github.io/ko/tags/?tag=cs">
+              #cs
+            </a>
+          </span>
+        
+      
+    
+  </p>
+  <style>
+p.wavy {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+}
+</style>
+
+<h1 id="ip-주소-internet-protocol-address">IP 주소 (Internet Protocol Address)</h1>
+
+<p>인터넷에 연결된 모든 컴퓨터 자원을 구분하기 위한 고유한 주소.</p>
+
+<h2 id="ipv4-internet-protocol-version-4">IPv4 (Internet Protocol version 4)</h2>
+
+<ul>
+  <li>8비트씩 4부분, 총 32비트로 구성.</li>
+  <li>네트워크 부분의 길이에 따라 A 클래스에서 E 클래스까지 총 5단계로 구분됨.</li>
+</ul>
+
+<h2 id="ipv6-internet-protocol-version-6">IPv6 (Internet Protocol version 6)</h2>
+
+<ul>
+  <li>16비트씩 8부분, 총 128비트로 구성.</li>
+  <li>각 부분을 16진수로 표현하고 콜론(:)으로 구분함.</li>
+  <li>IPv4의 주소 부족 문제를 해결하기 위해 개발됨.</li>
+  <li>인증성, 기밀성, 데이터 무결성이 지원되어 보안 문제를 해결할 수 있음.</li>
+  <li>주소 체계:
+    <ul>
+      <li>유니캐스트 (Unicast): 단일 송신자와 단일 수신자 간의 통신 (1:1 통신)</li>
+      <li>멀티캐스트 (Multicast): 단일 송신자와 다중 수신자 간의 통신 (1:N 통신)</li>
+      <li>애니캐스트 (Anycast): 단일 송신자와 가장 가까운 단일 수신자 간의 통신 (1:1 통신)</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="서브네팅-subnetting">서브네팅 (Subnetting)</h1>
+
+<p>할당된 네트워크 주소를 다시 여러 개의 작은 네트워크로 나눠 사용하는 것.</p>
+
+<ul>
+  <li>서브넷 마스크 (Subnet mask): 4Byte의 IP 주소 중 네트워크 주소와 호스트 주소를 구분하기 위한 비트. 이것을 변경해 네트워크 주소를 여러 개로 분할해 사용함.</li>
+</ul>
+
+<h1 id="도메인-네임-domain-name">도메인 네임 (Domain Name)</h1>
+
+<p>숫자로 된 IP 주소를 사람이 이해하기 쉬운 문자 형태로 표현한 것.</p>
+
+<ul>
+  <li>구성: 호스트 컴퓨터명, 소속 기관명, 소속 기관 종류, 소속 국가명 순으로 구성. 갈수록 상위 도메인을 의미.</li>
+  <li>DNS (Domain Name System): 문자로 된 도메인 네임을 IP 주소로 변환하는 시스템.</li>
+</ul>
+
+</div>
+
+
+<div class="related">
+  <h2 class="related-title">Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/ko/study/2024/07/31/hopkins/">
+            Hopkins Statistic&nbsp;
+            <small>31 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/cs%20basics/2024/07/22/sw7_2/">
+            소프트웨어 관리 2: 애플리케이션 테스트&nbsp;
+            <small>22 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/cs%20basics/2024/07/22/sw7/">
+            소프트웨어 관리 1: 프로젝트 관리와 품질 관리&nbsp;
+            <small>22 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+        
+          <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+        
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!--site.title site.tagline-->
+  <title>
+    
+      Coffee Chat &middot; Brewing AI Knowledge
+    
+  </title>
+
+  
+  <link rel="canonical" href="https://alatteaday.github.io/">
+  
+
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/poole.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/syntax.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://alatteaday.github.io/public/favicon.ico/apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://alatteaday.github.io/public/favicon.ico/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://alatteaday.github.io/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Curation of studies, techs, ideas and a journey as a maching learning engineer</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/about">About</a>
+    <a class="sidebar-nav-item active" href="https://alatteaday.github.io/">Home</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/tags">Tags</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/tags">Papers</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/tags">Study</a>
+
+    
+
+    
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+          <a class="sidebar-nav-item" 
+          href="https://alatteaday.github.io/about/">About</a>
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/category/cs/">CS Basics</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/category/error/">Dev Tips & Fixes</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+    <!--
+    <a class="sidebar-nav-item" href="/archive/v1.1.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span> 
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2024. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <!--site.title site.tagline-->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container" >
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Coffee Chat</a>
+            <small>Brewing AI Knowledge</small>
+          </h3>
+          <div class="lang-switcher">
+    
+    
+        eng
+    
+
+    
+    
+        
+            <a href="/ko/">kor</a>
+        
+    
+
+</div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="https://alatteaday.github.io/study/2024/07/31/hopkins/">
+        Hopkins Statistic
+      </a>
+    </h1>
+    <!--<span class="post-date">31 Jul 2024</span>-->
+    <p class="post-date">31 Jul 2024&nbsp;&nbsp;&nbsp;&nbsp;
+      
+        
+          
+        
+      
+    </p>
+    <!--
+    
+    -->
+    <p>The Hopkins statistic (Lawson and Jurs 1990) is a measure used to determine the clustering tendency of a dataset. It is particularly useful in assessing whether the data points are uniformly distributed or if there is a significant clustering structure present. Using the Hopkins statistic can help decide whether to proceed with clustering algorithms or not, serving as a preliminary step in many clustering analyses to ensure that the data is suitable for such methods.</p>
+
+<h1 id="how-hopkins-statistic-works">How Hopkins Statistic works</h1>
+
+<p>The Hopkins statistic is calculated as follows. If $D$ is the original dataset:</p>
+
+<ol>
+  <li>A subset $R$ of the $m$ data points $(p_1, …, p_m)$ is randomly selected from $D$.</li>
+  <li>A set of $m$ points $(q_1, …, q_n)$ is generated from a random uniform distribution $U$ within the same range as $D$.</li>
+  <li>For each point $p_i$ in $R$, the distance to the nearest neighbor $p_j$ is calculated: $w_i=dist(p_i, p_j)$</li>
+  <li>For each point $q_i$ in $U$, the distance to the nearest neighbor $p_j$ withtin $R$ is calculated: $u_i=dist(q_i, p_j)$</li>
+  <li>The Hopkins statistic $H$ is then defined as the mean nearest neighbor distance in $U$ divided by the sum of the mean nearest neighbor distances in $R$ and across the $U$:</li>
+</ol>
+
+\[H={\Sigma_{i=1}^n u_i^d \over \Sigma_{i=1}^n u_i^d + \Sigma_{i=1}^n w_i^d}\]
+
+<ul>
+  <li>$d$: the dimension of the data</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="interpretation-of-hopkins-statistic">Interpretation of Hopkins Statistic</h1>
+
+<p>If $D$ were unifomly distributed, then the distances for real points ($\Sigma_{i=1}^n w_i$) and the artificial one ($\Sigma_{i=1}^n u_i$) would be close to each other. Thus, $H$ would be about 0.5. However, if clusters are present in $D$, then $\Sigma_{i=1}^n w_i$ would be substantially larger than for $\Sigma_{i=1}^n u_i$ in expectation. And thus, the $H$ will increase.</p>
+
+<ul>
+  <li>If $H$ is close to 0.5, the data is uniformly distributed, indicating no clustering tendency. This is defined as the null hypothesis.</li>
+  <li>If $H$ is close to 0, the data points are regularly spaced.</li>
+  <li>If $H$ is close to 1, the data has a strong clustering tendency. This is defined as the alternative hypothesis.</li>
+</ul>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-31-TS/hopkins.jpg?raw=true" alt="hopkins" style="zoom: 70%;" />
+</p>
+
+<p>In practice, if the value for $H$ is significantly greater than 0.5, it suggests that the dataset is clusterable. A value for $H$ higher than 0.75 indicates a clustering tendency at the 90% confidence level. Conversely, if it is much lower than 0.5, it indicates a regular spacing between data points, which is not typical for clustering applications.</p>
+
+<p>To determine the dataset’s clustering tendency, you can iteratively conduct the Hopkins statistics test using 0.5 as the threshold. If the $H$ value is consistently smaller than 0.5, the dataset has no clustering tendency. Conversely, if it is consistently larger than 0.5, the null hypothesis is rejected, indicating the clustering tendency.</p>
+
+<p><br /></p>
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>https://www.datanovia.com/en/lessons/assessing-clustering-tendency/</li>
+</ul>
+
+
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="https://alatteaday.github.io/cs%20basics/2024/07/22/sw7_2/">
+        소프트웨어 관리 2: 애플리케이션 테스트
+      </a>
+    </h1>
+    <!--<span class="post-date">22 Jul 2024</span>-->
+    <p class="post-date">22 Jul 2024&nbsp;&nbsp;&nbsp;&nbsp;
+      
+        
+          
+            <span class="tag" data-tag="cs">
+              <a href="https://alatteaday.github.io/tags/?tag=cs">
+                #cs
+              </a>
+            </span>
+            
+        
+      
+    </p>
+    <!--
+    
+    -->
+    <h1 id="애플리케이션-테스트-application-testing">애플리케이션 테스트 (Application Testing)</h1>
+<p>개발된 SW 애플리케이션에 잠재된 결함을 찾아내는 행위 또는 절차입니다.</p>
+
+<h2 id="애플리케이션-테스트의-기본-원리">애플리케이션 테스트의 기본 원리</h2>
+<ul>
+  <li>파레토 법칙 (Pareto Princlple): 20%의 코드에서 전체 결함의 80%가 발견된다는 법칙</li>
+  <li>살충제 패러독스 (Pesticide Paradox): 동일한 테스트 케이스로 테스트를 반복하면 결함이 더 이상 발견되지 않는 현상</li>
+  <li>오류-부재의 궤변 (Absence of Errors Fallacy): SW의 결함을 모두 제거해도 요구사항을 만족하지 못하면, 해당 SW는 품질이 높다고 할 수 없는 것</li>
+</ul>
+
+<h1 id="애플리케이션-테스트의-분류">애플리케이션 테스트의 분류</h1>
+<h2 id="시각에-따른-분류">시각에 따른 분류</h2>
+<ul>
+  <li>검증 테스트 (Verification): 개발자의 시각에서 제품의 생산 과정을 테스트, 제품이 명세서대로 완성되었는지를 테스트합니다.</li>
+  <li>확인 테스트 (Validation): 사용자의 시각에서 제품의 결과를 테스트, 제품이 요구사항대로 완성되었는지, 정상적으로 동작하는지를 테스트합니다.</li>
+</ul>
+
+<h2 id="목적에-따른-분류">목적에 따른 분류</h2>
+<ul>
+  <li>회복 테스트 (Recovery): 여러 결함을 주어 실패하게 한 후, 잘 복구되는지를 테스트합니다.</li>
+  <li>안전 테스트 (Security): 시스템 내 시스템 보호 도구가 불법 침입을 잘 보호하는지를 테스트합니다.</li>
+  <li>강도 테스트 (Stress): 과도한 정보량 등으로 과부하를 주어도 정상적으로 실행되는지를 테스트합니다.</li>
+  <li>성능 테스트 (Performance): 효율성이나 실시간 성능을 진단하는 것으로, 처리량 및 응답 시간 등을 테스트합니다.</li>
+  <li>구조 테스트 (Structure): SW 내부의 논리적 경로, 코드의 복잡도 등을 테스트합니다.</li>
+  <li>회귀 테스트 (Regression): SW가 변경/수정된 경우 새로운 결함이 없다는 것을 확인하는 테스트입니다.</li>
+  <li>병행 테스트 (Parallel): 변경된 SW와 기존 SW에 동일 데이터를 입력하여 결과를 비교하는 테스트입니다.</li>
+</ul>
+
+<h3 id="애플리케이션-성능-측정-지표">애플리케이션 성능 측정 지표</h3>
+<ul>
+  <li>처리량 (Throughput): 일정 시간 내 애플리케이션이 처리하는 일의 양</li>
+  <li>응답 시간 (Response Time): 애플리케이션에 요청한 시간부터 응답 받은 시간까지 걸린 시간</li>
+  <li>경과 시간 (Turn Around Time): 애플리케이션이 작업을 요청 받고 처리 완료할 때까지 걸린 시간</li>
+  <li>자원 사용률 (Resource Usage): 애플리케이션이</li>
+</ul>
+
+<h2 id="프로그램-실행-여부에-따른-분류">프로그램 실행 여부에 따른 분류</h2>
+<ul>
+  <li>정적 테스트: 프로그램을 실행하지 않고 명세서나 코드를 대상으로 분석하는 테스트입니다. 코드의 코딩 표준, 스타일, 복잡도, 결함 등을 발견합니다.
+    <ul>
+      <li>종류: 코드 검사, 워크스루, 인스펙션 등</li>
+    </ul>
+  </li>
+  <li>동적 테스트: 프로그램을 실행하여 오류를 찾는 테스트로, 개발의 모든 단계에서 수행합니다.
+    <ul>
+      <li>종류: 화이트박스 테스트, 블랙박스 테스트</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="개발-단계에-따른-분류">개발 단계에 따른 분류</h2>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/vmodel.jpg?raw=true" alt="vmodel" style="zoom: 70%;" />
+</p>
+
+<ul>
+  <li>테스트 레벨: SW 개발 단계에 따라 분류된 테스트 단계</li>
+  <li>V-모델: SW 개발 단계와 애플리케이션 테스트를 연결하여 표현한 모델</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="화이트박스-테스트와-블랙박스-테스트">화이트박스 테스트와 블랙박스 테스트</h1>
+<h2 id="화이트박스-테스트-white-box-test">화이트박스 테스트 (White Box Test)</h2>
+<p>SW 소스 코드의 논리적인 모든 경로를 테스트하는 방법입니다. 코드 내 모든 문장을 실행하여 수행하고, 실행함으로써 모듈 내 작동을 직접 관찰합니다.</p>
+
+<h3 id="화이트박스-테스트의-종류">화이트박스 테스트의 종류</h3>
+<ul>
+  <li>기초 경로 검사 (Base Path Testing): 대표적인 화이트박스 테스트 기법으로, 테스트 케이스 설계자가 설계의 복잡성을 측정할 수 있게 해줍니다.</li>
+  <li>제어 구조 검사 (Condition Structure Testing):
+    <ul>
+      <li>조건 검사 (Conditon Testing): 모듈 내 논리적 조건을 테스트하기 위한 테스트 케이스 설계 기법</li>
+      <li>루프 검사 (Loop Testing): 반복(Loop) 구조에 초점을 두어 실시하는 테스트 케이스 설계 기법</li>
+      <li>데이터 흐름 검사 (Data Flow Testing): 변수의 정의와 사용 위치에 초점을 두어 실시하는 테스트 케이스 설계 기법</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="화이트박스-테스트의-검증-기준">화이트박스 테스트의 검증 기준</h3>
+<ul>
+  <li>문장 검증 기준 (Statement Coverage): 코드의 모든 구문이 한 번 이상 수행되도록 테스트 케이스를 설계합니다.</li>
+  <li>분기 검증 기준 (Branch Coverage): 모든 조건문에 대해 결과가 True인 경우와 False인 경우가 한 번 이상 수행되도록 테스트 케이스를 설계합니다. 결정 검증 기준 (Decision Coverage)이라고도 합니다.</li>
+  <li>조건 검증 기중 (Condition Coverage): 조건문 내 개별 조건식의 결과가 True인 경우와 False인 경우가 한 번 이상 수행되도록 테스트 케이스를 설계합니다.</li>
+  <li>분기/조건 기준 (Branch/Condition Coverage): 분기 검증과 조건 검증 기준을 모두 만족하는 설계입니다. 분기 검증에 따라 조건문이 True인 경우와 False인 경우에 따라 조건 검증 기준의 입력 데이터를 구분하는 테스트 케이스를 설계합니다.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="블랙박스-테스트-black-box-test">블랙박스 테스트 (Black Box Test)</h2>
+<p>SW의 각 기능이 완전히 작동되는 것을 입증하는 테스트입니다. 요구사항 명세를 보면서, 인터페이스를 통해 실시합니다. 구현된 기능을 테스트 하므로 기능 테스트라고도 합니다.</p>
+
+<h3 id="블랙박스-테스트의-종류">블랙박스 테스트의 종류</h3>
+<ul>
+  <li>동치 분할 검사 (Equivalent Partitioning Testing): 입력 조건에 타당한 입력과 타당하지 않은 입력의 개수를 균등하게 하여 테스트 케이스를 설계하고, 입력에 맞게 결과가 출력되는지 확인하는 방법입니다. 동등 분할 기법 혹은 동치 클래스 분해라고도 합니다.</li>
+  <li>경계값 분석 (Boundary Value Analysis): 입력 조건의 경계값을 테스트 케이스로 선정하는 방법입니다. 입력 조건의 중간보다 경계에서 오류가 발생할 확률이 높다는 것을 이용합니다</li>
+  <li>원인-효과 그래프 검사 (Cause-Effect Graphing Testing): 입력 간 관계와 출력에 영향을 미치는 상황을 분석하여 효용성 높은 테스트 케이스를 선정하는 방법입니다.</li>
+  <li>오류 예측 검사 (Error Guessing): 과거 경험이나 감각으로 테스트하는 방법입니다.</li>
+  <li>비교 검사 (Comparison Testing): SW의 여러 버전이 있을 때, 여러 버전에 동일한 테스트를 하여 동일한 결과가 출력되는지 보는 기법입니다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="단위-통합-시스템-인수-테스트">단위, 통합, 시스템, 인수 테스트</h1>
+<h2 id="단위-테스트-unit-test">단위 테스트 (Unit Test)</h2>
+<p>코딩 직후 SW의 최소 단위인 모듈이나 컴포넌트를 대상으로 하는 테스트입니다.</p>
+<ul>
+  <li>검사 항목: 인터페이스, I/O, 자료구조, 기초 경로, 오류 처리 경로, 경계 조건 등</li>
+  <li>기능성 테스트를 최우선으로 수행: 요구사항을 기반으로 테스트</li>
+  <li>분류: 구조 기반 테스트, 명세 기반 테스트. 주로 구조 기반 테스트를 합니다.</li>
+</ul>
+
+<h2 id="통합-테스트-integration-test">통합 테스트 (Integration Test)</h2>
+<p>모듈을 결합하여 시스템으로 완성하는 과정에서 하는 테스트입니다. 모듈 또는 통합된 컴포넌트 간 상호 작용 오류, 즉 인터페이스가 정상적으로 실행되는지 검사합니다.</p>
+<ul>
+  <li>통합 방식의 분류: 비점진적 통합, 점진적 통합
+    <ul>
+      <li>비점진적 통합 방식: 모든 모듈이 미리 결합된 상태의 프로그램 전체를 테스트하는 방법. 빅뱅 통합 테스트 등이 있습니다.</li>
+      <li>점진적 통합 방식: 모듈을 단계적으로 통합하면서 테스트하는 방법. 하향식, 상향식, 혼합식 통합 테스트 등이 있습니다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="하향식-통합-테스트-top-down-integration-test">하향식 통합 테스트 (Top Down Integration Test)</h3>
+<p>상위 모듈에서 하위 모듈 방향으로 통합하며 테스트하는 방법입니다.</p>
+<ol>
+  <li>주요 제어 모듈(상위 모듈)은 작성된 것을 사용하고, 종속 모듈은 스텁(Stub)으로 대체</li>
+  <li>통합 방식(깊이 우선, 넓이 우선 등)에 따라 스텁을 하나씩 실제 모듈로 교체</li>
+  <li>모듈이 통합될 때마다 테스트 실시</li>
+  <li>회귀 테스트를 실시해 새로운 오류가 발생하지 않음을 보증</li>
+</ol>
+
+<ul>
+  <li>스텁 (Stub): 제어 모듈이 호출하는 모듈의 기능을 단순히 수행하는 일시적 시험용 모듈</li>
+</ul>
+
+<h3 id="상향식-통합-테스트-bottom-up-integration-test">상향식 통합 테스트 (Bottom Up Integration Test)</h3>
+<p>하위 모듈에서 상위 모듈 방향으로 통합하며 테스트하는 방법입니다.</p>
+<ol>
+  <li>하위 모듈을 클러스터(Cluster)로 결합</li>
+  <li>드라이버(Driver)를 작성해 상위 모듈의 데이터 입/출력을 확인</li>
+  <li>통합된 클러스터 단위로 테스트</li>
+  <li>테스트가 완료되면 클러스터를 구조 상 상위로 이동하고, 드라이버를 실제 모듈로 교체</li>
+</ol>
+
+<ul>
+  <li>테스트 드라이버 (Test Driver): 테스트 대상인 하위 모듈 호출, 파라미터 전달, 테스트 결과를 도출하는 도구</li>
+</ul>
+
+<h3 id="회귀-테스트-">회귀 테스트 ()</h3>
+
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="https://alatteaday.github.io/cs%20basics/2024/07/22/sw7/">
+        소프트웨어 관리 1: 프로젝트 관리와 품질 관리
+      </a>
+    </h1>
+    <!--<span class="post-date">22 Jul 2024</span>-->
+    <p class="post-date">22 Jul 2024&nbsp;&nbsp;&nbsp;&nbsp;
+      
+        
+          
+            <span class="tag" data-tag="cs">
+              <a href="https://alatteaday.github.io/tags/?tag=cs">
+                #cs
+              </a>
+            </span>
+            
+        
+      
+    </p>
+    <!--
+    
+    -->
+    <h1 id="프로젝트-관리-project-management">프로젝트 관리 (Project Management)</h1>
+<p>SW 개발 목표 달성을 위해 프로젝트 계획, 실행, 모니터링 및 완료를 체계적으로 수행하는 과정입니다. 비용 관리, 일정 관리 등이 이에 해당합니다.</p>
+
+<h2 id="소프트웨어-비용-산정-cost-estimation">소프트웨어 비용 산정 (Cost Estimation)</h2>
+<p>SW 개발 프로젝트의 비용과 필요한 노력을 예측하는 과정. 프로젝트 계획, 자원 할당, 일정 관리 등의 효과적인 수행, 프로젝트의 성공적인 완료, 예산 초과 방지 등에 중요한 역할.</p>
+
+<h3 id="loc-source-line-of-code-기법">LOC (source Line Of Code) 기법</h3>
+<p>SW 원시 코드 라인 수(LOC)의 비관치, 낙관치, 기대치를 측정해 예측치를 구하고, 이를 이용해 비용을 산정하는 기법입니다.</p>
+<ul>
+  <li>공식: 비용 = LOC / (개발 기간 $\times$ 투입 인원)</li>
+</ul>
+
+<h3 id="수학적-산정-기법">수학적 산정 기법</h3>
+<p>상향식 비용 산정 기법으로 개발 비용 산정의 자동화를 목표로 합니다.</p>
+<ul>
+  <li>경험적 추정 모형, 실험적 추정 모형이라고도 합니다.</li>
+  <li>주요 기법: COCOMO 모형, Putnam 모형, FP 모형</li>
+</ul>
+
+<h3 id="cocomo-constructive-cost-model-모형">COCOMO (COnstructive COst MOdel) 모형</h3>
+<p>LOC에 의한 비용 산정 기법으로 Boehm이 제안했습니다. LOC를 예측한 후 이를 SW에 따라 다른 비용 산정 방정식에 대입해 비용을 산정하는 방법입니다.</p>
+<ul>
+  <li>Man-Month: 프로젝트를 완성하는 데 필요한 노력. COCOMO 비용 산정 결과의 형식입니다.</li>
+  <li>개발 유형:
+    <ul>
+      <li>조직형 (Organic Model): 중소규모 5만(50KDSI) 라인 이하의 SW 개발에 쓰이는 유형으로, 사무 처리나 과학용 응용 SW 개발에 적합합니다.</li>
+      <li>반분리형 (Semi-Detached Model): 중간 규모 30만(300KDSI) 라인 이하의 SW 개발에 쓰이는 유형으로, 컴파일러, 인터프리터 등 유틸리티 개발에 적합합니다.</li>
+      <li>내장형 (Embedded Model): 초대형 규모, 30만(300KDSI) 라인 이상의 SW 개발에 쓰이는 유형으로, 신호기 제어, 실시간 처리 등 시스템 프로그램 개발에 적합합니다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="putnam-모형">Putnam 모형</h3>
+<p>소프트웨어 개발 생명 주기의 전 과정 동안 사용될 노력의 분포를 예상하는 모형으로, Putnam이 제안했습니다.</p>
+<ul>
+  <li>생명 주기 예측 모형이라고도 합니다.</li>
+  <li>Rayleigh-Norden 곡선의 노력 분포도를 기초로 하여 시간에 따른 함수로 표현합니다.</li>
+</ul>
+
+<h3 id="fp-function-point-기능-점수-모델">FP (Function Point; 기능 점수) 모델</h3>
+<p>SW의 기능을 증대시키는 요인별로 기능 점수(FP)를 구한 후 이를 이용해 비용을 산정하는 기법입니다.</p>
+<ul>
+  <li>FP 산출: 요인 별 가중치를 합산 해 총 FP를 구하고, 총 FP와 영향도를 이용해 각 요인의 FP를 구합니다.</li>
+  <li>기능 증대 요인: 입력 양식, 출력 보고서, 사용자 질의 수, 데이터 파일, 인터페이스.</li>
+</ul>
+
+<h3 id="비용-산정-자동화-추정-도구">비용 산정 자동화 추정 도구</h3>
+<ul>
+  <li>SLIM: Rayleigh-Norden 곡선과 Putnam 모델을 기초로 개발된 자동화 추정 도구.</li>
+  <li>ESTIMACS: FP 모델을 기초로 하여 다양한 프로젝트와 개인별 요소를 수용하도록 개발된 자동화 추정 도구.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="스케줄링-기법-scheduling">스케줄링 기법 (Scheduling)</h2>
+
+<h3 id="pert-program-evaluation-and-review-technique">PERT (Program Evaluation and Review Technique)</h3>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/pert.png?raw=true" alt="pert" style="zoom: 70%;" />
+</p>
+
+<p>프로젝트 전체 작업 간 상호 관계를 표시하는 네트워크입니다.</p>
+<ul>
+  <li>결정 경로, 작업에 대한 경계 시간, 작업 간 상호 관련성 등을 알 수 있습니다.</li>
+  <li>각 작업을 단계로 나누어 종료 시기를 결정합니다: 낙관적, 가능성이 있음, 비관적</li>
+</ul>
+
+<h3 id="cpm-critical-path-method-임계-경로-기법">CPM (Critical Path Method; 임계 경로 기법)</h3>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/cpm.png?raw=true" alt="cpm" style="zoom: 70%;" />
+</p>
+
+<p>프로젝트 완성에 필요한 작업을 나열하고, 작업에 필요한 소요시간을 예측하는 데 사용하는 기법입니다.</p>
+<ul>
+  <li>노드와 간선으로 구성된 네트워크: 노드는 작업, 간선은 작업 간 전후 의존 관계를 나타냅니다.</li>
+  <li>임계 경로: 작업 소요 시간이 제일 길게 걸리는 경로.</li>
+</ul>
+
+<h3 id="간트-차트-gantt-chart">간트 차트 (Gantt Chart)</h3>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/gantt.png?raw=true" alt="gantt" style="zoom: 70%;" />
+</p>
+
+<p>프로젝트 작업 일정을 막대 도표를 사용해 표시하는 프로젝트 일정표로, 시간선(Time-Line) 차트라고도 합니다. 중간 목표 미달성 시 이유와 기간을 예측하는 데 도움이 됩니다.</p>
+
+<p><br /></p>
+
+<h1 id="소프트웨어-품질-관리-quality-management">소프트웨어 품질 관리 (Quality Management)</h1>
+<p>SW 품질을 보장하고 향상시키는 데 초점을 두어, 제품이 요구되는 품질 기준을 충족하도록 보장하는 활동입니다.</p>
+
+<h2 id="테스트-케이스-test-case와-isoiecieee-29119-3">테스트 케이스 (Test Case)와 ISO/IEC/IEEE 29119-3</h2>
+<p>구현된 SW가 요구사항을 정확히 준수했는지 확인하기 위해 테스트할 때, 이 테스트 항목에 대한 명세서입니다. ISO/IEC/IEEE 29119-3 표준에 따른 테스트 케이스 구성 요소로는:</p>
+<ul>
+  <li>식별자: 항목 식별자, 일련번호</li>
+  <li>테스트 항목: 테스트의 대상(모듈, 기능 등)</li>
+  <li>입력 명세: 테스트 데이터, 테스트 조건</li>
+  <li>출력 명세: 테스트 케이스 수행 시 예상되는 출력 결과</li>
+  <li>환경 설정: 필요한 HW, SW 환경</li>
+  <li>특수 절차 요구: 테스트 케이스 수행 시 특별히 요구되는 절차</li>
+  <li>의존성 기술: 테스트 케이스 간 의존성</li>
+</ul>
+
+<h2 id="isoiec-12207">ISO/IEC 12207</h2>
+<p>ISO(국제표준화기구)에서 만든 표준 SW 생명 주기 프로세스입니다. SW 개발, 운영, 유지보수 등을 체계적으로 관리하기 위한 SW 생명 주기 표준을 제공합니다. 아래와 같이 구분됩니다:</p>
+<ul>
+  <li>기본 생명 주기 프로세스: 획득, 공급, 개발, 운영, 유지보수</li>
+  <li>지원 생명 주기 프로세스: 품질 보증, 검증, 확인, 활동 검토, 감사, 문서화, 형상 관리, 문제 해결</li>
+  <li>조직 생명 주기 프로세스: 관리, 기반 구조, 훈련, 개선</li>
+</ul>
+
+<h2 id="spice-software-process-improvement-and-capability-determination">SPICE (Software Process Improvement and Capability dEtermination)</h2>
+<p>공식 명칭은 ISO/IEC 15504로, SW 품질 및 생산성 향상을 위해 SW 프로세스를 평가, 개선하는 국제 표준입니다.</p>
+
+<h3 id="spice-기준-프로세스-수행-능력-단계">SPICE 기준 프로세스 수행 능력 단계</h3>
+<ul>
+  <li>0 Incomplete (불완전): 프로세스가 구현되지 않았거나 목적을 달성하지 못한 단계</li>
+  <li>1 Performed (수행): 프로세스가 수행되고 목적이 달성된 단계</li>
+  <li>2 Managed (관리): 자원의 한도 내에서 프로세스가 작업의 산출물을 내는 단계</li>
+  <li>3 Established (확립): 소프트웨어 공학 원칙에 기반하여 정의된 프로세스가 수행되는 단계</li>
+  <li>4 Predictable (예측): 프로세스가 목적 달성을 위해 통제되고 양적 측정을 통해 일관적으로 수행되는 단계</li>
+  <li>5 Optimizing (최적화): 프로세스 수행이 최적화되고 지속적으로 개선되어 목적을 만족하는 단계</li>
+</ul>
+
+<h2 id="cmmi-capability-maturity-model-integration">CMMI (Capability Maturity Model Integration)</h2>
+<p>SW 개발 조직의 업무 능력 및 성숙도를 평가하는 모델입니다. 성숙도 단계는 아래와 같습니다:</p>
+<ul>
+  <li>1 Initial (초기): 작업자의 능력에 성공 여부가 달림</li>
+  <li>2 Managed (관리): 특정 프로젝트 안에서 프로세스가 정의 및 수행됨</li>
+  <li>3 Defined (정의): 조직의 표준 프로세스가 존재하여 이에 따라 업무 수행</li>
+  <li>4 Quantitatively Managed (정량적 관리): 프로젝트를 정량적으로 관리 및 통제함</li>
+  <li>5 Optimized (최적화): 프로세스 역량 강화를 위해 지속적으로 프로세스를 개선함</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="소프트웨어-재사용-software-reuse">소프트웨어 재사용 (Software Reuse)</h1>
+<p>이미 개발되어 인정 받은 SW를 다른 SW 개발이나 유지에 사용하는 것을 말합니다.</p>
+<ul>
+  <li>Composition-Based (합성 중심; 블록 구성 방법): SW 부품(블록)을 만들어 끼워 맞추며 SW를 완성시키는 방법.</li>
+  <li>Geneeration-Based (생성 중심; 패턴 구성 방법): 추상화된 명세를 구체화하여 프로그램을 만드는 방법.</li>
+</ul>
+
+<p><span style="background-color:#EAEDED"># 요구 명세 기법과 UML: 요구 명세 기법은 사용자 요구사항을 수집하고 명확히 정의하는 기법으로, 유스케이스 다이어그램과 같이 UML을 사용할 수도 있습니다. 한편, UML은 요구사항을 포함한 시스템의 다양한 측면을 시각적으로 표현하는 데 사용되는 표준 모델링 언어입니다. 즉, UML이 더 넓은 개념이라고 할 수 있습니다.</span></p>
+
+<h1 id="case-computer-aided-software-engineering">CASE (Computer Aided Software Engineering)</h1>
+<p>SW 개발 과정 전체 혹은 일부를 컴퓨터 및 전용 SW 도구를 사용해 자동화하는 것을 말합니다.</p>
+<ul>
+  <li>주요 기능: 소프트웨어 생명 주기 전 단계 연결, 다양한 소프트웨어 개발 모형 지원, 그래픽 지원.</li>
+</ul>
+
+<p><br /></p>
+
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="https://alatteaday.github.io/cs%20basics/2024/07/22/sw3_5/">
+        소프트웨어 설계 5: 미들웨어와 인터페이스
+      </a>
+    </h1>
+    <!--<span class="post-date">22 Jul 2024</span>-->
+    <p class="post-date">22 Jul 2024&nbsp;&nbsp;&nbsp;&nbsp;
+      
+        
+          
+            <span class="tag" data-tag="cs">
+              <a href="https://alatteaday.github.io/tags/?tag=cs">
+                #cs
+              </a>
+            </span>
+            
+        
+      
+    </p>
+    <!--
+    
+    -->
+    <h1 id="미들웨어-middleware">미들웨어 (Middleware)</h1>
+<p>운영체제-응용 프로그램, 서버-클라이언트 등 서로 다른 소프트웨어 모듈이나 시스템 간의 통신을 지원하는 중간 계층 소프트웨어입니다. 다양한 애플리케이션이 상호작용하고 데이터를 주고받을 수 있도록 하는 인터페이스를 제공합니다.</p>
+
+<p><span style="background-color:#EAEDED"># 인터페이스와 미들웨어: 인터페이스는 모듈 간의 통신 방법과 규칙을 정의하고, 미들웨어는 이러한 인터페이스를 통해 다양한 시스템과 애플리케이션 간의 원활한 통신을 중재하는 역할을 합니다. 미들웨어는 인터페이스를 통해 데이터를 교환하고 기능을 호출하는 작업을 쉽게 수행할 수 있게 합니다.</span></p>
+
+<h2 id="미들웨어의-종류">미들웨어의 종류</h2>
+<ul>
+  <li>DB (DataBase): 데이터베이스 벤더에서 제공하는 클라이언트에서 원격 데이터베이스와 연결하는 미들웨어입니다.
+    <ul>
+      <li>2-Tier 아키텍쳐: DB를 이용해 시스템을 구축하는 경우를 일컫는 말</li>
+    </ul>
+  </li>
+  <li>RPC (Remote Procedure Call; 원격 프로시저 호출): 응용 프로그램의 프로시저를 사용해 원격 프로시저를 마치 로컬 프로시저처럼 호출하는 미들웨어입니다.</li>
+  <li>MOM (Message Oriented Middleware; 메시지 지향 미들웨어): 메시지 기반의 비동기형 메시지를 전달하는 미들웨어입니다. 온라인 업무보다는 이기종 분산 데이터 시스템의 데이터 동기를 위해 많이 사용됩니다.</li>
+  <li>TP-Monitor (Transaction Processing Monitor; 트랜잭션 처리 모니터): 온라인 트랜잭션 업무에서 트랜잭션을 처리 및 모니터링하는 미들웨어입니다. 사용자 수가 많아도 빨리 응답해야 하는 업무(항공기, 철도 예약 등)에 주로 사용됩니다.</li>
+  <li>ORB (Object Request Broker; 객체 요청 브로커): CORBA 표준 스펙을 구현한 객체 지향 미들웨어입니다. 최근에는 TP Monitor의 트랜잭션 처리 및 모니터링 기능을 추가한 제품도 있습니다.</li>
+  <li>WAS (Web Application Server): 동적인 콘텐츠를 처리하기 위한, 클라이언트-서버 환경보다는 웹 환경을 구현하기 위한 미들웨어입니다. 웹 서버 기능 및 미션 크리티컬한 기업 업무 모두 JAVA, EJB 컴포넌트 기반으로 구현할 수 있습니다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="eai-enterprise-application-integration">EAI (Enterprise Application Integration)</h1>
+<p>기업 내 애플리케이션 및 플랫폼 간 상호 연동이 가능하게 해주는 애플리케이션 통합 솔루션입니다.</p>
+<ul>
+  <li>Point-to-Point: 가장 기본적인 방식으로, 애플리케이션을 일대일로 연결합니다. 변경이나 재사용이 어렵다는 단점이 있습니다.</li>
+  <li>Hub &amp; Spoke: 허브 시스템이 단일 접점으로 작용하고, 이를 통해 데이터를 전송하는 중앙 집중형 방식입니다. 확장 및 유지보수가 용이하지만, 허브에 장애가 발생하면 시스템 전체가 영향을 받습니다.</li>
+  <li>Message Bus (=ESB): 애플리케이션 사이에 미들웨어를 두어 처리하는 방식으로, 확장성과 대용량 처리 기능이 뛰어납니다.</li>
+  <li>Bus Hybrid: Hub &amp; Spoke와 Message Bus를 혼합한 방식으로, 그룸 내에서는 Hub &amp; Spoke, 그룹 간에는 Message Bus 방식을 사용합니다. 필요 시 한 가지 방식으로만 구현이 가능합니다. 데이터 병목현상을 최소화할 수 있습니다.</li>
+</ul>
+
+<h3 id="esb-enterprise-service-bus">ESB (Enterprise Service Bus)</h3>
+<p>애플리케이션 간 표준 인터페이스를 제공하는 솔루션입니다. EAI와 애플리케이션을 통합한다는 측면에서 유사하나, 초점이 애플리케이션보다는 서비스 통합에 있습니다. 애플리케이션을 특정 서비스에 국한하지 않고 범용적으로 사용하기 위해, 애플리케이션과의 결합도를 약하게 유지합니다.</p>
+
+<p><br /></p>
+
+<h1 id="json과-ajax">JSON과 AJAX</h1>
+<ul>
+  <li>JSON (JavaScript Object Notation): 웹과 프로그램 사이 용량이 작은 데이터를 교환하기 위해 데이터 객체를 속성-값 쌍(Attribute-Value Pair)으로 표현하는 개방형 표준 포맷
+    <ul>
+      <li>AJAX에서 XML을 대신해 사용되고 있음</li>
+    </ul>
+  </li>
+  <li>AJAX (Asynchronous JavaScript and XML): 자바스크립트를 사용해 클라이언트와 서버 간 XML 데이터를 주고 받는 비동기 통신 기술
+    <ul>
+      <li>전체 웹 페이지를 새로고침하지 않고도 페이지의 일부를 업데이트할 수 있음</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="인터페이스-interface">인터페이스 (Interface)</h1>
+<p>소프트웨어 모듈 간의 상호작용을 정의하는 명세서입니다. 모듈이 다른 모듈과 데이터를 주고받는 방법과 규칙을 정의하며, 주요 요소로는 함수, 메서드, 프로토콜, API 등이 있습니다.</p>
+
+<h1 id="인터페이스-보안">인터페이스 보안</h1>
+<p>인터페이스 보안성 향상을 위해 취약점을 분석한 후 적절한 보안 기술을 적용하는 것으로, 네트워크, 애플리케이션, 데이터베이스 영역에 적용됩니다.</p>
+<ul>
+  <li>네트워크 영역: 인터페이스 송/수신 간 데이터 탈취 및 변조(스니핑(Sniffing) 등)를 방지하기위해 네트워크 트래픽을 암호화합니다.
+    <ul>
+      <li>암호화 방법: IPSec, SSL, S-HTTP 등</li>
+    </ul>
+  </li>
+  <li>애플리케이션 영역: 애플리케이션 코드 상 보안 취약점에 보안 기능을 적용합니다.</li>
+  <li>데이터베이스 영역: 데이터베이스, 스키마, 엔티티의 접근 권한 및 프로시저, 트리거 등 데이터베이스 동작 개체의 보안 취약점에 보안 기능을 적용합니다.</li>
+</ul>
+
+<h2 id="네트워크-인터페이스-보안-기법">네트워크 인터페이스 보안 기법</h2>
+<ul>
+  <li>IPSec (IP Security): 네트워크 계층에서 IP 패킷 단위의 데이터 변조 방지 및 은닉 기능을 제공하는 프로토콜</li>
+  <li>SSL (Secure Sockets Layer): TCP/IP 계층과 애플리케이션 계층 간의 인증, 암호화, 무결성을 보장하는 프로토콜</li>
+  <li>S-HTTP (Secure Hypertext Transfer Protocol): 클라이언트-서버 간 전송되는 메시지를 암호화하는 프로토콜</li>
+</ul>
+
+<h2 id="데이터-무결성-검사-도구">데이터 무결성 검사 도구</h2>
+<p>인터페이스 보안 취약점을 분석하는데 사용되는 도구로, 시스템 파일 변경 유무를 확인해 변경 시 관리자에게 알리는 역할을 합니다.</p>
+<ul>
+  <li>종류: Tripwire, AIDE, Samhain, Claymore, Slipwire, Fcheck 등</li>
+</ul>
+
+<h1 id="인터페이스-구현-검증-도구-통합-테스트-자동화-도구">인터페이스 구현 검증 도구: 통합 테스트 자동화 도구</h1>
+<p>인터페이스가 구현이 잘 되었는지 검증하기 위해서는 인터페이스 단위 기능, 시나리오 등을 기반으로 통합 테스트(Integration test)를 해야 합니다. 대표적인 통합 테스트 자동화 도구는 다음과 같습니다:</p>
+<ul>
+  <li>xUnit: 단위 테스트 프레임워크로 자동화된 해법을 제공합니다.
+    <ul>
+      <li>기능: 같은 테스트 코드 여러 번 작성하지 않게 해줌, 테스트의 예상 결과를 기억할 필요가 없게 도와줌 등.</li>
+      <li>역사: Smaltalk에 ‘SUnit’이라는 이름으로 처음 적용 → ‘JUnit’(Java용), ‘CppUnit’(C++), ‘NUnit’(.NET) 등 다양한 언어에 적용 → ‘xUnit’으로 통칭</li>
+    </ul>
+  </li>
+  <li>STAF: 크로스 플랫폼이나 분산 SW의 테스트 환경 조성을 지원하는 테스트 프레임워크입니다.
+    <ul>
+      <li>기능: 서비스 호출, 컴포넌트 재사용 등 다양한 환경 지원</li>
+      <li>분산 SW의 경우 각 분산 환경의 데몬(Daemon)이 테스트 응답을 대신하고, 테스트가 완료되면 응답을 통합하여 프로그램을 완성함</li>
+    </ul>
+  </li>
+  <li>FitNesse: 웹 기반 테스트 프레임워크</li>
+  <li>NTAF: FitNesse의 협업 기능과 STAF의 재사용 및 확장성을 통합한 테스트 자동화 프레임워크로, NHN이 개발했습니다.</li>
+  <li>Selenium: 웹 애플리케이션 테스트 프레임워크로, 다양한 브라우저와 개발 언어를 지원합니다.</li>
+  <li>watir: 애플리케이션 테스트 프레임워크로, Ruby를 언어로 사용합니다.
+    <ul>
+      <li>Ruby: 인터프리터 방식의 객체지향 스크립트 언어</li>
+    </ul>
+  </li>
+</ul>
+
+
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="https://alatteaday.github.io/cs%20basics/2024/07/22/sw3_4/">
+        소프트웨어 설계 4: 모듈과 결합도 및 응집도, 코드
+      </a>
+    </h1>
+    <!--<span class="post-date">22 Jul 2024</span>-->
+    <p class="post-date">22 Jul 2024&nbsp;&nbsp;&nbsp;&nbsp;
+      
+        
+          
+            <span class="tag" data-tag="cs">
+              <a href="https://alatteaday.github.io/tags/?tag=cs">
+                #cs
+              </a>
+            </span>
+            
+        
+      
+    </p>
+    <!--
+    
+    -->
+    <h1 id="모듈">모듈</h1>
+<p>모듈화를 통해 분리된 시스템의 각 기능으로, 서브루틴, 서브시스템, 프로그램, 작업 단위 등을 말합니다. 한 개 혹은 여러 개의 기능을 논리적으로 수행하므로 명령어의 집합이라고도 볼 수 있습니다.</p>
+<ul>
+  <li>모듈의 독립성: 한 SW 내 모듈들이 기능적으로 독립되는 성질로, 결합도와 응집도에 의해 측정됩니다.</li>
+</ul>
+
+<h2 id="단위-모듈-unit-module">단위 모듈 (Unit Module)</h2>
+<p>SW 구현에서 동작 하나를 수행하는 기능을 모듈로 구현한 것으, 독립적인 컴파일이 가능하고, 다른 모듈에 호출되거나 삽입됩니다.</p>
+<ul>
+  <li>단위 기능: 단위 모듈로 구현되는 기능</li>
+  <li>단위 모듈 구현 과정: 단위 기능 명세서 작성 → 입출력 기능 구현 → 알고리즘 구현</li>
+</ul>
+
+<h2 id="공통-모듈과-공통-모듈-명세-기법">공통 모듈과 공통 모듈 명세 기법</h2>
+<p>여러 프로그램에서 공통으로 사용 가능한 모듈로, 공통 모듈을 구현할 때는 기능을 명확히 표시할 수 있도록 다음과 같은 명세 기법을 준수해야 합니다:</p>
+<ul>
+  <li>정확성 (Correctness): 구현 시 해당 기능이 필요하다는 것을 명시함</li>
+  <li>명확성 (Clarity): 기능 이해 시 중의적으로 해석되지 않도록 명확히 작성함</li>
+  <li>완전성 (Completeness): 구현을 위해 필요한 모든 것을 작성함</li>
+  <li>일관성 (Consistency): 공통 기능 간 충돌이 없도록 작성함</li>
+  <li>추적성 (Traceability): 기능에 관한 요구사항의 출처, 관련된 시스템 등 관계 사항을 파악할 수 있게 작성함</li>
+</ul>
+
+<h2 id="ipc-inter-process-communication">IPC (Inter-Process Communication)</h2>
+<p>모듈 간 통신 방식 구현을 위해 사용되는 대표적인 프로그래밍 인터페이스 집합입니다. 복수의 프로세스가 수행되는 동안의 통신도 구현 가능합니다.</p>
+<ul>
+  <li>대표 메소드: Shared Memory(공유 메모리), Socket(소켓), Semaphores, Pipes &amp; named Pipes, Message Queuing</li>
+</ul>
+
+<h1 id="결합도-coupling">결합도 (Coupling)</h1>
+<p>모듈 간 상호 의존하는 정도를 말합니다. 결합도가 약할수록 SW 품질이 높습니다. 종류는 아래와 같습니다. 결합도가 강한 것부터 약한 것 순으로 나열했습니다, 즉 아래로 갈수록 품질이 높습니다:</p>
+<ul>
+  <li>내용 결합도 (Content Coupling): 다른 모듈의 내부 기능과 자료를 직접 참조 및 수정할 때의 결합도</li>
+  <li>공통 결합도 (Common Coupling): 공통 데이터 영역을 여러 모듈이 사용할 때의 결합도, 전역 변수를 갱신하며 상호작용 할 때.</li>
+  <li>외부 결합도 (Exteranl Coupling): 한 모듈이 선언한 데이터(변수)를 외부 모듈이 참조할 때의 결합도</li>
+  <li>제어 결합도 (Control Coupling): 다른 모듈의 논리 흐름을 제어하기 위해 제어 신호나 요소를 전달하는 결합도, 하위 모듈이 상위 모듈로 제어 신호를 보내 명령을 내리는 권리 전도 현상이 발생할 수 있음.</li>
+  <li>스탬프 결합도 (Stamp Coupling): 모듈 간 인터페이스로 자료 구조(배열, 레코드 등)가 전달될 때의 결합도</li>
+  <li>자료 결합도 (Data Coupling): 모듈 간 인터페이스가 자료로만 구성될 떄의 결합도.</li>
+</ul>
+
+<h2 id="팬인과-팬아웃-fan-infan-out">팬인과 팬아웃 (Fan-In/Fan-Out)</h2>
+<ul>
+  <li>팬인 (Fan-In)은 특정 모듈을 제어하는 모듈의 수를,</li>
+  <li>팬아웃 (Fan-Out)은 특정 모듈에 의해 제어되는 모듈의 수를 말합니다.</li>
+</ul>
+
+<h1 id="응집도-cohesion">응집도 (Cohesion)</h1>
+<p>모듈 내부 요소들이 서로 관련된 정도를 말합니다. 응집도가 강할수록 SW 품질이 높습니다. 아래 나열된 종류는 응집도가 약한 것부터 강한 것 순으로 정리되었습니다, 즉 아래로 갈수록 품질이 높습니다:</p>
+<ul>
+  <li>우연적 응집도 (Coincidental Cohesion): 모듈이 서로 관련 없는 요소로만 구성되었을 때의 응집도</li>
+  <li>논리적 응집도 (Logical Cohesion): 모듈이 유사하거나 같은 것으로 분류되는 요소로 구성되었을 때의 응집도</li>
+  <li>시간적 응집도 (Temporal Cohesion): 모듈이 특정 시간에 처리되는 여러 기능으로 구성되었을 때의 응집도</li>
+  <li>절차적 응집도 (Procedural Cohension): 모듈의 구성 요소들이 모듈 내 다수 기능을 순차적으로 수행할 경우의 응집도</li>
+  <li>교환적 응집도 (Communicational Cohension): 모듈이 동일 입/출력으로 서로 다른 기능을 수행하는 요소로 구성되었을 때의 응집도</li>
+  <li>순차적 응집도 (Sequential Cohension): 모듈 내에서 하나의 연산으로부터 나온 출력을 다음 연산의 입력으로 사용할 때의 응집도</li>
+  <li>기능적 응집도 (Functional Cohesion): 모듈 내 모든 요소가 단일 문제와 연관되어 있을 때의 응집도</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="코드-code">코드 (Code)</h1>
+<p>데이터의 분류, 집계, 추출 등을 용이하게 하기 위해 사용하는 기호입니다.</p>
+<ul>
+  <li>주요 기능: 식별, 분류, 배열, 표준화, 간소화</li>
+</ul>
+
+<h2 id="코드의-종류">코드의 종류</h2>
+<ul>
+  <li>순차 코드 (Sequence Code; 순서 코드, 일련번호 코드): 일정 기준(자료 발생일, 크기 등)에 따라 차례로 일련번호를 부여하는 방법</li>
+  <li>블록 코드 (Block Code; 구분 코드): 공통적인 것끼리 블록으로 구분하고, 각 블록 내에서 일련번호를 부여하는 방법</li>
+  <li>10진 코드 (Decimal Code; 도서 분류식 코드): 항목을 0~9로 10진 분할하고, 그 각각에 대해 다시 10진 분할하며 이것을 반복하는 방법 (
+    <ul>
+      <li>e.g. 1000 = Engineering, 1100 = SW Engineering, 1110 = SW Analysis)</li>
+    </ul>
+  </li>
+  <li>그룹 분류 코드 (Group Classification Code): 항목을 대, 중, 소분류 등으로 구분하고, 각 그룹 내 일련번호를 부여하는 방법
+    <ul>
+      <li>e.g. 1-01-001 = Grade1-Math-Calculus, 2-01-001 = Grade2-Math-Calculus</li>
+    </ul>
+  </li>
+  <li>연상 코드 (Mnemonic Code): 항목의 명칭이나 약호와 관련된 숫자, 문자, 기호를 이용해 코드를 부여하는 방법
+    <ul>
+      <li>e.g. TV-40 = 40-inch TV, L-15W-220 = 15W 220V Lamp</li>
+    </ul>
+  </li>
+  <li>표의 숫자 코드 (Significant Digit Code; 유효 숫자 코드): 항목의 성질(길이, 넓이, 부피 등)의 물리적 수치를 그대로 적용시키는 방법
+    <ul>
+      <li>120-70-1500 = A table of which the size is 120$\times$720$\times$1500</li>
+    </ul>
+  </li>
+  <li>합성 코드 (Combined Code): 2개 이상의 코드를 조합해서 만드는 방법
+    <ul>
+      <li>e.g. KE-711: 대한항공 711기 (연상 코드 + 숫자 코드)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="https://alatteaday.github.io/page2">Older</a>
+  
+  
+    <span class="pagination-item newer">Newer</span>
+  
+</div>
+
+        
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

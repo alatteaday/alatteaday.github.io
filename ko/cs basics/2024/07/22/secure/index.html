@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!--site.title site.tagline-->
+  <title>
+    
+      정보 보안 1: 보안 요소와 기법, 암호화 &middot; Coffee Chat
+    
+  </title>
+
+  
+  <link rel="canonical" href="https://alatteaday.github.io/ko/cs%20basics/2024/07/22/secure/">
+  
+
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/poole.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/syntax.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://alatteaday.github.io/public/favicon.ico/apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://alatteaday.github.io/public/favicon.ico/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://alatteaday.github.io/ko/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Curation of studies, techs, ideas and a journey as a maching learning engineer</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/about">About</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/">Home</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/tags">Tags</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/tags">Papers</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/tags">Study</a>
+
+    
+
+    
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+          <a class="sidebar-nav-item" 
+          href="https://alatteaday.github.io/ko/about/">About</a>
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/cs/">CS Basics</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/error/">Dev Tips & Fixes</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+    <!--
+    <a class="sidebar-nav-item" href="/ko/archive/v1.1.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span> 
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2024. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <!--site.title site.tagline-->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container" >
+          <h3 class="masthead-title">
+            <a href="/ko/" title="Home">Coffee Chat</a>
+            <small>Brewing AI Knowledge</small>
+          </h3>
+          <div class="lang-switcher">
+    
+    
+        
+            <a href=" /cs%20basics/2024/07/22/secure/">eng</a>
+        
+    
+
+    
+    
+        kor
+    
+
+</div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">정보 보안 1: 보안 요소와 기법, 암호화</h1>
+  <p class="post-date">22 Jul 2024&nbsp;&nbsp;&nbsp;&nbsp;
+    <!--<span class="post-date">22 Jul 2024</span>-->
+    
+      
+        
+          <span class="tag" data-tag="cs">
+            <a href="https://alatteaday.github.io/ko/tags/?tag=cs">
+              #cs
+            </a>
+          </span>
+        
+      
+    
+  </p>
+  <h1 id="소프트웨어-보안-요소">소프트웨어 보안 요소</h1>
+<p>소프트웨어 개발 시 충족시켜야 할 보안의 3대 요소로 기밀성, 무결성, 가용성이 있습니다.</p>
+<ul>
+  <li>기밀성 (Confidentiality): 인가된 사용자만 시스템 내 데이터에 접근할 수 있다.</li>
+  <li>무결성 (Integrity): 인가된 사용자만 데이터를 수정할 수 있다.</li>
+  <li>가용성 (Availability): 인가된 사용자는 데이터를 언제든지 사용할 수 있다.</li>
+</ul>
+
+<p>보안 요소를 지키기 위한 행위로는:</p>
+<ul>
+  <li>인증 (Authentication): 데이터를 사용하려는 사용자가 합법적인지를 확인하는 모든 행위로, 패스워드, 인증 카드, 지문 검사 등의 방법이 있습니다.</li>
+  <li>부인 방지 (NonRepudiation): 데이터를 송/수신한 사람이 그 사실을 부인할 수 없게 증거를 제공하는 행위.</li>
+</ul>
+
+<h1 id="secure-sdlc">Secure SDLC</h1>
+<p>SDLC(소프트웨어 개발 생명 주기)에 보안 강화를 위한 프로세스를 포함하는 것을 말합니다. Secure SDLC의 방법론으로는:</p>
+<ul>
+  <li>CLAPS: SDLC의 초기 단계에서 보안을 강화하기 위한 방법론</li>
+  <li>SDL: MicroSoft에서 안전한 SW 개발을 위해 기존 SDLC를 개선한 것</li>
+  <li>Seven Touchpoints: SW 보안의 모범 사례를 SDLC에 통합한 방법론</li>
+</ul>
+
+<h2 id="secure-coding">Secure Coding</h2>
+<p>SW 구현 단계에서 발생할 보안 취약점을 최소화하기 위해 보안 요소들을 고려하며 코딩하는 것입니다. 보안 취약점에 사전 대응하여 안정성과 신뢰성을 확보할 수 있습니다. 이를 위해 보안 정책을 바탕으로 시큐어 코딩 가이드를 작성하고, 개발자들은 시큐어 코딩 교육을 받습니다.</p>
+
+<h1 id="보안-기능">보안 기능</h1>
+<p>보안 점검 내용 중 ‘보안 기능’은 SW 구현 단계에서 인증, 접근 제어, 기밀성, 암호화 등을 올바르게 구현하기 위한 보안 점검 항목입니다:</p>
+<ul>
+  <li>HTTPS (Hypertext Transfer Protocol Secure): 웹 브라우저와 서버 간 안전한 통신을 위해 HTTP와 암호 통신 규약을 결합한 것</li>
+  <li>SSL (Secure Sockets Layer): TCP/IP 계층과 애플리케이션 계층(HTTP, TELNET, FTP 등) 사이에 위치해 인증, 암호화, 무결성 등을 보장하는 업계 표준 프로토콜</li>
+  <li>Hard-coding: 데이터를 코드 내부에 직접적으로 프로그래밍하는 방식</li>
+</ul>
+
+<h1 id="보안-약점">보안 약점</h1>
+<p>소프트웨어 시스템의 설계나 구현에서 발생하는 결함 또는 허점으로, 이를 통해 악의적인 공격자가 시스템에 침입하거나 데이터를 훼손할 수 있는 취약점을 의미합니다.</p>
+
+<h2 id="보안-약점의-종류와-방지법">보안 약점의 종류와 방지법</h2>
+<ul>
+  <li>SQL 삽입 (SQL Injection): 웹 응용 프로그램에 SQL을 삽입하여 DB 서버의 데이터를 유출 및 변조하고, 관리자 인증을 우회하는 보안 약점
+    <ul>
+      <li>방지: 입력 데이터 내 예약어나 특수문자를 필터링하도록 설정</li>
+    </ul>
+  </li>
+  <li>크로스사이트 스크립팅 (XSS): 웹 페이지에 스크립트를 삽입하여 방문자의 정보를 탈취하거나, 비정상적인 기능을 유발하는 보안 약점
+    <ul>
+      <li>방지: HTML 태그가 스크립트에 사용되지 않도록 아예 사용을 제한하거나, ‘&lt;’, ‘&gt;’, ‘&amp;’ 등의 문자를 다른 문자로 치환</li>
+    </ul>
+  </li>
+  <li>메모리 버퍼 오버플로: 연속된 메모리 공간을 사용하는 프로그램에서 할당된 메모리 범위 밖에서 자료를 읽거나 쓰려고 할 때 발생하는 보안 약점
+    <ul>
+      <li>방지: 메모리 버퍼의 적절한 크기를 설정, 설정된 범위의 메모리 내에서 자료에 접근하도록 조치</li>
+    </ul>
+  </li>
+  <li>하드코드된 암호화 키: 암호화가 된 키도 하드코드된 경우 유출 시 역계산이나 무차별 대입 공격에 의해 탈취될 수 있습니다.
+    <ul>
+      <li>방지: 상수 형태의 암호키 사용 배제, 암호화 키 생성 모듈이나 안전한 외부 공간 이용</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="스택-가드-stack-guard">스택 가드 (Stack Guard)</h2>
+<p>스택에서 발생하는 보안 약점을 막는 기술 중 하나입니다. 스택은 주소를 저장하는 데 사용되는데, 널 포인터 역참조와 같은 보안 약점이 발생할 수 있습니다.</p>
+<ul>
+  <li>메모리상에서 프로글매의 복귀 주소와 변수 사이에 특정 값을 저장한 후, 그 값이 변경되었을 경우 오버플로우 상태로 판단, 프로그램 실행을 중단함으로써 잘못된 복귀 주소의 호출을 막습니다.</li>
+</ul>
+
+<h2 id="접근-제어자">접근 제어자</h2>
+<p>프로그래밍 언어에서 특정 개체를 선언할 때 외부로부터의 접근을 제한하기 위해 사용되는 예약어입니다. 
+  | 접근 제어자 | 클래스 내부 | 패키지 내부 | 하위 클래스 | 패키지 외부 |
+  | ——– | :——: | :——: | :——-: | :——: |
+  | Public   | O | O | O | O |
+  | Protected | O | O | O | X |
+  | Default | O | O | X | X |
+  | Private | O | X | X | X |</p>
+
+<p><br /></p>
+
+<h1 id="암호화-encryption">암호화 (Encryption)</h1>
+<p>데이터를 인가되지 않은 접근으로부터 보호하기 위해 특정 알고리즘을 사용하여 평문(Plaintext)을 암호문(Ciphertext)으로 변환하는 과정입니다. 암호화된 데이터는 올바른 암호 해독 키 없이 이해할 수 없으며, 이는 정보의 기밀성과 무결성을 유지하는 데 중요한 역할을 합니다.</p>
+
+<h2 id="암호화의-주요-요소">암호화의 주요 요소</h2>
+<ul>
+  <li>평문 (Plaintext): 암호화되기 전의 원본 데이터</li>
+  <li>암호문 (Ciphertext): 암호화된 후의 데이터</li>
+  <li>암호화 알고리즘 (Encryption Algorithm): 데이터를 암호화하는 데 사용되는 규칙과 절차</li>
+  <li>키 (Key): 암호화 및 복호화에 사용되는 비밀 값</li>
+</ul>
+
+<h2 id="개인키-암호화-기법-private-key-encryption">개인키 암호화 기법 (Private Key Encryption)</h2>
+<p>암호화와 복호화에 동일한 키를 사용하는 암호화 기법입니다. 대칭 암호 기법, 단일키 암호화 기법이라고도 합니다.</p>
+<ul>
+  <li>특징: 암호화/복호화 속도가 빠름, 관리할 키의 수가 많음</li>
+  <li>유형: 스트림 암호화 방식, 블록 암호화 방식
+    <ul>
+      <li>스트림 암호화: 평문과 동일한 길이의 스트림을 생성하여, 비트 단위로 암호화하는 방식
+        <ul>
+          <li>종류: TKIP, LFSR, RC4</li>
+        </ul>
+      </li>
+      <li>블록 암호화: 데이터 블록을 하나씩 암호화하는 방식
+        <ul>
+          <li>종류: DES, AES, IDEA, Skipjack, SEED, ARIA</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="tkip-temporal-key-integrity-protocol">TKIP (Temporal Key Integrity Protocol)</h3>
+<p>WEP(무선 랜 보안 프로토콜)의 취약성을 보완한 데이터 보안 프로토콜입니다.</p>
+<ul>
+  <li>입력 키 길이 128비트, 패킷 당 키 할당, 키값 재설정 등 키 관리 방식을 개선</li>
+</ul>
+
+<h3 id="des-data-encryption-standard">DES (Data Encryption Standard)</h3>
+<p>1975년 미국 NBS에서 발표한 개인키 암호화 알고리즘입니다.</p>
+<ul>
+  <li>블록 크기 64비트, 키 길이 56비트, 16회 라운드 수행</li>
+  <li>3DES (Triple DES): DES를 3번 적용해 보안을 강화한 알고리즘</li>
+</ul>
+
+<h3 id="aes-advanced-encryption-standard">AES (Advanced Encryption Standard)</h3>
+<p>2001년 미국 표준 기술 연구소(NIST)에서 발표한 개인키 암호화 알고리즘입니다. DES의 한계를 개선하기 위해 공모 후 발표되었습니다.</p>
+<ul>
+  <li>블록 크기 128비트, 키 길이에 따라 AES-128, 192, 256으로 분류</li>
+</ul>
+
+<h3 id="idea-international-data-encryption-algorithm">IDEA (International Data Encryption Algorithm)</h3>
+<p>스위스의 Lai와 Messey가 1990년에 개발한 PES를 개선한 알고리즘입니다.</p>
+<ul>
+  <li>블록 크기 64비트, 키 길이 128비트</li>
+</ul>
+
+<h3 id="skipjack">Skipjack</h3>
+<p>국가 안전 보장국(NSA)에서 개발한 개인키 암호화 알고리즘으로, 클리퍼 칩(Clipper Chip)dlfksms IC 칩에 내장되어 있습니다.</p>
+<ul>
+  <li>블록 크기 64비트, 키 길이 80비트</li>
+  <li>주로 음성 통신 장비에 삽입되어 음성 데이터를 암호화</li>
+</ul>
+
+<h2 id="공개키-암호화-기법-public-key-encryption">공개키 암호화 기법 (Public Key Encryption)</h2>
+<p>공개키(Public Key)는 사용자에게 공개, 비밀키(Secret Key)는 관리자가 비밀리에 관리하는 암호화 기법입니다. 공개키는 암호화 시, 비밀키는 복호화 시 사용되는 키입니다. 비대칭 암호 기법이라고도 합니다.</p>
+<ul>
+  <li>특징: 암호화/복호화 속도가 느림, 관리할 키의 수가 적음</li>
+  <li>종류: RSA 등</li>
+</ul>
+
+<h3 id="rsa-rivest-shamir-adleman">RSA (Rivest Shamir Adleman)</h3>
+<p>1978년 MIT의 Rivest, Shamir, Adleman이 제안한 공개키 암호화 알고리즘으로, 큰 수를 소인수분해 하기 어렵다는 것에 기반하여 만들어 졌습니다.</p>
+
+<h2 id="해시-hash">해시 (Hash)</h2>
+<p>입력 데이터나 메시지를 고정된 길이의 값이나 키로 변환하는 것을 의미합니다. 해시 알고리즘을 해시 함수라고 합니다.</p>
+<ul>
+  <li>해시 값: 해시 함수로 변환된 값이나 키</li>
+  <li>종류: SHA 시리즈, MD4, MD5, N-NASH, SNEFRU, HAVAL 등
+    <ul>
+      <li>SHA 시리즈: 1993년 미국 국가안보국(NSA)이 설계하고, 표준 기술 연구소(NIST)가 발표한 해시 함수입니다. SHA-0, SHA-1에 이어 SHA-2로 일컬어지는 SHA-224, SHA-256, SHA-384, SHA-512가 발표되었습니다.</li>
+      <li>MD5 (Message Digest algorithm 5): 1991년 R.Rivestrk MD4를 대체하기 위해 고안한 암호화 해시 함수입니다.
+        <ul>
+          <li>블록 크기 512비트, 키 길이 128비트</li>
+        </ul>
+      </li>
+      <li>N-NASH: 1989년 일본 전신전화주식회사(NTT)가 발표한 암호화 해시 함수입니다.
+        <ul>
+          <li>블록 크기 128비트, 키 길이 128비트</li>
+        </ul>
+      </li>
+      <li>SNEFRU: 1990년 R.C.Merkle가 발표한 해시 함수입니다. 32비트 프로세스에서 구현을 용이하게 하기 위해 개발되었습니다.</li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+
+
+<div class="related">
+  <h2 class="related-title">Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/ko/study/2024/07/31/hopkins/">
+            Hopkins Statistic&nbsp;
+            <small>31 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/cs%20basics/2024/07/22/sw7_2/">
+            소프트웨어 관리 2: 애플리케이션 테스트&nbsp;
+            <small>22 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/cs%20basics/2024/07/22/sw7/">
+            소프트웨어 관리 1: 프로젝트 관리와 품질 관리&nbsp;
+            <small>22 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+        
+          <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+        
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

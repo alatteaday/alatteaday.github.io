@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!--site.title site.tagline-->
+  <title>
+    
+      소프트웨어 관리 1: 프로젝트 관리와 품질 관리 &middot; Coffee Chat
+    
+  </title>
+
+  
+  <link rel="canonical" href="https://alatteaday.github.io/cs%20basics/2024/07/22/sw7/">
+  
+
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/poole.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/syntax.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://alatteaday.github.io/public/favicon.ico/apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://alatteaday.github.io/public/favicon.ico/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://alatteaday.github.io/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Curation of studies, techs, ideas and a journey as a maching learning engineer</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/about">About</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/">Home</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/tags">Tags</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/tags">Papers</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/tags">Study</a>
+
+    
+
+    
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+          <a class="sidebar-nav-item" 
+          href="https://alatteaday.github.io/about/">About</a>
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/category/cs/">CS Basics</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/category/error/">Dev Tips & Fixes</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+    <!--
+    <a class="sidebar-nav-item" href="/archive/v1.1.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span> 
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2024. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <!--site.title site.tagline-->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container" >
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Coffee Chat</a>
+            <small>Brewing AI Knowledge</small>
+          </h3>
+          <div class="lang-switcher">
+    
+    
+        eng
+    
+
+    
+    
+        
+            <a href="/ko/cs%20basics/2024/07/22/sw7/">kor</a>
+        
+    
+
+</div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">소프트웨어 관리 1: 프로젝트 관리와 품질 관리</h1>
+  <p class="post-date">22 Jul 2024&nbsp;&nbsp;&nbsp;&nbsp;
+    <!--<span class="post-date">22 Jul 2024</span>-->
+    
+      
+        
+          <span class="tag" data-tag="cs">
+            <a href="https://alatteaday.github.io/tags/?tag=cs">
+              #cs
+            </a>
+          </span>
+        
+      
+    
+  </p>
+  <h1 id="프로젝트-관리-project-management">프로젝트 관리 (Project Management)</h1>
+<p>SW 개발 목표 달성을 위해 프로젝트 계획, 실행, 모니터링 및 완료를 체계적으로 수행하는 과정입니다. 비용 관리, 일정 관리 등이 이에 해당합니다.</p>
+
+<h2 id="소프트웨어-비용-산정-cost-estimation">소프트웨어 비용 산정 (Cost Estimation)</h2>
+<p>SW 개발 프로젝트의 비용과 필요한 노력을 예측하는 과정. 프로젝트 계획, 자원 할당, 일정 관리 등의 효과적인 수행, 프로젝트의 성공적인 완료, 예산 초과 방지 등에 중요한 역할.</p>
+
+<h3 id="loc-source-line-of-code-기법">LOC (source Line Of Code) 기법</h3>
+<p>SW 원시 코드 라인 수(LOC)의 비관치, 낙관치, 기대치를 측정해 예측치를 구하고, 이를 이용해 비용을 산정하는 기법입니다.</p>
+<ul>
+  <li>공식: 비용 = LOC / (개발 기간 $\times$ 투입 인원)</li>
+</ul>
+
+<h3 id="수학적-산정-기법">수학적 산정 기법</h3>
+<p>상향식 비용 산정 기법으로 개발 비용 산정의 자동화를 목표로 합니다.</p>
+<ul>
+  <li>경험적 추정 모형, 실험적 추정 모형이라고도 합니다.</li>
+  <li>주요 기법: COCOMO 모형, Putnam 모형, FP 모형</li>
+</ul>
+
+<h3 id="cocomo-constructive-cost-model-모형">COCOMO (COnstructive COst MOdel) 모형</h3>
+<p>LOC에 의한 비용 산정 기법으로 Boehm이 제안했습니다. LOC를 예측한 후 이를 SW에 따라 다른 비용 산정 방정식에 대입해 비용을 산정하는 방법입니다.</p>
+<ul>
+  <li>Man-Month: 프로젝트를 완성하는 데 필요한 노력. COCOMO 비용 산정 결과의 형식입니다.</li>
+  <li>개발 유형:
+    <ul>
+      <li>조직형 (Organic Model): 중소규모 5만(50KDSI) 라인 이하의 SW 개발에 쓰이는 유형으로, 사무 처리나 과학용 응용 SW 개발에 적합합니다.</li>
+      <li>반분리형 (Semi-Detached Model): 중간 규모 30만(300KDSI) 라인 이하의 SW 개발에 쓰이는 유형으로, 컴파일러, 인터프리터 등 유틸리티 개발에 적합합니다.</li>
+      <li>내장형 (Embedded Model): 초대형 규모, 30만(300KDSI) 라인 이상의 SW 개발에 쓰이는 유형으로, 신호기 제어, 실시간 처리 등 시스템 프로그램 개발에 적합합니다.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="putnam-모형">Putnam 모형</h3>
+<p>소프트웨어 개발 생명 주기의 전 과정 동안 사용될 노력의 분포를 예상하는 모형으로, Putnam이 제안했습니다.</p>
+<ul>
+  <li>생명 주기 예측 모형이라고도 합니다.</li>
+  <li>Rayleigh-Norden 곡선의 노력 분포도를 기초로 하여 시간에 따른 함수로 표현합니다.</li>
+</ul>
+
+<h3 id="fp-function-point-기능-점수-모델">FP (Function Point; 기능 점수) 모델</h3>
+<p>SW의 기능을 증대시키는 요인별로 기능 점수(FP)를 구한 후 이를 이용해 비용을 산정하는 기법입니다.</p>
+<ul>
+  <li>FP 산출: 요인 별 가중치를 합산 해 총 FP를 구하고, 총 FP와 영향도를 이용해 각 요인의 FP를 구합니다.</li>
+  <li>기능 증대 요인: 입력 양식, 출력 보고서, 사용자 질의 수, 데이터 파일, 인터페이스.</li>
+</ul>
+
+<h3 id="비용-산정-자동화-추정-도구">비용 산정 자동화 추정 도구</h3>
+<ul>
+  <li>SLIM: Rayleigh-Norden 곡선과 Putnam 모델을 기초로 개발된 자동화 추정 도구.</li>
+  <li>ESTIMACS: FP 모델을 기초로 하여 다양한 프로젝트와 개인별 요소를 수용하도록 개발된 자동화 추정 도구.</li>
+</ul>
+
+<p><br /></p>
+
+<h2 id="스케줄링-기법-scheduling">스케줄링 기법 (Scheduling)</h2>
+
+<h3 id="pert-program-evaluation-and-review-technique">PERT (Program Evaluation and Review Technique)</h3>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/pert.png?raw=true" alt="pert" style="zoom: 70%;" />
+</p>
+
+<p>프로젝트 전체 작업 간 상호 관계를 표시하는 네트워크입니다.</p>
+<ul>
+  <li>결정 경로, 작업에 대한 경계 시간, 작업 간 상호 관련성 등을 알 수 있습니다.</li>
+  <li>각 작업을 단계로 나누어 종료 시기를 결정합니다: 낙관적, 가능성이 있음, 비관적</li>
+</ul>
+
+<h3 id="cpm-critical-path-method-임계-경로-기법">CPM (Critical Path Method; 임계 경로 기법)</h3>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/cpm.png?raw=true" alt="cpm" style="zoom: 70%;" />
+</p>
+
+<p>프로젝트 완성에 필요한 작업을 나열하고, 작업에 필요한 소요시간을 예측하는 데 사용하는 기법입니다.</p>
+<ul>
+  <li>노드와 간선으로 구성된 네트워크: 노드는 작업, 간선은 작업 간 전후 의존 관계를 나타냅니다.</li>
+  <li>임계 경로: 작업 소요 시간이 제일 길게 걸리는 경로.</li>
+</ul>
+
+<h3 id="간트-차트-gantt-chart">간트 차트 (Gantt Chart)</h3>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/gantt.png?raw=true" alt="gantt" style="zoom: 70%;" />
+</p>
+
+<p>프로젝트 작업 일정을 막대 도표를 사용해 표시하는 프로젝트 일정표로, 시간선(Time-Line) 차트라고도 합니다. 중간 목표 미달성 시 이유와 기간을 예측하는 데 도움이 됩니다.</p>
+
+<p><br /></p>
+
+<h1 id="소프트웨어-품질-관리-quality-management">소프트웨어 품질 관리 (Quality Management)</h1>
+<p>SW 품질을 보장하고 향상시키는 데 초점을 두어, 제품이 요구되는 품질 기준을 충족하도록 보장하는 활동입니다.</p>
+
+<h2 id="테스트-케이스-test-case와-isoiecieee-29119-3">테스트 케이스 (Test Case)와 ISO/IEC/IEEE 29119-3</h2>
+<p>구현된 SW가 요구사항을 정확히 준수했는지 확인하기 위해 테스트할 때, 이 테스트 항목에 대한 명세서입니다. ISO/IEC/IEEE 29119-3 표준에 따른 테스트 케이스 구성 요소로는:</p>
+<ul>
+  <li>식별자: 항목 식별자, 일련번호</li>
+  <li>테스트 항목: 테스트의 대상(모듈, 기능 등)</li>
+  <li>입력 명세: 테스트 데이터, 테스트 조건</li>
+  <li>출력 명세: 테스트 케이스 수행 시 예상되는 출력 결과</li>
+  <li>환경 설정: 필요한 HW, SW 환경</li>
+  <li>특수 절차 요구: 테스트 케이스 수행 시 특별히 요구되는 절차</li>
+  <li>의존성 기술: 테스트 케이스 간 의존성</li>
+</ul>
+
+<h2 id="isoiec-12207">ISO/IEC 12207</h2>
+<p>ISO(국제표준화기구)에서 만든 표준 SW 생명 주기 프로세스입니다. SW 개발, 운영, 유지보수 등을 체계적으로 관리하기 위한 SW 생명 주기 표준을 제공합니다. 아래와 같이 구분됩니다:</p>
+<ul>
+  <li>기본 생명 주기 프로세스: 획득, 공급, 개발, 운영, 유지보수</li>
+  <li>지원 생명 주기 프로세스: 품질 보증, 검증, 확인, 활동 검토, 감사, 문서화, 형상 관리, 문제 해결</li>
+  <li>조직 생명 주기 프로세스: 관리, 기반 구조, 훈련, 개선</li>
+</ul>
+
+<h2 id="spice-software-process-improvement-and-capability-determination">SPICE (Software Process Improvement and Capability dEtermination)</h2>
+<p>공식 명칭은 ISO/IEC 15504로, SW 품질 및 생산성 향상을 위해 SW 프로세스를 평가, 개선하는 국제 표준입니다.</p>
+
+<h3 id="spice-기준-프로세스-수행-능력-단계">SPICE 기준 프로세스 수행 능력 단계</h3>
+<ul>
+  <li>0 Incomplete (불완전): 프로세스가 구현되지 않았거나 목적을 달성하지 못한 단계</li>
+  <li>1 Performed (수행): 프로세스가 수행되고 목적이 달성된 단계</li>
+  <li>2 Managed (관리): 자원의 한도 내에서 프로세스가 작업의 산출물을 내는 단계</li>
+  <li>3 Established (확립): 소프트웨어 공학 원칙에 기반하여 정의된 프로세스가 수행되는 단계</li>
+  <li>4 Predictable (예측): 프로세스가 목적 달성을 위해 통제되고 양적 측정을 통해 일관적으로 수행되는 단계</li>
+  <li>5 Optimizing (최적화): 프로세스 수행이 최적화되고 지속적으로 개선되어 목적을 만족하는 단계</li>
+</ul>
+
+<h2 id="cmmi-capability-maturity-model-integration">CMMI (Capability Maturity Model Integration)</h2>
+<p>SW 개발 조직의 업무 능력 및 성숙도를 평가하는 모델입니다. 성숙도 단계는 아래와 같습니다:</p>
+<ul>
+  <li>1 Initial (초기): 작업자의 능력에 성공 여부가 달림</li>
+  <li>2 Managed (관리): 특정 프로젝트 안에서 프로세스가 정의 및 수행됨</li>
+  <li>3 Defined (정의): 조직의 표준 프로세스가 존재하여 이에 따라 업무 수행</li>
+  <li>4 Quantitatively Managed (정량적 관리): 프로젝트를 정량적으로 관리 및 통제함</li>
+  <li>5 Optimized (최적화): 프로세스 역량 강화를 위해 지속적으로 프로세스를 개선함</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="소프트웨어-재사용-software-reuse">소프트웨어 재사용 (Software Reuse)</h1>
+<p>이미 개발되어 인정 받은 SW를 다른 SW 개발이나 유지에 사용하는 것을 말합니다.</p>
+<ul>
+  <li>Composition-Based (합성 중심; 블록 구성 방법): SW 부품(블록)을 만들어 끼워 맞추며 SW를 완성시키는 방법.</li>
+  <li>Geneeration-Based (생성 중심; 패턴 구성 방법): 추상화된 명세를 구체화하여 프로그램을 만드는 방법.</li>
+</ul>
+
+<p><span style="background-color:#EAEDED"># 요구 명세 기법과 UML: 요구 명세 기법은 사용자 요구사항을 수집하고 명확히 정의하는 기법으로, 유스케이스 다이어그램과 같이 UML을 사용할 수도 있습니다. 한편, UML은 요구사항을 포함한 시스템의 다양한 측면을 시각적으로 표현하는 데 사용되는 표준 모델링 언어입니다. 즉, UML이 더 넓은 개념이라고 할 수 있습니다.</span></p>
+
+<h1 id="case-computer-aided-software-engineering">CASE (Computer Aided Software Engineering)</h1>
+<p>SW 개발 과정 전체 혹은 일부를 컴퓨터 및 전용 SW 도구를 사용해 자동화하는 것을 말합니다.</p>
+<ul>
+  <li>주요 기능: 소프트웨어 생명 주기 전 단계 연결, 다양한 소프트웨어 개발 모형 지원, 그래픽 지원.</li>
+</ul>
+
+<p><br /></p>
+
+</div>
+
+
+<div class="related">
+  <h2 class="related-title">Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/study/2024/07/31/hopkins/">
+            Hopkins Statistic&nbsp;
+            <small>31 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/cs%20basics/2024/07/22/sw7_2/">
+            소프트웨어 관리 2: 애플리케이션 테스트&nbsp;
+            <small>22 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/cs%20basics/2024/07/22/sw3_5/">
+            소프트웨어 설계 5: 미들웨어와 인터페이스&nbsp;
+            <small>22 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+        
+          <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+        
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

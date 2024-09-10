@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!--site.title site.tagline-->
+  <title>
+    
+      소프트웨어 설계 4: 모듈과 결합도 및 응집도, 코드 &middot; Coffee Chat
+    
+  </title>
+
+  
+  <link rel="canonical" href="https://alatteaday.github.io/cs%20basics/2024/07/22/sw3_4/">
+  
+
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/poole.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/syntax.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://alatteaday.github.io/public/favicon.ico/apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://alatteaday.github.io/public/favicon.ico/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://alatteaday.github.io/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Curation of studies, techs, ideas and a journey as a maching learning engineer</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/about">About</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/">Home</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/tags">Tags</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/tags">Papers</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/tags">Study</a>
+
+    
+
+    
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+          <a class="sidebar-nav-item" 
+          href="https://alatteaday.github.io/about/">About</a>
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/category/cs/">CS Basics</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/category/error/">Dev Tips & Fixes</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+    <!--
+    <a class="sidebar-nav-item" href="/archive/v1.1.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span> 
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2024. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <!--site.title site.tagline-->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container" >
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Coffee Chat</a>
+            <small>Brewing AI Knowledge</small>
+          </h3>
+          <div class="lang-switcher">
+    
+    
+        eng
+    
+
+    
+    
+        
+            <a href="/ko/cs%20basics/2024/07/22/sw3_4/">kor</a>
+        
+    
+
+</div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">소프트웨어 설계 4: 모듈과 결합도 및 응집도, 코드</h1>
+  <p class="post-date">22 Jul 2024&nbsp;&nbsp;&nbsp;&nbsp;
+    <!--<span class="post-date">22 Jul 2024</span>-->
+    
+      
+        
+          <span class="tag" data-tag="cs">
+            <a href="https://alatteaday.github.io/tags/?tag=cs">
+              #cs
+            </a>
+          </span>
+        
+      
+    
+  </p>
+  <h1 id="모듈">모듈</h1>
+<p>모듈화를 통해 분리된 시스템의 각 기능으로, 서브루틴, 서브시스템, 프로그램, 작업 단위 등을 말합니다. 한 개 혹은 여러 개의 기능을 논리적으로 수행하므로 명령어의 집합이라고도 볼 수 있습니다.</p>
+<ul>
+  <li>모듈의 독립성: 한 SW 내 모듈들이 기능적으로 독립되는 성질로, 결합도와 응집도에 의해 측정됩니다.</li>
+</ul>
+
+<h2 id="단위-모듈-unit-module">단위 모듈 (Unit Module)</h2>
+<p>SW 구현에서 동작 하나를 수행하는 기능을 모듈로 구현한 것으, 독립적인 컴파일이 가능하고, 다른 모듈에 호출되거나 삽입됩니다.</p>
+<ul>
+  <li>단위 기능: 단위 모듈로 구현되는 기능</li>
+  <li>단위 모듈 구현 과정: 단위 기능 명세서 작성 → 입출력 기능 구현 → 알고리즘 구현</li>
+</ul>
+
+<h2 id="공통-모듈과-공통-모듈-명세-기법">공통 모듈과 공통 모듈 명세 기법</h2>
+<p>여러 프로그램에서 공통으로 사용 가능한 모듈로, 공통 모듈을 구현할 때는 기능을 명확히 표시할 수 있도록 다음과 같은 명세 기법을 준수해야 합니다:</p>
+<ul>
+  <li>정확성 (Correctness): 구현 시 해당 기능이 필요하다는 것을 명시함</li>
+  <li>명확성 (Clarity): 기능 이해 시 중의적으로 해석되지 않도록 명확히 작성함</li>
+  <li>완전성 (Completeness): 구현을 위해 필요한 모든 것을 작성함</li>
+  <li>일관성 (Consistency): 공통 기능 간 충돌이 없도록 작성함</li>
+  <li>추적성 (Traceability): 기능에 관한 요구사항의 출처, 관련된 시스템 등 관계 사항을 파악할 수 있게 작성함</li>
+</ul>
+
+<h2 id="ipc-inter-process-communication">IPC (Inter-Process Communication)</h2>
+<p>모듈 간 통신 방식 구현을 위해 사용되는 대표적인 프로그래밍 인터페이스 집합입니다. 복수의 프로세스가 수행되는 동안의 통신도 구현 가능합니다.</p>
+<ul>
+  <li>대표 메소드: Shared Memory(공유 메모리), Socket(소켓), Semaphores, Pipes &amp; named Pipes, Message Queuing</li>
+</ul>
+
+<h1 id="결합도-coupling">결합도 (Coupling)</h1>
+<p>모듈 간 상호 의존하는 정도를 말합니다. 결합도가 약할수록 SW 품질이 높습니다. 종류는 아래와 같습니다. 결합도가 강한 것부터 약한 것 순으로 나열했습니다, 즉 아래로 갈수록 품질이 높습니다:</p>
+<ul>
+  <li>내용 결합도 (Content Coupling): 다른 모듈의 내부 기능과 자료를 직접 참조 및 수정할 때의 결합도</li>
+  <li>공통 결합도 (Common Coupling): 공통 데이터 영역을 여러 모듈이 사용할 때의 결합도, 전역 변수를 갱신하며 상호작용 할 때.</li>
+  <li>외부 결합도 (Exteranl Coupling): 한 모듈이 선언한 데이터(변수)를 외부 모듈이 참조할 때의 결합도</li>
+  <li>제어 결합도 (Control Coupling): 다른 모듈의 논리 흐름을 제어하기 위해 제어 신호나 요소를 전달하는 결합도, 하위 모듈이 상위 모듈로 제어 신호를 보내 명령을 내리는 권리 전도 현상이 발생할 수 있음.</li>
+  <li>스탬프 결합도 (Stamp Coupling): 모듈 간 인터페이스로 자료 구조(배열, 레코드 등)가 전달될 때의 결합도</li>
+  <li>자료 결합도 (Data Coupling): 모듈 간 인터페이스가 자료로만 구성될 떄의 결합도.</li>
+</ul>
+
+<h2 id="팬인과-팬아웃-fan-infan-out">팬인과 팬아웃 (Fan-In/Fan-Out)</h2>
+<ul>
+  <li>팬인 (Fan-In)은 특정 모듈을 제어하는 모듈의 수를,</li>
+  <li>팬아웃 (Fan-Out)은 특정 모듈에 의해 제어되는 모듈의 수를 말합니다.</li>
+</ul>
+
+<h1 id="응집도-cohesion">응집도 (Cohesion)</h1>
+<p>모듈 내부 요소들이 서로 관련된 정도를 말합니다. 응집도가 강할수록 SW 품질이 높습니다. 아래 나열된 종류는 응집도가 약한 것부터 강한 것 순으로 정리되었습니다, 즉 아래로 갈수록 품질이 높습니다:</p>
+<ul>
+  <li>우연적 응집도 (Coincidental Cohesion): 모듈이 서로 관련 없는 요소로만 구성되었을 때의 응집도</li>
+  <li>논리적 응집도 (Logical Cohesion): 모듈이 유사하거나 같은 것으로 분류되는 요소로 구성되었을 때의 응집도</li>
+  <li>시간적 응집도 (Temporal Cohesion): 모듈이 특정 시간에 처리되는 여러 기능으로 구성되었을 때의 응집도</li>
+  <li>절차적 응집도 (Procedural Cohension): 모듈의 구성 요소들이 모듈 내 다수 기능을 순차적으로 수행할 경우의 응집도</li>
+  <li>교환적 응집도 (Communicational Cohension): 모듈이 동일 입/출력으로 서로 다른 기능을 수행하는 요소로 구성되었을 때의 응집도</li>
+  <li>순차적 응집도 (Sequential Cohension): 모듈 내에서 하나의 연산으로부터 나온 출력을 다음 연산의 입력으로 사용할 때의 응집도</li>
+  <li>기능적 응집도 (Functional Cohesion): 모듈 내 모든 요소가 단일 문제와 연관되어 있을 때의 응집도</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="코드-code">코드 (Code)</h1>
+<p>데이터의 분류, 집계, 추출 등을 용이하게 하기 위해 사용하는 기호입니다.</p>
+<ul>
+  <li>주요 기능: 식별, 분류, 배열, 표준화, 간소화</li>
+</ul>
+
+<h2 id="코드의-종류">코드의 종류</h2>
+<ul>
+  <li>순차 코드 (Sequence Code; 순서 코드, 일련번호 코드): 일정 기준(자료 발생일, 크기 등)에 따라 차례로 일련번호를 부여하는 방법</li>
+  <li>블록 코드 (Block Code; 구분 코드): 공통적인 것끼리 블록으로 구분하고, 각 블록 내에서 일련번호를 부여하는 방법</li>
+  <li>10진 코드 (Decimal Code; 도서 분류식 코드): 항목을 0~9로 10진 분할하고, 그 각각에 대해 다시 10진 분할하며 이것을 반복하는 방법 (
+    <ul>
+      <li>e.g. 1000 = Engineering, 1100 = SW Engineering, 1110 = SW Analysis)</li>
+    </ul>
+  </li>
+  <li>그룹 분류 코드 (Group Classification Code): 항목을 대, 중, 소분류 등으로 구분하고, 각 그룹 내 일련번호를 부여하는 방법
+    <ul>
+      <li>e.g. 1-01-001 = Grade1-Math-Calculus, 2-01-001 = Grade2-Math-Calculus</li>
+    </ul>
+  </li>
+  <li>연상 코드 (Mnemonic Code): 항목의 명칭이나 약호와 관련된 숫자, 문자, 기호를 이용해 코드를 부여하는 방법
+    <ul>
+      <li>e.g. TV-40 = 40-inch TV, L-15W-220 = 15W 220V Lamp</li>
+    </ul>
+  </li>
+  <li>표의 숫자 코드 (Significant Digit Code; 유효 숫자 코드): 항목의 성질(길이, 넓이, 부피 등)의 물리적 수치를 그대로 적용시키는 방법
+    <ul>
+      <li>120-70-1500 = A table of which the size is 120$\times$720$\times$1500</li>
+    </ul>
+  </li>
+  <li>합성 코드 (Combined Code): 2개 이상의 코드를 조합해서 만드는 방법
+    <ul>
+      <li>e.g. KE-711: 대한항공 711기 (연상 코드 + 숫자 코드)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+</div>
+
+
+<div class="related">
+  <h2 class="related-title">Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/study/2024/07/31/hopkins/">
+            Hopkins Statistic&nbsp;
+            <small>31 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/cs%20basics/2024/07/22/sw7_2/">
+            소프트웨어 관리 2: 애플리케이션 테스트&nbsp;
+            <small>22 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/cs%20basics/2024/07/22/sw7/">
+            소프트웨어 관리 1: 프로젝트 관리와 품질 관리&nbsp;
+            <small>22 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+        
+          <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+        
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

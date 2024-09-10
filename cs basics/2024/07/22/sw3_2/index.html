@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!--site.title site.tagline-->
+  <title>
+    
+      소프트웨어 설계 2: 디자인 패턴 &middot; Coffee Chat
+    
+  </title>
+
+  
+  <link rel="canonical" href="https://alatteaday.github.io/cs%20basics/2024/07/22/sw3_2/">
+  
+
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/poole.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/syntax.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://alatteaday.github.io/public/favicon.ico/apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://alatteaday.github.io/public/favicon.ico/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://alatteaday.github.io/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Curation of studies, techs, ideas and a journey as a maching learning engineer</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/about">About</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/">Home</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/tags">Tags</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/tags">Papers</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/tags">Study</a>
+
+    
+
+    
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+          <a class="sidebar-nav-item" 
+          href="https://alatteaday.github.io/about/">About</a>
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/category/cs/">CS Basics</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/category/error/">Dev Tips & Fixes</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+    <!--
+    <a class="sidebar-nav-item" href="/archive/v1.1.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span> 
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2024. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <!--site.title site.tagline-->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container" >
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Coffee Chat</a>
+            <small>Brewing AI Knowledge</small>
+          </h3>
+          <div class="lang-switcher">
+    
+    
+        eng
+    
+
+    
+    
+        
+            <a href="/ko/cs%20basics/2024/07/22/sw3_2/">kor</a>
+        
+    
+
+</div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">소프트웨어 설계 2: 디자인 패턴</h1>
+  <p class="post-date">22 Jul 2024&nbsp;&nbsp;&nbsp;&nbsp;
+    <!--<span class="post-date">22 Jul 2024</span>-->
+    
+      
+        
+          <span class="tag" data-tag="cs">
+            <a href="https://alatteaday.github.io/tags/?tag=cs">
+              #cs
+            </a>
+          </span>
+        
+      
+    
+  </p>
+  <h1 id="디자인-패턴-design-pattern">디자인 패턴 (Design Pattern)</h1>
+<p>모듈 간 관계 및 인터페이스를 설계할 때 참조할 수 있는 전형적인 해결 방식 또는 예제를 말합니다. 1995년 Gang of Four (GoF)라 불리는 Erich Gamma, Richard Helm, Ralph Johnson, John Vissides가 체계화했습니다. 수많은 패턴 중 제일 일반적인 패턴을 분류 및 정리하였으므로, 현업에서 제일 많이 사용되는 패턴들이 포함되어 있습니다.</p>
+<ul>
+  <li>문제, 배경, 실제 적용 사례, 재사용 가능 샘플 코드 등으로 구성되어 있습니다.</li>
+  <li>생성, 구조, 행위 패턴으로 구분됩니다.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="생성-패턴-creational-pattern">생성 패턴 (Creational Pattern)</h1>
+<p>클래스/객체의 생성과 참조 과정을 정의하는 패턴입니다.</p>
+
+<h3 id="추상-팩토리-abstract-factory">추상 팩토리 (Abstract Factory)</h3>
+<p>객체 그룹을 인터페이스를 통해 서로 의존하는 것으로 생성하여 추상적으로 표현하는 패턴으로, 연관된 서브클래스를 묶어 한 번에 교체할 수 있습니다.</p>
+
+<h3 id="팩토리-메서드-factory-method">팩토리 메서드 (Factory Method)</h3>
+<p>객체 생성을 서브 클래스에서 처리하도록 분리하여 캡슐화한 패턴으로, 상위 클래스에서는 인터페이스만 정의하고 실제 생성은 서브 클래스가 담당합니다. 가상 생성자 (Virtual Constructor) 패턴이라고도 합니다.</p>
+
+<h3 id="빌더-builder">빌더 (Builder)</h3>
+<p>인스턴스를 조합하여 객체를 생성하는 패턴입니다. 객체의 생성과 표현을 분리하므로, 동일한 객체를 생성했음에도 표현에 있어 다른 결과를 보일 수 있습니다.</p>
+
+<h3 id="프로토타입-prototype">프로토타입 (Prototype)</h3>
+<p>원본 객체를 복제함으로써 객체를 생성하는 패턴으로, 비용이 큰 경우 유용합니다.</p>
+
+<h3 id="싱글톤-singleton">싱글톤 (Singleton)</h3>
+<p>생성된 객체를 어디서든 참조할 수 있지만, 여러 프로세스가 동시 참조할 수는 없는 패턴입니다. 클래스 내 인스턴스가 하나뿐음을 보장하고, 불필요하게 메모리를 낭비하지 않게 합니다.</p>
+
+<p><br /></p>
+
+<h1 id="구조-패턴-structural-pattern">구조 패턴 (Structural Pattern)</h1>
+<p>클래스나 객체를 조합하여 큰 구조를 만드는 패턴으로, 구조가 복잡한 시스템을 개발이 쉽도록 합니다.</p>
+
+<h3 id="어댑터-adapter">어댑터 (Adapter)</h3>
+<p>다른 클래스가 특정 클래스를 이용하고자 할 때, 해당 클래스가 호환성이 없는 경우(인터페이스가 일치하지 않는 경우), 그 클래스의 인터페이스를 변환하여 이용 가능하게 만드는 패턴입니다.</p>
+
+<h3 id="브리지-bridge">브리지 (Bridge)</h3>
+<p>구현 부분에서 추상층을 분리하여 각각 독립적으로 확장될 수 있게 구성한 패턴으로, 구현과 기능을 별도의 클래스로 취급합니다.</p>
+
+<h3 id="컴포지트-composite">컴포지트 (Composite)</h3>
+<p>단일 객체와 여러 객체로 구성된 복합 객체를 구분 없이 다루고자 할 때 사용하는 패턴입니다. 객체들을 트리 구조로 구성하여, 복합 객체 내 복합 객체가 포함되는 구조를 구현할 수 있습니다.</p>
+
+<h3 id="데코레이터-decorator">데코레이터 (Decorator)</h3>
+<p>객체 간 결합을 통해 기능을 확장할 수 있는 패턴으로, 특정 객체에 객체를 덧붙여 부가적인 기능을 추가합니다.</p>
+
+<h3 id="퍼싸드-facade">퍼싸드 (Facade)</h3>
+<p>클래스들 상위에 인터페이스를 구성하여 서브 클래스들의 기능을 간편하게 사용할 수 있게 하는 패턴입니다. 이 통합 인터페이스를 제공하는 Wrapper 객체가 필요합니다.</p>
+
+<h3 id="플라이웨이트-flyweight">플라이웨이트 (Flyweight)</h3>
+<p>인스턴스를 매번 생성하지 않고 가능한 공유해서 사용하는 패턴입니다. 많은 유사 객체를 생성, 조작할 때 유용하며, 메모리를 절약할 수 있습니다.</p>
+
+<h3 id="프록시-proxy">프록시 (Proxy)</h3>
+<p>클래스/객체를 조합하여 복잡한 시스템을 개발하는 작업을 쉽게 해주는 패턴으로, 대리자라고도 불립니다. 내부에서는 객체 간 관계를 단순화해주고, 외부에서는 객체의 세부 내용을 숨겨주는 역할을 합니다.</p>
+
+<p><br /></p>
+
+<h1 id="행위-패턴-behavioral-pattern">행위 패턴 (Behavioral Pattern)</h1>
+<p>클래스나 객체 간 상호작용이나 책임 분배 방법을 정의하는 패턴입니다.</p>
+
+<h3 id="책임-연쇄-chain-of-responsibility">책임 연쇄 (Chain of Responsibility)</h3>
+<p>한 객체가 요청을 처리하지 못하면 다음 객체가 그것을 처리하는 형태의 패턴입니다. 요청을 처리할 수 있는 객체가 둘 이상 존재하고, 이 객체들이 고리(chain)로 묶여 있어 요청이 완료될 때까지 고리를 따라 책임이 넘어갑니다.</p>
+
+<h3 id="커맨드-command">커맨드 (Command)</h3>
+<p>요청을 객체 형태로 캡슐화하여, 요청에 필요한 정보를 저장하거나 로그에 남기는 패턴입니다. 요청에 사용되는 명령어들을 추상 클래스와 구체 클래스로 분리하여 단순화합니다.</p>
+
+<h3 id="인터프리터-interpreter">인터프리터 (Interpreter)</h3>
+<p>언어 문법 표현을 정의하는 패턴으로, SQL이나 통신 프로토콜 등을 개발할 때 사용합니다.</p>
+
+<h3 id="반복자-iterator">반복자 (Iterator)</h3>
+<p>접근이 잦은 객체에 대해(자료구조 등) 동일한 인터페이스를 사용하도록 하는 패턴으로, 내부 표현 노출 없이 순차적인 접근을 가능하게 합니다.</p>
+
+<h3 id="중재자-mediator">중재자 (Mediator)</h3>
+<p>인터페이스를 객체 형태로 캡슐화하는 패턴입니다. 객체 간 의존성을 줄여 결합도를 감소시킬 수 있습니다.</p>
+
+<h3 id="메멘토-memento">메멘토 (Memento)</h3>
+<p>특정 시점의 객체 내부 상태를 객체화하여 이후 해당 시점의 상태로 객체를 돌릴 수 있는 기능을 제공하는 패턴입니다. 대표적으로 취소(Ctrl+Z) 기능이 있습니다.</p>
+
+<h3 id="옵서버-observer">옵서버 (Observer)</h3>
+<p>상위 객체의 상태가 변화하면 하위 객체들에게 변화된 상태를 전달하는 패턴으로, 일대다 의존성을 정의합니다. 주로 분산 시스템에서 이벤트를 발행하고 수신할 때 이용합니다.</p>
+
+<h3 id="상태-state">상태 (State)</h3>
+<p>객체 상태를 캡슐화하여 이를 참조하는 방식으로 처리하는 패턴으로, 객체의 상태에 따라 동일 동작을 다르게 처리할 때 사용합니다.</p>
+
+<h3 id="전략-stretegy">전략 (Stretegy)</h3>
+<p>동일 계열의 알고리즘을 각각 캡슐화하여 상호 교환(대체)될 수 있게 정의하는 패턴입니다. 클라이언트는 독립적으로 알고리즘을 원하는대로 선택할 수 있고, 클라이언트 영향 없이 알고리즘을 변경할 수 있습니다.</p>
+
+<h3 id="템플릿-메소드-template-method">템플릿 메소드 (Template Method)</h3>
+<p>상위 클래스에서 골격을 정의하고, 하위 클래스에서 세부 처리를 구체화하는 패턴입니다. 유사한 클래스를 묶어 공통된 내용을 상위 클래스에서 정의함으로써 코드 양을 줄이고 유지보수를 용이하게 합니다.</p>
+
+<h3 id="방문자-visitor">방문자 (Visitor)</h3>
+<p>각 클래스의 데이터 구조에서 처리 기능을 분리해 별도의 클래스로 구성하는 패턴입니다. 분리된 처리 기능을 각 클래스를 방문함으로써 수행됩니다.</p>
+
+
+</div>
+
+
+<div class="related">
+  <h2 class="related-title">Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/study/2024/07/31/hopkins/">
+            Hopkins Statistic&nbsp;
+            <small>31 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/cs%20basics/2024/07/22/sw7_2/">
+            소프트웨어 관리 2: 애플리케이션 테스트&nbsp;
+            <small>22 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/cs%20basics/2024/07/22/sw7/">
+            소프트웨어 관리 1: 프로젝트 관리와 품질 관리&nbsp;
+            <small>22 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+        
+          <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+        
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

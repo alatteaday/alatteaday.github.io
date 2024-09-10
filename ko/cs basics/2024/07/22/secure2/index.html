@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!--site.title site.tagline-->
+  <title>
+    
+      정보 보안 2: 여러 보안 솔루션과 보안 공격 &middot; Coffee Chat
+    
+  </title>
+
+  
+  <link rel="canonical" href="https://alatteaday.github.io/ko/cs%20basics/2024/07/22/secure2/">
+  
+
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/poole.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/syntax.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://alatteaday.github.io/public/favicon.ico/apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://alatteaday.github.io/public/favicon.ico/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://alatteaday.github.io/ko/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Curation of studies, techs, ideas and a journey as a maching learning engineer</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/about">About</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/">Home</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/tags">Tags</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/tags">Papers</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/ko/tags">Study</a>
+
+    
+
+    
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+          <a class="sidebar-nav-item" 
+          href="https://alatteaday.github.io/ko/about/">About</a>
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/cs/">CS Basics</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/ko/category/error/">Dev Tips & Fixes</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+    <!--
+    <a class="sidebar-nav-item" href="/ko/archive/v1.1.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span> 
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2024. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <!--site.title site.tagline-->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container" >
+          <h3 class="masthead-title">
+            <a href="/ko/" title="Home">Coffee Chat</a>
+            <small>Brewing AI Knowledge</small>
+          </h3>
+          <div class="lang-switcher">
+    
+    
+        
+            <a href=" /cs%20basics/2024/07/22/secure2/">eng</a>
+        
+    
+
+    
+    
+        kor
+    
+
+</div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">정보 보안 2: 여러 보안 솔루션과 보안 공격</h1>
+  <p class="post-date">22 Jul 2024&nbsp;&nbsp;&nbsp;&nbsp;
+    <!--<span class="post-date">22 Jul 2024</span>-->
+    
+      
+        
+          <span class="tag" data-tag="cs">
+            <a href="https://alatteaday.github.io/ko/tags/?tag=cs">
+              #cs
+            </a>
+          </span>
+        
+      
+    
+  </p>
+  <h1 id="보안-솔루션-security-solution">보안 솔루션 (Security Solution)</h1>
+<p>컴퓨터 시스템, 네트워크, 데이터의 보안을 강화하기 위해 사용되는 기술, 소프트웨어, 하드웨어, 정책 및 절차의 집합.</p>
+
+<h2 id="침입-방지-시스템">침입 방지 시스템</h2>
+<ul>
+  <li>침입 방지 시스템 (IPS; Intrusion Prevention System): 비정상적 트래픽을 차단 및 격리하는 등 방어 조치하는 보안 솔루션.
+    <ul>
+      <li>침입 방지 시스템 = 방화벽 + 침입 탐지 시스템</li>
+      <li>침입 탐지 시스템으로 패킷을 검사 → 비정상적 패킷이 탐지되면 → 방화벽으로 해당 패킷을 차단</li>
+    </ul>
+  </li>
+  <li>침입 탐지 시스템 (IDS; Intrusion Detection System): 시스템의 비정상적 사용, 오용, 남용 등을 실시간으로 탐지하는 시스템.
+    <ul>
+      <li>오용 탐지 (Misuse Detection): 미리 입력해 둔 공격 패턴이 감지되면 알림</li>
+      <li>이상 탐지 (Anomaly Detection): 평균적인 시스템의 상태와 다른, 비정상적 행위나 자원 사용이 감지되면 알림</li>
+    </ul>
+  </li>
+  <li>방화벽 (Firewall): 기업이나 조직 내부의 네트워크로 들어오는 정보를 선별하여 수용, 거부, 수정하는 기능을 하는 침입 차단 시스템.
+    <ul>
+      <li>내부 네트워크에서 나가는 패킷은 통과시키고, 외부에서 내부로 들어오는 패킷은 내용을 체크하여 인증된 패킷만 통과시킴.</li>
+    </ul>
+  </li>
+  <li>웹 방화벽 (Web Firewall): 웹 서버에 특화된 방화벽.
+    <ul>
+      <li>일반 방화벽이 탐지하지 못하는 웹 기반 공격(SQL 삽입 공격, XSS 등)을 방어할 목적으로 만들어짐.</li>
+      <li>웹 기반 공격을 감시하고, 사전 차단해 줌.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="보안-관련-규격-및-대책">보안 관련 규격 및 대책</h2>
+<ul>
+  <li>AAA (3A): 컴퓨터 자원 접근에 대한 처리와 서비스를 제공하는 기반 구조 또는 규격
+    <ul>
+      <li>Authentication (인증): 접근하는 사용자의 신원을 검증하는 기능. 로그인 요청 시 정보를 확인하고 접근 권한을 검증하는 보안 절차.
+        <ul>
+          <li>지식 기반 인증 (Something You Know): 패스워드, i-Pin 등</li>
+          <li>소유 기반 인증 (Something You Have): 신분증, 메모리 카드, 스마트 카드, OTP 등</li>
+          <li>행위 기반 인증 (Someting You Do): 서명, 동작 등</li>
+          <li>생체 기반 인증 (Something You Are): 지문, 홍채/망막, 얼굴, 음성, 정맥 등</li>
+          <li>위치 기반 인증 (Somewhere You Are): GPS, IP, Callback 등</li>
+        </ul>
+      </li>
+      <li>Authorization (인가): 신원이 검증된 사용자에게 특정 권한과 서비스를 허용하는 기능.</li>
+      <li>Accounting (과금): 사용자가 이용한 서비스, 사용한 자원량 등을 기록 및 보관하는 기능.</li>
+    </ul>
+  </li>
+  <li>ISMS (Information Security Management System; 정보보호 관리 체계): 정보 자산을 보호하기 위한 절차와 대책.
+    <ul>
+      <li>조직에 맞는 정보보호 정책을 수립하고, 위험에 상시 대응하는 여러 보안 대책을 통합 관리 및 운용함.</li>
+      <li>한국에서는 한국인터넷진흥원(KISA)에서 ISMS를 평가하고 이증하는 사업을 운영하고 있음.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="그-외-보안-솔루션">그 외 보안 솔루션</h2>
+<ul>
+  <li>DLP (Data Leakage/Loss Prevention; 데이터 유출 방지): 내부 정보가 외부로 유출되는 것을 방지하는 보안 솔루션.
+    <ul>
+      <li>사내 직원의 PC와 네트워크 상의 모든 정보를 검색하고, 메일, 메신저, 웹하드, 프린터 등의 사용자 행위를 탐지 및 통제함으로써 외부 유출을 사전 방지함.</li>
+    </ul>
+  </li>
+  <li>VPN (Virtual Private Network; 가상 사설 통신망): 통신 사업자의 공중 네트워크와 암호화 기술을 이용해, 전용 회선을 사용하는 것처럼 만드는 보안 솔루션.
+    <ul>
+      <li>SSL VPN: PC에 VPN Client 프로그램을 설치하여 VPN 서버에 접속하는 방식. 암호화를 위해 SSL 프로토콜을 사용.</li>
+      <li>IPSec VPN: VPN 서버가 설치된 각 네트워크를 서로 연결하는 방식. 암호화를 위해 IPSec 프로토콜을 사용.</li>
+    </ul>
+  </li>
+  <li>NAC (Network Access Control): 네트워크에 접속하는 PC의 MAC 주소를 IP 관리 시스템에 등록하고, 일관된 보안 관리를 하는 보안 솔루션.
+    <ul>
+      <li>내부 PC의 소프트웨어 사용 현황을 관리하여, 불법적인 소프트웨어 설치를 방지.</li>
+    </ul>
+  </li>
+  <li>SIEM (Security Information and Event Management): 로그 및 보안 이벤트를 통합 관리하는 빅 데이터 기반의 보안 솔루션.
+    <ul>
+      <li>방화벽, IDS, IPS, VPN 등에서 발생한 로그 및 보안 이벤트를 통합 관리, 비용 및 자원 절약</li>
+      <li>장기간의 로그 및 보안 이벤트를 수집 및 검색할 수 있는 빅데이터 기반의 통합 로그 수집 시스템</li>
+    </ul>
+  </li>
+  <li>SSH (Secure SHell; 시큐어 셸): 다른 컴퓨터에 원격 접속하여 작업할 수 있도록 다양한 기능을 지원하는 프로토콜.
+    <ul>
+      <li>데이터 암호화, 강력한 인증 방법으로 안전하게 통신할 수 있음.</li>
+      <li>키(key)를 통한 인증 방법을 사용하려면 사전에 클라이언트의 공개키를 서버에 등록해야 함.</li>
+      <li>기본적으로는 22번 포트를 사용함.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="보안-공격-security-attack">보안 공격 (Security Attack)</h1>
+<p>시스템의 취약점을 이용하여 무단 접근, 데이터 훼손, 정보 도용 등을 시도하는 악의적인 행위입니다.</p>
+
+<h2 id="서비스-거부-공격-dos-denial-of-service">서비스 거부 공격 (DoS; Denial of Service)</h2>
+<p>대량의 데이터를 한 서버에 집중적으로 전송하여, 해당 서버의 정상적인 기능을 방해하는 보안 공격. 표적인 서버의 자원을 고갈시키기 위해 행해짐.</p>
+<ul>
+  <li>Ping of Death: Ping 명령을 전송할 때 패킷의 크기를 허용 범위 이상으로 하여, 공격 대사의 네트워크를 마비시키는 방법.
+    <ul>
+      <li>원리: 공격 패킷은 수백 개의 패킷으로 분할되어 타겟 서버에 전송됨. 타겟 서버는 분할된 대량의 패킷을 받아 재조립해야 하고, 각 패킷의 ICMP Ping 메시지에 대해 응답하느라 시스템이 다운되게 됨.</li>
+    </ul>
+  </li>
+  <li>SMURFING (스머핑): IP나 ICMP의 특성을 악용해, 대량의 데이터를 한 사이트에 집중적으로 보내어 네트워크를 불능으로 만드는 방법.
+    <ul>
+      <li>방지 방법: 네트워크 라우터에서 브로드캐스트 주소를 사용할 수 없게 미리 설정.</li>
+    </ul>
+  </li>
+  <li>SYN Flooding: 공격자가 가상의 클라이언트로 위장하여 TCP의 3-way-handshake 과정을 중단시킴으로써 타겟 서버가 정상적 서비스를 수행하지 못하게 하는 방법.
+    <ul>
+      <li>원리: TCP(Transmission Control Protocol)는 신뢰성 있는 전송을 위해 3-way-handshake를 거친 후 데이터를 전송하는데, 이 과정이 중단되면 서버가 데이터를 전송하지 못하고 대기 상태에 놓이게 됨.</li>
+    </ul>
+  </li>
+  <li>TearDrop: 패킷 분할 순서 정보를 나타내는 Offset값을 변경시켜 수신 측의 과부하를 발생시키는 방법.
+    <ul>
+      <li>원리: 데이터 송/수신 시 패킷의 크기가 크면 패킷을 분할해서 전송함. 이 때 분할 순서를 알 수 있는 Fragment offset 값을 함께 전송함. 이 값을 변경시킴으로써 패킷 재조립 시 오류를 발생시키고, 시스템을 다운시킴.</li>
+    </ul>
+  </li>
+  <li>LAND Attack (Local Area Network Denial Attack): 패킷 전송 시 송/수신 IP 주소를 모두 타겟의 IP 주소로 하여 전송함으로써 타겟이 스스로 무한히 응답하게 하는 방법.
+    <ul>
+      <li>원리: 송/수신 IP 주소가 모두 자신이면, 자신이 수신 받은 패킷에 대한 응답을 자신에게 보내게 됨. 이런 패킷이 계속 전송되면 무한히 응답하게 됨.</li>
+      <li>방지 방법: 송/수신 주소가 같은 패킷을 사전 차단.</li>
+    </ul>
+  </li>
+  <li>DDoS (Distributed Denial of Service): 분산된 공격 지점에서 한 곳의 타겟 서버에 대해 DoS 공격을 수행하는 것.
+    <ul>
+      <li>네트워크가 취약한 호스트를 여럿 탐색한 후, 이들에 DDoS 공격 툴(Daemon)을 설치해 에이전트로 만든 후 DDoS 공격에 이용.</li>
+      <li>Daemon (데몬): 에이전트(Agent) 역할을 하도록 설계된 프로그램. 종류로는:
+        <ul>
+          <li>Trin00: 최초 형태의 데몬, 주로 UDP Flooding 공격을 수행</li>
+          <li>TFN (Tribe Flood Network): UDP Flooding 외에도 TCP SYN Flooding, ICMP 응담 요청, SMURFING 등을 수행</li>
+          <li>TFN2K: TFN의 확장판</li>
+          <li>Stacheldraht: 이전 툴들의 기능 유지 + 공격자, 마스터, 에이전트가 쉽게 노출되지 않게 암호화된 통신 수행. 툴이 자동 업데이트 됨.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="그-외-보안-공격">그 외 보안 공격</h2>
+<ul>
+  <li>세션 하이재킹 (Session Hijacking): 접속 중인 클라이언트와 서버 사이의 세션 정보를 가로채는 공격 기법. 접속을 위한 인증을 거치지 않고 가로챈 세션을 이용해 원래의 클라이언트로 위장하여 타겟 서버의 자원 및 데이터를 무단으로 사용.
+    <ul>
+      <li>TCP 세션 하이재킹: TCP 3-way-handshaking 과정에 끼어들어 클라이언트-서버 간 동기화된 시퀀스 번호를 가로채어, 타겟 서버에 무단으로 접근.</li>
+    </ul>
+  </li>
+  <li>타이포시쿼팅 (Typosquatting): 기존 유명 도메인과 유사한 도메인을 미리 등록하는 것. 사용자들이 사이트 접속 시 주소를 잘못 입력하는 실수를 이용함.
+    <ul>
+      <li>URL 하이재킹(URL Hijacking)이라고도 함.</li>
+    </ul>
+  </li>
+  <li>키로거 공격 (Key Logger Attack): 사용자의 키보드 움직임을 탐지해 중요 개인 정보를 빼가는 해킹 공격.</li>
+  <li>워터링 홀 (Watering Hole): 사용자가 자주 방문하는 웹 사이트를 사전 감염시켜, 해당 사이트에 방문했을 때 악성 코드에 감염되게 하는 웹 기반 공격. 감염된 PC를 통해 사용자가 속한 중요 시스템에 접근하거나, 불능으로 만들 수도 있음.</li>
+  <li>ARP 스푸핑 (ARP Spoofing): ARP의 취약점을 이용해 자신의 MAC를 타겟의 것으로 변조하여, 타겟에 도달할 데이터 패킷을 가로채거나 전송을 방해하는 기법.</li>
+  <li>스니핑 (Sniffing): 네트워크 중간에서 남의 패킷 정보를 도청하는 수동적 공격.</li>
+  <li>랜섬웨어 (Ransomware): 사용자의 컴퓨터에 잠입해 문서나 파일 등을 암호화해 사용자가 열지 못하게 하는 프로그램. 암호 해독을 조건으로 돈을 요구하기도 함.</li>
+  <li>사회 공학 (Social Engineering): 인간 사이 신뢰를 바탕으로 사람들을 속여 정상 보안 절차를 깨트리기 위한 비기술적 시스템 침입 수단.</li>
+  <li>다크 데이터 (Dark Data): 활용되지 않고 저장만 되어 있는 대량의 데이터로, 저장 공간 낭비 뿐만 아니라 보안 위험을 초래할 수 있음.</li>
+  <li>백도어 (Back Door, Trap Door): 시스템 설계자가 액세스 편의를 위해 시스템 보안을 제거하여 만들어 놓은 비밀 통로로, 컴퓨터 범죄에 악용될 수 있음.
+    <ul>
+      <li>백도어 탐지 방법: 무결성 검사, 열린 포트 확인, 로그 분석, SetUID 파일 검사 등</li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+
+
+<div class="related">
+  <h2 class="related-title">Related posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/ko/study/2024/07/31/hopkins/">
+            Hopkins Statistic&nbsp;
+            <small>31 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/cs%20basics/2024/07/22/sw7_2/">
+            소프트웨어 관리 2: 애플리케이션 테스트&nbsp;
+            <small>22 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/ko/cs%20basics/2024/07/22/sw7/">
+            소프트웨어 관리 1: 프로젝트 관리와 품질 관리&nbsp;
+            <small>22 Jul 2024</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+
+        
+          <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+        
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>

@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <!--site.title site.tagline-->
+  <title>
+    
+      Coffee Chat &middot; Brewing AI Knowledge
+    
+  </title>
+
+  
+  <link rel="canonical" href="https://alatteaday.github.io/page5/">
+  
+
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/poole.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/syntax.css">
+  <link rel="stylesheet" href="https://alatteaday.github.io/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://alatteaday.github.io/public/favicon.ico/apple-touch-icon.png">
+  <link rel="shortcut icon" href="https://alatteaday.github.io/public/favicon.ico/favicon.ico">
+
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://alatteaday.github.io/atom.xml">
+
+  
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Curation of studies, techs, ideas and a journey as a maching learning engineer</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/about">About</a>
+    <a class="sidebar-nav-item active" href="https://alatteaday.github.io/">Home</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/tags">Tags</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/tags">Papers</a>
+    <a class="sidebar-nav-item" href="https://alatteaday.github.io/tags">Study</a>
+
+    
+
+    
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+          <a class="sidebar-nav-item" 
+          href="https://alatteaday.github.io/about/">About</a>
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/category/cs/">CS Basics</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+          <a class="sidebar-nav-item "
+          href="https://alatteaday.github.io/category/error/">Dev Tips & Fixes</a>
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+      
+        <!--
+        
+        -->
+        
+      
+    
+    <!--
+    <a class="sidebar-nav-item" href="/archive/v1.1.0.zip">Download</a>
+    <a class="sidebar-nav-item" href="">GitHub project</a>
+    <span class="sidebar-nav-item">Currently v1.1.0</span> 
+    -->
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2024. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <!--site.title site.tagline-->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container" >
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Coffee Chat</a>
+            <small>Brewing AI Knowledge</small>
+          </h3>
+          <div class="lang-switcher">
+    
+    
+        eng
+    
+
+    
+    
+        
+            <a href="/ko/page5/">kor</a>
+        
+    
+
+</div>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="https://alatteaday.github.io/cs%20basics/2024/07/21/db3/">
+        데이터베이스 3: 이상, 함수적 종속과 정규화
+      </a>
+    </h1>
+    <!--<span class="post-date">21 Jul 2024</span>-->
+    <p class="post-date">21 Jul 2024&nbsp;&nbsp;&nbsp;&nbsp;
+      
+        
+          
+            <span class="tag" data-tag="cs">
+              <a href="https://alatteaday.github.io/tags/?tag=cs">
+                #cs
+              </a>
+            </span>
+            
+        
+      
+    </p>
+    <!--
+    
+    -->
+    <h1 id="이상-anomaly">이상 (Anomaly)</h1>
+
+<p>DB 내 데이터가 불필요하게 중복되어 릴레이션 조작 시 예기치 않게 발생하는 곤란한 현상.</p>
+<ul>
+  <li>삽입 이상 (Insertion Anomaly): 데이터 삽입 시 의도치 않은 값들로 인해 삽입할 수 없게 되는 현상.</li>
+  <li>삭제 이상 (Deletion Anomaly): 튜플 삭제 시 의도치 않은 값들도 삭제되는 현상 (연쇄 삭제).</li>
+  <li>갱신 이상 (Update Anomaly): 튜플의 속성값을 갱신할 때 일부 튜플의 정보만 갱신되는 현상. 불일치성(Inconsistency) 발생.</li>
+</ul>
+
+<h1 id="함수적-종속-functional-dependency">함수적 종속 (Functional Dependency)</h1>
+
+<p>테이블 $R$의 속성 집합의 부분 집합 $X$와 $Y$에 대해, $X$의 값 각각에 대해 항상 $Y$의 값이 오직 하나만 연관되어 있을 때 ‘$Y$는 $X$에 함수적 종속’ 또는 ‘$X$가 $Y$를 함수적으로 결정한다’고 표현함.</p>
+<ul>
+  <li>
+    <p>기호: $X\rightarrow Y$</p>
+  </li>
+  <li>완전 함수적 종속 (Full Functional Dependency): $Y$가 $X$에 대해 함수적 종속이면서 $X$의 어떤 진부분 집합 $Z (X \sup Z)$에도 함수적 종속이 아닐 때 ‘$Y$는 $X$에 완전 함수적 종속’이라고 함.</li>
+  <li>부분 함수적 종속 (Partial Functional Dependency): $Y$가 $X$에 대해 함수적 종속이면서 $X$의 임의의 진부분 집합 $Z$에 대해 함수적 종속일 때 ‘$Y$는 $X$에 부분 함수적 종속’이라고 함.</li>
+  <li>이행적 함수적 종속 (Transitive Functional Dependency): $X\rightarrow Y$이고 $Y\rightarrow Z$일 때 $X\rightarrow Z$인 관계.</li>
+</ul>
+
+<h1 id="정규화-normalization">정규화 (Normalization)</h1>
+
+<p>테이블을 무손실 분해하는 과정. 속성들이 상호 종속적인 관계를 갖는 특성을 이용.</p>
+<ul>
+  <li>목적: 중복을 가능한 제거하여 삽입, 삭제, 갱신 이상의 발생 가능성을 줄이는 것.</li>
+  <li>정규형: 제 1정규형(1NF) → 제 2정규형(2NF) → 제 3정규형(3NF) → BCNF → 제 4정규형(4NF) → 제 5정규형(5NF)</li>
+</ul>
+
+<h2 id="정규화-과정">정규화 과정</h2>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/normalization.png?raw=true" alt="erd" style="zoom: 80%;" />
+</p>
+
+<h2 id="반정규화-denormalization">반정규화 (Denormalization)</h2>
+
+<p>정규화된 데이터 모델을 의도적으로 통합, 중복, 분리하여 정규화 원칙을 위배하는 행위.</p>
+<ul>
+  <li>시스템의 성능 향상, 개발 및 운영의 편의성 등을 향상시킬 수 있음.</li>
+  <li>과도한 반정규화는 오히려 성능을 저하시킴.</li>
+</ul>
+
+<h3 id="중복-테이블-추가">중복 테이블 추가</h3>
+<p>작업의 효율성을 위해 테이블을 추가하는 것.</p>
+<ul>
+  <li>집계 테이블 추가: 집계 데이터를 위한 테이블 생성, 원본 테이블에 트리거를 설정하여 사용.</li>
+  <li>진행 테이블 추가: 이력 관리 등의 목적으로 테이블 추가.</li>
+  <li>특정부분만을 포함하는 테이블 추가: 데이터가 많은 테이블에서 특정 부분만을 사용하는 경우 해당 부분으로 새로운 테이블 형성.</li>
+</ul>
+
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="https://alatteaday.github.io/cs%20basics/2024/07/21/db2/">
+        데이터베이스 2: 릴레이션과 키, 관계 대수
+      </a>
+    </h1>
+    <!--<span class="post-date">21 Jul 2024</span>-->
+    <p class="post-date">21 Jul 2024&nbsp;&nbsp;&nbsp;&nbsp;
+      
+        
+          
+            <span class="tag" data-tag="cs">
+              <a href="https://alatteaday.github.io/tags/?tag=cs">
+                #cs
+              </a>
+            </span>
+            
+        
+      
+    </p>
+    <!--
+    
+    -->
+    <h1 id="관계형-데이터베이스와-릴레이션">관계형 데이터베이스와 릴레이션</h1>
+
+<h2 id="관계형-데이터베이스-relational-database">관계형 데이터베이스 (Relational DataBase)</h2>
+<p>데이터를 테이블 형태로 저장하고 관리하는 DB 시스템.</p>
+<ul>
+  <li>각 테이블은 데이터 구조와 데이터 저장 방식에 대해 정의된 고정된 스키마를 따름.</li>
+  <li>SQL(Structured Query Language)을 사용하여 데이터의 삽입, 수정, 삭제, 조회 등의 작업을 수행.</li>
+</ul>
+
+<h2 id="릴레이션-relation">릴레이션 (Relation)</h2>
+<p>관계형 데이터베이스에서 사용하는 기본 구조로, 흔히 테이블(table)이라고 함.</p>
+<ul>
+  <li>행과 열로 구성되며, 각 행은 하나의 데이터 항목(tuple, record)을, 각 열은 데이터 속성(attribute, field)을 나타냄.</li>
+  <li>수학적 개념의 관계(relation)에서 유래하며, 집합론에서의 관계와 비슷한 개념.</li>
+</ul>
+
+<h2 id="릴레이션의-구조">릴레이션의 구조</h2>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/relation.png?raw=true" alt="erd" style="zoom: 80%;" />
+</p>
+
+<ul>
+  <li>릴레이션 스키마 (Relation Schema): 릴레이션의 구조.</li>
+  <li>릴레이션 인스턴스 (Relation Instance): 속성의 데이터 타입에 맞게 구체적인 데이터 값을 가진 데이터 개체.</li>
+  <li>튜플 (Tuple): 릴레이션을 구성하는 각각의 행. 속성의 모임.
+    <ul>
+      <li>카디널리티 (Cardinality; 기수, 대응수): 튜플의 수.</li>
+    </ul>
+  </li>
+  <li>속성 (Attribute): DB를 구성하는 가장 작은 논리적 단위. 개체의 특성을 기술.
+    <ul>
+      <li>데이터 항목 또는 데이터 필드에 해당함.</li>
+      <li>디그리 (Degree; 차수): 속성의 수.</li>
+    </ul>
+  </li>
+  <li>도메인 (Domain): 하나의 속성이 취할 수 있는 같은 타입의 원자값들의 집합.
+    <ul>
+      <li>시스템이 속성값의 합법 여부를 검사하는 데 사용. (e.g. ‘Gender’의 도메인은 ‘Male’, ‘Female’로 그 외 값은 입력할 수 없다.)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="키-key">키 (Key)</h1>
+
+<p>DB에서 조건에 맞는 튜플을 찾거나 정렬할 때 기준이 되는 속성.</p>
+
+<h2 id="유일성과-최소성">유일성과 최소성</h2>
+<ul>
+  <li>유일성 (Unique): 하나의 키 값으로 하나의 튜플만을 유일하게 식별할 수 있는 성질.</li>
+  <li>최소성 (Minimality): 튜플을 식별하는 데 필요한 최소한의 속성으로 구성된 것.</li>
+</ul>
+
+<h2 id="키의-종류">키의 종류</h2>
+<ul>
+  <li>후보키 (Candidate Key): 속성 중 튜플을 유일하게 식별하기 위해 사용되는 속성의 집합.
+    <ul>
+      <li>기본키의 후보가 되는 속성.</li>
+      <li>조건: 유일성과 최소성을 모두 만족함.</li>
+    </ul>
+  </li>
+  <li>기본키 (Primary Key; 주키 (Main Key)): 후보키 중 특별히 선정된 키.
+    <ul>
+      <li>한 릴레이션에서 특정 튜플을 유일하게 구별할 수 있는 속성.</li>
+      <li>조건: 중복된 값을 가질 수 없음, NULL값을 가질 수 없음.</li>
+      <li>외래키로 참조될 수 있음.</li>
+    </ul>
+  </li>
+  <li>대체키 (Alternate Key; 보조키): 기본키를 제외한 나머지 후보키.</li>
+  <li>슈퍼키 (Super Key): 속성의 집합으로 구성된 키.
+    <ul>
+      <li>릴레이션 내 모든 튜플 중 슈퍼키로 구성된 속성의 집합과 동일한 값은 나타나지 않음.</li>
+      <li>조건: 유일성은 만족, 최소성은 만족하지 않음.</li>
+    </ul>
+  </li>
+  <li>외래키 (Foreign Key): 다른 릴레이션으 기본키를 참조하는 속성 또는 속성의 집합.
+    <ul>
+      <li>조건: 참조 릴레이션의 기본키에 없는 값은 외래키가 될 수 없음.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="무결성-integrity">무결성 (Integrity)</h2>
+<p>DB에 저장된 데이터 값과 현실 세계의 실제 값이 일치하는 정확성.</p>
+<ul>
+  <li>개체 무결성: 기본키를 구성하는 어떤 속성도 NULL이나 중복값을 가질 수 없다는 규정.</li>
+  <li>참조 무결성: 릴레이션은 참조할 수 없는 외래키 값을 가질 수 없다는 규정. 외래키의 값은 NULL이거나 참조 릴레이션의 기본키 값과 동일해야 함.</li>
+</ul>
+
+<h2 id="인덱스-index">인덱스 (Index)</h2>
+<p>데이터 레코드(튜플)에 빠르게 접근하기 위해 &lt;키, 포인터&gt; 쌍으로 구성된 데이터 구조.</p>
+<ul>
+  <li>레코드가 저장된 물리적 구조에 접근하는 방법을 제공. 빠른 액세스 가능.</li>
+  <li>기본키 인덱스: 기본키를 위한 인덱스. 대부분의 관계형 DBMS에서는 모든 기본키에 대해 기본키 인덱스를 자동 생성함.</li>
+  <li>트리 기반, 함수 기반, 비트맵, 비트맵 조인 인덱스 등이 있음.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="관계-대수와-관계-해석">관계 대수와 관계 해석</h1>
+
+<h2 id="관계-대수-relational-algebra">관계 대수 (Relational Algebra)</h2>
+<p>관계형 DB에서 원하는 정보와 그것을 어떻게 유도하는지를 기술하는 절차적 언어. 릴레이션 조작을 위한 연산의 집합.</p>
+<ul>
+  <li>릴레이션 처리를 위한 연산자와 연산 규칙을 제공. 피연산자와 연산 결과가 모두 릴레이션.</li>
+  <li>해를 구하기 위한 연산의 순서를 명시.</li>
+</ul>
+
+<h3 id="순수-관계-연산자">순수 관계 연산자</h3>
+<ul>
+  <li>Select: 튜플 중 선택 조건을 만족하는 튜플의 부분집합을 구해 새로운 릴레이션을 만드는 연산.
+    <ul>
+      <li>튜플을 구하는 것이므로 ‘수평 연산자’라고도 함.</li>
+      <li>기호: $\sigma$</li>
+    </ul>
+  </li>
+  <li>Project: 속성 리스트(Attribute list)에 제시된 속성만을 추출해 새로운 릴레이션을 만드는 연산.
+    <ul>
+      <li>속성을 추출하는 것이므로 ‘수직 연산자’라고도 함.</li>
+      <li>기호: $\pi$</li>
+    </ul>
+  </li>
+  <li>Join: 공통 속성을 중심으로 두 릴레이션을 합쳐 새로운 릴레이션을 만드는 연산.
+    <ul>
+      <li>Cartesian Product(교차곱) → Select 수행과 결과가 같음.</li>
+      <li>기호: $\Join$</li>
+    </ul>
+  </li>
+  <li>Division: $X\supset Y$인 두 릴레이션 $R(X)$와 $S(Y)$가 있을 때, S의 속성값을 모두 가진 R의 속성에서 S의 속성을 제외한 속성만 반환하는 연산.
+    <ul>
+      <li>기호: $\div$</li>
+    </ul>
+    <p align="center">
+    <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/division.png?raw=true" alt="erd" style="zoom: 80%;" />
+ </p>
+  </li>
+</ul>
+
+<h3 id="일반-집합-연산자">일반 집합 연산자</h3>
+<ul>
+  <li>Union: 두 릴레이션 내 튜플의 합집함을 구하되, 중복되는 튜플은 제거하는 연산.
+    <ul>
+      <li>합집합의 카디널리티는 두 릴레이션의 카디널리티 합보다 작거나 같다.</li>
+      <li>기호: $\cup$</li>
+    </ul>
+  </li>
+  <li>Intersection: 두 릴레이션 내 튜플의 교집합을 구하는 연산.
+    <ul>
+      <li>교집합의 카디널리티는 두 릴레이션의 카디널리티 중 작은 값보다 크지 않다.</li>
+      <li>기호: $\cap$</li>
+    </ul>
+  </li>
+  <li>Difference: 두 릴레이션 내 튜플의 차집합을 구하는 연산 ($R-S$).
+    <ul>
+      <li>차집합의 카디널리티는 $R$의 카디널리티보다 크지 않다.</li>
+      <li>기호: $-$</li>
+    </ul>
+  </li>
+  <li>Cartesian Product: 두 릴레이션 내 튜플의 순서쌍을 구하는 연산.
+    <ul>
+      <li>교차곱의 디그리는 두 릴레이션의 디그리를 더한 것과 같다.</li>
+      <li>교차곱의 카디널리티는 두 릴레이션의 카디널리티를 곱한 것과 같다.</li>
+      <li>기호: $\time$</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="관계-해석-relational-calculus">관계 해석 (Relational Calculus)</h2>
+<p>관계 데이터의 연산을 표현하는 방법. 관계 데이터 모델을 제안한 E. F. Codd가 수학의 술어 해석(Predicate Caculus)에 기반을 두고 관계 DB를 위해 제안함.</p>
+<ul>
+  <li>원하는 정보가 무엇이라는 것만 정의하는 비절차적 특성을 가지며, 원하는 정보를 정의할 때는 수식을 사용함.</li>
+  <li>튜플 관계 해석과 도메인 관계 해석으로 구분됨.</li>
+</ul>
+
+<p><br /></p>
+
+
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="https://alatteaday.github.io/cs%20basics/2024/07/21/db1/">
+        데이터베이스 1: 데이터베이스 설계
+      </a>
+    </h1>
+    <!--<span class="post-date">21 Jul 2024</span>-->
+    <p class="post-date">21 Jul 2024&nbsp;&nbsp;&nbsp;&nbsp;
+      
+        
+          
+            <span class="tag" data-tag="cs">
+              <a href="https://alatteaday.github.io/tags/?tag=cs">
+                #cs
+              </a>
+            </span>
+            
+        
+      
+    </p>
+    <!--
+    
+    -->
+    <style>
+.wavy {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: skyblue;
+}
+img {
+    display: inline;
+}
+p {
+   margin-top: 1em;
+   margin-bottom: 0em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+p.a{
+   margin-top: -0.5em;
+   margin-bottom: -1em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+p.b{
+   margin-top: 1em;
+   margin-bottom: -1em;
+   margin-left: 0em;
+   margin-right: 0em;
+}
+</style>
+
+<h1 id="dbms와-스키마">DBMS와 스키마</h1>
+
+<h2 id="dbms-database-management-system">DBMS (DataBase Management System)</h2>
+<p>사용자와 데이터베이스(DB) 사이에서 사용자의 요구에 따라 정보를 생성하고 DB를 관리하는 소프트웨어.</p>
+<ul>
+  <li>DBMS 관련 요구사항 식별 시 고려사항: 가용성, 성능, 기술지원, 상호호환성, 구축비용</li>
+</ul>
+
+<h3 id="dbms-필수-기능">DBMS 필수 기능</h3>
+<ul>
+  <li>정의 (Definition): 데이터 형(type)과 구조 정의. 이용 방식, 제약 조건 명시.</li>
+  <li>조작 (Manipulation): 데이터 검색, 갱신, 삽입, 삭제 등을 위해 인터페이스 제공.</li>
+  <li>제어 (Control): 데이터의 무결성/보안/권한 검사, 병행 제어 제공.</li>
+</ul>
+
+<h2 id="스키마-schema">스키마 (Schema)</h2>
+<p>DB의 구조와 제약 조건에 고간한 명세를 기술한 것</p>
+
+<h3 id="스키마의-종류">스키마의 종류</h3>
+<ul>
+  <li>외부 스키마: 사용자나 응용 프로그래머 등 각 개인의 입장에서 필요한 DB의 논리적 구조.</li>
+  <li>개념 스키마: DB 전체의 논리적 구조. 모든 사용자나 응용 프로그램이 필요로 하는 데이터 조직 전체의 DB로 하나만 존재함.</li>
+  <li>내부 스키마: 저장장치 입장에서의 DB 구조. 실제 저장될 레코드의 형식, 표현, 물리적 순서 등을 나타냄.</li>
+</ul>
+
+<h2 id="데이터-모델">데이터 모델</h2>
+<p>현실 세계의 정보를 컴퓨터에 표현하기 위해 단순화/추상화하여 체계적으로 표현한 개념적 모형.</p>
+
+<h3 id="데이터-모델의-요소">데이터 모델의 요소</h3>
+<ul>
+  <li>구조 (Structure): 논리적으로 표현된 개체 타입 간 관계. 데이터 구조 및 정적 성질 표현.</li>
+  <li>연산 (Operation): 실제 데이터를 처리하는 작업에 대한 명세. DB를 조작하는 기본 도구.</li>
+  <li>제약 조건 (Constraint): 데이터가 DB에 저장되기 위한 논리적인 제약 조건.</li>
+</ul>
+
+<h2 id="시스템-카탈로그-system-catalog">시스템 카탈로그 (System Catalog)</h2>
+<p>시스템과 관련된 다양한 객체에 관한 정보를 포함하는 시스템 DB.</p>
+<ul>
+  <li>시스템 카탈로그 내 각 테이블은 사용자를 포함하여 DBMS에서 지원하는 모든 데이터 객체에 대한 정의나 명세 정보를 유지 관리하는 시스템 테이블.</li>
+  <li>데이터 사전 (Data Dictionary)에 카탈로그가 저장되므로, 좁은 의미로는 카탈로그를 데이터 사전이라고도 함.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="데이터베이스-설계-순서">데이터베이스 설계 순서</h1>
+
+<ol>
+  <li>요구 조건 분석:
+    <ul>
+      <li>요구 조건 명세서 작성</li>
+    </ul>
+  </li>
+  <li>개념적 설계 (정보 모델링, 개념화): 현실 세계를 추상적 개념으로 표현하는 과정.
+    <ul>
+      <li>개념 스키마 모델링 및 트랜잭션 모델링을 병행 수행.</li>
+      <li>요구 조건 명세를 DBMS에 독립적인 E-R 다이어그램으로 작성.</li>
+    </ul>
+  </li>
+  <li>논리적 설계 (데이터 모델링): 현실 세계의 자료를 특정 DBMS가 지원하는 논리적 자료 구조로 변환(mapping)하는 과정.
+    <ul>
+      <li>개념적 데이터를 논리적 데이터로 모델링: 데이터 타입(필드)과 데이터 타입 간 관계로 표현.</li>
+      <li>개념 스키마를 정제하여 DBMS에 따라 다른 논리적 스키마를 설계.</li>
+    </ul>
+  </li>
+  <li>물리적 설계 (데이터 구조화): 논리적 구조의 데이터를 특정 DBMS가 지원하는 물리적 구조의 데이터로 변환하는 과정.
+    <ul>
+      <li>다양한 DB에 응용 가능하도록 DB 파일의 저장 구조 및 액세스 경로를 결정.</li>
+      <li>저장 레코드의 형식, 순서, 접근 경로, 조회 집중 레코드 등의 정보를 사용해 데이터가 저장되는 방법을 묘사.</li>
+    </ul>
+  </li>
+  <li>구현: 목표 DBMS의 DDL로 DB 생성 및 트랜잭션 작성.</li>
+</ol>
+
+<h2 id="e-r-다이어그램-entity-relationship-diagram">E-R 다이어그램 (Entity-Relationship Diagram)</h2>
+
+<p>데이터베이스의 논리적 구조를 시각적으로 표현하여 개체 (Entity), 엔티티 간의 관계 (Relationship), 속성 (Attribute)을 나타내는 다이어그램.</p>
+
+<p class="b" style="width: 100%;" align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/er_diag.png?raw=true" alt="erd" style="width: 49%;" />
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/er_diag_2.png?raw=true" alt="erd" style="width: 49%;" />
+</p>
+
+<p><br /></p>
+
+
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="https://alatteaday.github.io/dev%20tips%20&%20fixes/2024/07/21/CS11/">
+        [정처기 요점정리] 응용 소프트웨어 기술 1
+      </a>
+    </h1>
+    <!--<span class="post-date">21 Jul 2024</span>-->
+    <p class="post-date">21 Jul 2024&nbsp;&nbsp;&nbsp;&nbsp;
+      
+        
+          
+            <span class="tag" data-tag="cs">
+              <a href="https://alatteaday.github.io/tags/?tag=cs">
+                #cs
+              </a>
+            </span>
+            
+        
+      
+    </p>
+    <!--
+    
+    -->
+    <style>
+p.wavy {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+}
+</style>
+
+<h1 id="운영체제-os-operating-system">운영체제 (OS; Operating System)</h1>
+
+<p>컴퓨터 시스템의 자원을 효율적으로 관리하고, 컴퓨터 사용을 편리하고 효과적으로 사용할 수 있는 환경을 제공하는 프로그램의 모임</p>
+
+<ul>
+  <li>컴퓨터 사용자와 하드웨어 간 인터페이스로 동작하는 시스템 소프트웨어의 일종</li>
+  <li>컴퓨터 자원 관리: 프로세서, 기억장치 , 입출력장치, 파일, 정보 등</li>
+  <li>운영체제의 목적:
+    <ul>
+      <li>처리 능력 (Throughput): 일정 시간 내 처리하는 일의 양</li>
+      <li>반환 시간 (Turn Around Time): 작업 의뢰부터 처리 완료까지 걸린 시간</li>
+      <li>사용 가능도 (Availability): 필요할 때 즉시 사용 가능한 정도</li>
+      <li>신뢰도 (Reliability): 문제를 정확하게 해결하는 정도</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="unix">UNIX</h2>
+
+<p>1960년대, AT&amp;T 벨 연구소, MIT, General Eletric이 공동 개발한 운영체제</p>
+
+<ul>
+  <li>시분할 시스템 (Time sharing system)을 위해 설계됨. 대화식 운영체제</li>
+  <li>대부분 C로 작성: 이식성 및 장치/프로세스 간 호환성 높음</li>
+  <li>트리 구조의 파일 시스템</li>
+  <li>시스템 구성:
+    <ul>
+      <li>커널 (Kernel): 핵심 부분. 하드웨어 보호 및 프로그램과 하드웨어 간 인터페이스 역할.
+        <ul>
+          <li>여러가지 기능 수행: CPU 스케줄링, 기억장치, 파일, 입출력 등 관리 및 프로세스 간 통신, 데이터 전송</li>
+        </ul>
+      </li>
+      <li>쉘 (Shell): 명령어 해석기. 사용자 명령을 인식하고 수행. 시스템과 사용자 간 인터페이스 역할.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="linux">LINUX</h2>
+
+<p>1991년 리누스 토발즈 (Linus Torvalds)가 UNIX를 기반으로 개발한 운영체제</p>
+
+<ul>
+  <li>소스 코드가 무료로 공개됨</li>
+  <li>대부분의 특징이 UNIX와 동일</li>
+</ul>
+
+<h2 id="andriod">Andriod</h2>
+
+<p>구글에서 개발한 LINUX 커널 기반의 개방형 모바일 운영체제</p>
+
+<ul>
+  <li>모든 코드가 공개된 개방형 소프트웨어</li>
+  <li>Java와 Cotlin으로 애플리케이션 작성</li>
+</ul>
+
+<h1 id="기억장치-관리">기억장치 관리</h1>
+
+<h2 id="반입-fetch">반입 (Fetch)</h2>
+
+<p>보조기억장치에 보관 중인 프로그램/데이터를 <strong>언제</strong> 주기억장치로 적재할 것인지를 결정하는 전략</p>
+
+<ul>
+  <li>요구 반입 (Demand fetch): 실행 중인 프로그램이 특정 프로그램/데이터의 참조를 요구할 때 적재하는 방법</li>
+  <li>예상 반입 (Anticipatory fetch): 실행 중인 프로그램에 의해 참조될 프로그램/데이터를 예상하여 적재하는 방법</li>
+</ul>
+
+<h2 id="배치-placement">배치 (Placement)</h2>
+
+<p>새로 반입되는 프로그램/데이터를 주기억장치의 <strong>어디에</strong> 위치시킬 것인지를 결정하는 전략</p>
+
+<ul>
+  <li>최초 적합 (First fit): 적합한 크기의 빈 영역 중 첫 번째 분할 영역에 배치하는 방법</li>
+  <li>최적 적합 (Best fit): 적합한 크기의 빈 영역 중 단편화를 가장 작게 남기는 분할 영역에 배치하는 방법</li>
+  <li>최악 적합 (Worst fit): 적합한 크기의 빈 영역 중 단편화를 가장 많이 남기는 분할 영역에 배치하는 방법</li>
+</ul>
+
+<h2 id="가상기억장치-virtual-memory">가상기억장치 (Virtual Memory)</h2>
+
+<p>보조기억장치의 일부를 주기억장치처럼 사용하는 것. 주기억장치는 용량이 작은데, 마치 큰 용량인 것처럼 사용하는 기법.</p>
+
+<ul>
+  <li>원리: 프로그램을 블록으로 나누어서 가상기억장치에 보관, 프로그램 실행 시 요구되는 블록만 주기억장치에 불연속적으로 할당하여 처리함.</li>
+</ul>
+
+<h3 id="구현-방법">구현 방법</h3>
+
+<ul>
+  <li><span style="background-color:#E4F8FF">페이징 (Paging)</span>: 가상기억장치 내 프로그램과 주기억장치의 영역을 <u>동일한 크기</u>로 나눈 후 주기억장치에 적재시키는 방법
+    <ul>
+      <li>페이지 (Page): 프로그램을 일정한 크기로 나눈 단위</li>
+      <li>페이지 프레임 (Page frame): 페이지 크기로 일정하게 나눠진 주기억장치의 단위</li>
+    </ul>
+  </li>
+  <li><strong>세그멘테이션 (Segmentation)</strong>: 가상기억장치 내 프로그램을 <span style="background-color:#E4F8FF">다양한 크기의 논리적 단위</span>로 나눈 후 주기억장치에 적재시키는 방법
+    <ul>
+      <li>세그먼트 (Segment): 프로그램을 논리적 크기 (배열, 함수 등)로 나눈 단위. 각 세그먼트는 고유한 이름과 크기를 가짐.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="페이지-교체-알고리즘">페이지 교체 알고리즘</h3>
+
+<p>페이지 부재 (Page fault) 발생 시 어떤 페이지 프레임을 선택하여 교체할 것인지 결정하는 기법: 페이지 부재가 발생하면 가상기억장치에서 필요한 페이지를 찾아 주기억장치에 적재해야 하는데, 주기억장치의 모든 페이지 프레임이 사용 중인 경우가 있다.</p>
+
+<ul>
+  <li><strong>OPTimal replacment (OPT; 최적 교체)</strong>: 앞으로 가장 오랫동안 사용하지 않을 페이지를 교체하는 기법.
+    <ul>
+      <li>Belady가 제안했음. 페이지 부재가 가장 적게 발생하는 효율적 방법.</li>
+    </ul>
+  </li>
+  <li><strong>FIFO (First In First Out)</strong>: 가장 오래 있었던 페이지를 교체하는 기법.
+    <ul>
+      <li>각 페이지가 주기억장치에 적재된 시각을 기억해야 함.</li>
+    </ul>
+  </li>
+  <li><strong>LRU (Least Recently Used)</strong>: 최근에 가장 오랫동안 사용하지 않은 페이지를 교체하는 기법.</li>
+  <li><strong>LFU (Least Frequently Used)</strong>: 사용빈도가 가장 적은 페이지를 교체하는 기법.</li>
+</ul>
+
+<h2 id="구역성-locality">구역성 (Locality)</h2>
+
+<p>프로세스가 주기억장치를 참조할 때 일부 페이지만 집중적으로 참조하는 성질이 있다는 이론. 스레싱 (Thrashing) 방지를 위한 워킹 셋 (Working set) 이론의 기반이 되었음.</p>
+
+<ul>
+  <li>시간 구역성 (Temporla locality): 프로세스가 한 페이지를 일정 시간 동안 집중적으로 액세스하는 현상.</li>
+  <li>공간 구역성 (Spatial locality): 프로세스가 일정 위치의 페이지를 집중적으로 액세스하는 현상.</li>
+</ul>
+
+<h3 id="워킹-셋-working-set">워킹 셋 (Working Set)</h3>
+
+<p>프로세스가 일정 시간 동안 자주 참조하는 페이지의 집합. 자주 참조되는 워킹 셋을 주기억장치에 상주시키면 페이지 부재 및 페이지 교체 수가 줄어들어 프로세스의 기억장치 사용이 안정됨.</p>
+
+<h3 id="스래싱-thrashing">스래싱 (Thrashing)</h3>
+
+<p>프로세스 처리 시간보다 페이지 교체에 소요되는 시간이 더 많아지는 현상.</p>
+
+<ul>
+  <li>다중 프로그래밍 시스템이나 가상기억장치 사용 시스템에서 프로세스 하나를 수행하는 중 페이지 부재가 자주 발생함. 이것으로 시스템 성능이 저하됨.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="프로세스-process">프로세스 (Process)</h1>
+
+<p>“실행 중인 프로그램”. 다양한 정의:</p>
+
+<ul>
+  <li>프로시저가 활동 중인 것.</li>
+  <li>프로세서에 의해 처리되는 프로그램. 프로세서가 할당되는 실체. 디스패치(dispatch)가 가능한 단위.</li>
+  <li>실기억장치에 저장된 프로그램.</li>
+  <li>비동기적 행위를 일으키는 주체.</li>
+  <li>운영체제가 관리하는 실행 단위. PCB를 가진 프로그램.
+    <ul>
+      <li>PCB (Process control block; 프로세스 제어 블록): 운영체제가 프로세스에 대한 중요한 정보를 저장해 놓는 곳</li>
+      <li>PCB에 저장된 정보: 프로세스의 현 상태, 포인터, 프로세스 고유 식별자, CPU 레지스터 정보, 주기억장치 관리 정보, 입출력 상태, 계정 정보</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="프로세스-상태-전이">프로세스 상태 전이</h2>
+
+<p>프로세스가 시스템 내 존재하는 동안 상태가 변하는 것.</p>
+
+<p align="center">
+  <img src="https://github.com/alatteaday/alatteaday.github.io/blob/gh-pages/post_images/2024-07-21-CS/process_state.png?raw=true" alt="state" style="zoom: 70%;" />
+</p>
+
+<ul>
+  <li>디스패치 (Dispatch): 준비 (Ready) 상태인 프로세스가 프로세서를 할당받아 실행 (Run) 상태로 전이되는 과정 (Ready → Run)</li>
+  <li>Wake Up: 입출력이 완료되어 대기 (Wait/Block) 상태인 프로세스가 준비 (Ready) 상태로 전이되는 과정 (Wait/Block → Ready)</li>
+  <li>스풀링 (Spooling): 입출력할 데이터를 직접 입출력 장치에 보내지 않고 이후 한 번에 입출력하기 위해 디스크에 저장하는 과정
+    <ul>
+      <li>효과: 입출력장치 공유, 입출력 속도 보완, 다중 프로그래밍 시스템 성능 향상</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="스레드-thread">스레드 (Thread)</h2>
+
+<p>시스템의 여러 자원을 할당받아 실행하는 프로그램의 단위. 프로세스 내에서의 작업 단위. 프로세스의 일부 특성을 갖고 있어 경량 프로세스 (Light weight process)라고도 함.</p>
+
+<h2 id="스케줄링-scheduling">스케줄링 (Scheduling)</h2>
+
+<p>프로세스가 생성되어 실행될 때 필요한 시스템의 자원을 해당 프로세스에 할당하는 작업.</p>
+
+<h3 id="비선점-non-preemptive-스케줄링">비선점 (Non-preemptive) 스케줄링</h3>
+
+<p>이미 할당된 CPU를 다른 프로세스가 강제로 뺏을 수 없는 스케줄링 기법. 일괄 처리 방식에 적합.</p>
+
+<ul>
+  <li>FCFS (First Come First Service; 선입 선출=FIFO): 준비 상태 큐에 도착한 순서에 따라 차례로 CPU를 할당하는 기법.</li>
+  <li>SJF (Shortest Job First; 단기 작업 우선): 준비 상태 큐 내 프로세스 중 실행시간이 가장 짧은 프로세스에 CPU를 먼저 할당하는 기법.
+    <ul>
+      <li>가장 적은 평균 대기 시간을 제공하는 최적 알고리즘.</li>
+    </ul>
+  </li>
+  <li>HRN (Highest Response-ratio Next): 대기 시간과 서비스(실행) 시간을 통해 우선순위를 계산하여, 우선순위가 높은 것부터 스케줄링하는 기법.
+    <ul>
+      <li>우선순위 = (대기 시간 + 서비스 시간)  / 서비스 시간</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="선점-preemptive-스케줄링">선점 (Preemptive) 스케줄링</h3>
+
+<p>우선순위가 높은 프로세스가 이미 할당된 CPU를 빼앗아 사용할 수 있는 스케줄링 기법. 빠른 응답시간이 요구되는 대화식 시분할 시스템에 적합.</p>
+
+<ul>
+  <li>종류: RR, SRT, 선점 우선순위, 다단계 큐, 다단계 피드백 큐 등</li>
+  <li>RR (Round Robin): 각 프로세스를 시간 할당량 (time slice, quantum) 동안만 실행한 후, 실행이 완료되지 않으면 다음 프로세스에 CPU를 넘겨주는 기법.
+    <ul>
+      <li>시분할 시스템 (time sharing system)을 위해 고안된 방식. 할당 시간이 작으면 작은 프로세스에게 유리.</li>
+      <li>할당 시간이 큰 경우 FCFS와 같아지고, 할당 시간이 작으면 문맥 교환 및 오버헤드가 자주 발생하여 신속한 작업 처리가 불가함.</li>
+    </ul>
+  </li>
+  <li>SRT (Shortest Remaining Time): 현재 실행 중인 프로세스의 남은 시간과 준비 상태 큐에 새로 도착한 프로세스의 실행 시간을 ㅣㅂ교하여, 가장 짧은 시간을 요구하는 프로세스에게 CPU를 넘기는 기법.
+    <ul>
+      <li>(+) 시분할 시스템에 유용. (-) 준비 상태 큐 내 프로세스의 실행 시간을 추적 보유해야 하므로 오버헤드가 증가함.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="환경-변수와-os-명령어">환경 변수와 OS 명령어</h1>
+
+<h2 id="환경-변수-environment-variable">환경 변수 (Environment Variable)</h2>
+
+<p>시스템 소프트웨어의 동작에 영향을 미치는 동적인 값의 모임. 변수명과 값으로 구성됨.</p>
+
+<ul>
+  <li>Windows의 <code class="language-plaintext highlighter-rouge">set</code>, UNIX/LINUX의 <code class="language-plaintext highlighter-rouge">set</code>, <code class="language-plaintext highlighter-rouge">env</code>, <code class="language-plaintext highlighter-rouge">printenv</code>, <code class="language-plaintext highlighter-rouge">setenv</code> 를 입력하면 모든 환경변수와 값을 출력함.</li>
+</ul>
+
+<h2 id="windows-기본-명령어">Windows 기본 명령어</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">dir</code> 현재 디렉터리 파일 목록 표시 / <code class="language-plaintext highlighter-rouge">cd</code> 동일 드라이브 내에서 디렉터리의 위치를 변경 / <code class="language-plaintext highlighter-rouge">md</code> 디렉터리 생성</li>
+  <li><code class="language-plaintext highlighter-rouge">copy</code> 파일 복사 / <code class="language-plaintext highlighter-rouge">del</code> 파일 삭제 / <code class="language-plaintext highlighter-rouge">ren</code> 파일 이름 변경 / <code class="language-plaintext highlighter-rouge">type</code> 파일 내용 표시 / <code class="language-plaintext highlighter-rouge">move</code> 파일 이동</li>
+  <li><code class="language-plaintext highlighter-rouge">cls</code> 화면 내용 삭제</li>
+  <li><code class="language-plaintext highlighter-rouge">attrib</code> 파일 속성 변경 / <code class="language-plaintext highlighter-rouge">find</code> 파일에서 문자열을 찾음</li>
+  <li><code class="language-plaintext highlighter-rouge">chkdsk</code> 디스크 상태 점검 / <code class="language-plaintext highlighter-rouge">format</code> 디스크 표면을 트랙과 섹터로 나누어 초기화</li>
+</ul>
+
+<h2 id="unixlinux-기본-명령어">UNIX/LINUX 기본 명령어</h2>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">cat</code> 파일 내용 표시</li>
+</ul>
+
+<table>
+  <tbody>
+    <tr>
+      <td>파일 내용 표시</td>
+      <td><code class="language-plaintext highlighter-rouge">cat</code></td>
+      <td><code class="language-plaintext highlighter-rouge">type</code></td>
+    </tr>
+  </tbody>
+</table>
+
+
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="https://alatteaday.github.io/paper/2024/06/14/mriqcsurvey/">
+        Summaries of papers on MRI Quality Assessment and Control
+      </a>
+    </h1>
+    <!--<span class="post-date">14 Jun 2024</span>-->
+    <p class="post-date">14 Jun 2024&nbsp;&nbsp;&nbsp;&nbsp;
+      
+        
+          
+            <span class="tag" data-tag="brainImaging">
+              <a href="https://alatteaday.github.io/tags/?tag=brainImaging">
+                #brainImaging
+              </a>
+            </span>
+            
+        
+          
+            <span class="tag" data-tag="mri">
+              <a href="https://alatteaday.github.io/tags/?tag=mri">
+                #mri
+              </a>
+            </span>
+            
+        
+      
+    </p>
+    <!--
+    
+    -->
+    <p>I summarized four papers related to MRI quality assessment and control. Below are the summaries:</p>
+
+<h1 id="paper-list">Paper list</h1>
+
+<ul>
+  <li>Liao, Lufan, et al. “Joint image quality assessment and brain extraction of fetal MRI using deep learning.” <em>Medical Image Computing and Computer Assisted Intervention–MICCAI</em> <em>2020: 23rd International Conference, Lima, Peru, October 4–8, 2020, Proceedings, Part VI 23</em>. Springer International Publishing, 2020.</li>
+  <li>Giganti, Francesco, et al. “Prostate Imaging Quality (PI-QUAL): a new quality control scoring system for multiparametric magnetic resonance imaging of the prostate from the PRECISION trial.” European urology oncology 3.5 (2020): 615-619.</li>
+  <li>Esses, Steven J., et al. “Automated image quality evaluation of T2‐weighted liver MRI utilizing deep learning architecture.” <em>Journal</em> <em>of</em> <em>Magnetic</em> <em>Resonance</em> <em>Imaging</em> 47.3 (2018): 723-728.</li>
+  <li>Monereo-Sánchez, Jennifer, et al. “Quality control strategies for brain MRI segmentation and parcellation: Practical approaches and recommendations-insights from the Maastricht study.” <em>Neuroimage</em> 237 (2021): 118174.</li>
+</ul>
+
+<p><br /></p>
+
+<h1 id="joint-image-quality-assessment-and-brain-extraction-of-fetal-mri-using-deep-learning-2020">Joint Image Quality Assessment and Brain Extraction of Fetal MRI Using Deep Learning (2020)</h1>
+
+<h2 id="background">Background</h2>
+
+<ul>
+  <li>Quality Assessment (QA): Evaluates MRI image quality for analysis suitability.</li>
+  <li>Brain Extraction (BE): Identifies and isolates the brain region from the MRI image.</li>
+</ul>
+
+<p>Traditionally handled separately, this paper proposes a joint deep learning model for simultaneous QA and BE, enhancing performance and efficiency, since both tasks focus on the brain region. Besides, dealing with fetal brain images are difficult, in that they can appear in different positions and angles within the MRI scans. And their shapes and appearances change as fetuses grow. To solve this difficulty, the study leverages deformable convolution method.</p>
+
+<h2 id="main-contributions">Main Contributions</h2>
+
+<ol>
+  <li>
+    <p>Joint Optimization: Combining QA and BE, allowing the network to learn shared features and reducing the risk of overfitting.</p>
+  </li>
+  <li>
+    <p>Multi-Stage Deep Learning Model:</p>
+
+    <ul>
+      <li>Brain Detector: Locates the brain region within the MRI scan. This helps in focusing the subsequent analysis on the relevant part of the image.</li>
+      <li>Deformable Convolution: Adapts the receptive field to the varying shapes and sizes of fetal brains. This is crucial because fetal brain shapes change significantly across different gestational ages.</li>
+      <li>Task-Specific Module: Simultaneously performs QA and BE.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Multi-Step Training Strategy: Progressive training enhances model learning.</p>
+  </li>
+</ol>
+
+<h2 id="evaluation">Evaluation</h2>
+
+<ul>
+  <li>Datasets: Fetal MRI images, focusing on 2D slice quality.</li>
+  <li>Metrics:
+    <ul>
+      <li>Dice Similarity Coefficient (DSC): The primary metric for evaluating the accuracy of brain extraction, measuring the overlap between the predicted and true brain regions.</li>
+      <li>Quality Scores: For image quality assessment, the model was trained to classify images into different quality levels.</li>
+    </ul>
+  </li>
+  <li>Results:
+    <ul>
+      <li>The model achieved a DSC score of 0.89, which is comparable to or better than existing methods, indicating high accuracy in brain extraction.</li>
+      <li>The image quality assessment module successfully classified image slices into quality categories, with 85% accuracy in distinguishing between high and low-quality images.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>The study introduces a DL model for simultaneous QA and BE in fetal MRI scans, using deformable convolutions to handle variability in brain images. The multi-step training and diverse dataset validation demonstrate its effectiveness, making it a promising tool for fetal MRI analysis.</p>
+
+<p><br /></p>
+
+<h1 id="prostate-imaging-quality-pi-qual-a-new-quality-control-scoring-system-for-multiparametric-magnetic-resonance-imaging-of-the-prostate-from-the-precision-trial-2020">Prostate Imaging Quality (PI-QUAL): A New Quality Control Scoring System for Multiparametric Magnetic Resonance Imaging of the Prostate from the PRECISION trial (2020)</h1>
+
+<h2 id="background-1">Background</h2>
+
+<p>The PRECISION trial was a multicenter randomized study that demonstrated multiparametric magnetic resonance imaging (mpMRI)-targeted biopsy is superior to standard transrectal ultrasound-guided biopsy for detecting prostate cancer. The success of mpMRI-targeted biopsies relies heavily on the quality of the mpMRI scans, but there was no existing scoring system to evaluate this quality.</p>
+
+<h2 id="prostate-imaging-quality-pi-qual">Prostate Imaging Quality (PI-QUAL)</h2>
+
+<p>To address this gap, the researchers introduced a novel scoring system called the Prostate Imaging Quality (PI-QUAL) score. PI-QUAL is a Likert scale from 1 to 5:</p>
+
+<ul>
+  <li>1: No mpMRI sequences are of diagnostic quality.</li>
+  <li>5: Each sequence is independently of optimal diagnostic quality.</li>
+</ul>
+
+<h2 id="method">Method</h2>
+
+<ol>
+  <li>Selection of MRI scans: From the PRECISION trial, 58 out of 252 mpMRI scans (23%) were randomly selected for evaluation. These scans were taken from 22 different centers involved in the trial.</li>
+  <li>Radiologist assessment: Two experienced radiologists from the coordinating trial center independently assessed the selected MRI scans. The radiologists were blinded to the pathology results to ensure unbiased evaluation.</li>
+  <li>Scoring system: The scans were scored using the newly developed PI-QUAL system.</li>
+  <li>Quality Metrics
+    <ul>
+      <li>Overall quality: The overall diagnostic quality of the scans was evaluated.</li>
+      <li>Specific sequence quality: The quality of individual sequences such as T2-weighted imaging (T2WI), diffusion-weighted imaging (DWI), and dynamic contrast-enhanced imaging (DCE) was assessed separately.</li>
+    </ul>
+  </li>
+  <li>Statistical Analysis
+    <ul>
+      <li>The percentage of scans with sufficient diagnostic quality (PI-QUAL score ≥3) was calculated.</li>
+      <li>The percentage of scans with good or optimal diagnostic quality (PI-QUAL score ≥4) was determined.</li>
+      <li>The diagnostic quality of the specific imaging sequences (T2WI, DWI, DCE) was also analyzed.</li>
+    </ul>
+  </li>
+</ol>
+
+<h2 id="results">Results</h2>
+
+<ul>
+  <li>Overall Diagnostic Quality:
+    <ul>
+      <li>55 out of 58 scans (95%) had sufficient diagnostic quality (PI-QUAL score ≥3).</li>
+      <li>35 out of 58 scans (60%) had good or optimal diagnostic quality (PI-QUAL score ≥4).</li>
+    </ul>
+  </li>
+  <li>Sequence-Specific Quality: 95% of T2WI scans, 79% of DWI scans, and 66% of DCE scans were of diagnostic quality.</li>
+</ul>
+
+<h2 id="conclusion-1">Conclusion</h2>
+
+<p>The introduction of the PI-QUAL score provides a standardized method to assess the quality of mpMRI scans. Further validation of this scoring system is recommended to ensure its effectiveness in various clinical settings.</p>
+
+<p><br /></p>
+
+<h1 id="automated-image-quality-evaluation-of-t2-weighted-liver-mri-utilizing-deep-learning-architecture-2018">Automated image quality evaluation of T2-weighted liver MRI utilizing deep learning architecture (2018)</h1>
+
+<h2 id="background-2">Background</h2>
+
+<p>Accurate screening of T2-weighted (T2WI) liver MRI scans is essential for effective diagnosis, but manual evaluation by radiologists is time-consuming and subject to variability. Automated methods, specifically using deep learning (DL) approaches like Convolutional Neural Networks (CNNs), offer a promising solution for consistent and efficient image quality assessment. This study aimed to develop and evaluate a CNN for automated screening to identify non-diagnostic images and compare its performance to radiologists’ evaluations.</p>
+
+<h2 id="method-1">Method</h2>
+
+<ul>
+  <li>Data Collection: The study utilized 522 liver MRI exams performed at 1.5T and 3T between November 2014 and May 2016 for training and validation of the CNN.</li>
+  <li>CNN Architecture: The CNN consisted of several layers, including an input layer, convolutional layer, fully connected layer, and output layer.</li>
+  <li>Training Data: 351 T2WI images were anonymized and labeled as diagnostic or non-diagnostic based on their ability to detect lesions and assess liver morphology. These were used to train CNN.</li>
+  <li>Validation Data: An independent set of 171 T2WI images was used for blind testing. Two radiologists independently evaluated these images, labeling them as diagnostic or non-diagnostic.</li>
+  <li>Comparison: The image quality (IQ) output from the CNN was compared to the evaluations made by the two radiologists.</li>
+</ul>
+
+<h2 id="results-1">Results</h2>
+
+<ul>
+  <li>The agreement between the CNN and the radiologists was: 79% with Reader 1, and 73% with Reader 2</li>
+  <li>Sensitivity and Specificity of the CNN in identifying non-diagnostic images:
+    <ul>
+      <li>Sensitivity: 67% with respect to Reader 1 and 47% with respect to Reader 2</li>
+      <li>Specificity: 81% with respect to Reader 1 and 80% with respect to Reader 2</li>
+    </ul>
+  </li>
+  <li>Negative predictive value: 94% with respect to Reader 1 and 86% with respect to Reader 2</li>
+</ul>
+
+<h2 id="conclusion-2">Conclusion</h2>
+
+<p>This research shows the potential of using deep learning, specifically a CNN, for automated quality evaluation of T2-weighted liver MRI images. The CNN’s performance was compared to radiologists’ assessments, showing a high negative predictive value, which indicates its reliability in identifying diagnostic images. This automated approach could be assist radiologists in clinical settings by quickly and accurately determining the quality of MRI scans.</p>
+
+<p><br /></p>
+
+<h1 id="quality-control-strategies-for-brain-mri-segmentation-and-parcellation-practical-approaches-and-recommendations---insights-from-the-maastricht-study-2021">Quality control strategies for brain MRI segmentation and parcellation: Practical approaches and recommendations - insights from the Maastricht study (2021)</h1>
+
+<h2 id="background-3">Background</h2>
+
+<p>Quality control (QC) in brain MRI segmentation is crucial for ensuring accurate data. Manual QC, although considered the gold standard, is impractical for large datasets due to its time-consuming nature. Automated methods offer faster and reproducible alternatives but lack a consensus on the best approach. This study aims to highlight the impact of manual edits on brain segmentation accuracy and compare various QC strategies to reduce measurement errors effectively.</p>
+
+<h2 id="method-2">Method</h2>
+
+<ul>
+  <li>Data: Structural brain MRI from 259 participants of The Maastricht Study.</li>
+  <li>Segmentation Tool: FreeSurfer 6.0 was used to automatically extract morphological estimates.</li>
+  <li>Manual Editing: Segmentations with inaccuracies were manually edited, and the differences in morphological estimates before and after editing were compared.</li>
+  <li>Quality Control Strategies:
+    <ul>
+      <li>Manual Strategies: Visual inspection to exclude or manually edit images.</li>
+      <li>Automated strategies: Exclusion of outliers using MRIQC and Qoala-T, and metrics such as morphological global measures, Euler numbers, and Contrast-to-Noise ratio.</li>
+      <li>Semi-Automated Strategies: Visual inspection and manual editing of outliers detected by tools and metrics without excluding them.</li>
+    </ul>
+  </li>
+  <li>Evaluation: Measuring the proportion of unexplained variance relative to the total variance after applying each strategy.</li>
+</ul>
+
+<h2 id="results-2">Results</h2>
+
+<ul>
+  <li>Manual Editing: Significant changes in subcortical brain volumes and moderate changes in cortical surface area, thickness, and hippocampal volumes.</li>
+  <li>Strategy Performance: Depended on the morphological measure of interest.
+    <ul>
+      <li>Manual Strategies: Provided the largest reduction in unexplained variance.</li>
+      <li>Automated Alternatives: Based on Euler numbers and MRIQC scores.</li>
+      <li>Global Morphological Measures: Excluding outliers increased unexplained variance.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="conclusion-3">Conclusion</h2>
+
+<p>The study underscores the importance of QC in brain MRI segmentation, advocating for manual methods as the most reliable, though impractical for large datasets. Automated methods, especially those using Euler numbers and MRIQC, provide effective alternatives. Excluding outliers based on global measures may increase errors, guiding practical QC recommendations for neuroimaging research to ensure data accuracy and reliability.</p>
+
+<p><br /></p>
+
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        TeX: {
+          equationNumbers: {
+            autoNumber: "AMS"
+          }
+        },
+        tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$$', '$$$'], ['\\[', '\\]'] ],
+        processEscapes: true,
+      }
+    });
+    MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+    MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+          alert("Math Processing Error: "+message[1]);
+        });
+</script>
+<script type="text/javascript" async
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+    
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="https://alatteaday.github.io/page6">Older</a>
+  
+  
+    
+      <a class="pagination-item newer" href="https://alatteaday.github.io/page4">Newer</a>
+    
+  
+</div>
+
+        
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script src='/public/js/script.js'></script>
+  </body>
+</html>
